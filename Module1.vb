@@ -22,7 +22,12 @@
 
             If menù = "1" Then
                 '#Variables
-                Dim version, stable, beta, dev, soft, OS As String
+                Dim version, stable, beta, dev, soft, OS, link As String
+                Dim checkpocketmine As Object
+
+                link = "http://sourceforge.net/projects/pocketmine/files/windows/PocketMine-MP_Installer_1.4.1_x86.exe/download"
+
+                checkpocketmine = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Installer_1.4.1_x86.exe")
 
                 Do
                     Console.Clear()
@@ -40,33 +45,44 @@
                             Console.Write("Which version do you want to install?: ")
                             stable = Console.ReadLine
 
-                            If stable = "1" Then
-                                Do
-                                    Console.WriteLine()
-                                    Console.Write("Which operating system are you using? <Windows/Mac> ")
-                                    OS = Console.ReadLine.ToUpper
-                                Loop While OS <> "WINDOWS" And OS <> "MAC"
+                        Loop While stable <> "1"
 
-                                If OS = "WINDOWS" Then
-                                    Console.WriteLine()
+                        If stable = "1" Then
+                            Do
+                                Console.WriteLine()
+                                Console.Write("Which operating system are you using? <Windows/Mac> ")
+                                OS = Console.ReadLine.ToUpper
+                            Loop While OS <> "WINDOWS" And OS <> "MAC"
+
+                            If OS = "WINDOWS" Then
+                                Console.WriteLine()
+                                If checkpocketmine Then
                                     Console.WriteLine("Starting the installation files")
-                                    'Process.Start() 'Link to the installer
+                                    Process.Start("C:\Program Files\PocketMine-ManagerServers\Installer_1.4.1_x86.exe") 'Link to the installer
                                     Console.WriteLine("Press enter to return to the menu")
                                     Console.ReadLine()
+                                Else
+                                    Console.WriteLine("Installer not found.")
+                                    Console.WriteLine("Downloading Installer...")
+                                    Process.Start(link) 'Download Installer
 
-                                ElseIf OS = "MAC" Then
-                                    Console.WriteLine()
-                                    Console.WriteLine("MAC Installer")
+                                    Console.WriteLine("Download Complete! Press enter to return to installation.")
                                     Console.ReadLine()
-
-                                ElseIf OS <> "WINDOWS" Or OS <> "MAC" Then
-                                    Console.WriteLine("PLEASE, SELECT AN AVAIABLE OPERATIVE SYSTEM!!")
                                 End If
-                            ElseIf stable <> "1" Then
-                                Console.WriteLine("PLEASE, SELECT AN AVAIABLE VERSION!!")
+
+                            ElseIf OS = "MAC" Then
+                                Console.WriteLine()
+                                Console.WriteLine("MAC Installer")
+                                Console.ReadLine()
+
+                            ElseIf OS <> "WINDOWS" Or OS <> "MAC" Then
+                                Console.WriteLine("PLEASE, SELECT AN AVAIABLE OPERATIVE SYSTEM!!")
                             End If
 
-                        Loop While stable <> "1"
+                        ElseIf stable <> "1" Then
+                            Console.WriteLine("PLEASE, SELECT AN AVAIABLE VERSION!!")
+
+                        End If
 
                     ElseIf version = "BETA" Then 'Beta Version
                         Do
@@ -134,8 +150,9 @@
 
             If menù = "2" Then 'Manage Servers [NOT COMPLETE]
                 '#Variables
-                Dim nservers As Integer
-                Dim nameservers, defaultservers As String
+                Dim nservers, i As Integer
+                Dim nameservers1, nameservers2, nameservers3, nameservers4, nameservers5, nameservers6, nameservers7, nameservers8, nameservers9, nameservers10, defaultservers As String
+                Dim checknameserver As Object
 
                 'Do
                 Console.Clear()
@@ -155,27 +172,165 @@
                 ElseIf nservers >= 1 Then
 
                     defaultservers = "'Server Minecraft PE'"
-                    nameservers = defaultservers 'By default
+                    nameservers1 = defaultservers 'By default
+
+                    'checknameserver = My.Computer.FileSystem.FileExists("C:\Users\Matteo\Desktop\ServerName.pm")
 
                     Console.WriteLine()
                     Console.WriteLine("If you do not enter a name for your server , by default it will be {0}", defaultservers)
-                    For i = 1 To nservers
-                        Console.Write("{0}) Name of the server {1}?: ", i, i)
-                        nameservers = Console.ReadLine.ToUpper
-                    Next
 
-                    If nameservers = "" Or nameservers = defaultservers Then 'Save default name of servers [NOT COMPLETE]
-                        nameservers = defaultservers
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName.pm", defaultservers, True)
+                    If nservers = 1 Then 'This isn't the best way but for the moment I use this. 
+                        Console.Write("1) Name of first server?: ")
+                        nameservers1 = Console.ReadLine
 
-                    ElseIf nameservers <> "" Then '[NOT COMPLETE]
-                        defaultservers = nameservers
+                    ElseIf nservers = 2 Then
+                        Console.Write("1) Name of first server?: ")
+                        nameservers1 = Console.ReadLine
+                        Console.Write("2) Name of second server?: ")
+                        nameservers2 = Console.ReadLine
+
+                    ElseIf nservers = 3 Then
+                        Console.Write("1) Name of first server?: ")
+                        nameservers1 = Console.ReadLine
+                        Console.Write("2) Name of second server?: ")
+                        nameservers2 = Console.ReadLine
+                        Console.Write("3) Name of third server?: ")
+                        nameservers3 = Console.ReadLine
+
+                    ElseIf nservers = 4 Then
+                        Console.Write("1) Name of first server?: ")
+                        nameservers1 = Console.ReadLine
+                        Console.Write("2) Name of second server?: ")
+                        nameservers2 = Console.ReadLine
+                        Console.Write("3) Name of third server?: ")
+                        nameservers3 = Console.ReadLine
+                        Console.Write("4) Name of fourth server?: ")
+                        nameservers4 = Console.ReadLine
+
+                    ElseIf nservers = 5 Then
+                        Console.Write("1) Name of first server?: ")
+                        nameservers1 = Console.ReadLine
+                        Console.Write("2) Name of second server?: ")
+                        nameservers2 = Console.ReadLine
+                        Console.Write("3) Name of third server?: ")
+                        nameservers3 = Console.ReadLine
+                        Console.Write("4) Name of fourth server?: ")
+                        nameservers4 = Console.ReadLine
+                        Console.Write("5) Name of fifth server?: ")
+                        nameservers5 = Console.ReadLine
+
+                    ElseIf nservers = 6 Then
+                        Console.Write("1) Name of first server?: ", i)
+                        nameservers1 = Console.ReadLine
+                        Console.Write("2) Name of second server?: ", i)
+                        nameservers2 = Console.ReadLine
+                        Console.Write("3) Name of third server?: ", i)
+                        nameservers3 = Console.ReadLine
+                        Console.Write("4) Name of fourth server?: ", i)
+                        nameservers4 = Console.ReadLine
+                        Console.Write("5) Name of fifth server?: ", i)
+                        nameservers5 = Console.ReadLine
+                        Console.Write("6) Name of sixth server?: ", i)
+                        nameservers6 = Console.ReadLine
+
+                    ElseIf nservers = 7 Then
+                        Console.Write("1) Name of first server?: ", i)
+                        nameservers1 = Console.ReadLine
+                        Console.Write("2) Name of second server?: ", i)
+                        nameservers2 = Console.ReadLine
+                        Console.Write("3) Name of third server?: ", i)
+                        nameservers3 = Console.ReadLine
+                        Console.Write("4) Name of fourth server?: ", i)
+                        nameservers4 = Console.ReadLine
+                        Console.Write("5) Name of fifth server?: ", i)
+                        nameservers5 = Console.ReadLine
+                        Console.Write("6) Name of sixth server?: ", i)
+                        nameservers6 = Console.ReadLine
+                        Console.Write("7) Name of seventh server?: ", i)
+                        nameservers7 = Console.ReadLine
+
+                    ElseIf nservers = 8 Then
+                        Console.Write("1) Name of first server?: ", i)
+                        nameservers1 = Console.ReadLine
+                        Console.Write("2) Name of second server?: ", i)
+                        nameservers2 = Console.ReadLine
+                        Console.Write("3) Name of third server?: ", i)
+                        nameservers3 = Console.ReadLine
+                        Console.Write("4) Name of fourth server?: ", i)
+                        nameservers4 = Console.ReadLine
+                        Console.Write("5) Name of fifth server?: ", i)
+                        nameservers5 = Console.ReadLine
+                        Console.Write("6) Name of sixth server?: ", i)
+                        nameservers6 = Console.ReadLine
+                        Console.Write("7) Name of seventh server?: ", i)
+                        nameservers7 = Console.ReadLine
+                        Console.Write("8) Name of eighth server?: ", i)
+                        nameservers8 = Console.ReadLine
+
+                    ElseIf nservers = 9 Then
+                        Console.Write("1) Name of first server?: ", i)
+                        nameservers1 = Console.ReadLine
+                        Console.Write("2) Name of second server?: ", i)
+                        nameservers2 = Console.ReadLine
+                        Console.Write("3) Name of third server?: ", i)
+                        nameservers3 = Console.ReadLine
+                        Console.Write("4) Name of fourth server?: ", i)
+                        nameservers4 = Console.ReadLine
+                        Console.Write("5) Name of fifth server?: ", i)
+                        nameservers5 = Console.ReadLine
+                        Console.Write("6) Name of sixth server?: ", i)
+                        nameservers6 = Console.ReadLine
+                        Console.Write("7) Name of seventh server?: ", i)
+                        nameservers7 = Console.ReadLine
+                        Console.Write("8) Name of eighth server?: ", i)
+                        nameservers8 = Console.ReadLine
+                        Console.Write("9) Name of ninth server?: ", i)
+                        nameservers9 = Console.ReadLine
+
+                    ElseIf nservers = 10 Then
+                        Console.Write("1) Name of first server?: ", i)
+                        nameservers1 = Console.ReadLine
+                        Console.Write("2) Name of second server?: ", i)
+                        nameservers2 = Console.ReadLine
+                        Console.Write("3) Name of third server?: ", i)
+                        nameservers3 = Console.ReadLine
+                        Console.Write("4) Name of fourth server?: ", i)
+                        nameservers4 = Console.ReadLine
+                        Console.Write("5) Name of fifth server?: ", i)
+                        nameservers5 = Console.ReadLine
+                        Console.Write("6) Name of sixth server?: ", i)
+                        nameservers6 = Console.ReadLine
+                        Console.Write("7) Name of seventh server?: ", i)
+                        nameservers7 = Console.ReadLine
+                        Console.Write("8) Name of eighth server?: ", i)
+                        nameservers8 = Console.ReadLine
+                        Console.Write("9) Name of ninth server?: ", i)
+                        nameservers9 = Console.ReadLine
+                        Console.Write("10) Name of tenth server?: ", i)
+                        nameservers10 = Console.ReadLine
+
+                    End If
+
+                    'If checknameserver Then
+                    '    My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\ServerName.pm")
+                    '    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName.pm", nameservers1, True)
+                    'Else
+                    '    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName.pm", nameservers1, True)
+                    'End If
+
+                    If nameservers1 = "" Or nameservers1 = defaultservers Then 'Save default name of servers [NOT COMPLETE]
+                        nameservers1 = defaultservers
+                        'My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName.pm", defaultservers, True)
+
+                    ElseIf nameservers1 <> "" Then '[NOT COMPLETE]
+                        defaultservers = nameservers1
 
                     End If
 
                 End If
-                'Loop While nservers <> 10
             End If
+                'Loop While nservers <> 10
+
 
             If menù = "3" Then
                 Console.Clear()
