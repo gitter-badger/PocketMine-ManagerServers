@@ -12,8 +12,8 @@
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
             Console.WriteLine("-------------------------------<Main Menù>--------------------------------------")
             Console.WriteLine("1- Install PocketMine-MP")
-            Console.WriteLine("2- Manage Server")
-            Console.WriteLine("3- Maintenance Server")
+            Console.WriteLine("2- Manage Servers")
+            Console.WriteLine("3- Maintenance Servers")
             Console.WriteLine("4- Programm Options")
             Console.WriteLine("5- Exit")
             Console.WriteLine()
@@ -21,12 +21,13 @@
             menù = Console.ReadLine
 
             If menù = "1" Then
-
+                '#Variables
                 Dim version, stable, beta, dev, soft, OS As String
 
                 Do
                     Console.Clear()
                     Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                    Console.WriteLine("---------------------------<Install PocketMine-MP>------------------------------")
                     Console.Write("What kind of version you want to install? <Stable/Beta/Dev/Soft>: ")
                     version = Console.ReadLine.ToUpper
 
@@ -131,11 +132,49 @@
                 Loop While version <> "STABLE" And version <> "BETA" And version <> "DEV" And version <> "SOFT"
             End If
 
-            If menù = "2" Then
+            If menù = "2" Then 'Manage Servers [NOT COMPLETE]
+                '#Variables
+                Dim nservers As Integer
+                Dim nameservers, defaultservers As String
+
+                'Do
                 Console.Clear()
                 Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                Console.WriteLine("Coming Soon")
-                Console.ReadLine()
+                Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
+                Console.Write("How many servers do you want to manage? <1/2/3/.../10> : ")
+                nservers = Console.ReadLine
+
+                If nservers <= 0 Then
+                    Console.WriteLine("ERROR! You have to manage one or more server! (MAX TEN!!)")
+                    Console.ReadLine()
+
+                ElseIf nservers > 10 Then
+                    Console.WriteLine("ERROR! You have exceeded the maximum number of servers available. Please reduce the amount!")
+                    Console.ReadLine()
+
+                ElseIf nservers >= 1 Then
+
+                    defaultservers = "'Server Minecraft PE'"
+                    nameservers = defaultservers 'By default
+
+                    Console.WriteLine()
+                    Console.WriteLine("If you do not enter a name for your server , by default it will be {0}", defaultservers)
+                    For i = 1 To nservers
+                        Console.Write("{0}) Name of the server {1}?: ", i, i)
+                        nameservers = Console.ReadLine.ToUpper
+                    Next
+
+                    If nameservers = "" Or nameservers = defaultservers Then 'Save default name of servers [NOT COMPLETE]
+                        nameservers = defaultservers
+                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName.pm", defaultservers, True)
+
+                    ElseIf nameservers <> "" Then '[NOT COMPLETE]
+                        defaultservers = nameservers
+
+                    End If
+
+                End If
+                'Loop While nservers <> 10
             End If
 
             If menù = "3" Then
