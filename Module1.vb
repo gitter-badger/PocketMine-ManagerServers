@@ -16,12 +16,13 @@
         Dim nameservers1, nameservers2, nameservers3, nameservers4, nameservers5, nameservers6, nameservers7, nameservers8, nameservers9, nameservers10, defaultservers As String
         Dim checknameserver1, checknameserver2, checknameserver3, checknameserver4, checknameserver5, checknameserver6, checknameserver7, checknameserver8, checknameserver9, checknameserver10 As Object
 
-        Dim opener, path As String
-        Dim checkpath As Object
+        Dim opener, path, folder As String
+        Dim checkpath, checkfolder As Object
 
         '#Variables Mechanical
         Dim dirservername, dirpath As Object
 
+        'STARTUP
 
         quit = "N"
 
@@ -29,9 +30,9 @@
 
         dirpath = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Path")
         dirservername = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\ServersName")
-        'STARTUP
+
         If dirpath And dirservername Then
-            
+
             While quit = "N"
                 Console.Clear()
                 Console.WriteLine("========================<PocketMine Manager Servers>============================")
@@ -173,7 +174,8 @@
 
                 If menù = "2" Then 'Manage Servers [NOT COMPLETE THEREFORE DOESN'T WORK]
 
-                    checkpath = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine\Path\path.pm")
+                    checkpath = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\path.pm")
+                    checkfolder = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\folder.pm")
 
                     checknameserver1 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
                     checknameserver2 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm")
@@ -229,23 +231,52 @@
 
                                     Console.WriteLine()
                                     Console.WriteLine("Reading your file...")
-                                    path = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine\Path\path.pm")
+                                    path = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Path\path.pm")
                                     Console.WriteLine("File succefully read!")
-                                    Console.ReadLine()
+
                                     Console.WriteLine()
                                     Console.WriteLine("Opening your server...")
 
-                                    'Process.Start(path + "start.cmd")
+                                    Process.Start(path)
 
                                 Else
+                                    Do
+                                        Console.Write("Write the folder path of the server, example 'C:\PocketMine-MP\start.cmd': ")
+                                        path = Console.ReadLine
 
-                                    Console.Write("Write the folder path of the server, example 'C:\PocketMine-MP': ")
-                                    path = Console.ReadLine
+                                        If path = "" Then
+                                            Console.WriteLine("ERROR! Please write a correct path of the server!")
+                                        End If
+                                    Loop While path = ""
 
-                                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine\Path\path.pm", path, True)
+                                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path.pm", path, True)
+
                                 End If
+                            End If
 
-                                If opener = "FOLDER" Then
+                            If opener = "FOLDER" Then
+                                If checkfolder Then
+                                    Console.WriteLine()
+                                    Console.WriteLine("Reading your file...")
+                                    folder = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Path\folder.pm")
+                                    Console.WriteLine("File succefully read!")
+
+                                    Console.WriteLine()
+                                    Console.WriteLine("Opening your server...")
+
+                                    Process.Start(folder)
+
+                                Else
+                                    Do
+                                        Console.Write("Write the folder path of the server, example 'C:\PocketMine-MP': ")
+                                        folder = Console.ReadLine
+
+                                        If folder = "" Then
+                                            Console.WriteLine("ERROR! Please write a correct path of the server!")
+                                        End If
+                                    Loop While folder = ""
+
+                                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\folder.pm", folder, True)
 
                                 End If
                             End If
