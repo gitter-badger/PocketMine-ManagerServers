@@ -2,10 +2,38 @@
 
     Sub Main()
 
-        '#Variables
+        '#Variables "Main Menu"
         Dim menù, quit As String
 
+        '#Variables "Install PocketMine-MP
+        Dim version, stable, beta, dev, soft, OS, link As String
+        Dim checkpocketmine As Object
+
+
+        '#Variables "Manage Servers"
+        Dim nservers As Integer
+
+        Dim nameservers1, nameservers2, nameservers3, nameservers4, nameservers5, nameservers6, nameservers7, nameservers8, nameservers9, nameservers10, defaultservers As String
+        Dim checknameserver1, checknameserver2, checknameserver3, checknameserver4, checknameserver5, checknameserver6, checknameserver7, checknameserver8, checknameserver9, checknameserver10 As Object
+
+        Dim opener, path As String
+        Dim checkpath As Object
+
         quit = "N"
+
+        defaultservers = "'Server Minecraft PE'"
+        nameservers1 = defaultservers 'By default
+        nameservers2 = defaultservers 'By default
+        nameservers3 = defaultservers 'By default
+        nameservers4 = defaultservers 'By default
+        nameservers5 = defaultservers 'By default
+        nameservers6 = defaultservers 'By default
+        nameservers7 = defaultservers 'By default
+        nameservers8 = defaultservers 'By default
+        nameservers9 = defaultservers 'By default
+        nameservers10 = defaultservers 'By default
+
+
 
         While quit = "N"
             Console.Clear()
@@ -21,10 +49,6 @@
             menù = Console.ReadLine
 
             If menù = "1" Then
-                '#Variables
-                Dim version, stable, beta, dev, soft, OS, link As String
-                Dim checkpocketmine As Object
-
                 link = "http://sourceforge.net/projects/pocketmine/files/windows/PocketMine-MP_Installer_1.4.1_x86.exe/download"
 
                 checkpocketmine = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\PocketMine-MP_Installer_1.4.1_x86.exe")
@@ -151,33 +175,8 @@
             End If
 
             If menù = "2" Then 'Manage Servers [NOT COMPLETE THEREFORE DOESN'T WORK]
-                '#Variables
-                Dim nservers As Integer
-                Dim nameservers1, nameservers2, nameservers3, nameservers4, nameservers5, nameservers6, nameservers7, nameservers8, nameservers9, nameservers10, defaultservers As String
-                Dim checknameserver1, checknameserver2, checknameserver3, checknameserver4, checknameserver5, checknameserver6, checknameserver7, checknameserver8, checknameserver9, checknameserver10 As Object
 
-                Do
-                    Console.Clear()
-                    Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                    Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
-                    Console.Write("How many servers do you want to manage? <1/2/3/.../10> : ")
-                    nservers = Console.ReadLine
-
-                Loop While nservers > 10 Or nservers <= 0
-
-                defaultservers = "'Server Minecraft PE'"
-
-                nameservers1 = defaultservers 'By default
-                nameservers2 = defaultservers 'By default
-                nameservers3 = defaultservers 'By default
-                nameservers4 = defaultservers 'By default
-                nameservers5 = defaultservers 'By default
-                nameservers6 = defaultservers 'By default
-                nameservers7 = defaultservers 'By default
-                nameservers8 = defaultservers 'By default
-                nameservers9 = defaultservers 'By default
-                nameservers10 = defaultservers 'By default
-
+                checkpath = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine\Path\path.pm")
 
                 checknameserver1 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
                 checknameserver2 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm")
@@ -189,6 +188,16 @@
                 checknameserver8 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServerName_8.pm")
                 checknameserver9 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServerName_9.pm")
                 checknameserver10 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServerName_10.pm")
+
+                Do
+                    Console.Clear()
+                    Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                    Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
+                    Console.Write("How many servers do you want to manage? <1/2/3/.../10> : ")
+                    nservers = Console.ReadLine
+
+                Loop While nservers > 10 Or nservers <= 0
+
 
                 If nservers > 10 Then
                     Console.WriteLine("ERROR! You have exceeded the maximum number of servers available. Please reduce the amount!")
@@ -206,7 +215,43 @@
                     If nservers = 1 And checknameserver1 Then 'This isn't the best way but for the moment I use this. 
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
 
-                    Else
+                        Do
+                            Console.Clear()
+                            Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                            Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
+                            Console.WriteLine("First server: {0}", nameservers1)
+                            Console.WriteLine()
+                            Console.Write("What do you want to do? <Open [Server/Folder]>: ")
+                            opener = Console.ReadLine.ToUpper
+
+                        Loop While opener <> "SERVER" Or opener <> "FOLDER"
+
+                        If opener = "SERVER" Then
+                            If checkpath Then
+
+                                Console.WriteLine()
+                                Console.WriteLine("Reading your file...")
+                                My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine\Path\path.pm")
+                                Console.WriteLine("File succefully read!")
+                                Console.WriteLine()
+                                Console.WriteLine("Open your server!")
+
+                                'Process.Start(path + "start.cmd")
+
+                            Else
+
+                                Console.Write("Write the folder path of the server, example 'C:\PocketMine-MP': ")
+                                path = Console.ReadLine
+
+                                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine\Path\path.pm", path, True)
+                            End If
+
+                            If opener = "FOLDER" Then
+
+                            End If
+                        End If
+
+                    ElseIf nservers = 1 Then
                         Console.Write("1) Name of first server?: ")
                         nameservers1 = Console.ReadLine
 
@@ -218,7 +263,7 @@
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm")
 
-                    Else
+                    ElseIf nservers = 2 Then
                         Console.Write("1) Name of first server?: ")
                         nameservers1 = Console.ReadLine
                         Console.Write("2) Name of second server?: ")
@@ -234,7 +279,7 @@
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm")
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm")
 
-                    Else
+                    ElseIf nservers = 3 Then
 
                         Console.Write("1) Name of first server?: ")
                         nameservers1 = Console.ReadLine
@@ -255,7 +300,7 @@
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm")
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm")
 
-                    Else
+                    ElseIf nservers = 4 Then
                         Console.Write("1) Name of first server?: ")
                         nameservers1 = Console.ReadLine
                         Console.Write("2) Name of second server?: ")
@@ -279,7 +324,7 @@
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm")
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_5.pm")
 
-                    Else
+                    ElseIf nservers = 5 Then
                         Console.Write("1) Name of first server?: ")
                         nameservers1 = Console.ReadLine
                         Console.Write("2) Name of second server?: ")
@@ -307,7 +352,7 @@
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_5.pm")
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm")
 
-                    Else
+                    ElseIf nservers = 6 Then
 
                         Console.Write("1) Name of first server?: ")
                         nameservers1 = Console.ReadLine
@@ -340,7 +385,7 @@
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm")
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_7.pm")
 
-                    Else
+                    ElseIf nservers = 7 Then
 
                         Console.Write("1) Name of first server?: ")
                         nameservers1 = Console.ReadLine
@@ -377,7 +422,7 @@
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_7.pm")
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_8.pm")
 
-                    Else
+                    ElseIf nservers = 8 Then
 
                         Console.Write("1) Name of first server?: ")
                         nameservers1 = Console.ReadLine
@@ -418,7 +463,7 @@
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_8.pm")
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_9.pm")
 
-                    Else
+                    ElseIf nservers = 9 Then
 
                         Console.Write("1) Name of first server?: ")
                         nameservers1 = Console.ReadLine
@@ -463,7 +508,7 @@
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_9.pm")
                         My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_10.pm")
 
-                    Else
+                    ElseIf nservers = 10 Then
 
                         Console.Write("1) Name of first server?: ")
                         nameservers1 = Console.ReadLine
@@ -499,121 +544,36 @@
 
                     End If
                 End If
+            End If
 
-                '#Variables
-                Dim opener, path As String
-                Dim checkpath As Object
+                If menù = "3" Then
+                    Console.Clear()
+                    Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                    Console.WriteLine("Coming Soon")
+                    Console.ReadLine()
+                End If
 
-                checkpath = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine\Path\path.pm")
+                If menù = "4" Then
+                    Console.Clear()
+                    Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                    Console.WriteLine("Coming Soon")
+                    Console.ReadLine()
+                End If
 
-                If nameservers1 = 1 Then
-
+                If menù = "5" Then
                     Do
                         Console.Clear()
                         Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                        Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
-                        Console.WriteLine("First server: {0}", nameservers1)
-                        Console.WriteLine()
-                        Console.Write("What do you want to do? <Open [Server/Folder]>")
-                        opener = Console.ReadLine.ToUpper
-                    Loop While opener <> "SERVER" Or opener <> "FOLDER"
+                        Console.Write("Are you sure you want to quit? <Y/N>: ")
+                        quit = Console.ReadLine.ToUpper
+                    Loop While quit <> "Y" And quit <> "N"
 
-                    If opener = "SERVER" Then
-                        If checkpath Then
-
-                            Console.WriteLine()
-                            Console.WriteLine("Reading your file...")
-                            My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine\Path\path.pm")
-                            Console.WriteLine("File succefully read!")
-                            Console.WriteLine()
-                            Console.WriteLine("Open your server!")
-
-                            Process.Start(path + "start.cmd")
-
-                        Else
-
-                            Console.Write("Write the folder path of the server, example 'C:\PocketMine-MP': ")
-                            path = Console.ReadLine
-
-                            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine\Path\path.pm", path, True)
-                        End If
-
-                        If opener = "FOLDER" Then
-
-                        End If
-
-
-                    ElseIf nameservers2 Then
-
-                    ElseIf nameservers3 Then
-
-                    ElseIf nameservers4 Then
-
-                    ElseIf nameservers5 Then
-
-                    ElseIf nameservers6 Then
-
-                    ElseIf nameservers7 Then
-
-                    ElseIf nameservers8 Then
-
-                    ElseIf nameservers9 Then
-
-                    ElseIf nameservers10 Then
-
+                    If quit = "Y" Then
+                        Console.WriteLine("See you soon!")
+                        Console.ReadLine()
+                        End
                     End If
-
-                    'My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm", nameservers1, True)
-
-                    'My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm", nameservers2, True)
-
-                    'My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm", nameservers3, True)
-
-                    'My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm", nameservers4, True)
-
-                    'My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_5.pm", nameservers5, True)
-
-                    'My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm", nameservers6, True)
-
-                    'My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_7.pm", nameservers7, True)
-
-                    'My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_8.pm", nameservers8, True)
-
-                    'My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_9.pm", nameservers9, True)
-
-                    'My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_10.pm", nameservers10, True)
-
                 End If
-            End If
-
-            If menù = "3" Then
-                Console.Clear()
-                Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                Console.WriteLine("Coming Soon")
-                Console.ReadLine()
-            End If
-
-            If menù = "4" Then
-                Console.Clear()
-                Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                Console.WriteLine("Coming Soon")
-                Console.ReadLine()
-            End If
-
-            If menù = "5" Then
-                Do
-                    Console.Clear()
-                    Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                    Console.Write("Are you sure you want to quit? <Y/N>: ")
-                    quit = Console.ReadLine.ToUpper
-                Loop While quit <> "Y" And quit <> "N"
-
-                If quit = "Y" Then
-                    Console.WriteLine("See you soon!")
-                    Console.ReadLine()
-                    End
-                End If
-            End If
 
         End While
 
