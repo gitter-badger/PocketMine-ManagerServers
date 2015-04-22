@@ -7,7 +7,7 @@
         Dim checkfolderinstallation As Object
 
         '#Variables "Install PocketMine-MP
-        Dim version, stable, beta, dev, soft, OS, link As String
+        Dim version, stable, beta, dev, soft, link As String
         Dim checkpocketmine As Object
 
 
@@ -57,7 +57,8 @@
             Console.WriteLine("2- Manage Servers")
             Console.WriteLine("3- Maintenance Servers")
             Console.WriteLine("4- Programm Options")
-            Console.WriteLine("5- Exit")
+            Console.WriteLine("5- Credits")
+            Console.WriteLine("6- Exit")
             Console.WriteLine()
             Console.Write("What would you like to do?: ")
             menù = Console.ReadLine
@@ -87,37 +88,21 @@
                         Loop While stable <> "1"
 
                         If stable = "1" Then
-                            Do
+                            Console.WriteLine()
+                            If checkpocketmine Then
+                                Console.WriteLine("Starting the installation files")
+                                Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-MP_Installer_1.4.1_x86.exe") 'Link to the installer
                                 Console.WriteLine()
-                                Console.Write("Which operating system are you using? <Windows/MacOS> ")
-                                OS = Console.ReadLine.ToUpper
-                            Loop While OS <> "WINDOWS" And OS <> "MACOS"
-
-                            If OS = "WINDOWS" Then '[WORK]
-                                Console.WriteLine()
-                                If checkpocketmine Then
-                                    Console.WriteLine("Starting the installation files")
-                                    Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-MP_Installer_1.4.1_x86.exe") 'Link to the installer
-                                    Console.WriteLine()
-                                    Console.WriteLine("Installation complete!")
-                                    Console.WriteLine("Press enter to return to the menu")
-                                    Console.ReadLine()
-                                Else
-                                    Console.WriteLine("Installer not found.")
-                                    Console.WriteLine("Downloading Installer...")
-                                    Process.Start(link) 'Download Installer
-
-                                    Console.WriteLine("Download Complete! Press enter to return to installation.")
-                                    Console.ReadLine()
-                                End If
-
-                            ElseIf OS = "MACOS" Then '[Don't Work]
-                                Console.WriteLine()
-                                Console.WriteLine("MAC Installer")
+                                Console.WriteLine("Installation complete!")
+                                Console.WriteLine("Press enter to return to the menu")
                                 Console.ReadLine()
+                            Else
+                                Console.WriteLine("Installer not found.")
+                                Console.WriteLine("Downloading Installer...")
+                                Process.Start(link) 'Download Installer
 
-                            ElseIf OS <> "WINDOWS" Or OS <> "MACOS" Then
-                                Console.WriteLine("PLEASE, SELECT AN AVAIABLE OPERATIVE SYSTEM!!")
+                                Console.WriteLine("Download Complete! Press enter to return to installation.")
+                                Console.ReadLine()
                             End If
 
                         ElseIf stable <> "1" Then
@@ -190,7 +175,6 @@
             End If
 
             If menù = "2" Then 'Manage Servers [NOT COMPLETE THEREFORE DOESN'T WORK]
-
                 checkpath = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\path.pm")
                 checkfolder = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\folder.pm")
 
@@ -219,7 +203,7 @@
                     Console.WriteLine()
                     Console.WriteLine("If you do not enter a name for your server , by default it will be {0}", defaultservers)
 
-                    If nservers = 1 And checknameserver(0) Then 'This isn't the best way but for the moment I use this. 
+                    If nservers = 1 And checknameserver(0) Then
                         nameservers(0) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
 
                         Do
@@ -427,9 +411,17 @@
             End If
 
             If menù = "5" Then
+                Console.Clear()
+                Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                Console.WriteLine("Coming Soon")
+                Console.ReadLine()
+            End If
+
+            If menù = "6" Then
                 Do
                     Console.Clear()
                     Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                    Console.WriteLine("----------------------------------<Exit>----------------------------------------")
                     Console.Write("Are you sure you want to quit? <Y/N>: ")
                     quit = Console.ReadLine.ToUpper
                 Loop While quit <> "Y" And quit <> "N"
