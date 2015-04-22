@@ -13,9 +13,12 @@
 
         '#Variables "Manage Servers"
         Dim nservers As Integer
+        Dim nameservers As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
+        Dim numberservers As String() = New String() {"first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"}
 
-        Dim nameservers1, nameservers2, nameservers3, nameservers4, nameservers5, nameservers6, nameservers7, nameservers8, nameservers9, nameservers10, defaultservers As String
-        Dim checknameserver1, checknameserver2, checknameserver3, checknameserver4, checknameserver5, checknameserver6, checknameserver7, checknameserver8, checknameserver9, checknameserver10 As Object
+        Dim defaultservers As String
+
+        Dim checknameserver As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
 
         Dim opener, path, folder As String
         Dim checkpath, checkfolder As Object
@@ -60,6 +63,7 @@
             menù = Console.ReadLine
 
             If menù = "1" Then
+
                 link = "http://sourceforge.net/projects/pocketmine/files/windows/PocketMine-MP_Installer_1.4.1_x86.exe/download"
 
                 checkpocketmine = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\PocketMine-MP_Installer_1.4.1_x86.exe")
@@ -190,16 +194,7 @@
                 checkpath = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\path.pm")
                 checkfolder = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\folder.pm")
 
-                checknameserver1 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
-                checknameserver2 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm")
-                checknameserver3 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm")
-                checknameserver4 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm")
-                checknameserver5 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServerName_5.pm")
-                checknameserver6 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm")
-                checknameserver7 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServerName_7.pm")
-                checknameserver8 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServerName_8.pm")
-                checknameserver9 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServerName_9.pm")
-                checknameserver10 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServerName_10.pm")
+                Checker(checknameserver)
 
                 Do
                     Console.Clear()
@@ -224,15 +219,14 @@
                     Console.WriteLine()
                     Console.WriteLine("If you do not enter a name for your server , by default it will be {0}", defaultservers)
 
-                    If nservers = 1 And checknameserver1 Then 'This isn't the best way but for the moment I use this. 
-                        nameservers1 = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
+                    If nservers = 1 And checknameserver(0) Then 'This isn't the best way but for the moment I use this. 
+                        nameservers(0) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
 
                         Do
-
                             Console.Clear()
                             Console.WriteLine("========================<PocketMine Manager Servers>============================")
                             Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
-                            Console.WriteLine("First server: {0}", nameservers1)
+                            Console.WriteLine("First server: {0}", nameservers(0))
                             Console.WriteLine()
                             Console.Write("What do you want to do? <Open [Server/Folder]>: ")
                             opener = Console.ReadLine.ToUpper
@@ -250,11 +244,11 @@
                                 Console.WriteLine()
                                 Console.WriteLine("Opening your server...")
 
-                                Process.Start(path)
+                                Process.Start(path + "\start.cmd")
 
                             Else
                                 Do
-                                    Console.Write("Write the folder path of the server, example 'C:\PocketMine-MP\start.cmd': ")
+                                    Console.Write("Write the folder path of the server, example 'C:\PocketMine-MP': ")
                                     path = Console.ReadLine
 
                                     If path = "" Then
@@ -296,27 +290,27 @@
 
                     ElseIf nservers = 1 Then
                         Console.Write("1) Name of first server?: ")
-                        nameservers1 = Console.ReadLine
+                        nameservers(0) = Console.ReadLine
 
-                        If nameservers1 = "" Then
-                            nameservers1 = defaultservers
-                            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm", nameservers1, True)
+                        If nameservers(0) = "" Then
+                            nameservers(0) = defaultservers
+                            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_1.pm", nameservers(0), True)
                         Else
-                            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm", nameservers1, True)
-                            nameservers1 = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
+                            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_1.pm", nameservers(0), True)
+                            nameservers(0) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_1.pm")
 
                         End If
                     End If
 
-                    If nservers = 2 And checknameserver1 And checknameserver2 Then
-                        Reading(nservers)
+                    If nservers = 2 And checknameserver(0) And checknameserver(1) Then
+                        Reading(nameservers, nservers)
                         Do
 
                             Console.Clear()
                             Console.WriteLine("========================<PocketMine Manager Servers>============================")
                             Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
-                            Console.WriteLine("First server: {0}", nameservers1)
-                            Console.WriteLine("Second server: {0}", nameservers2)
+                            Console.WriteLine("First server: {0}", nameservers(0))
+                            Console.WriteLine("Second server: {0}", nameservers(1))
                             Console.WriteLine()
                             Console.Write("What do you want to do? <Open [Server/Folder]>: ")
                             opener = Console.ReadLine.ToUpper
@@ -324,239 +318,95 @@
                         Loop While opener <> "SERVER" And opener <> "FOLDER"
 
                     ElseIf nservers = 2 Then
-                        Console.Write("1) Name of first server?: ")
-                        nameservers1 = Console.ReadLine
-                        Console.Write("2) Name of second server?: ")
-                        nameservers2 = Console.ReadLine
+                        Selection(nservers, nameservers, numberservers)
 
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm", nameservers1, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm", nameservers2, True)
+                        Writening(nameservers, nservers)
 
                     End If
 
-                    If nservers = 3 And checknameserver1 And checknameserver2 And checknameserver3 Then
-                        Reading(nservers)
+                    If nservers = 3 And checknameserver(0) And checknameserver(1) And checknameserver(2) Then
+                        Reading(nameservers, nservers)
 
                     ElseIf nservers = 3 Then
 
-                        Console.Write("1) Name of first server?: ")
-                        nameservers1 = Console.ReadLine
-                        Console.Write("2) Name of second server?: ")
-                        nameservers2 = Console.ReadLine
-                        Console.Write("3) Name of third server?: ")
-                        nameservers3 = Console.ReadLine
+                        Selection(nservers, nameservers, numberservers)
 
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm", nameservers1, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm", nameservers2, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm", nameservers3, True)
+                        Writening(nameservers, nservers)
 
                     End If
 
-                    If nservers = 4 And checknameserver1 And checknameserver2 And checknameserver3 And checknameserver4 Then
-                        Reading(nservers)
+                    If nservers = 4 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) Then
+                        Reading(nameservers, nservers)
 
                     ElseIf nservers = 4 Then
-                        Console.Write("1) Name of first server?: ")
-                        nameservers1 = Console.ReadLine
-                        Console.Write("2) Name of second server?: ")
-                        nameservers2 = Console.ReadLine
-                        Console.Write("3) Name of third server?: ")
-                        nameservers3 = Console.ReadLine
-                        Console.Write("4) Name of fourth server?: ")
-                        nameservers4 = Console.ReadLine
+                        Selection(nservers, nameservers, numberservers)
 
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm", nameservers1, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm", nameservers2, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm", nameservers3, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm", nameservers4, True)
+                        Writening(nameservers, nservers)
 
                     End If
 
-                    If nservers = 5 And checknameserver1 And checknameserver2 And checknameserver3 And checknameserver4 And checknameserver5 Then
-                        Reading(nservers)
+                    If nservers = 5 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) Then
+                        Reading(nameservers, nservers)
 
                     ElseIf nservers = 5 Then
-                        Console.Write("1) Name of first server?: ")
-                        nameservers1 = Console.ReadLine
-                        Console.Write("2) Name of second server?: ")
-                        nameservers2 = Console.ReadLine
-                        Console.Write("3) Name of third server?: ")
-                        nameservers3 = Console.ReadLine
-                        Console.Write("4) Name of fourth server?: ")
-                        nameservers4 = Console.ReadLine
-                        Console.Write("5) Name of fifth server?: ")
-                        nameservers5 = Console.ReadLine
+                        Selection(nservers, nameservers, numberservers)
 
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm", nameservers1, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm", nameservers2, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm", nameservers3, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm", nameservers4, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm", nameservers5, True)
+                        Writening(nameservers, nservers)
 
                     End If
 
-                    If nservers = 6 And checknameserver1 And checknameserver2 And checknameserver3 And checknameserver4 And checknameserver5 And checknameserver6 Then
-                        Reading(nservers)
+                    If nservers = 6 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) Then
+                        Reading(nameservers, nservers)
 
                     ElseIf nservers = 6 Then
 
-                        Console.Write("1) Name of first server?: ")
-                        nameservers1 = Console.ReadLine
-                        Console.Write("2) Name of second server?: ")
-                        nameservers2 = Console.ReadLine
-                        Console.Write("3) Name of third server?: ")
-                        nameservers3 = Console.ReadLine
-                        Console.Write("4) Name of fourth server?: ")
-                        nameservers4 = Console.ReadLine
-                        Console.Write("5) Name of fifth server?: ")
-                        nameservers5 = Console.ReadLine
-                        Console.Write("6) Name of sixth server?: ")
-                        nameservers6 = Console.ReadLine
+                        Selection(nservers, nameservers, numberservers)
 
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm", nameservers1, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm", nameservers2, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm", nameservers3, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm", nameservers4, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm", nameservers5, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm", nameservers6, True)
+                        Writening(nameservers, nservers)
 
                     End If
 
-                    If nservers = 7 And checknameserver1 And checknameserver2 And checknameserver3 And checknameserver4 And checknameserver5 And checknameserver6 And checknameserver7 Then
-                        Reading(nservers)
+                    If nservers = 7 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) Then
+                        Reading(nameservers, nservers)
 
                     ElseIf nservers = 7 Then
 
-                        Console.Write("1) Name of first server?: ")
-                        nameservers1 = Console.ReadLine
-                        Console.Write("2) Name of second server?: ")
-                        nameservers2 = Console.ReadLine
-                        Console.Write("3) Name of third server?: ")
-                        nameservers3 = Console.ReadLine
-                        Console.Write("4) Name of fourth server?: ")
-                        nameservers4 = Console.ReadLine
-                        Console.Write("5) Name of fifth server?: ")
-                        nameservers5 = Console.ReadLine
-                        Console.Write("6) Name of sixth server?: ")
-                        nameservers6 = Console.ReadLine
-                        Console.Write("7) Name of seventh server?: ")
-                        nameservers7 = Console.ReadLine
+                        Selection(nservers, nameservers, numberservers)
 
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm", nameservers1, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm", nameservers2, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm", nameservers3, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm", nameservers4, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm", nameservers5, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm", nameservers6, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_7.pm", nameservers7, True)
+                        Writening(nameservers, nservers)
 
                     End If
 
-                    If nservers = 8 And checknameserver1 And checknameserver2 And checknameserver3 And checknameserver4 And checknameserver5 And checknameserver6 And checknameserver7 And checknameserver8 Then
-                        Reading(nservers)
+                    If nservers = 8 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) Then
+                        Reading(nameservers, nservers)
 
                     ElseIf nservers = 8 Then
 
-                        Console.Write("1) Name of first server?: ")
-                        nameservers1 = Console.ReadLine
-                        Console.Write("2) Name of second server?: ")
-                        nameservers2 = Console.ReadLine
-                        Console.Write("3) Name of third server?: ")
-                        nameservers3 = Console.ReadLine
-                        Console.Write("4) Name of fourth server?: ")
-                        nameservers4 = Console.ReadLine
-                        Console.Write("5) Name of fifth server?: ")
-                        nameservers5 = Console.ReadLine
-                        Console.Write("6) Name of sixth server?: ")
-                        nameservers6 = Console.ReadLine
-                        Console.Write("7) Name of seventh server?: ")
-                        nameservers7 = Console.ReadLine
-                        Console.Write("8) Name of eighth server?: ")
-                        nameservers8 = Console.ReadLine
+                        Selection(nservers, nameservers, numberservers)
 
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm", nameservers1, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm", nameservers2, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm", nameservers3, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm", nameservers4, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm", nameservers5, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm", nameservers6, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_7.pm", nameservers7, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_8.pm", nameservers8, True)
+                        Writening(nameservers, nservers)
 
                     End If
 
-                    If nservers = 9 And checknameserver1 And checknameserver2 And checknameserver3 And checknameserver4 And checknameserver5 And checknameserver6 And checknameserver7 And checknameserver8 And checknameserver9 Then
-                        Reading(nservers)
+                    If nservers = 9 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) And checknameserver(8) Then
+                        Reading(nameservers, nservers)
 
                     ElseIf nservers = 9 Then
 
-                        Console.Write("1) Name of first server?: ")
-                        nameservers1 = Console.ReadLine
-                        Console.Write("2) Name of second server?: ")
-                        nameservers2 = Console.ReadLine
-                        Console.Write("3) Name of third server?: ")
-                        nameservers3 = Console.ReadLine
-                        Console.Write("4) Name of fourth server?: ")
-                        nameservers4 = Console.ReadLine
-                        Console.Write("5) Name of fifth server?: ")
-                        nameservers5 = Console.ReadLine
-                        Console.Write("6) Name of sixth server?: ")
-                        nameservers6 = Console.ReadLine
-                        Console.Write("7) Name of seventh server?: ")
-                        nameservers7 = Console.ReadLine
-                        Console.Write("8) Name of eighth server?: ")
-                        nameservers8 = Console.ReadLine
-                        Console.Write("9) Name of ninth server?: ")
-                        nameservers9 = Console.ReadLine
+                        Selection(nservers, nameservers, numberservers)
 
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm", nameservers1, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm", nameservers2, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm", nameservers3, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm", nameservers4, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm", nameservers5, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm", nameservers6, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_7.pm", nameservers7, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_8.pm", nameservers8, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_9.pm", nameservers9, True)
+                        Writening(nameservers, nservers)
 
                     End If
 
-                    If nservers = 10 And checknameserver1 And checknameserver2 And checknameserver3 And checknameserver4 And checknameserver5 And checknameserver6 And checknameserver7 And checknameserver8 And checknameserver9 And checknameserver10 Then
-                        Reading(nservers)
+                    If nservers = 10 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) And checknameserver(8) And checknameserver(9) Then
+                        Reading(nameservers, nservers)
 
                     ElseIf nservers = 10 Then
 
-                        Console.Write("1) Name of first server?: ")
-                        nameservers1 = Console.ReadLine
-                        Console.Write("2) Name of second server?: ")
-                        nameservers2 = Console.ReadLine
-                        Console.Write("3) Name of third server?: ")
-                        nameservers3 = Console.ReadLine
-                        Console.Write("4) Name of fourth server?: ")
-                        nameservers4 = Console.ReadLine
-                        Console.Write("5) Name of fifth server?: ")
-                        nameservers5 = Console.ReadLine
-                        Console.Write("6) Name of sixth server?: ")
-                        nameservers6 = Console.ReadLine
-                        Console.Write("7) Name of seventh server?: ")
-                        nameservers7 = Console.ReadLine
-                        Console.Write("8) Name of eighth server?: ")
-                        nameservers8 = Console.ReadLine
-                        Console.Write("9) Name of ninth server?: ")
-                        nameservers9 = Console.ReadLine
-                        Console.Write("10) Name of tenth server?: ")
-                        nameservers10 = Console.ReadLine
+                        Selection(nservers, nameservers, numberservers)
 
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm", nameservers1, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm", nameservers2, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm", nameservers3, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm", nameservers4, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm", nameservers5, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm", nameservers6, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_7.pm", nameservers7, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_8.pm", nameservers8, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_9.pm", nameservers9, True)
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_10.pm", nameservers10, True)
+                        Writening(nameservers, nservers)
 
                     End If
                 End If
@@ -592,11 +442,32 @@
             End If
         End While
 
+
     End Sub
 
-    Sub Reading(ByRef nservers As Integer)
+    Sub Reading(ByRef nameservers As String(), ByRef nservers As Integer)
         For i = 1 To nservers
-            My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_" + Convert.ToString(i) + ".pm")
+            nameservers(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(i) + ".pm")
         Next
     End Sub
+
+    Sub Writening(ByRef nameservers As String(), ByRef nservers As Integer)
+        For i = 1 To nservers
+            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(i) + ".pm", nameservers(i - 1), True)
+        Next
+    End Sub
+
+    Sub Checker(ByRef checknameserver As Object())
+        For i = 1 To 10
+            checknameserver(i - 1) = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(i) + ".pm")
+        Next
+    End Sub
+
+    Sub Selection(ByVal nservers As Integer, ByRef nameservers As String(), ByVal numberservers As String())
+        For i = 1 To nservers
+            Console.Write("{0}) Name of {1} server?: ", i, numberservers(i - 1))
+            nameservers(i - 1) = Console.ReadLine
+        Next
+    End Sub
+
 End Module
