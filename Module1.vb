@@ -309,8 +309,19 @@
                     End If
 
                     If nservers = 2 And checknameserver1 And checknameserver2 Then
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm")
+                        Reading(nservers)
+                        Do
+
+                            Console.Clear()
+                            Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                            Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
+                            Console.WriteLine("First server: {0}", nameservers1)
+                            Console.WriteLine("Second server: {0}", nameservers2)
+                            Console.WriteLine()
+                            Console.Write("What do you want to do? <Open [Server/Folder]>: ")
+                            opener = Console.ReadLine.ToUpper
+
+                        Loop While opener <> "SERVER" And opener <> "FOLDER"
 
                     ElseIf nservers = 2 Then
                         Console.Write("1) Name of first server?: ")
@@ -324,9 +335,7 @@
                     End If
 
                     If nservers = 3 And checknameserver1 And checknameserver2 And checknameserver3 Then
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm")
+                        Reading(nservers)
 
                     ElseIf nservers = 3 Then
 
@@ -344,10 +353,7 @@
                     End If
 
                     If nservers = 4 And checknameserver1 And checknameserver2 And checknameserver3 And checknameserver4 Then
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm")
+                        Reading(nservers)
 
                     ElseIf nservers = 4 Then
                         Console.Write("1) Name of first server?: ")
@@ -367,11 +373,7 @@
                     End If
 
                     If nservers = 5 And checknameserver1 And checknameserver2 And checknameserver3 And checknameserver4 And checknameserver5 Then
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_5.pm")
+                        Reading(nservers)
 
                     ElseIf nservers = 5 Then
                         Console.Write("1) Name of first server?: ")
@@ -394,12 +396,7 @@
                     End If
 
                     If nservers = 6 And checknameserver1 And checknameserver2 And checknameserver3 And checknameserver4 And checknameserver5 And checknameserver6 Then
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_5.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm")
+                        Reading(nservers)
 
                     ElseIf nservers = 6 Then
 
@@ -426,13 +423,7 @@
                     End If
 
                     If nservers = 7 And checknameserver1 And checknameserver2 And checknameserver3 And checknameserver4 And checknameserver5 And checknameserver6 And checknameserver7 Then
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_5.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_7.pm")
+                        Reading(nservers)
 
                     ElseIf nservers = 7 Then
 
@@ -462,14 +453,7 @@
                     End If
 
                     If nservers = 8 And checknameserver1 And checknameserver2 And checknameserver3 And checknameserver4 And checknameserver5 And checknameserver6 And checknameserver7 And checknameserver8 Then
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_5.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_7.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_8.pm")
+                        Reading(nservers)
 
                     ElseIf nservers = 8 Then
 
@@ -502,15 +486,7 @@
                     End If
 
                     If nservers = 9 And checknameserver1 And checknameserver2 And checknameserver3 And checknameserver4 And checknameserver5 And checknameserver6 And checknameserver7 And checknameserver8 And checknameserver9 Then
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_5.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_7.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_8.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_9.pm")
+                        Reading(nservers)
 
                     ElseIf nservers = 9 Then
 
@@ -546,16 +522,7 @@
                     End If
 
                     If nservers = 10 And checknameserver1 And checknameserver2 And checknameserver3 And checknameserver4 And checknameserver5 And checknameserver6 And checknameserver7 And checknameserver8 And checknameserver9 And checknameserver10 Then
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_2.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_3.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_4.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_5.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_6.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_7.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_8.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_9.pm")
-                        My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_10.pm")
+                        Reading(nservers)
 
                     ElseIf nservers = 10 Then
 
@@ -627,4 +594,9 @@
 
     End Sub
 
+    Sub Reading(ByRef nservers As Integer)
+        For i = 1 To nservers
+            My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_" + Convert.ToString(i) + ".pm")
+        Next
+    End Sub
 End Module
