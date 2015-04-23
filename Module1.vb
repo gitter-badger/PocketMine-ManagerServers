@@ -23,6 +23,10 @@
         Dim opener, path, folder As String
         Dim checkpath, checkfolder As Object
 
+        '#Variables "Program Options"
+        Dim options, choosereset, reset As String
+
+
         '#Variables Mechanical
         Dim dirservername, dirpath As Object
 
@@ -178,7 +182,7 @@
                 checkpath = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\path.pm")
                 checkfolder = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\folder.pm")
 
-                Checker(checknameserver)
+                Checking(checknameserver)
 
                 Do
                     Console.Clear()
@@ -188,7 +192,6 @@
                     nservers = Console.ReadLine
 
                 Loop While nservers > 10 Or nservers <= 0
-
 
                 If nservers > 10 Then
                     Console.WriteLine("ERROR! You have exceeded the maximum number of servers available. Please reduce the amount!")
@@ -304,7 +307,7 @@
                     ElseIf nservers = 2 Then
                         Selection(nservers, nameservers, numberservers)
 
-                        Writening(nameservers, nservers)
+                        Writing(nameservers, nservers)
 
                     End If
 
@@ -315,7 +318,7 @@
 
                         Selection(nservers, nameservers, numberservers)
 
-                        Writening(nameservers, nservers)
+                        Writing(nameservers, nservers)
 
                     End If
 
@@ -325,7 +328,7 @@
                     ElseIf nservers = 4 Then
                         Selection(nservers, nameservers, numberservers)
 
-                        Writening(nameservers, nservers)
+                        Writing(nameservers, nservers)
 
                     End If
 
@@ -335,7 +338,7 @@
                     ElseIf nservers = 5 Then
                         Selection(nservers, nameservers, numberservers)
 
-                        Writening(nameservers, nservers)
+                        Writing(nameservers, nservers)
 
                     End If
 
@@ -346,7 +349,7 @@
 
                         Selection(nservers, nameservers, numberservers)
 
-                        Writening(nameservers, nservers)
+                        Writing(nameservers, nservers)
 
                     End If
 
@@ -357,7 +360,7 @@
 
                         Selection(nservers, nameservers, numberservers)
 
-                        Writening(nameservers, nservers)
+                        Writing(nameservers, nservers)
 
                     End If
 
@@ -368,7 +371,7 @@
 
                         Selection(nservers, nameservers, numberservers)
 
-                        Writening(nameservers, nservers)
+                        Writing(nameservers, nservers)
 
                     End If
 
@@ -379,7 +382,7 @@
 
                         Selection(nservers, nameservers, numberservers)
 
-                        Writening(nameservers, nservers)
+                        Writing(nameservers, nservers)
 
                     End If
 
@@ -390,7 +393,7 @@
 
                         Selection(nservers, nameservers, numberservers)
 
-                        Writening(nameservers, nservers)
+                        Writing(nameservers, nservers)
 
                     End If
                 End If
@@ -403,11 +406,71 @@
                 Console.ReadLine()
             End If
 
-            If menù = "4" Then
-                Console.Clear()
-                Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                Console.WriteLine("Coming Soon")
-                Console.ReadLine()
+            If menù = "4" Then 'Program Options
+                Do
+                    Console.Clear()
+                    Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                    Console.WriteLine("------------------------------<Program Options>---------------------------------")
+                    Console.WriteLine("1- Language [COMING SOON]")
+                    Console.WriteLine("2- Reset Program")
+                    Console.WriteLine("3- Back")
+                    Console.WriteLine()
+                    Console.Write("Choose the option: ")
+                    options = Console.ReadLine
+
+                    If options = "1" Then
+                        Console.WriteLine("Coming Soon")
+                        Console.ReadLine()
+
+                    ElseIf options = "2" Then
+                        Do
+                            Console.Clear()
+                            Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                            Console.WriteLine("-------------------------------<Reset Program>----------------------------------")
+                            Console.WriteLine("1- Reset data of servers (Only Programm)")
+                            Console.WriteLine("2- Reset data of servers (Only your specified server)")
+                            Console.WriteLine("3- Reset all data/folders of programm")
+                            Console.WriteLine("4- Back")
+                            Console.WriteLine()
+                            Console.Write("Choose what do you want to reset: ")
+                            choosereset = Console.ReadLine
+
+                            If choosereset = "1" Then
+                                Console.Clear()
+                                Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                                Console.Write("Are you sure to want to reset data of servers (Only Program)? <Y/N>: ")
+                                reset = Console.ReadLine.ToUpper
+
+                                If reset = "Y" Then
+
+                                End If
+
+                            ElseIf choosereset = "2" Then
+                                Console.Clear()
+                                Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                                Console.Write("Are you sure to want to reset data of servers (Only your specified server)? <Y/N>: ")
+                                reset = Console.ReadLine.ToUpper
+
+                                If reset = "Y" Then
+
+                                End If
+
+                            ElseIf choosereset = "3" Then
+                                Console.Clear()
+                                Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                                Console.Write("Are you sure to want to reset all data/folders of program? <Y/N>: ")
+                                reset = Console.ReadLine.ToUpper
+
+                                If reset = "Y" Then
+
+                                End If
+
+                            End If
+
+                        Loop While choosereset <> "4"
+                    End If
+
+                Loop While options <> "3"
             End If
 
             If menù = "5" Then
@@ -443,13 +506,13 @@
         Next
     End Sub
 
-    Sub Writening(ByRef nameservers As String(), ByRef nservers As Integer)
+    Sub Writing(ByRef nameservers As String(), ByRef nservers As Integer)
         For i = 1 To nservers
             My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(i) + ".pm", nameservers(i - 1), True)
         Next
     End Sub
 
-    Sub Checker(ByRef checknameserver As Object())
+    Sub Checking(ByRef checknameserver As Object())
         For i = 1 To 10
             checknameserver(i - 1) = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(i) + ".pm")
         Next
