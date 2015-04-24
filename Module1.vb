@@ -38,15 +38,21 @@
         dirpath = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Path")
         dirservername = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\ServersName")
 
+        checkpath = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\path.pm")
+        checkfolder = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\folder.pm")
 
-        If dirpath And dirservername And checkfolderinstallation Then
+        If dirpath And dirservername And checkfolderinstallation And checkpath And checkfolder Then
             quit = "N"
 
         Else
+            path = ""
+            folder = ""
             Console.WriteLine("Preparing the first start ...")
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers") ' Create Installation Folder
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\ServersName") 'Create Folder Server Name
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Path") 'Create Folder Path
+            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path.pm", path, True) 'Create Initial path file
+            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\folder.pm", folder, True) ' Create Initial folder file
             Console.WriteLine("Complete! Press ENTER to continue.")
             Console.ReadLine()
             quit = "N"
@@ -179,6 +185,7 @@
             End If
 
             If menù = "2" Then 'Manage Servers [NOT COMPLETE THEREFORE DOESN'T WORK]
+
                 checkpath = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\path.pm")
                 checkfolder = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\folder.pm")
 
@@ -207,7 +214,7 @@
                     Console.WriteLine("If you do not enter a name for your server , by default it will be {0}", defaultservers)
 
                     If nservers = 1 And checknameserver(0) Then
-                        nameservers(0) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServerName_1.pm")
+                        nameservers(0) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_1.pm")
 
                         Do
                             Console.Clear()
@@ -221,12 +228,14 @@
                         Loop While opener <> "SERVER" And opener <> "FOLDER"
 
                         If opener = "SERVER" Then
-                            If checkpath Then
+                            path = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Path\path.pm")
 
+                            If checkpath Or path = "" Then
                                 Console.WriteLine()
                                 Console.WriteLine("Reading your file...")
-                                path = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Path\path.pm")
+                                My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Path\path.pm")
                                 Console.WriteLine("File succefully read!")
+                                Console.ReadLine()
 
                                 Console.WriteLine()
                                 Console.WriteLine("Opening your server...")
@@ -254,9 +263,10 @@
                                 Console.WriteLine("Reading your file...")
                                 folder = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Path\folder.pm")
                                 Console.WriteLine("File succefully read!")
+                                Console.ReadLine()
 
                                 Console.WriteLine()
-                                Console.WriteLine("Opening your server...")
+                                Console.WriteLine("Opening your folder...")
 
                                 Process.Start(folder)
 
@@ -436,34 +446,60 @@
                             choosereset = Console.ReadLine
 
                             If choosereset = "1" Then
-                                Console.Clear()
-                                Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                                Console.Write("Are you sure to want to reset data of servers (Only Program)? <Y/N>: ")
-                                reset = Console.ReadLine.ToUpper
+                                Do
+                                    Console.Clear()
+                                    Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                                    Console.Write("Are you sure to want to reset data of servers (Only Program)? <Y/N>: ")
+                                    reset = Console.ReadLine.ToUpper
+                                Loop While reset <> "Y" And reset <> "N"
 
                                 If reset = "Y" Then
+                                    If dirpath And dirservername Then
+                                        My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Path", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                                        My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\ServersName", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                                        Console.WriteLine("Closing program...")
+                                        End
+                                    Else
+                                        Console.WriteLine("There are no files to be deleted!")
+                                        Console.ReadLine()
 
+                                    End If
                                 End If
 
                             ElseIf choosereset = "2" Then
-                                Console.Clear()
-                                Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                                Console.Write("Are you sure to want to reset data of servers (Only your specified server)? <Y/N>: ")
-                                reset = Console.ReadLine.ToUpper
+                                Do
+                                    Console.Clear()
+                                    Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                                    Console.Write("Are you sure to want to reset data of servers (Only your specified server)? <Y/N>: ")
+                                    reset = Console.ReadLine.ToUpper
 
-                                If reset = "Y" Then
+                                    If reset = "Y" Then
+                                        Console.WriteLine("Coming Soon")
+                                        Console.ReadLine()
+                                    End If
 
-                                End If
+                                Loop While reset <> "Y" And reset <> "N"
 
                             ElseIf choosereset = "3" Then
-                                Console.Clear()
-                                Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                                Console.Write("Are you sure to want to reset all data/folders of program? <Y/N>: ")
-                                reset = Console.ReadLine.ToUpper
+                                Do
+                                    Console.Clear()
+                                    Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                                    Console.Write("Are you sure to want to reset all data/folders of program (It delete folders of program)? <Y/N>: ")
+                                    reset = Console.ReadLine.ToUpper
 
-                                If reset = "Y" Then
+                                    If reset = "Y" Then
+                                        If checkfolderinstallation Then
+                                            My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                                            Console.WriteLine("Closing program...")
+                                            End
+                                        Else
+                                            Console.WriteLine("There are no files to be deleted!")
+                                            Console.ReadLine()
 
-                                End If
+                                        End If
+
+                                    End If
+                                Loop While reset <> "Y" And reset <> "N"
 
                             End If
 
