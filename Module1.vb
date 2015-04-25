@@ -12,9 +12,10 @@
 
 
         '#Variables "Manage Servers"
-        Dim nservers As Integer
+        Dim nservers As String
         Dim nameservers As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
         Dim numberservers As String() = New String() {"first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"}
+        Dim checknservers As Object
 
         Dim defaultservers As String
 
@@ -28,7 +29,7 @@
 
 
         '#Variables Mechanical
-        Dim dirservername, dirpath As Object
+        Dim dirservername, dirpath, dirdata As Object
 
         'STARTUP
 
@@ -37,17 +38,20 @@
         checkfolderinstallation = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers")
         dirpath = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Path")
         dirservername = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\ServersName")
+        dirdata = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Data")
 
         checkpath = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\path.pm")
 
-        If dirpath And dirservername And checkfolderinstallation And checkpath Then
+        If dirpath And dirservername And checkfolderinstallation And checkpath And dirdata Then
             quit = "N"
 
         Else
+            path = ""
             Console.WriteLine("Preparing the first start ...")
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers") ' Create Installation Folder
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\ServersName") 'Create Folder Server Name
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Path") 'Create Folder Path
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Data") 'Create Folder Data
             My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path.pm", path, True) 'Create Initial path file
             Console.WriteLine("Complete! Press ENTER to continue.")
             Console.ReadLine()
@@ -183,17 +187,35 @@
             If menù = "2" Then 'Manage Servers [NOT COMPLETE THEREFORE DOESN'T WORK]
 
                 checkpath = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\path.pm")
+                checknservers = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
 
                 Checking(checknameserver)
+                If checknservers Then
+                    nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
+                    Convert.ToInt16(nservers)
+                Else
+                    Do
+                        Console.Clear()
+                        Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                        Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
+                        Console.Write("How many servers do you want to manage? <1/2/3/.../10> : ")
+                        nservers = Console.ReadLine
 
-                Do
-                    Console.Clear()
-                    Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                    Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
-                    Console.Write("How many servers do you want to manage? <1/2/3/.../10> : ")
-                    nservers = Console.ReadLine
+                        If nservers = "" Then
+                            Console.WriteLine("ERROR! Please select a number of servers.")
+                            Console.ReadLine()
+                        End If
 
-                Loop While nservers > 10 Or nservers <= 0
+                    Loop While nservers = ""
+
+                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm", nservers, True)
+
+                    If nservers = "1" Or nservers = "2" Or nservers = "3" Or nservers = "4" Or nservers = "5" Or nservers = "6" Or nservers = "7" Or nservers = "8" Or nservers = "9" Or nservers = "10" Then
+                        Convert.ToInt16(nservers)
+                    Else
+                        Convert.ToString(nservers)
+                    End If
+                End If
 
                 If nservers > 10 Then
                     Console.WriteLine("ERROR! You have exceeded the maximum number of servers available. Please reduce the amount!")
@@ -204,7 +226,6 @@
                     Console.ReadLine()
 
                 ElseIf nservers >= 1 Then
-
                     Console.WriteLine()
                     Console.WriteLine("If you do not enter a name for your server , by default it will be {0}", defaultservers)
 
@@ -427,7 +448,7 @@
                                 Loop While reset <> "Y" And reset <> "N"
 
                                 If reset = "Y" Then
-                                    If dirpath And dirservername Then
+                                        My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Data", FileIO.DeleteDirectoryOption.DeleteAllContents)
                                         My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Path", FileIO.DeleteDirectoryOption.DeleteAllContents)
                                         My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\ServersName", FileIO.DeleteDirectoryOption.DeleteAllContents)
                                         Console.WriteLine("Closing program...")
