@@ -10,7 +10,6 @@
         Dim version, stable, beta, dev, soft, link As String
         Dim checkpocketmine As Object
 
-
         '#Variables "Manage Servers"
         Dim nservers As Integer
         Dim nameservers As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
@@ -94,7 +93,7 @@
             Console.WriteLine("2- Manage Servers")
             Console.WriteLine("3- Maintenance Servers")
             Console.WriteLine("4- Programm Options")
-            Console.WriteLine("5- Credits")
+            Console.WriteLine("5- Informations")
             Console.WriteLine("6- Exit")
             Console.WriteLine()
             Console.Write("What would you like to do?: ")
@@ -466,10 +465,67 @@
             End If
 
             If menù = "5" Then
-                Console.Clear()
-                Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                Console.WriteLine("Coming Soon")
-                Console.ReadLine()
+
+                Dim information, moreinfo, gitlink, twitterlink As String
+
+                gitlink = "https://github.com/matcracker/PocketMine-ManagerServers"
+
+                twitterlink = "https://twitter.com/matcracker98"
+
+                Do
+                    Console.Clear()
+                    Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                    Console.WriteLine("--------------------------------<Informations>----------------------------------")
+                    Console.WriteLine("1- License")
+                    Console.WriteLine("2- Credits")
+                    Console.WriteLine("3- More Information")
+                    Console.WriteLine("4- Back")
+                    Console.WriteLine()
+                    Console.Write("Choose information: ")
+                    information = Console.ReadLine
+
+                    If information = "1" Then
+                        Process.Start("C:\Program Files\PocketMine-ManagerServers\LICENSE.pdf")
+
+                    ElseIf information = "2" Then
+                        Console.Clear()
+                        Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                        Console.WriteLine("--------------------------------<Informations>----------------------------------")
+                        Console.WriteLine("This program is free software made by matcracker: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, either version 2 of the License, or at your option) any later version.")
+                        Console.WriteLine()
+                        Console.WriteLine("This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more details.")
+                        Console.WriteLine()
+                        Console.WriteLine("You should have received a copy of the GNU Lesser General Public License along with this program.  If not, see in this program in the section 'Informations ->  License'.")
+                        Console.WriteLine()
+                        Console.WriteLine("Press ENTER to go back")
+                        Console.ReadLine()
+
+                    ElseIf information = "3" Then
+                        Do
+                            Console.Clear()
+                            Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                            Console.WriteLine("-----------------------------<More Informations>--------------------------------")
+                            Console.WriteLine("1- GitHub")
+                            Console.WriteLine("2- Twitter")
+                            Console.WriteLine("3- Back")
+                            Console.WriteLine()
+                            Console.Write("Choose information: ")
+                            moreinfo = Console.ReadLine
+
+                            If moreinfo = "1" Then
+                                Process.Start(gitlink)
+
+                            ElseIf moreinfo = "2" Then
+                                Process.Start(twitterlink)
+
+                            End If
+
+                        Loop While moreinfo <> "3"
+                    End If
+
+                Loop While information <> "4"
+
+
             End If
 
             If menù = "6" Then
