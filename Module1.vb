@@ -3,7 +3,7 @@
     Sub Main()
 
         '#Variables "Main Menu"
-        Dim menù, quit, license As String
+        Dim menù, quit As String
         Dim checkfolderinstallation, checklicense As Object
 
         '#Variables "Install PocketMine-MP
@@ -33,7 +33,7 @@
         Dim dirservername, dirpath, dirdata As Object
 
         'STARTUP
-        checklicense = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\license.pm")
+        checklicense = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\LICENSE.pdf")
 
         defaultservers = "Server Minecraft PE"
 
@@ -44,36 +44,18 @@
 
         checkpath = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\path.pm")
 
-        If dirpath And dirservername And checkfolderinstallation And checkpath And dirdata And checklicense Then
+        If dirpath And dirservername And checkfolderinstallation And checkpath And dirdata Then
             quit = "N"
-            license = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\license.pm")
 
         Else
+            Console.Clear()
+            Console.WriteLine("Preparing the first start ... Press ENTER")
+            Console.ReadLine()
             path = ""
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers") ' Create Installation Folder
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\ServersName") 'Create Folder Server Name
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Path") 'Create Folder Path
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Data") 'Create Folder Data
-
-            Do
-                Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                Console.WriteLine("----------------------------------<LICENSE>-------------------------------------")
-                Process.Start("C:\Program Files\PocketMine-ManagerServers\LICENSE.pdf")
-                Console.Write("Do you agree this license? <Y/N>: ")
-                license = Console.ReadLine.ToUpper
-
-                If license = "N" Then
-                    End
-                ElseIf license = "Y" Then
-                    license = "Y"
-                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\license.pm", license, True)
-                End If
-            Loop While license <> "Y" And license <> "N"
-
-            Console.Clear()
-            Console.WriteLine("Preparing the first start ... Press ENTER")
-            Console.ReadLine()
-
             My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path.pm", path, True) 'Create Initial path file
 
             For i = 1 To 100
@@ -89,6 +71,9 @@
             Console.Clear()
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
             Console.WriteLine("-------------------------------<Main Menù>--------------------------------------")
+            Console.ForegroundColor = ConsoleColor.Yellow
+            Console.WriteLine("                                                           Version: 1.0 #BUILD 1")
+            Console.ForegroundColor = ConsoleColor.Gray
             Console.WriteLine("1- Install PocketMine-MP")
             Console.WriteLine("2- Manage Servers")
             Console.WriteLine("3- Maintenance Servers")
@@ -485,9 +470,16 @@
                     information = Console.ReadLine
 
                     If information = "1" Then
-                        Process.Start("C:\Program Files\PocketMine-ManagerServers\LICENSE.pdf")
 
-                    ElseIf information = "2" Then
+                        If checklicense Then
+                            Process.Start("C:\Program Files\PocketMine-ManagerServers\LICENSE.pdf")
+                        Else
+                            Console.WriteLine("ERROR! Bad Installation! License not found!")
+                            Console.ReadLine()
+                        End If
+                    End If
+
+                    If information = "2" Then
                         Console.Clear()
                         Console.WriteLine("========================<PocketMine Manager Servers>============================")
                         Console.WriteLine("--------------------------------<Informations>----------------------------------")
@@ -500,7 +492,9 @@
                         Console.WriteLine("Press ENTER to go back")
                         Console.ReadLine()
 
-                    ElseIf information = "3" Then
+                    End If
+
+                    If information = "3" Then
                         Do
                             Console.Clear()
                             Console.WriteLine("========================<PocketMine Manager Servers>============================")
