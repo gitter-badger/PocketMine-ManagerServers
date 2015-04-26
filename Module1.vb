@@ -3,12 +3,13 @@
     Sub Main()
 
         '#Variables "Main Menu"
-        Dim menù, quit As String
-        Dim checkfolderinstallation As Object
+        Dim menù, quit, license As String
+        Dim checkfolderinstallation, checklicense As Object
 
         '#Variables "Install PocketMine-MP
         Dim version, stable, beta, dev, soft, link As String
         Dim checkpocketmine As Object
+
 
         '#Variables "Manage Servers"
         Dim nservers As Integer
@@ -33,6 +34,9 @@
         Dim dirservername, dirpath, dirdata As Object
 
         'STARTUP
+        checklicense = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\license.pm")
+
+        defaultservers = "Server Minecraft PE"
 
         checkfolderinstallation = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers")
         dirpath = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Path")
@@ -41,18 +45,38 @@
 
         checkpath = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\path.pm")
 
-        If dirpath And dirservername And checkfolderinstallation And checkpath And dirdata Then
+        If dirpath And dirservername And checkfolderinstallation And checkpath And dirdata And checklicense Then
             quit = "N"
+            license = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\license.pm")
 
         Else
             path = ""
-            Console.WriteLine("Preparing the first start ... Press ENTER")
-            Console.ReadLine()
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers") ' Create Installation Folder
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\ServersName") 'Create Folder Server Name
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Path") 'Create Folder Path
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Data") 'Create Folder Data
+
+            Do
+                Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                Console.WriteLine("----------------------------------<LICENSE>-------------------------------------")
+                Process.Start("C:\Program Files\PocketMine-ManagerServers\LICENSE.pdf")
+                Console.Write("Do you agree this license? <Y/N>: ")
+                license = Console.ReadLine.ToUpper
+
+                If license = "N" Then
+                    End
+                ElseIf license = "Y" Then
+                    license = "Y"
+                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\license.pm", license, True)
+                End If
+            Loop While license <> "Y" And license <> "N"
+
+            Console.Clear()
+            Console.WriteLine("Preparing the first start ... Press ENTER")
+            Console.ReadLine()
+
             My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path.pm", path, True) 'Create Initial path file
+
             For i = 1 To 100
                 Console.WriteLine("Loading resource {0}%", i)
             Next
