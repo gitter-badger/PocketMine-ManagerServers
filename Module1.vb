@@ -495,7 +495,8 @@
                     Console.WriteLine("1- License")
                     Console.WriteLine("2- Credits")
                     Console.WriteLine("3- More Information")
-                    Console.WriteLine("4- Back")
+                    Console.WriteLine("4- Disclaimer")
+                    Console.WriteLine("5- Back")
                     Console.WriteLine()
                     Console.Write("Choose information: ")
                     information = Console.ReadLine
@@ -548,7 +549,17 @@
                         Loop While moreinfo <> "3"
                     End If
 
-                Loop While information <> "4"
+                    If information = "4" Then
+                        Console.Clear()
+                        Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                        Console.WriteLine("---------------------------------<Disclaimer>-----------------------------------")
+                        Console.WriteLine()
+                        Console.WriteLine("I do not assume responsibility for the use of this program if being deleted folders or files, for you, important. The use is personal and therefore the connections you supply will have to be primarily related to the creation program server 'PocketMine-MP' or relative.")
+                        Console.ReadLine()
+
+                    End If
+
+                Loop While information <> "5"
 
 
             End If
@@ -685,5 +696,4 @@
             Next
         End If
     End Sub
-
 End Module
