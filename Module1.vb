@@ -37,6 +37,8 @@
         'STARTUP
         checklicense = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\LICENSE.pdf")
 
+        checknservers = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
+
         defaultservers = "Server Minecraft PE"
 
         checkfolderinstallation = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers")
@@ -207,8 +209,6 @@
             End If
 
             If menù = "2" Then 'Manage Servers
-
-                checknservers = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
 
                 Checking(checknameserver, checkpath)
 
@@ -421,12 +421,33 @@
                                 Do
                                     Console.Clear()
                                     Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                                    Console.Write("Are you sure to want to reset data of servers (Only your specified server)? <Y/N>: ")
+                                    Console.Write("WARNING! Are you sure to want to reset data of servers (Only your specified server)? <Y/N>: ")
                                     reset = Console.ReadLine.ToUpper
 
                                     If reset = "Y" Then
-                                        Console.WriteLine("Coming Soon")
-                                        Console.ReadLine()
+                                        If checkpath(0) Or checkpath(1) Or checkpath(2) Or checkpath(3) Or checkpath(4) Or checkpath(5) Or checkpath(6) Or checkpath(7) Or checkpath(8) Or checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
+                                            If checknservers Then
+
+                                                nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
+
+                                                For i = 1 To nservers
+                                                    My.Computer.FileSystem.DeleteDirectory(path(i - 1), path(i - 1), True)
+
+                                                Next
+
+                                                Console.WriteLine("Closing Program")
+                                                End
+
+                                            Else
+                                                Console.WriteLine("Please, before configuring the server(s).")
+                                                Console.ReadLine()
+
+                                            End If
+                                        Else
+                                            Console.WriteLine("There is no path to be deleted!")
+                                            Console.ReadLine()
+
+                                        End If
                                     End If
 
                                 Loop While reset <> "Y" And reset <> "N"
@@ -662,9 +683,7 @@
                 My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm", path(i - 1), True)
 
             Next
-
         End If
-
     End Sub
 
 End Module
