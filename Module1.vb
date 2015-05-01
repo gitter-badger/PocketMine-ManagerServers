@@ -22,32 +22,39 @@
 
         Dim checknameserver As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
 
-        Dim opener As String
+        Dim pathopener As String
         Dim path As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
 
         Dim checkpath As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
         '-------------------------------------------------------------------------------------------------------------------------------------------------
-        Dim manager As String
+        Dim varmanager As String
 
+        '-------------------------------------------------------------------------------------------------------------------------------------------------
+        Dim performance, performancestatus, confirmperfomance, selectperformance As String
+
+        Dim checkperformance As Object
 
         '#Variables "Program Options"
         Dim options, choosereset, reset As String
 
 
         '#Variables Mechanical
-        Dim dirservername, dirpath, dirdata As Object
+        Dim dirservername, dirpath, dirdata, dirutils As Object
 
         'STARTUP
+        defaultservers = "Server Minecraft PE"
+
         checklicense = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\LICENSE.pdf")
 
         checknservers = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
 
-        defaultservers = "Server Minecraft PE"
+        checkperformance = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm")
 
         checkfolderinstallation = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers")
         dirpath = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Path")
         dirservername = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\ServersName")
         dirdata = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Data")
+        dirutils = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Utils")
 
         For i = 1 To 10
             checkpath(i - 1) = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm")
@@ -56,7 +63,7 @@
 
         Checking(checknameserver, checkpath)
 
-        If dirpath And dirservername And checkfolderinstallation And dirdata And checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) Then
+        If dirpath And dirservername And checkfolderinstallation And checkperformance And dirdata And dirutils And checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) Then
             quit = "N"
             Reading(path, nservers, nameservers)
 
@@ -68,11 +75,16 @@
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\ServersName") 'Create Folder Server Name
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Path") 'Create Folder Path
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Data") 'Create Folder Data
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Utils") 'Create Folder Utils
 
             For i = 1 To 10
                 My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm", path(i - 1), True)
 
             Next
+
+            performancestatus = "Personal"
+
+            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm", performancestatus, True)
 
             For i = 1 To 100
                 Console.WriteLine("Loading resource {0}%", i)
@@ -218,6 +230,66 @@
                 If checknservers Then
                     nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
 
+                    If nservers = 1 And checknameserver(0) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    End If
+
+                    If nservers = 2 And checknameserver(0) And checknameserver(1) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    End If
+
+                    If nservers = 3 And checknameserver(0) And checknameserver(1) And checknameserver(2) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    End If
+
+                    If nservers = 4 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    End If
+
+                    If nservers = 5 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    End If
+
+                    If nservers = 6 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    End If
+
+                    If nservers = 7 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    End If
+
+                    If nservers = 8 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    End If
+
+                    If nservers = 9 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) And checknameserver(8) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    End If
+
+                    If nservers = 10 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) And checknameserver(8) And checknameserver(9) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    End If
+
                 Else
                     Do
                         Try
@@ -232,7 +304,6 @@
                                 Console.ReadLine()
 
                             ElseIf nservers <= 0 Then
-
                                 Console.WriteLine("ERROR! You have to manage one or more server! (MAX TEN!!)")
                                 Console.ReadLine()
 
@@ -248,155 +319,83 @@
 
                 End If
 
-                Do
-                    Console.Clear()
-                    Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                    Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
-                    Console.WriteLine("1- Open [Server/Folder]")
-                    Console.WriteLine("2- Edit server performance.")
-                    Console.WriteLine("3- Clean unnecessary files.")
-                    Console.WriteLine("4- Back")
-                    Console.WriteLine()
-                    Console.Write("Select Option: ")
-                    manager = Console.ReadLine
+                Console.Clear()
+                Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                Console.WriteLine("----------------------------------<Opener>--------------------------------------")
+                Console.WriteLine("If you do not enter a name for your server , by default it will be '{0}'", defaultservers)
 
-                    If manager = "1" Then
-                        Console.Clear()
-                        Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                        Console.WriteLine("----------------------------------<Opener>--------------------------------------")
-                        Console.WriteLine("If you do not enter a name for your server , by default it will be '{0}'", defaultservers)
+                If nservers >= 1 Then
 
-                        If nservers >= 1 Then
+                    If nservers = 1 Then
+                        Selection(nservers, nameservers, numberservers, defaultservers)
 
-                            If nservers = 1 And checknameserver(0) Then
-
-                                Managers(nservers, nameservers, numberservers_2, numberservers, checknameserver, path, opener, checkpath)
-
-                            ElseIf nservers = 1 Then
-                                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                                Writing(nameservers, nservers, path)
-
-                            End If
-
-                            If nservers = 2 And checknameserver(0) And checknameserver(1) Then
-
-                                Managers(nservers, nameservers, numberservers_2, numberservers, checknameserver, path, opener, checkpath)
-
-                            ElseIf nservers = 2 Then
-                                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                                Writing(nameservers, nservers, path)
-
-                            End If
-
-                            If nservers = 3 And checknameserver(0) And checknameserver(1) And checknameserver(2) Then
-
-                                Managers(nservers, nameservers, numberservers_2, numberservers, checknameserver, path, opener, checkpath)
-
-                            ElseIf nservers = 3 Then
-
-                                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                                Writing(nameservers, nservers, path)
-
-                            End If
-
-                            If nservers = 4 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) Then
-
-                                Managers(nservers, nameservers, numberservers_2, numberservers, checknameserver, path, opener, checkpath)
-
-                            ElseIf nservers = 4 Then
-                                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                                Writing(nameservers, nservers, path)
-
-                            End If
-
-                            If nservers = 5 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) Then
-
-                                Managers(nservers, nameservers, numberservers_2, numberservers, checknameserver, path, opener, checkpath)
-
-                            ElseIf nservers = 5 Then
-                                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                                Writing(nameservers, nservers, path)
-
-                            End If
-
-                            If nservers = 6 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) Then
-
-                                Managers(nservers, nameservers, numberservers_2, numberservers, checknameserver, path, opener, checkpath)
-
-                            ElseIf nservers = 6 Then
-
-                                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                                Writing(nameservers, nservers, path)
-
-                            End If
-
-                            If nservers = 7 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) Then
-
-                                Managers(nservers, nameservers, numberservers_2, numberservers, checknameserver, path, opener, checkpath)
-
-                            ElseIf nservers = 7 Then
-
-                                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                                Writing(nameservers, nservers, path)
-
-                            End If
-
-                            If nservers = 8 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) Then
-
-                                Managers(nservers, nameservers, numberservers_2, numberservers, checknameserver, path, opener, checkpath)
-
-                            ElseIf nservers = 8 Then
-
-                                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                                Writing(nameservers, nservers, path)
-
-                            End If
-
-                            If nservers = 9 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) And checknameserver(8) Then
-
-                                Managers(nservers, nameservers, numberservers_2, numberservers, checknameserver, path, opener, checkpath)
-
-                            ElseIf nservers = 9 Then
-
-                                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                                Writing(nameservers, nservers, path)
-
-                            End If
-
-                            If nservers = 10 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) And checknameserver(8) And checknameserver(9) Then
-
-                                Managers(nservers, nameservers, numberservers_2, numberservers, checknameserver, path, opener, checkpath)
-
-                            ElseIf nservers = 10 Then
-
-                                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                                Writing(nameservers, nservers, path)
-
-                            End If
-                        End If
-                    End If
-                    If manager = "2" Then
-                        Console.WriteLine("Coming Soon")
-                        Console.ReadLine()
+                        Writing(nameservers, nservers, path)
 
                     End If
 
-                    If manager = "3" Then
-                        Console.WriteLine("Coming Soon")
-                        Console.ReadLine()
+                    If nservers = 2 Then
+                        Selection(nservers, nameservers, numberservers, defaultservers)
+
+                        Writing(nameservers, nservers, path)
 
                     End If
-                Loop While manager <> "4"
+
+                    If nservers = 3 Then
+                        Selection(nservers, nameservers, numberservers, defaultservers)
+
+                        Writing(nameservers, nservers, path)
+
+                    End If
+
+                    If nservers = 4 Then
+                        Selection(nservers, nameservers, numberservers, defaultservers)
+
+                        Writing(nameservers, nservers, path)
+
+                    End If
+
+                    If nservers = 5 Then
+                        Selection(nservers, nameservers, numberservers, defaultservers)
+
+                        Writing(nameservers, nservers, path)
+
+                    End If
+
+                    If nservers = 6 Then
+                        Selection(nservers, nameservers, numberservers, defaultservers)
+
+                        Writing(nameservers, nservers, path)
+
+                    End If
+
+                    If nservers = 7 Then
+                        Selection(nservers, nameservers, numberservers, defaultservers)
+
+                        Writing(nameservers, nservers, path)
+
+                    End If
+
+                    If nservers = 8 Then
+                        Selection(nservers, nameservers, numberservers, defaultservers)
+
+                        Writing(nameservers, nservers, path)
+
+                    End If
+
+                    If nservers = 9 Then
+                        Selection(nservers, nameservers, numberservers, defaultservers)
+
+                        Writing(nameservers, nservers, path)
+
+                    End If
+
+                    If nservers = 10 Then
+                        Selection(nservers, nameservers, numberservers, defaultservers)
+
+                        Writing(nameservers, nservers, path)
+
+                    End If
+                End If
             End If
 
 
@@ -508,7 +507,6 @@
                                 Loop While reset <> "Y" And reset <> "N"
 
                             End If
-
                         Loop While choosereset <> "4"
                     End If
                 Loop While options <> "3"
@@ -623,12 +621,14 @@
 
         Next
     End Sub
+
     Sub Reading(ByRef path As Object(), ByRef nservers As Integer, ByRef nameservers As String())
         For i = 1 To nservers
             path(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm")
             nameservers(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(i) + ".pm")
 
         Next
+
     End Sub
 
     Sub Checking(ByRef checknameserver As Object(), ByRef checkpath As Object())
@@ -639,7 +639,7 @@
         Next
     End Sub
 
-    Sub Selection(ByVal nservers As Integer, ByRef nameservers As String(), ByVal numberservers As String(), ByVal defaultservers As String)
+    Sub Selection(ByRef nservers As Integer, ByRef nameservers As String(), ByRef numberservers As String(), ByRef defaultservers As String)
         For i = 1 To nservers
             defaultservers = ("Server Minecraft PE_" + Convert.ToString(i))
 
@@ -653,8 +653,146 @@
         Next
     End Sub
 
-    Sub Managers(ByVal nservers As Integer, ByRef nameservers As String(), ByRef numberservers_2 As String(), ByRef numberservers As String(), ByRef checknameserver As Object(), ByVal path As String(), ByRef opener As String, ByVal checkpath As Object())
-        
+    Sub Manager(ByRef nservers As Integer, ByRef varmanager As String, ByRef performance As String, ByRef performancestatus As String, ByRef confirmperfomance As String, ByRef nameservers As String(), ByRef numberservers_2 As String(), ByRef numberservers As String(), ByRef checknameserver As Object(), ByRef path As String(), ByRef pathopener As String, ByRef checkpath As Object(), ByRef checkperformance As Object, ByRef selectperformance As String)
+
+        Dim i As Integer
+        Dim checkyml As Object
+
+        Do
+            Console.Clear()
+            Console.WriteLine("========================<PocketMine Manager Servers>============================")
+            Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
+            Console.WriteLine("1- Open [Server/Folder]")
+            Console.WriteLine("2- Edit server performance.")
+            Console.WriteLine("3- Clean unnecessary files.")
+            Console.WriteLine("4- Back")
+            Console.WriteLine()
+            Console.Write("Select Option: ")
+            varmanager = Console.ReadLine
+
+            If varmanager = "1" Then 'Work
+                Opener(nservers, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance)
+
+            End If
+
+            If varmanager = "2" Then
+                performancestatus = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm")
+
+                Do
+                    Console.Clear()
+                    Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                    Console.WriteLine("--------------------------------<Performance>-----------------------------------")
+                    Console.WriteLine("Your current performance are: {0}", performancestatus)
+                    Console.WriteLine()
+                    Console.WriteLine("What features do you want to assign to your servers?")
+                    Console.WriteLine("1- High")
+                    Console.WriteLine("2- Average")
+                    Console.WriteLine("3- Low")
+                    Console.WriteLine()
+                    Console.Write("Choose features: ")
+                    performance = Console.ReadLine
+
+                    If performance = "1" Then
+                        Console.WriteLine()
+                        Console.WriteLine("If you choose this option, you will need to have a PC that supports it, so if you do not own it is strongly advised not to use it.")
+                        Console.Write("Do you want to continue? <Y/N>")
+                        confirmperfomance = Console.ReadLine.ToUpper
+
+                        If confirmperfomance = "Y" Then
+                            If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
+
+                                For i = 1 To nservers
+                                    checkpath(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm")
+
+                                Next
+
+                                Console.Clear()
+                                Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                                Console.WriteLine("--------------------------------<Performance>-----------------------------------")
+                                For i = 1 To nservers
+                                    Console.WriteLine("{0}) {1}", i, nameservers(i - 1))
+
+                                Next
+
+                                Console.Write("On which server you want to apply this setting? ")
+                                selectperformance = Console.ReadLine
+
+                                If selectperformance = "1" Then
+                                    Console.WriteLine("I'm making the changes...")
+                                    For i = 1 To nservers
+                                        checkyml = My.Computer.FileSystem.FileExists(path(i - 1) + "\pocketmine.yml")
+
+                                        If checkyml Then
+                                            My.Computer.FileSystem.DeleteFile(path(i - 1) + "\pocketmine.yml")
+                                            My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\pocketmine_HIGH.yml", path(i - 1) + "\pocketmine_HIGH.yml", overwrite:=True)
+                                            My.Computer.FileSystem.RenameFile(path(i - 1) + "\pocketmine_HIGH.yml", "pocketmine.yml")
+
+                                        Else
+                                            My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\pocketmine_HIGH.yml", path(i - 1) + "\pocketmine_HIGH.yml", overwrite:=True)
+                                            My.Computer.FileSystem.RenameFile(path(i - 1) + "\pocketmine_HIGH.yml", "pocketmine.yml")
+
+                                        End If
+
+                                    Next
+
+                                    If performancestatus = "Personal" Then
+                                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm")
+                                        performancestatus = "High"
+                                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm", performancestatus, True)
+
+                                    End If
+
+                                    Console.WriteLine()
+                                    Console.WriteLine("Changes made! Press ENTER to return to menu.")
+                                    Console.ReadLine()
+                                End If
+
+                            Else
+
+                                For i = 1 To nservers
+                                    Do
+                                        Console.Write("Write the folder path of the {0} server, example 'C:\PocketMine-MP': ", numberservers(i - 1))
+                                        path(i - 1) = Console.ReadLine
+
+                                        If path(i - 1) = "" Then
+                                            Console.WriteLine("ERROR! Insert a valid path!")
+                                            Console.ReadLine()
+
+                                        End If
+                                    Loop While path(i - 1) = ""
+
+                                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm", path(i - 1), True)
+
+                                Next
+
+                            End If
+
+
+                        End If
+                    End If
+
+                    If performance = "2" Then
+
+                    End If
+
+                    If performance = "3" Then
+
+                    End If
+
+
+                Loop While performance <> "4"
+            End If
+
+            If varmanager = "3" Then
+                Console.WriteLine("Coming Soon")
+                Console.ReadLine()
+
+            End If
+        Loop While varmanager <> "4"
+    End Sub
+
+    Sub Opener(ByRef nservers As Integer, ByRef nameservers As String(), ByRef numberservers_2 As String(), ByRef numberservers As String(), ByRef checknameserver As Object(), ByRef path As String(), ByRef pathopener As String, ByRef checkpath As Object(), ByRef performancestatus As String)
+
         Reading(path, nservers, nameservers)
 
         Do
@@ -667,17 +805,17 @@
             Next
             Console.WriteLine()
             Console.Write("What do you want to do? <Open [Server/Folder]>: ")
-            opener = Console.ReadLine.ToUpper
+            pathopener = Console.ReadLine.ToUpper
 
-            If opener <> "SERVER" And opener <> "FOLDER" Then
+            If pathopener <> "SERVER" And pathopener <> "FOLDER" Then
                 Console.WriteLine("Please, select a correct option")
                 Console.ReadLine()
 
             End If
 
-        Loop While opener <> "SERVER" And opener <> "FOLDER"
+        Loop While pathopener <> "SERVER" And pathopener <> "FOLDER"
 
-        If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" And opener = "SERVER" Or opener = "FOLDER" Then
+        If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" And pathopener = "SERVER" Or pathopener = "FOLDER" Then
             Console.WriteLine()
             Console.WriteLine("Reading your file(s)...")
             Console.WriteLine("File(s) succefully read!")
@@ -686,7 +824,7 @@
             Console.WriteLine()
             Console.WriteLine("Opening your server(s)...")
 
-            If opener = "SERVER" Then
+            If pathopener = "SERVER" Then
 
                 For i = 1 To nservers
                     If nservers > 1 Then
@@ -705,7 +843,7 @@
 
             End If
 
-            If opener = "FOLDER" Then
+            If pathopener = "FOLDER" Then
                 For i = 1 To nservers
                     Process.Start(path(i - 1))
 
