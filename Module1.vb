@@ -321,7 +321,7 @@
 
                 Console.Clear()
                 Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                Console.WriteLine("----------------------------------<Opener>--------------------------------------")
+                Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
                 Console.WriteLine("If you do not enter a name for your server , by default it will be '{0}'", defaultservers)
 
                 If nservers >= 1 Then
@@ -592,8 +592,6 @@
                     End If
 
                 Loop While information <> "5"
-
-
             End If
 
             If menù = "5" Then
@@ -653,10 +651,116 @@
         Next
     End Sub
 
+    Sub Performances(ByRef checkpath As Object(), ByRef checknameservers As Object(), ByRef performance As String, ByRef nameservers As String(), ByRef nservers As Integer, ByRef selectperformance As String, ByRef performancestatus As String, ByRef path As Object(), ByRef numberservers As String())
+
+        Dim checkyml As Object
+
+        If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) Then
+
+            Checking(checknameservers, checkpath)
+
+            Console.Clear()
+            Console.WriteLine("========================<PocketMine Manager Servers>============================")
+            Console.WriteLine("--------------------------------<Performance>-----------------------------------")
+            For i = 1 To nservers
+                Console.WriteLine("{0}) {1}", i, nameservers(i - 1))
+
+            Next
+
+            Console.WriteLine()
+            Console.Write("On which server you want to apply this setting? ")
+            selectperformance = Console.ReadLine
+
+            If selectperformance >= 1 Then
+                Console.WriteLine("I'm making the changes...")
+                For i = 1 To nservers
+                    checkyml = My.Computer.FileSystem.FileExists(path(i - 1) + "\pocketmine.yml")
+
+                    If performance = "1" Then 'High
+                        If checkyml Then
+                            My.Computer.FileSystem.DeleteFile(path(i - 1) + "\pocketmine.yml")
+                            My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\pocketmine_HIGH.yml", path(i - 1) + "\pocketmine_HIGH.yml", overwrite:=True)
+                            My.Computer.FileSystem.RenameFile(path(i - 1) + "\pocketmine_HIGH.yml", "pocketmine.yml")
+
+                        Else
+                            My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\pocketmine_HIGH.yml", path(i - 1) + "\pocketmine_HIGH.yml", overwrite:=True)
+                            My.Computer.FileSystem.RenameFile(path(i - 1) + "\pocketmine_HIGH.yml", "pocketmine.yml")
+
+                        End If
+                    End If
+
+                    If performance = "2" Then 'Medium
+                        If checkyml Then
+                            My.Computer.FileSystem.DeleteFile(path(i - 1) + "\pocketmine.yml")
+                            My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\pocketmine_MEDIUM.yml", path(i - 1) + "\pocketmine_MEDIUM.yml", overwrite:=True)
+                            My.Computer.FileSystem.RenameFile(path(i - 1) + "\pocketmine_MEDIUM.yml", "pocketmine.yml")
+
+                        Else
+                            My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\pocketmine_MEDIUM.yml", path(i - 1) + "\pocketmine_MEDIUM.yml", overwrite:=True)
+                            My.Computer.FileSystem.RenameFile(path(i - 1) + "\pocketmine_MEDIUM.yml", "pocketmine.yml")
+                        End If
+                    End If
+
+                    If performance = "3" Then 'Low
+                        If checkyml Then
+                            My.Computer.FileSystem.DeleteFile(path(i - 1) + "\pocketmine.yml")
+                            My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\pocketmine_LOW.yml", path(i - 1) + "\pocketmine_LOW.yml", overwrite:=True)
+                            My.Computer.FileSystem.RenameFile(path(i - 1) + "\pocketmine_LOW.yml", "pocketmine.yml")
+
+                        Else
+                            My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\pocketmine_LOW.yml", path(i - 1) + "\pocketmine_LOW.yml", overwrite:=True)
+                            My.Computer.FileSystem.RenameFile(path(i - 1) + "\pocketmine_LOW.yml", "pocketmine.yml")
+
+                        End If
+                    End If
+                Next
+
+                If performancestatus = "Personal" Or performancestatus = "Medium" Or performancestatus = "Low" Then 'High
+                    My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm")
+                    performancestatus = "High"
+                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm", performancestatus, True)
+
+                ElseIf performancestatus = "Personal" Or performancestatus = "High" Or performancestatus = "Low" Then 'Medium
+                    My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm")
+                    performancestatus = "Medium"
+                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm", performancestatus, True)
+
+                ElseIf performancestatus = "Personal" Or performancestatus = "High" Or performancestatus = "Medium" Then 'Low
+                    My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm")
+                    performancestatus = "Low"
+                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm", performancestatus, True)
+
+                End If
+            End If
+
+            Console.WriteLine()
+            Console.WriteLine("Changes made! Press ENTER to return to menu.")
+            Console.ReadLine()
+        Else
+
+            For i = 1 To nservers
+                Do
+                    Console.Write("Write the folder path of the {0} server, example 'C:\PocketMine-MP': ", numberservers(i - 1))
+                    path(i - 1) = Console.ReadLine
+
+                    If path(i - 1) = "" Then
+                        Console.WriteLine("ERROR! Insert a valid path!")
+                        Console.ReadLine()
+
+                    End If
+                Loop While path(i - 1) = ""
+
+                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm", path(i - 1), True)
+
+            Next
+        End If
+    End Sub
+
     Sub Manager(ByRef nservers As Integer, ByRef varmanager As String, ByRef performance As String, ByRef performancestatus As String, ByRef confirmperfomance As String, ByRef nameservers As String(), ByRef numberservers_2 As String(), ByRef numberservers As String(), ByRef checknameserver As Object(), ByRef path As String(), ByRef pathopener As String, ByRef checkpath As Object(), ByRef checkperformance As Object, ByRef selectperformance As String)
 
         Dim i As Integer
-        Dim checkyml As Object
+
+        Reading(path, nservers, nameservers)
 
         Do
             Console.Clear()
@@ -678,109 +782,65 @@
             If varmanager = "2" Then
                 performancestatus = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm")
 
-                Do
+                Try
                     Console.Clear()
                     Console.WriteLine("========================<PocketMine Manager Servers>============================")
                     Console.WriteLine("--------------------------------<Performance>-----------------------------------")
-                    Console.WriteLine("Your current performance are: {0}", performancestatus)
+                    Console.WriteLine("Your current performance are: ")
+                    For i = 1 To nservers
+                        Console.WriteLine("{0}) {1}: {2}", i, nameservers(i - 1), performancestatus)
+
+                    Next
+
                     Console.WriteLine()
                     Console.WriteLine("What features do you want to assign to your servers?")
                     Console.WriteLine("1- High")
-                    Console.WriteLine("2- Average")
+                    Console.WriteLine("2- Medium")
                     Console.WriteLine("3- Low")
+                    Console.WriteLine("4- Back")
                     Console.WriteLine()
                     Console.Write("Choose features: ")
                     performance = Console.ReadLine
 
                     If performance = "1" Then
                         Console.WriteLine()
-                        Console.WriteLine("If you choose this option, you will need to have a PC that supports it, so if you do not own it is strongly advised not to use it.")
-                        Console.Write("Do you want to continue? <Y/N>")
+                        Console.WriteLine("If you choose this option, you'll need to have a PC that supports it, so if you do not own it is strongly advised not to use it.")
+                        Console.Write("Do you want to continue? <Y/N>: ")
                         confirmperfomance = Console.ReadLine.ToUpper
 
                         If confirmperfomance = "Y" Then
-                            If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
-
-                                For i = 1 To nservers
-                                    checkpath(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm")
-
-                                Next
-
-                                Console.Clear()
-                                Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                                Console.WriteLine("--------------------------------<Performance>-----------------------------------")
-                                For i = 1 To nservers
-                                    Console.WriteLine("{0}) {1}", i, nameservers(i - 1))
-
-                                Next
-
-                                Console.Write("On which server you want to apply this setting? ")
-                                selectperformance = Console.ReadLine
-
-                                If selectperformance = "1" Then
-                                    Console.WriteLine("I'm making the changes...")
-                                    For i = 1 To nservers
-                                        checkyml = My.Computer.FileSystem.FileExists(path(i - 1) + "\pocketmine.yml")
-
-                                        If checkyml Then
-                                            My.Computer.FileSystem.DeleteFile(path(i - 1) + "\pocketmine.yml")
-                                            My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\pocketmine_HIGH.yml", path(i - 1) + "\pocketmine_HIGH.yml", overwrite:=True)
-                                            My.Computer.FileSystem.RenameFile(path(i - 1) + "\pocketmine_HIGH.yml", "pocketmine.yml")
-
-                                        Else
-                                            My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\pocketmine_HIGH.yml", path(i - 1) + "\pocketmine_HIGH.yml", overwrite:=True)
-                                            My.Computer.FileSystem.RenameFile(path(i - 1) + "\pocketmine_HIGH.yml", "pocketmine.yml")
-
-                                        End If
-
-                                    Next
-
-                                    If performancestatus = "Personal" Then
-                                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm")
-                                        performancestatus = "High"
-                                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm", performancestatus, True)
-
-                                    End If
-
-                                    Console.WriteLine()
-                                    Console.WriteLine("Changes made! Press ENTER to return to menu.")
-                                    Console.ReadLine()
-                                End If
-
-                            Else
-
-                                For i = 1 To nservers
-                                    Do
-                                        Console.Write("Write the folder path of the {0} server, example 'C:\PocketMine-MP': ", numberservers(i - 1))
-                                        path(i - 1) = Console.ReadLine
-
-                                        If path(i - 1) = "" Then
-                                            Console.WriteLine("ERROR! Insert a valid path!")
-                                            Console.ReadLine()
-
-                                        End If
-                                    Loop While path(i - 1) = ""
-
-                                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm", path(i - 1), True)
-
-                                Next
-
-                            End If
-
+                            Performances(checkpath, checknameserver, performance, nameservers, nservers, selectperformance, performancestatus, path, numberservers)
 
                         End If
                     End If
 
                     If performance = "2" Then
+                        Console.WriteLine()
+                        Console.WriteLine("If you choose this option, you'll need a PC not too handsome, it is suitable for handling small servers.")
+                        Console.Write("Do you want to continue? <Y/N>: ")
+                        confirmperfomance = Console.ReadLine.ToUpper
 
+                        If confirmperfomance = "Y" Then
+                            Performances(checkpath, checknameserver, performance, nameservers, nservers, selectperformance, performancestatus, path, numberservers)
+
+                        End If
                     End If
 
                     If performance = "3" Then
+                        Console.WriteLine()
+                        Console.WriteLine("If you choose this option, you'll need a PC not too handsome, it is suitable to manage servers with friends.")
+                        Console.Write("Do you want to continue? <Y/N>: ")
+                        confirmperfomance = Console.ReadLine.ToUpper
 
+                        If confirmperfomance = "Y" Then
+                            Performances(checkpath, checknameserver, performance, nameservers, nservers, selectperformance, performancestatus, path, numberservers)
+
+                        End If
                     End If
+                Catch ex As Exception
+                    Console.WriteLine(ex)
 
-
-                Loop While performance <> "4"
+                End Try
             End If
 
             If varmanager = "3" Then
@@ -799,7 +859,7 @@
 
             Console.Clear()
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
-            Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
+            Console.WriteLine("-----------------------------------<Opener>-------------------------------------")
             For i = 1 To nservers
                 Console.WriteLine("{0} server: {1}", numberservers_2(i - 1), nameservers(i - 1))
             Next
