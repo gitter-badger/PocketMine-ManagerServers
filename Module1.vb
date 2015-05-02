@@ -46,8 +46,6 @@
 
         checklicense = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\LICENSE.pdf")
 
-        checknservers = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
-
         checkperformance = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm")
 
         checkfolderinstallation = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers")
@@ -55,11 +53,6 @@
         dirservername = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\ServersName")
         dirdata = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Data")
         dirutils = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Utils")
-
-        For i = 1 To 10
-            checkpath(i - 1) = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm")
-
-        Next
 
         Checking(checknameserver, checkpath)
 
@@ -225,70 +218,10 @@
 
             If menù = "2" Then 'Manage Servers
 
-                Checking(checknameserver, checkpath)
+                checknservers = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
 
                 If checknservers Then
                     nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
-
-                    If nservers = 1 And checknameserver(0) Then
-
-                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
-
-                    End If
-
-                    If nservers = 2 And checknameserver(0) And checknameserver(1) Then
-
-                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
-
-                    End If
-
-                    If nservers = 3 And checknameserver(0) And checknameserver(1) And checknameserver(2) Then
-
-                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
-
-                    End If
-
-                    If nservers = 4 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) Then
-
-                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
-
-                    End If
-
-                    If nservers = 5 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) Then
-
-                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
-
-                    End If
-
-                    If nservers = 6 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) Then
-
-                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
-
-                    End If
-
-                    If nservers = 7 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) Then
-
-                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
-
-                    End If
-
-                    If nservers = 8 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) Then
-
-                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
-
-                    End If
-
-                    If nservers = 9 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) And checknameserver(8) Then
-
-                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
-
-                    End If
-
-                    If nservers = 10 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) And checknameserver(8) And checknameserver(9) Then
-
-                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
-
-                    End If
 
                 Else
                     Do
@@ -319,77 +252,119 @@
 
                 End If
 
+                Checking(checknameserver, checkpath)
+
                 Console.Clear()
                 Console.WriteLine("========================<PocketMine Manager Servers>============================")
                 Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
                 Console.WriteLine("If you do not enter a name for your server , by default it will be '{0}'", defaultservers)
 
                 If nservers >= 1 Then
+                    If nservers = 1 And checknameserver(0) Then
 
-                    If nservers = 1 Then
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    ElseIf nservers = 1 Then
                         Selection(nservers, nameservers, numberservers, defaultservers)
 
                         Writing(nameservers, nservers, path)
 
                     End If
 
-                    If nservers = 2 Then
+
+                    If nservers = 2 And checknameserver(0) And checknameserver(1) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    ElseIf nservers = 2 Then
                         Selection(nservers, nameservers, numberservers, defaultservers)
 
                         Writing(nameservers, nservers, path)
 
                     End If
 
-                    If nservers = 3 Then
+                    If nservers = 3 And checknameserver(0) And checknameserver(1) And checknameserver(2) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    ElseIf nservers = 3 Then
                         Selection(nservers, nameservers, numberservers, defaultservers)
 
                         Writing(nameservers, nservers, path)
 
                     End If
 
-                    If nservers = 4 Then
+                    If nservers = 4 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    ElseIf nservers = 4 Then
                         Selection(nservers, nameservers, numberservers, defaultservers)
 
                         Writing(nameservers, nservers, path)
 
                     End If
 
-                    If nservers = 5 Then
+                    If nservers = 5 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    ElseIf nservers = 5 Then
                         Selection(nservers, nameservers, numberservers, defaultservers)
 
                         Writing(nameservers, nservers, path)
 
                     End If
 
-                    If nservers = 6 Then
+                    If nservers = 6 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    ElseIf nservers = 6 Then
                         Selection(nservers, nameservers, numberservers, defaultservers)
 
                         Writing(nameservers, nservers, path)
 
                     End If
 
-                    If nservers = 7 Then
+                    If nservers = 7 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    ElseIf nservers = 7 Then
                         Selection(nservers, nameservers, numberservers, defaultservers)
 
                         Writing(nameservers, nservers, path)
 
                     End If
 
-                    If nservers = 8 Then
+                    If nservers = 8 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    ElseIf nservers = 8 Then
                         Selection(nservers, nameservers, numberservers, defaultservers)
 
                         Writing(nameservers, nservers, path)
 
                     End If
 
-                    If nservers = 9 Then
+                    If nservers = 9 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) And checknameserver(8) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    ElseIf nservers = 9 Then
                         Selection(nservers, nameservers, numberservers, defaultservers)
 
                         Writing(nameservers, nservers, path)
 
                     End If
 
-                    If nservers = 10 Then
+                    If nservers = 10 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) And checknameserver(8) And checknameserver(9) Then
+
+                        Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+
+                    ElseIf nservers = 10 Then
                         Selection(nservers, nameservers, numberservers, defaultservers)
 
                         Writing(nameservers, nservers, path)
@@ -397,7 +372,6 @@
                     End If
                 End If
             End If
-
 
             If menù = "3" Then 'Program Options
                 Do
@@ -655,10 +629,9 @@
 
         Dim checkyml As Object
 
+        Checking(checknameservers, checkpath)
+
         If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) Then
-
-            Checking(checknameservers, checkpath)
-
             Console.Clear()
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
             Console.WriteLine("--------------------------------<Performance>-----------------------------------")
@@ -720,12 +693,16 @@
                     performancestatus = "High"
                     My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm", performancestatus, True)
 
-                ElseIf performancestatus = "Personal" Or performancestatus = "High" Or performancestatus = "Low" Then 'Medium
+                End If
+
+                If performancestatus = "Personal" Or performancestatus = "High" Or performancestatus = "Low" Then 'Medium
                     My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm")
                     performancestatus = "Medium"
                     My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm", performancestatus, True)
 
-                ElseIf performancestatus = "Personal" Or performancestatus = "High" Or performancestatus = "Medium" Then 'Low
+                End If
+
+                If performancestatus = "Personal" Or performancestatus = "High" Or performancestatus = "Medium" Then 'Low
                     My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm")
                     performancestatus = "Low"
                     My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\PerformanceStatus.pm", performancestatus, True)
