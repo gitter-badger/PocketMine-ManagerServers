@@ -27,6 +27,7 @@
             Console.WriteLine()
             Console.WriteLine("Reading your file(s)...")
             Console.WriteLine("File(s) succefully read!")
+            Console.ReadLine()
 
             Console.WriteLine()
             Console.WriteLine("Opening your server(s)...")
