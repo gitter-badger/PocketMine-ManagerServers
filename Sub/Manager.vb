@@ -23,7 +23,7 @@
             End If
 
             If varmanager = "2" Then
-                For i = 1 To 10
+                For i = 1 To nservers
                     performancestatus(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Performance\PerformanceStatus_" + Convert.ToString(i) + ".pm")
 
                 Next

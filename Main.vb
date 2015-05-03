@@ -39,7 +39,7 @@
         Dim options, choosereset, reset As String
 
         '#Variables Mechanical
-        Dim dirservername, dirpath, dirdata, dirutils As Object
+        Dim dirservername, dirpath, dirdata, dirutils, dirperformance As Object
 		
         'STARTUP
         defaultservers = "Server Minecraft PE"
@@ -57,11 +57,12 @@
         dirpath = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Path")
         dirservername = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\ServersName")
         dirdata = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Data")
+        dirperformance = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Performance")
         dirutils = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Utils")
 
         Checking(checknameserver, checkpath)
 
-        If dirpath And dirservername And checkfolderinstallation And dirdata And dirutils And checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) _
+        If dirpath And dirservername And checkfolderinstallation And dirperformance And dirdata And dirutils And checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) _
              And checkperformance(0) And checkperformance(1) And checkperformance(2) And checkperformance(3) And checkperformance(4) And checkperformance(5) And checkperformance(6) And checkperformance(7) And checkperformance(8) And checkperformance(9) Then
 
             quit = "N"
@@ -418,10 +419,11 @@
                                 Loop While reset <> "Y" And reset <> "N"
 
                                 If reset = "Y" Then
-                                    If dirpath And dirservername And dirdata Then
+                                    If dirpath And dirservername And dirdata And dirperformance Then
                                         My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Path", FileIO.DeleteDirectoryOption.DeleteAllContents)
                                         My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\ServersName", FileIO.DeleteDirectoryOption.DeleteAllContents)
                                         My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Data", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                                        My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Performance", FileIO.DeleteDirectoryOption.DeleteAllContents)
                                         Console.WriteLine("Closing program...")
                                         End
                                     Else
