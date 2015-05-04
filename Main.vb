@@ -103,7 +103,6 @@
             Console.WriteLine("-------------------------------<Main Menù>--------------------------------------")
             Console.ForegroundColor = ConsoleColor.Yellow
             Console.WriteLine("                                                           Version: 1.0 #BUILD 3")
-            Console.ForegroundColor = ConsoleColor.Gray
             Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine("1- Install PocketMine-MP")
             Console.WriteLine("2- Manage Servers")

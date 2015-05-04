@@ -2,9 +2,6 @@
 
     Sub Performances(ByRef checkpath As Object(), ByRef checknameservers As Object(), ByRef performance As String, ByRef nameservers As String(), ByRef nservers As Integer, ByRef selectperformance As String, ByRef performancestatus As String(), ByRef path As Object(), ByRef numberservers As String())
 
-        'eliminami!!!
-        Dim i As Integer = 0
-
         Dim checkyml, checkyml2 As Object
 
         Checking(checknameservers, checkpath)
