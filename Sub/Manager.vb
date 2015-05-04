@@ -6,12 +6,14 @@
 
         Do
             Console.Clear()
+            Console.ForegroundColor = ConsoleColor.Green
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
+            Console.ForegroundColor = ConsoleColor.Magenta
             Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
+            Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine("1- Open [Server/Folder]")
             Console.WriteLine("2- Edit server performance.")
-            Console.WriteLine("3- Clean unnecessary files.")
-            Console.WriteLine("4- Back")
+            Console.WriteLine("3- Back")
             Console.WriteLine()
             Console.Write("Select Option: ")
             varmanager = Console.ReadLine
@@ -26,12 +28,7 @@
 
             End If
 
-            If varmanager = "3" Then
-                Console.WriteLine("Coming Soon")
-                Console.ReadLine()
-
-            End If
-        Loop While varmanager <> "4"
+        Loop While varmanager <> "3"
     End Sub
 
 End Module

@@ -4,10 +4,12 @@
         Reading(path, nservers, nameservers)
 
         Do
-
             Console.Clear()
+            Console.ForegroundColor = ConsoleColor.Green
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
+            Console.ForegroundColor = ConsoleColor.DarkMagenta
             Console.WriteLine("-----------------------------------<Opener>-------------------------------------")
+            Console.ForegroundColor = ConsoleColor.White
             For i = 1 To nservers
                 Console.WriteLine("{0} server: {1}", numberservers_2(i - 1), nameservers(i - 1))
             Next
@@ -64,6 +66,7 @@
                     path(i - 1) = Console.ReadLine
 
                     If path(i - 1) = "" Then
+                        Console.ForegroundColor = ConsoleColor.DarkRed
                         Console.WriteLine("ERROR! Insert a valid path!")
                         Console.ReadLine()
 

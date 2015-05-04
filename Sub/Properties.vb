@@ -21,8 +21,11 @@ Module Properties
         Dim checkproperty, checkproperty2 As Object
 
         Console.Clear()
+        Console.ForegroundColor = ConsoleColor.Green
         Console.WriteLine("========================<PocketMine Manager Servers>============================")
+        Console.ForegroundColor = ConsoleColor.DarkGreen
         Console.WriteLine("--------------------------<Edit Server Properties>------------------------------")
+        Console.ForegroundColor = ConsoleColor.White
         Console.WriteLine("Checking path(s)...")
 
         Checking(checknameserver, checkpath)

@@ -96,12 +96,15 @@
         End If
 
         While quit = "N"
+            Console.ForegroundColor = ConsoleColor.Green
             Console.Clear()
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
+            Console.ForegroundColor = ConsoleColor.Red
             Console.WriteLine("-------------------------------<Main Menù>--------------------------------------")
             Console.ForegroundColor = ConsoleColor.Yellow
-            Console.WriteLine("                                                           Version: 1.0 #BUILD 2")
+            Console.WriteLine("                                                           Version: 1.0 #BUILD 3")
             Console.ForegroundColor = ConsoleColor.Gray
+            Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine("1- Install PocketMine-MP")
             Console.WriteLine("2- Manage Servers")
             Console.WriteLine("3- Programm Options")
@@ -119,8 +122,11 @@
 
                 Do
                     Console.Clear()
+                    Console.ForegroundColor = ConsoleColor.Green
                     Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                    Console.WriteLine("---------------------------<Install PocketMine-MP>------------------------------")
+                    Console.ForegroundColor = ConsoleColor.Blue
+                    Console.WriteLine("--------------------------<Install PocketMine-MP>-------------------------------")
+                    Console.ForegroundColor = ConsoleColor.White
                     Console.Write("What kind of version you want to install? <Stable/Beta/Dev/Soft>: ")
                     version = Console.ReadLine.ToUpper
 
@@ -234,8 +240,11 @@
                     Do
                         Try
                             Console.Clear()
+                            Console.ForegroundColor = ConsoleColor.Green
                             Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                            Console.ForegroundColor = ConsoleColor.Magenta
                             Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
+                            Console.ForegroundColor = ConsoleColor.White
                             Console.Write("How many servers do you want to manage? <1/2/3/.../10> : ")
                             nservers = Console.ReadLine
 
@@ -262,8 +271,11 @@
                 Checking(checknameserver, checkpath)
 
                 Console.Clear()
+                Console.ForegroundColor = ConsoleColor.Green
                 Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                Console.ForegroundColor = ConsoleColor.Magenta
                 Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
+                Console.ForegroundColor = ConsoleColor.White
                 Console.WriteLine("If you do not enter a name for your server , by default it will be '{0}'", defaultservers)
 
                 If nservers >= 1 Then
@@ -384,8 +396,11 @@
             If menù = "3" Then 'Program Options
                 Do
                     Console.Clear()
+                    Console.ForegroundColor = ConsoleColor.Green
                     Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                    Console.ForegroundColor = ConsoleColor.Cyan
                     Console.WriteLine("------------------------------<Program Options>---------------------------------")
+                    Console.ForegroundColor = ConsoleColor.White
                     Console.WriteLine("1- Language [COMING SOON]")
                     Console.WriteLine("2- Reset Program")
                     Console.WriteLine("3- Back")
@@ -400,8 +415,11 @@
                     ElseIf options = "2" Then
                         Do
                             Console.Clear()
+                            Console.ForegroundColor = ConsoleColor.Green
                             Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                            Console.ForegroundColor = ConsoleColor.Red
                             Console.WriteLine("-------------------------------<Reset Program>----------------------------------")
+                            Console.ForegroundColor = ConsoleColor.White
                             Console.WriteLine("1- Reset data of servers (Only Programm)")
                             Console.WriteLine("2- Reset data of servers (Only your specified server)")
                             Console.WriteLine("3- Reset all data/folders of programm")
@@ -413,8 +431,11 @@
                             If choosereset = "1" Then
                                 Do
                                     Console.Clear()
+                                    Console.ForegroundColor = ConsoleColor.Green
                                     Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                                    Console.ForegroundColor = ConsoleColor.DarkRed
                                     Console.Write("Are you sure to want to reset data of servers (Only Program)? <Y/N>: ")
+                                    Console.ForegroundColor = ConsoleColor.White
                                     reset = Console.ReadLine.ToUpper
                                 Loop While reset <> "Y" And reset <> "N"
 
@@ -436,8 +457,11 @@
                             ElseIf choosereset = "2" Then
                                 Do
                                     Console.Clear()
+                                    Console.ForegroundColor = ConsoleColor.Green
                                     Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                                    Console.ForegroundColor = ConsoleColor.DarkRed
                                     Console.Write("WARNING! Are you sure to want to reset data of servers (Only your specified server)? <Y/N>: ")
+                                    Console.ForegroundColor = ConsoleColor.White
                                     reset = Console.ReadLine.ToUpper
 
                                     If reset = "Y" Then
@@ -471,8 +495,11 @@
                             ElseIf choosereset = "3" Then
                                 Do
                                     Console.Clear()
+                                    Console.ForegroundColor = ConsoleColor.Green
                                     Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                                    Console.ForegroundColor = ConsoleColor.DarkRed
                                     Console.Write("Are you sure to want to reset all data/folders of program (It delete folders of program)? <Y/N>: ")
+                                    Console.ForegroundColor = ConsoleColor.White
                                     reset = Console.ReadLine.ToUpper
 
                                     If reset = "Y" Then
@@ -505,8 +532,11 @@
 
                 Do
                     Console.Clear()
+                    Console.ForegroundColor = ConsoleColor.Green
                     Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                    Console.ForegroundColor = ConsoleColor.Yellow
                     Console.WriteLine("--------------------------------<Informations>----------------------------------")
+                    Console.ForegroundColor = ConsoleColor.White
                     Console.WriteLine("1- License")
                     Console.WriteLine("2- Credits")
                     Console.WriteLine("3- More Information")
@@ -521,6 +551,7 @@
                         If checklicense Then
                             Process.Start("C:\Program Files\PocketMine-ManagerServers\LICENSE.pdf")
                         Else
+                            Console.ForegroundColor = ConsoleColor.DarkRed
                             Console.WriteLine("ERROR! Bad Installation! License not found!")
                             Console.ReadLine()
                         End If
@@ -528,8 +559,11 @@
 
                     If information = "2" Then
                         Console.Clear()
+                        Console.ForegroundColor = ConsoleColor.Green
                         Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                        Console.WriteLine("--------------------------------<Informations>----------------------------------")
+                        Console.ForegroundColor = ConsoleColor.DarkYellow
+                        Console.WriteLine("-----------------------------------<Credits>------------------------------------")
+                        Console.ForegroundColor = ConsoleColor.White
                         Console.WriteLine("This program is free software made by matcracker: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, either version 2 of the License, or at your option) any later version.")
                         Console.WriteLine()
                         Console.WriteLine("This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more details.")
@@ -544,8 +578,11 @@
                     If information = "3" Then
                         Do
                             Console.Clear()
+                            Console.ForegroundColor = ConsoleColor.Green
                             Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                            Console.ForegroundColor = ConsoleColor.DarkCyan
                             Console.WriteLine("-----------------------------<More Informations>--------------------------------")
+                            Console.ForegroundColor = ConsoleColor.White
                             Console.WriteLine("1- GitHub")
                             Console.WriteLine("2- Twitter")
                             Console.WriteLine("3- Back")
@@ -566,8 +603,11 @@
 
                     If information = "4" Then
                         Console.Clear()
+                        Console.ForegroundColor = ConsoleColor.Green
                         Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                        Console.ForegroundColor = ConsoleColor.DarkBlue
                         Console.WriteLine("---------------------------------<Disclaimer>-----------------------------------")
+                        Console.ForegroundColor = ConsoleColor.White
                         Console.WriteLine()
                         Console.WriteLine("I do not assume responsibility for the use of this program if being deleted folders or files, for you, important. The use is personal and therefore the connections you supply will have to be primarily related to the creation program server 'PocketMine-MP' or relative.")
                         Console.ReadLine()
@@ -579,8 +619,11 @@
             If menù = "5" Then
                 Do
                     Console.Clear()
+                    Console.ForegroundColor = ConsoleColor.Green
                     Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                    Console.ForegroundColor = ConsoleColor.DarkGreen
                     Console.WriteLine("----------------------------------<Exit>----------------------------------------")
+                    Console.ForegroundColor = ConsoleColor.White
                     Console.Write("Are you sure you want to quit? <Y/N>: ")
                     quit = Console.ReadLine.ToUpper
                 Loop While quit <> "Y" And quit <> "N"

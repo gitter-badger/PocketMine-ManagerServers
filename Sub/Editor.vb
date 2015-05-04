@@ -6,13 +6,16 @@
 
         Do
             Console.Clear()
+            Console.ForegroundColor = ConsoleColor.Green
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
+            Console.ForegroundColor = ConsoleColor.Yellow
             Console.WriteLine("------------------------------------<Editor>------------------------------------")
+            Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine("1- Edit Server Properties")
             Console.WriteLine("2- Edit Performance Server")
             Console.WriteLine("3- Back")
             Console.WriteLine()
-            Console.Write("What do you want to edit?")
+            Console.Write("What do you want to edit? ")
             choosedit = Console.ReadLine
 
             If choosedit = "1" Then
@@ -28,8 +31,11 @@
 
                 Do
                     Console.Clear()
+                    Console.ForegroundColor = ConsoleColor.Green
                     Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                    Console.ForegroundColor = ConsoleColor.Gray
                     Console.WriteLine("--------------------------------<Performance>-----------------------------------")
+                    Console.ForegroundColor = ConsoleColor.White
                     Console.WriteLine("Your current performance are: ")
                     For i = 1 To nservers
                         Console.WriteLine("{0}) {1}: {2}", i, nameservers(i - 1), performancestatus(i - 1))
