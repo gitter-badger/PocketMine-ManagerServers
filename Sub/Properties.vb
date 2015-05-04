@@ -1,10 +1,20 @@
-﻿Module Properties
+﻿Imports System.Text
+
+Module Properties
+
+    Public rconpassword As String
 
     Sub Properties(ByRef checkpath As Object(), ByRef path As String(), ByRef nservers As Integer, ByRef numberservers As String(), ByRef checknameserver As Object())
 
         Dim motd, serverport, whitelist, achievent, spawn, maxplayers, flight, animals, mobs, gamemode, forcegamemode, _
-            hardcore, pvp, difficulty, generator, levelname, levelseed, leveltype, enablequery, enablercon, rconpassword, _
+            hardcore, pvp, difficulty, generator, levelname, levelseed, leveltype, enablequery, enablercon, _
             autosave As String
+
+        'Random Generation (Casual Variables)
+        Dim rcongenerator As String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        Dim r As New Random
+        Dim sb As New StringBuilder
+        '-------------------------------------
 
         Dim propertiesfile, confirmedit, replaceproperty As String
 
@@ -179,13 +189,24 @@
                     enablercon = Console.ReadLine.ToLower
 
                     If enablercon = "" Then
-                        enablercon = "off"
+                        enablercon = "on"
+
                     End If
 
                     If enablercon = "on" Then
-                        'Random Generation
-                        'Console.Write("Rcon password: ")
-                        'rconpassword = Console.ReadLine.ToLower
+                        Console.Write("Rcon password: ")
+                        rconpassword = Console.ReadLine.ToLower
+
+                        If rconpassword = "" Then
+                            For i = 1 To 10
+                                Dim idx As Integer = r.Next(0, 35)
+                                sb.Append(rcongenerator.Substring(idx, 1))
+
+                            Next
+
+                            rconpassword = sb.ToString()
+
+                        End If
 
                     End If
                 Loop While enablercon <> "on" And enablercon <> "off"
@@ -237,10 +258,11 @@
                         "rcon.password=" + rconpassword + vbCrLf + _
                         "auto-save=" + autosave
 
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Utils\servers.properties", propertiesfile, True)
+                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Utils\server.properties", propertiesfile, True)
 
                         Console.WriteLine()
                         Console.WriteLine("Server.properties created!")
+
                         Do
                             Console.Write("Do you want to replace the old and new properties? (This will create a backup file) <Y/N>: ")
                             replaceproperty = Console.ReadLine.ToUpper
@@ -248,6 +270,7 @@
 
                             If replaceproperty = "Y" Then
                                 For i = 1 To nservers
+
                                     checkproperty = My.Computer.FileSystem.FileExists(path(i - 1) + "\servers.properties")
                                     checkproperty2 = My.Computer.FileSystem.FileExists(path(i - 1) + "\servers.properties_OLD")
 
