@@ -5,8 +5,8 @@
         Dim menù, quit As String
         Dim checkfolderinstallation, checklicense As Object
 
-        '#Variables "Install PocketMine-MP
-        Dim version, stable, beta, dev, soft, linkstable, linkbeta, linkdev, linksoft As String
+        '#Variables "Install PocketMine-MP"
+        Dim version, choosephar, pharpath, stable, beta, dev, soft, linkstable, linkbeta, linkdev, linksoft As String
         Dim checkpocketmine As Object
 
         '#Variables "Manage Servers"
@@ -69,6 +69,7 @@
             Reading(path, nservers, nameservers)
 
         Else
+            Console.ForegroundColor = ConsoleColor.White
             Console.Clear()
             Console.WriteLine("Preparing the first start ... Press ENTER")
             Console.ReadLine()
@@ -138,7 +139,6 @@
                     Console.Write("What kind of version you want to install? ")
                     version = Console.ReadLine
 
-                    'If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
                     If version = "1" Then 'Stable Version" 
                         Do
                             Console.WriteLine()
@@ -236,33 +236,83 @@
 
                         Loop While soft <> "1"
 
-                    ElseIf version <> "STABLE" Or version <> "BETA" Or version <> "DEV" Or version <> "SOFT" Then
+                    ElseIf version <> "1" Or version <> "2" Or version <> "3" Or version <> "4" Then
                         Console.WriteLine("PLEASE SELECT AN AVAIABLE VERSION OF POCKETMINE!!")
                         Console.ReadLine()
 
                     End If
+
+                    If version = "2" Or version = "3" Or version = "4" Then
+                        Console.Write("Do you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        choosephar = Console.ReadLine.ToUpper
+
+                        If choosephar = "Y" Then
+
+                            pharpath = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\pharpath.pm")
+
+                            If pharpath And checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
+
+                                For i = 1 To nservers
+                                    If version = "2" Then
+                                        My.Computer.FileSystem.RenameFile(path(i - 1) + "\PocketMine-MP.phar", "PocketMine-MP_OLD.phar")
+                                        My.Computer.FileSystem.CopyFile(pharpath + "\PocketMine-MP_1.4.1dev-936.phar", path(i - 1), overwrite:=True)
+                                        My.Computer.FileSystem.RenameFile(path(i - 1) + "\PocketMine-MP_1.4.1dev-936.phar", "PocketMine-MP.phar")
+                                    End If
+
+                                    If version = "3" Then
+                                        My.Computer.FileSystem.RenameFile(path(i - 1) + "\PocketMine-MP.phar", "PocketMine-MP_OLD.phar")
+                                        My.Computer.FileSystem.CopyFile(pharpath + "\PocketMine-MP_1.5dev-1116_f718d06a_API-1.12.0.phar", path(i - 1), overwrite:=True)
+                                        My.Computer.FileSystem.RenameFile(path(i - 1) + "\PocketMine-MP_1.5dev-1116_f718d06a_API-1.12.0.phar", "PocketMine-MP.phar")
+                                    End If
+
+                                    If version = "4" Then
+                                        My.Computer.FileSystem.RenameFile(path(i - 1) + "\PocketMine-MP.phar", "PocketMine-MP_OLD.phar")
+                                        My.Computer.FileSystem.CopyFile(pharpath + "\PocketMine-Soft_1.4.1-240_7ebde536_API-1.11.0.phar", path(i - 1), overwrite:=True)
+                                        My.Computer.FileSystem.RenameFile(path(i - 1) + "\PocketMine-Soft_1.4.1-240_7ebde536_API-1.11.0.phar", "PocketMine-MP.phar")
+                                    End If
+
+                                Next
+
+
+                            Else
+                                Do
+                                    Console.Write("Please, indicate the folder you downloaded the phar, example 'C:\Users\PC\Download': ")
+                                    pharpath = Console.ReadLine
+                                    Console.WriteLine()
+
+                                    If pharpath = "" Then
+                                        Console.ForegroundColor = ConsoleColor.DarkRed
+                                        Console.WriteLine("ERROR! Insert a valid path!")
+                                        Console.ReadLine()
+                                    End If
+                                Loop While pharpath = ""
+
+                                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\pharpath.pm", pharpath, True)
+
+                                Console.Write("How many servers do you want to manage? <1/2/3/.../10>: ")
+                                nservers = Console.ReadLine
+
+                                For i = 1 To nservers
+                                    Do
+                                        Console.Write("Write the folder path of the {0} server, example 'C:\PocketMine-MP': ", numberservers(i - 1))
+                                        path(i - 1) = Console.ReadLine
+
+                                        If path(i - 1) = "" Then
+                                            Console.ForegroundColor = ConsoleColor.DarkRed
+                                            Console.WriteLine("ERROR! Insert a valid path!")
+                                            Console.ReadLine()
+
+                                        End If
+                                    Loop While path(i - 1) = ""
+
+                                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm", path(i - 1), True)
+
+                                Next
+                            End If
+                        End If
+                    End If
                 Loop While version <> "5"
             End If
-            'Else
-            'For i = 1 To nservers
-            '    Do
-            '        Console.Write("Write the folder path of the {0} server, example 'C:\PocketMine-MP': ", numberservers(i - 1))
-            '        path(i - 1) = Console.ReadLine
-
-            '        If path(i - 1) = "" Then
-            '            Console.ForegroundColor = ConsoleColor.DarkRed
-            '            Console.WriteLine("ERROR! Insert a valid path!")
-            '            Console.ReadLine()
-
-            '        End If
-            '    Loop While path(i - 1) = ""
-
-            '    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm", path(i - 1), True)
-
-            'Next
-            'End If
-
-
 
             If menù = "2" Then 'Manage Servers
 
