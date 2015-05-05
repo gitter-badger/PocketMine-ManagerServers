@@ -6,7 +6,7 @@
         Dim checkfolderinstallation, checklicense As Object
 
         '#Variables "Install PocketMine-MP
-        Dim version, stable, beta, dev, soft, link As String
+        Dim version, stable, beta, dev, soft, linkstable, linkbeta, linkdev, linksoft As String
         Dim checkpocketmine As Object
 
         '#Variables "Manage Servers"
@@ -115,7 +115,10 @@
 
             If menù = "1" Then
 
-                link = "http://sourceforge.net/projects/pocketmine/files/windows/PocketMine-MP_Installer_1.4.1_x86.exe/download"
+                linkstable = "http://sourceforge.net/projects/pocketmine/files/windows/PocketMine-MP_Installer_1.4.1_x86.exe/download"
+                linkbeta = "https://github.com/PocketMine/PocketMine-MP/releases/download/1.4.1dev-936/PocketMine-MP_1.4.1dev-936.phar"
+                linkdev = "http://jenkins.pocketmine.net/job/PocketMine-MP/1116/artifact/PocketMine-MP_1.5dev-1116_f718d06a_API-1.12.0.phar"
+                linksoft = "http://jenkins.pocketmine.net/job/PocketMine-Soft/lastSuccessfulBuild/artifact/PocketMine-Soft_1.4.1-240_7ebde536_API-1.11.0.phar"
 
                 checkpocketmine = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\PocketMine-MP_Installer_1.4.1_x86.exe")
 
@@ -126,10 +129,17 @@
                     Console.ForegroundColor = ConsoleColor.Blue
                     Console.WriteLine("--------------------------<Install PocketMine-MP>-------------------------------")
                     Console.ForegroundColor = ConsoleColor.White
-                    Console.Write("What kind of version you want to install? <Stable/Beta/Dev/Soft>: ")
-                    version = Console.ReadLine.ToUpper
+                    Console.WriteLine("1- Version Stable (Setup File)")
+                    Console.WriteLine("2- Version Beta (Phar File)")
+                    Console.WriteLine("3- Version Dev (Phar File)")
+                    Console.WriteLine("4- Version Soft (Phar File)")
+                    Console.WriteLine("5- Back")
+                    Console.WriteLine()
+                    Console.Write("What kind of version you want to install? ")
+                    version = Console.ReadLine
 
-                    If version = "STABLE" Then 'Stable Version
+                    'If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
+                    If version = "1" Then 'Stable Version" 
                         Do
                             Console.WriteLine()
                             Console.WriteLine("Current Versions:")
@@ -152,7 +162,7 @@
                             Else
                                 Console.WriteLine("Installer not found.")
                                 Console.WriteLine("Downloading Installer...")
-                                Process.Start(link) 'Download Installer
+                                Process.Start(linkstable) 'Download Installer
 
                                 Console.WriteLine("Download Complete! Press enter to return to installation.")
                                 Console.ReadLine()
@@ -162,8 +172,9 @@
                             Console.WriteLine("PLEASE, SELECT AN AVAIABLE VERSION!!")
 
                         End If
+                    End If
 
-                    ElseIf version = "BETA" Then 'Beta Version
+                    If version = "2" Then 'Beta Version
                         Do
                             Console.WriteLine()
                             Console.WriteLine("Current Versions:")
@@ -173,35 +184,39 @@
                             beta = Console.ReadLine
 
                             If beta = "1" Then
-                                Console.WriteLine()
-                                Console.WriteLine("Coming Soon")
+                                Console.WriteLine("Downloading Phar File...")
+                                Process.Start(linkbeta)
+                                Console.WriteLine("Download Complete! Press enter to return to installation.")
                                 Console.ReadLine()
                             ElseIf beta <> "1" Then
                                 Console.WriteLine("PLEASE, SELECT AN AVAIABLE VERSION!!")
                             End If
 
                         Loop While beta <> "1"
+                    End If
 
-                    ElseIf version = "DEV" Then 'Dev Version
+                    If version = "3" Then 'Dev Version
                         Do
                             Console.WriteLine()
                             Console.WriteLine("Current Versions:")
-                            Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1066]")
+                            Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1116]")
                             Console.WriteLine()
                             Console.Write("Which version do you want to install?: ")
                             dev = Console.ReadLine
 
                             If dev = "1" Then
-                                Console.WriteLine()
-                                Console.WriteLine("Coming Soon")
+                                Console.WriteLine("Downloading Phar File...")
+                                Process.Start(linkdev)
+                                Console.WriteLine("Download Complete! Press enter to return to installation.")
                                 Console.ReadLine()
                             ElseIf dev <> "1" Then
                                 Console.WriteLine("PLEASE, SELECT AN AVAIABLE VERSION!!")
                             End If
 
                         Loop While dev <> "1"
+                    End If
 
-                    ElseIf version = "SOFT" Then 'Soft Version
+                    If version = "4" Then 'Soft Version
                         Do
                             Console.WriteLine()
                             Console.WriteLine("Current Versions:")
@@ -211,8 +226,9 @@
                             soft = Console.ReadLine
 
                             If soft = "1" Then
-                                Console.WriteLine()
-                                Console.WriteLine("Coming Soon")
+                                Console.WriteLine("Downloading Phar File...")
+                                Process.Start(linksoft)
+                                Console.WriteLine("Download Complete! Press enter to return to installation.")
                                 Console.ReadLine()
                             ElseIf soft <> "1" Then
                                 Console.WriteLine("PLEASE, SELECT AN AVAIABLE VERSION!!")
@@ -225,8 +241,28 @@
                         Console.ReadLine()
 
                     End If
-                Loop While version <> "STABLE" And version <> "BETA" And version <> "DEV" And version <> "SOFT"
+                Loop While version <> "5"
             End If
+            'Else
+            'For i = 1 To nservers
+            '    Do
+            '        Console.Write("Write the folder path of the {0} server, example 'C:\PocketMine-MP': ", numberservers(i - 1))
+            '        path(i - 1) = Console.ReadLine
+
+            '        If path(i - 1) = "" Then
+            '            Console.ForegroundColor = ConsoleColor.DarkRed
+            '            Console.WriteLine("ERROR! Insert a valid path!")
+            '            Console.ReadLine()
+
+            '        End If
+            '    Loop While path(i - 1) = ""
+
+            '    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm", path(i - 1), True)
+
+            'Next
+            'End If
+
+
 
             If menù = "2" Then 'Manage Servers
 
