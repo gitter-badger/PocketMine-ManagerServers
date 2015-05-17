@@ -2,36 +2,52 @@
 
     Sub Main()
         '#Variables "Main Menu"
-        Dim menù, quit As String
+        Dim menù, quit, defaultservers As String
         Dim checkfolderinstallation, checklicense As Object
 
+        '#Variables "Install PocketMine-MP"
+        Dim downloadstatus As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
+        Dim installationstatus As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
+
+        Dim checkinstallations As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
+        Dim checkdownloads As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
+
+        '#Variables "Manage Servers"
         '#Variables "Manage Servers"
         Dim nservers As Integer
         Dim nameservers As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
         Dim numberservers As String() = New String() {"first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"}
-
-        Dim defaultservers As String
+        Dim numberservers_2 As String() = New String() {"First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth"}
 
         Dim checknservers As Object
 
         Dim checknameserver As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
 
+        Dim pathopener As String
         Dim path As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
 
         Dim checkpath As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
+        '-------------------------------------------------------------------------------------------------------------------------------------------------
+        Dim varmanager As String
 
         '-------------------------------------------------------------------------------------------------------------------------------------------------
+        Dim performance, confirmperfomance, selectperformance As String
+
         Dim performancestatus As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
 
         Dim checkperformance As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
 
         '#Variables Mechanical
-        Dim dirservername, dirpath, dirdata, dirutils, dirperformance As Object
+        Dim dirservername, dirpath, dirdata, dirutils, dirperformance, dirinstallations As Object
 
         'STARTUP
-        Loader.Loader(checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, _
-                      dirperformance, dirutils, checklicense)
+        Loader.Loader(dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, _
+                      dirperformance, dirutils, checklicense, downloadstatus, installationstatus)
         quit = "N"
+
+        CompleterLoader.CompleterLoader(defaultservers)
+
+        nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
 
         While quit = "N"
             Console.ForegroundColor = ConsoleColor.Green
@@ -52,17 +68,18 @@
             menù = Console.ReadLine
 
             If menù = "1" Then
-                Installator.Installator(nservers, checkpath, path, numberservers)
+                Installator.Installator(nameservers, nservers, checkpath, path, numberservers, downloadstatus, installationstatus, checknameserver)
 
             End If
 
             If menù = "2" Then 'Manage Servers
-                LoaderManager.LoaderManager(defaultservers)
+
+                Manager.Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
 
             End If
 
             If menù = "3" Then 'Program Options
-                Settings.Settings(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance)
+                Settings.Settings(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations)
 
             End If
 

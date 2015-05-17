@@ -1,6 +1,6 @@
 ﻿Module Settings
 
-    Sub Settings(ByRef nservers As Integer, ByRef checkpath As Object(), ByRef path As String(), ByRef checknservers As Object, ByRef checkfolderinstallation As Object, ByRef dirpath As Object, ByRef dirdata As Object, ByRef dirservername As Object, ByRef dirperformance As Object)
+    Sub Settings(ByRef nservers As Integer, ByRef checkpath As Object(), ByRef path As String(), ByRef checknservers As Object, ByRef checkfolderinstallation As Object, ByRef dirpath As Object, ByRef dirdata As Object, ByRef dirservername As Object, ByRef dirperformance As Object, ByRef dirinstallations As Object)
 
         '#Variables "Program Options"
         Dim options, choosereset, reset As String
@@ -51,11 +51,12 @@
                         Loop While reset <> "Y" And reset <> "N"
 
                         If reset = "Y" Then
-                            If dirpath And dirservername And dirdata And dirperformance Then
+                            If dirpath And dirservername And dirdata And dirperformance And dirinstallations Then
                                 My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Path", FileIO.DeleteDirectoryOption.DeleteAllContents)
                                 My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\ServersName", FileIO.DeleteDirectoryOption.DeleteAllContents)
                                 My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Data", FileIO.DeleteDirectoryOption.DeleteAllContents)
                                 My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Performance", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                                My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Installations", FileIO.DeleteDirectoryOption.DeleteAllContents)
                                 Console.WriteLine("Closing program...")
                                 End
                             Else

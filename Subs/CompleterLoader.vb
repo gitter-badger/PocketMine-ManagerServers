@@ -1,6 +1,6 @@
-﻿Module LoaderManager
+﻿Module CompleterLoader
 
-    Sub LoaderManager(ByRef defaultservers As String)
+    Sub CompleterLoader(ByRef defaultservers As String)
 
         '#Variables "Manage Servers"
         Dim nservers As Integer
@@ -38,7 +38,7 @@
                     Console.ForegroundColor = ConsoleColor.Green
                     Console.WriteLine("========================<PocketMine Manager Servers>============================")
                     Console.ForegroundColor = ConsoleColor.Magenta
-                    Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
+                    Console.WriteLine("-------------------------<Complete the informations>----------------------------")
                     Console.ForegroundColor = ConsoleColor.White
                     Console.Write("How many servers do you want to manage? <1/2/3/.../10> : ")
                     nservers = Console.ReadLine
@@ -69,14 +69,14 @@
         Console.ForegroundColor = ConsoleColor.Green
         Console.WriteLine("========================<PocketMine Manager Servers>============================")
         Console.ForegroundColor = ConsoleColor.Magenta
-        Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
+        Console.WriteLine("-------------------------<Complete the informations>----------------------------")
         Console.ForegroundColor = ConsoleColor.White
         Console.WriteLine("If you do not enter a name for your server , by default it will be '{0}'", defaultservers)
 
         If nservers >= 1 Then
             If nservers = 1 And checknameserver(0) Then
 
-                Manager.Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+                Exit Sub
 
             ElseIf nservers = 1 Then
                 Selection(nservers, nameservers, numberservers, defaultservers)
@@ -87,7 +87,7 @@
 
             If nservers = 2 And checknameserver(0) And checknameserver(1) Then
 
-                Manager.Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+                Exit Sub
 
             ElseIf nservers = 2 Then
 
@@ -99,7 +99,7 @@
 
             If nservers = 3 And checknameserver(0) And checknameserver(1) And checknameserver(2) Then
 
-                Manager.Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+                Exit Sub
 
             ElseIf nservers = 3 Then
 
@@ -111,7 +111,7 @@
 
             If nservers = 4 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) Then
 
-                Manager.Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+                Exit Sub
 
             ElseIf nservers = 4 Then
                 Selection(nservers, nameservers, numberservers, defaultservers)
@@ -122,7 +122,7 @@
 
             If nservers = 5 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) Then
 
-                Manager.Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+                Exit Sub
 
             ElseIf nservers = 5 Then
                 Selection(nservers, nameservers, numberservers, defaultservers)
@@ -133,7 +133,7 @@
 
             If nservers = 6 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) Then
 
-                Manager.Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+                Exit Sub
 
             ElseIf nservers = 6 Then
                 Selection(nservers, nameservers, numberservers, defaultservers)
@@ -144,7 +144,7 @@
 
             If nservers = 7 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) Then
 
-                Manager.Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+                Exit Sub
 
             ElseIf nservers = 7 Then
                 Selection(nservers, nameservers, numberservers, defaultservers)
@@ -155,7 +155,7 @@
 
             If nservers = 8 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) Then
 
-                Manager.Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+                Exit Sub
 
             ElseIf nservers = 8 Then
                 Selection(nservers, nameservers, numberservers, defaultservers)
@@ -166,7 +166,7 @@
 
             If nservers = 9 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) And checknameserver(8) Then
 
-                Manager.Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+                Exit Sub
 
             ElseIf nservers = 9 Then
                 Selection(nservers, nameservers, numberservers, defaultservers)
@@ -177,7 +177,7 @@
 
             If nservers = 10 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) And checknameserver(8) And checknameserver(9) Then
 
-                Manager.Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+                Exit Sub
 
             ElseIf nservers = 10 Then
                 Selection(nservers, nameservers, numberservers, defaultservers)

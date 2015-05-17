@@ -35,6 +35,7 @@ Module Properties
                 Console.WriteLine("Path(s) found!")
                 Console.WriteLine("#Properties Config file")
                 Console.WriteLine("Sun May 3 13:20:31 AZOST 2015")
+
                 Console.Write("Motd <by default Server Minecraft PE>: ")
                 motd = Console.ReadLine.ToLower
 
