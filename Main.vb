@@ -68,7 +68,7 @@
             menù = Console.ReadLine
 
             If menù = "1" Then
-                Installator.Installator(nameservers, nservers, checkpath, path, numberservers, downloadstatus, installationstatus, checknameserver)
+                ManagerInstaller.ManagerInstaller(nameservers, nservers, checkpath, path, numberservers, downloadstatus, installationstatus, checknameserver)
 
             End If
 
