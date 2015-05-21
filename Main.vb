@@ -8,6 +8,7 @@
         '#Variables "Install PocketMine-MP"
         Dim downloadstatus As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
         Dim installationstatus As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
+        Dim versionstatus As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
 
         Dim checkinstallations As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
         Dim checkdownloads As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
@@ -41,7 +42,7 @@
         Dim dirservername, dirpath, dirdata, dirutils, dirperformance, dirinstallations As Object
 
         'STARTUP
-        Loader.Loader(dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, _
+        Loader.Loader(versionstatus, dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, _
                       dirperformance, dirutils, checklicense, downloadstatus, installationstatus)
         quit = "N"
 
@@ -68,7 +69,7 @@
             menù = Console.ReadLine
 
             If menù = "1" Then
-                ManagerInstaller.ManagerInstaller(nameservers, nservers, checkpath, path, numberservers, downloadstatus, installationstatus, checknameserver)
+                ManagerInstaller.ManagerInstaller(path, nameservers, nservers, checkpath, numberservers, downloadstatus, installationstatus, versionstatus, checknameserver)
 
             End If
 

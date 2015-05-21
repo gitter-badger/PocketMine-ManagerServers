@@ -1,5 +1,5 @@
 ﻿Module ManagerInstaller
-    Sub ManagerInstaller(ByRef nameservers As String(), ByRef nservers As Integer, ByRef checkpath As Object(), ByRef path As String(), ByRef numberservers As String(), ByRef downloadstatus As String(), ByRef installationstatus As String(), ByRef checknameserver As Object())
+    Sub ManagerInstaller(ByRef path As String(), ByRef nameservers As String(), ByRef nservers As Integer, ByRef checkpath As Object(), ByRef numberservers As String(), ByRef downloadstatus As String(), ByRef installationstatus As String(), ByRef versionstatus As String(), ByRef checknameserver As Object())
 
         '#Variables "Install PocketMine-MP"
         Dim chooseinstallation As String
@@ -12,7 +12,7 @@
             installationstatus(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_" + Convert.ToString(i) + ".pm")
             downloadstatus(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_" + Convert.ToString(i) + ".pm")
             nameservers(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(i) + ".pm")
-
+            versionstatus(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Installations\VersionStatus_" + Convert.ToString(i) + ".pm")
         Next
 
         Do
@@ -35,7 +35,7 @@
             End If
 
             If chooseinstallation = "2" Then
-                Installator.Installator(nservers, nameservers, installationstatus)
+                Installator.Installator(checkpath, nservers, nameservers, installationstatus, versionstatus, path, numberservers)
 
             End If
 
