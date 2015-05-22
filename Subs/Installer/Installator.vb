@@ -95,6 +95,7 @@
                     End If
                 End If
 
+                '===============================================BETA===================================================
                 If chooseserver = "1" And beta = "1" Then
                     If checkbeta Then
                         Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
@@ -294,6 +295,409 @@
 
                     End If
                 End If
+
+                '===============================================DEV===================================================
+                If chooseserver = "1" And dev = "1" Then
+                    If checkdev Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(0), "DEV", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "2" And dev = "1" Then
+                    If checkdev Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(1), "DEV", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "3" And dev = "1" Then
+                    If checkdev Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(2), "DEV", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "4" And dev = "1" Then
+                    If checkdev Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(3), "DEV", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "5" And dev = "1" Then
+                    If checkdev Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(4), "DEV", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "6" And dev = "1" Then
+                    If checkdev Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(5), "DEV", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "7" And dev = "1" Then
+                    If checkdev Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(6), "DEV", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "8" And dev = "1" Then
+                    If checkdev Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(7), "DEV", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "9" And dev = "1" Then
+                    If checkdev Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(8), "DEV", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "10" And dev = "1" Then
+                    If checkdev Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(9), "DEV", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                '===============================================SOFT===================================================
+                If chooseserver = "1" And soft = "1" Then
+                    If checksoft Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(0), "DEV", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "2" And soft = "1" Then
+                    If checksoft Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(1), "DEV", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "3" And soft = "1" Then
+                    If checksoft Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(2), "SOFT", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "4" And soft = "1" Then
+                    If checksoft Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(3), "SOFT", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "5" And soft = "1" Then
+                    If checksoft Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(4), "SOFT", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "6" And soft = "1" Then
+                    If checksoft Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(5), "SOFT", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "7" And soft = "1" Then
+                    If checksoft Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(6), "SOFT", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "8" And soft = "1" Then
+                    If checksoft Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(7), "SOFT", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "9" And soft = "1" Then
+                    If checksoft Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(8), "SOFT", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
+                If chooseserver = "10" And soft = "1" Then
+                    If checksoft Then
+                        Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                        confirmphar = Console.ReadLine.ToUpper
+
+                        If confirmphar = "Y" Then
+                            ChangeInstallationFiles(path(9), "SOFT", checkphar1, checkphar2)
+
+                        End If
+
+                        'TODO: Change Singular "Download Status"
+
+                    Else
+                        Console.WriteLine("Phar file not found!")
+                        Console.WriteLine("Please download the file.")
+                        Console.ReadLine()
+
+                    End If
+                End If
+
             Else
                 For i = 1 To nservers
                     Do
