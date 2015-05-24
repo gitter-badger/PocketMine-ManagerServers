@@ -2,7 +2,7 @@
 
     Sub Main()
         '#Variables "Main Menu"
-        Dim menù, quit, defaultservers As String
+        Dim menu, quit, defaultservers As String
         Dim checkfolderinstallation, checklicense As Object
 
         '#Variables "Install PocketMine-MP"
@@ -55,7 +55,7 @@
             Console.Clear()
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
             Console.ForegroundColor = ConsoleColor.Red
-            Console.WriteLine("-------------------------------<Main Menù>--------------------------------------")
+            Console.WriteLine("-------------------------------<Main Menu>--------------------------------------")
             Console.ForegroundColor = ConsoleColor.Yellow
             Console.WriteLine("                                                           Version: 1.0 #BUILD 3")
             Console.ForegroundColor = ConsoleColor.White
@@ -66,30 +66,30 @@
             Console.WriteLine("5- Exit")
             Console.WriteLine()
             Console.Write("What would you like to do?: ")
-            menù = Console.ReadLine
+            menu = Console.ReadLine
 
-            If menù = "1" Then
+            If menu = "1" Then
                 ManagerInstaller.ManagerInstaller(path, nameservers, nservers, checkpath, numberservers, downloadstatus, installationstatus, versionstatus, checknameserver)
 
             End If
 
-            If menù = "2" Then 'Manage Servers
+            If menu = "2" Then 'Manage Servers
 
                 Manager.Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
 
             End If
 
-            If menù = "3" Then 'Program Options
+            If menu = "3" Then 'Program Options
                 Settings.Settings(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations)
 
             End If
 
-            If menù = "4" Then
+            If menu = "4" Then
                 Informations.Informations(checklicense)
 
             End If
 
-            If menù = "5" Then
+            If menu = "5" Then
                 Do
                     Console.Clear()
                     Console.ForegroundColor = ConsoleColor.Green
