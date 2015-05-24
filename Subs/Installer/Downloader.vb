@@ -156,24 +156,24 @@
                     Loop While soft <> "1"
                 End If
 
-                If checkdownloadpath = True And checkbeta = False Or checkdev = False Or checksoft = False Then
+                If checkdownloadpath And checkbeta = False Or checkdev = False Or checksoft = False Then 'TO DO: Solve lack of file "DownloadPath.pm"
                     downloadpath = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\PathDownload.pm")
 
                     MoveDownloadedFile(checkpocketmine, downloadpath, checkbeta, checkdev, checksoft, version)
 
-                    ChangeDownloadedStatus(downloadstatus, version, chooseserver, versionstatus)
+                    ChangeVersionStatus(version, chooseserver, versionstatus)
+
+                    ChangeDownloadStatus(nservers, downloadstatus, chooseserver)
 
                 Else
-                    If checkdownloadpath = False Then
-                        Do
-                            Console.Write("Please indicate what the link to the folder where you downloaded the installer , example 'C:\PocketMine-MP': ")
-                            downloadpath = Console.ReadLine
+                    Do
+                        Console.Write("Please indicate what the link to the folder where you downloaded the installer , example 'C:\PocketMine-MP': ")
+                        downloadpath = Console.ReadLine
 
-                        Loop While downloadpath = ""
+                    Loop While downloadpath = ""
 
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\PathDownload.pm", downloadpath, True)
+                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\PathDownload.pm", downloadpath, True)
 
-                    End If
                 End If
             End If
         Loop While chooseserver <> "11"
@@ -198,7 +198,7 @@
         End If
     End Sub
 
-    Sub ChangeDownloadedStatus(ByRef downloadstatus As String(), ByRef version As String, ByRef chooseserver As String, ByRef versionstatus As String())
+    Sub ChangeVersionStatus(ByRef version As String, ByRef chooseserver As String, ByRef versionstatus As String())
 
         Dim index As Integer
         Dim indexstatus As Integer = -1
@@ -221,5 +221,55 @@
         Console.WriteLine()
         Console.WriteLine("Changes made! Press ENTER to return to menu.")
         Console.ReadLine()
+    End Sub
+
+    Sub ChangeDownloadStatus(ByRef nservers As Integer, ByRef downloadstatus As String(), ByRef chooseserver As String) 'It is not the best way. I currently use this then I'll change.
+        For i = 1 To nservers
+            downloadstatus(i - 1) = "Downloaded"
+
+        Next
+
+        If chooseserver = "1" Then
+            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_1.pm")
+            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_1.pm", downloadstatus(0), True)
+
+        ElseIf chooseserver = "2" Then
+            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_2.pm")
+            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_2.pm", downloadstatus(1), True)
+
+        ElseIf chooseserver = "3" Then
+            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_3.pm")
+            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_3.pm", downloadstatus(2), True)
+
+        ElseIf chooseserver = "4" Then
+            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_4.pm")
+            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_4.pm", downloadstatus(3), True)
+
+        ElseIf chooseserver = "5" Then
+            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_5.pm")
+            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_5.pm", downloadstatus(4), True)
+
+        ElseIf chooseserver = "6" Then
+            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_6.pm")
+            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_6.pm", downloadstatus(5), True)
+
+        ElseIf chooseserver = "7" Then
+            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_7.pm")
+            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_7.pm", downloadstatus(6), True)
+
+        ElseIf chooseserver = "8" Then
+            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_8.pm")
+            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_8.pm", downloadstatus(7), True)
+
+        ElseIf chooseserver = "9" Then
+            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_9.pm")
+            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_9.pm", downloadstatus(8), True)
+
+        ElseIf chooseserver = "10" Then
+            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_10.pm")
+            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_10.pm", downloadstatus(9), True)
+
+        End If
+
     End Sub
 End Module
