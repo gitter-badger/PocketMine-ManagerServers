@@ -30,7 +30,7 @@
             chooseinstallation = Console.ReadLine
 
             If chooseinstallation = "1" Then
-                Downloader.Downloader(nameservers, nservers, checkpath, path, numberservers, downloadstatus, installationstatus, checknameserver)
+                Downloader.Downloader(nameservers, nservers, checkpath, path, numberservers, downloadstatus, versionstatus, checknameserver)
 
             End If
 
