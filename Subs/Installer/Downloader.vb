@@ -37,14 +37,14 @@
                 Console.WriteLine()
                 Console.WriteLine("1- Version Stable (Setup File)")
                 Console.WriteLine("2- Version Beta (Phar File)")
-                Console.WriteLine("3- Version Dev-1553 (Phar File)")
+                Console.WriteLine("3- Version Dev-1170 (Phar File)")
                 Console.WriteLine("4- Version Soft (Phar File)")
                 Console.WriteLine("5- Back")
                 Console.WriteLine()
                 Console.Write("What kind of version you want to install?")
                 version = Console.ReadLine
 
-                If version = "1" Then
+                If version = "1" Then 'Stable
                     Do
                         Console.WriteLine()
                         Console.WriteLine("Current Versions:")
@@ -156,15 +156,16 @@
                     Loop While soft <> "1"
                 End If
 
-                If checkdownloadpath And checkbeta = False Or checkdev = False Or checksoft = False Then 'TO DO: Solve lack of file "DownloadPath.pm"
-                    downloadpath = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\PathDownload.pm")
+                If checkdownloadpath Then
+                    If checkbeta = False Or checkdev = False Or checksoft = False Then
+                        downloadpath = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\PathDownload.pm")
 
-                    MoveDownloadedFile(checkpocketmine, downloadpath, checkbeta, checkdev, checksoft, version)
+                        MoveDownloadedFile(checkpocketmine, downloadpath, checkbeta, checkdev, checksoft, version)
 
-                    ChangeVersionStatus(version, chooseserver, versionstatus)
+                        ManagerInstaller.ChangeVersionStatus(version, chooseserver, versionstatus)
 
-                    ChangeDownloadStatus(nservers, downloadstatus, chooseserver)
-
+                        ChangeDownloadStatus(nservers, downloadstatus, chooseserver)
+                    End If
                 Else
                     Do
                         Console.Write("Please indicate what the link to the folder where you downloaded the installer , example 'C:\PocketMine-MP': ")
@@ -196,31 +197,6 @@
             My.Computer.FileSystem.CopyFile(downloadpath + "\PocketMine-MP_Installer_1.4.1_x86.exe", "C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_Installer_1.4.1_x86.exe", overwrite:=True)
 
         End If
-    End Sub
-
-    Sub ChangeVersionStatus(ByRef version As String, ByRef chooseserver As String, ByRef versionstatus As String())
-
-        Dim index As Integer
-        Dim indexstatus As Integer = -1
-        Dim status As String() = New String() {"Stable", "Beta", "Dev", "Soft"}
-        Dim verified As Boolean = False
-
-        While verified = False
-            index = Convert.ToInt32(chooseserver)
-            indexstatus += 1
-
-            If version = Convert.ToString(indexstatus) Then
-                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\VersionStatus_" + Convert.ToString(index) + ".pm")
-                versionstatus(index - 1) = status(indexstatus - 1)
-                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\VersionStatus_" + Convert.ToString(index) + ".pm", versionstatus(index - 1), True)
-                verified = True
-
-            End If
-        End While
-
-        Console.WriteLine()
-        Console.WriteLine("Changes made! Press ENTER to return to menu.")
-        Console.ReadLine()
     End Sub
 
     Sub ChangeDownloadStatus(ByRef nservers As Integer, ByRef downloadstatus As String(), ByRef chooseserver As String) 'It is not the best way. I currently use this then I'll change.
@@ -270,6 +246,11 @@
             My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_10.pm", downloadstatus(9), True)
 
         End If
+
+        For i = 1 To nservers 'For security.
+            downloadstatus(i - 1) = "Not Downloaded"
+
+        Next
 
     End Sub
 End Module

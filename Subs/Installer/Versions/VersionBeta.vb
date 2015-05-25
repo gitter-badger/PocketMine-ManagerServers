@@ -13,8 +13,6 @@
 
                 End If
 
-                'TODO: Change Singular "Download Status"
-
             Else
                 Console.WriteLine("Phar file not found!")
                 Console.WriteLine("Please download the file.")
@@ -32,8 +30,6 @@
                     ChangeInstallationFiles(path(1), "BETA", checkphar1, checkphar2)
 
                 End If
-
-                'TODO: Change Singular "Download Status"
 
             Else
                 Console.WriteLine("Phar file not found!")
@@ -53,8 +49,6 @@
 
                 End If
 
-                'TODO: Change Singular "Download Status"
-
             Else
                 Console.WriteLine("Phar file not found!")
                 Console.WriteLine("Please download the file.")
@@ -72,8 +66,6 @@
                     ChangeInstallationFiles(path(3), "BETA", checkphar1, checkphar2)
 
                 End If
-
-                'TODO: Change Singular "Download Status"
 
             Else
                 Console.WriteLine("Phar file not found!")
@@ -93,8 +85,6 @@
 
                 End If
 
-                'TODO: Change Singular "Download Status"
-
             Else
                 Console.WriteLine("Phar file not found!")
                 Console.WriteLine("Please download the file.")
@@ -112,8 +102,6 @@
                     ChangeInstallationFiles(path(5), "BETA", checkphar1, checkphar2)
 
                 End If
-
-                'TODO: Change Singular "Download Status"
 
             Else
                 Console.WriteLine("Phar file not found!")
@@ -133,8 +121,6 @@
 
                 End If
 
-                'TODO: Change Singular "Download Status"
-
             Else
                 Console.WriteLine("Phar file not found!")
                 Console.WriteLine("Please download the file.")
@@ -152,8 +138,6 @@
                     ChangeInstallationFiles(path(7), "BETA", checkphar1, checkphar2)
 
                 End If
-
-                'TODO: Change Singular "Download Status"
 
             Else
                 Console.WriteLine("Phar file not found!")
@@ -173,8 +157,6 @@
 
                 End If
 
-                'TODO: Change Singular "Download Status"
-
             Else
                 Console.WriteLine("Phar file not found!")
                 Console.WriteLine("Please download the file.")
@@ -192,8 +174,6 @@
                     ChangeInstallationFiles(path(9), "BETA", checkphar1, checkphar2)
 
                 End If
-
-                'TODO: Change Singular "Download Status"
 
             Else
                 Console.WriteLine("Phar file not found!")

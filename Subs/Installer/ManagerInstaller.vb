@@ -41,4 +41,29 @@
 
         Loop While chooseinstallation <> "3"
     End Sub
+
+    Sub ChangeVersionStatus(ByRef version As String, ByRef chooseserver As String, ByRef versionstatus As String())
+
+        Dim index As Integer
+        Dim indexstatus As Integer = -1
+        Dim status As String() = New String() {"Stable", "Beta", "Dev", "Soft"}
+        Dim verified As Boolean = False
+
+        While verified = False
+            index = Convert.ToInt32(chooseserver)
+            indexstatus += 1
+
+            If version = Convert.ToString(indexstatus) Then
+                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\VersionStatus_" + Convert.ToString(index) + ".pm")
+                versionstatus(index - 1) = status(indexstatus - 1)
+                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\VersionStatus_" + Convert.ToString(index) + ".pm", versionstatus(index - 1), True)
+                verified = True
+
+            End If
+        End While
+
+        Console.WriteLine()
+        Console.WriteLine("Changes made! Press ENTER to return to menu.")
+        Console.ReadLine()
+    End Sub
 End Module

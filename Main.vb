@@ -14,7 +14,6 @@
         Dim checkdownloads As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
 
         '#Variables "Manage Servers"
-        '#Variables "Manage Servers"
         Dim nservers As Integer
         Dim nameservers As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
         Dim numberservers As String() = New String() {"first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"}
@@ -57,7 +56,7 @@
             Console.ForegroundColor = ConsoleColor.Red
             Console.WriteLine("-------------------------------<Main Menu>--------------------------------------")
             Console.ForegroundColor = ConsoleColor.Yellow
-            Console.WriteLine("                                                           Version: 1.0 #BUILD 3")
+            Console.WriteLine("                                                           Version: 1.0 #BUILD 4")
             Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine("1- Install PocketMine-MP")
             Console.WriteLine("2- Manage Servers")
