@@ -16,6 +16,8 @@
 
     Sub English()
 
+        Dim langeng As String
+
         '#UniqueWords
         Dim back, changemade As String
 
@@ -55,6 +57,9 @@
         installator2 = "Which version do you want to install?:"
         installator3 = "Starting installation..."
         installator4 = "Installation complete"
+
+
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\langeng.pm", langeng, True)
 
     End Sub
 End Module

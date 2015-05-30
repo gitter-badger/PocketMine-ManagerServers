@@ -14,7 +14,7 @@
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
 
-    Sub LanguagesSelector()
+    Sub LanguagesSelector(ByRef dirlanguages As Object)
 
         Dim language As String
 
@@ -48,69 +48,98 @@
 
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm", language, True)
 
-        If language = "1" Then
+        If language = "1" Then 'Afrikaans
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Afrikaans")
 
-        ElseIf language = "2" Then
+        ElseIf language = "2" Then 'Arabic
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Arabic")
 
-        ElseIf language = "3" Then
+        ElseIf language = "3" Then 'Catalan
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Catalan")
 
-        ElseIf language = "4" Then
+        ElseIf language = "4" Then 'Chinese Simplified
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Chinese Simplified")
 
-        ElseIf language = "5" Then
+        ElseIf language = "5" Then 'Chinese Traditional
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Chinese Traditional")
 
-        ElseIf language = "6" Then
+        ElseIf language = "6" Then 'Czech
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Czech")
 
-        ElseIf language = "7" Then
+        ElseIf language = "7" Then 'Danish
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Danish")
 
-        ElseIf language = "8" Then
+        ElseIf language = "8" Then 'Dutch
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Dutch")
 
         ElseIf language = "9" Then 'English
-            'English.English()
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\English")
+            English.English()
 
-        ElseIf language = "10" Then
+        ElseIf language = "10" Then 'Finnish
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Finnish")
 
-        ElseIf language = "11" Then
+        ElseIf language = "11" Then 'French
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\French")
 
-        ElseIf language = "12" Then
+        ElseIf language = "12" Then 'German
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\German")
 
-        ElseIf language = "13" Then
+        ElseIf language = "13" Then 'Greek
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Greek")
 
-        ElseIf language = "14" Then
+        ElseIf language = "14" Then 'Hebrew
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Hebrew")
 
-        ElseIf language = "" Then
+        ElseIf language = "15" Then 'Hungarian
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Hungarian")
 
-        ElseIf language = "15" Then
+        ElseIf language = "16" Then 'Italian
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Italian")
 
-        ElseIf language = "16" Then
+        ElseIf language = "17" Then 'Japanese
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Japanese")
 
-        ElseIf language = "17" Then
+        ElseIf language = "18" Then 'Korean
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Korean")
 
-        ElseIf language = "18" Then
+        ElseIf language = "19" Then 'Norwegian
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Norwegian")
 
-        ElseIf language = "19" Then
+        ElseIf language = "20" Then 'Polish
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Polish")
 
-        ElseIf language = "20" Then
+        ElseIf language = "21" Then 'Portuguese
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Portuguese")
 
-        ElseIf language = "21" Then
+        ElseIf language = "22" Then 'Portuguese(Brazilian)
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Portuguese(Brazilian)")
 
-        ElseIf language = "22" Then
+        ElseIf language = "23" Then 'Romanian
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Romanian")
 
-        ElseIf language = "23" Then
+        ElseIf language = "24" Then 'Russian
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Russian")
 
-        ElseIf language = "24" Then
+        ElseIf language = "25" Then 'Serbian(Cyrillic)
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Serbian(Cyrillic)")
 
-        ElseIf language = "25" Then
+        ElseIf language = "26" Then 'Spanish
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Spanish")
 
-        ElseIf language = "26" Then
+        ElseIf language = "27" Then 'Swedish
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Swedish")
 
-        ElseIf language = "27" Then
+        ElseIf language = "28" Then 'Turkish
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Turkish")
 
-        ElseIf language = "28" Then
+        ElseIf language = "29" Then 'Ukrainian
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Ukrainian")
 
-        ElseIf language = "29" Then
-
-        ElseIf language = "30" Then
+        ElseIf language = "30" Then 'Vietnamese
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Vietnamese")
 
         End If
+
     End Sub
 End Module

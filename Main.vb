@@ -50,12 +50,12 @@
         Dim checkperformance As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
 
         '#Variables Mechanical
-        Dim dirservername, dirpath, dirdata, dirutils, dirperformance, dirinstallations As Object
+        Dim dirservername, dirpath, dirdata, dirutils, dirperformance, dirinstallations, dirlanguages, direrrors As Object
 
         'STARTUP
 
         Loader.Loader(checklanguage, versionstatus, dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, _
-                      dirperformance, dirutils, checklicense, downloadstatus, installationstatus)
+                      dirperformance, dirutils, checklicense, downloadstatus, installationstatus, dirlanguages, direrrors)
 
         quit = "N"
 
@@ -93,7 +93,7 @@
             End If
 
             If menu = "3" Then 'Program Options
-                Settings.Settings(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations)
+                Settings.Settings(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations, dirlanguages, direrrors)
 
             End If
 

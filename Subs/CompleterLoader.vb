@@ -68,6 +68,7 @@
 
                 Catch ex As Exception
                     Console.WriteLine(ex)
+                    'My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Errors\error_1.pm", Convert.ToString(ex), True)
 
                 End Try
             Loop While nservers > 10 Or nservers <= 0
