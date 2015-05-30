@@ -1,12 +1,27 @@
 ﻿Module Loader
+    ' _____           _        _   __  __ _                   __  __                                   _____                              
+    '|  __ \         | |      | | |  \/  (_)                 |  \/  |                                 / ____|                             
+    '| |__) |__   ___| | _____| |_| \  / |_ _ __   ___ ______| \  / | __ _ _ __   __ _  __ _  ___ _ _| (___   ___ _ ____   _____ _ __ ___ 
+    '|  ___/ _ \ / __| |/ / _ \ __| |\/| | | '_ \ / _ \______| |\/| |/ _` | '_ \ / _` |/ _` |/ _ \ '__\___ \ / _ \ '__\ \ / / _ \ '__/ __|
+    '| |  | (_) | (__|   <  __/ |_| |  | | | | | |  __/      | |  | | (_| | | | | (_| | (_| |  __/ |  ____) |  __/ |   \ V /  __/ |  \__ \
+    '|_|   \___/ \___|_|\_\___|\__|_|  |_|_|_| |_|\___|      |_|  |_|\__,_|_| |_|\__,_|\__, |\___|_| |_____/ \___|_|    \_/ \___|_|  |___/
+    '                                                                                   __/ |                                             
+    '                                                                                  |___/                                              
+    'Copyright (C) 2015  matcracker
 
-    Sub Loader(ByRef versionstatus As String(), ByRef dirinstallations As Object, ByRef checkinstallations As Object(), ByRef checkdownloads As Object(), ByVal checkperformance As Object, ByRef checknameserver As Object, ByRef nameservers As String(), ByRef performancestatus As String(), ByRef nservers As Integer, ByRef checkpath As Object(), ByRef path As String(), ByRef checknservers As Object, ByRef checkfolderinstallation As Object, ByRef dirpath As Object, ByRef dirdata As Object, ByRef dirservername As Object, ByRef dirperformance As Object, ByRef dirutils As Object, ByRef checklicense As Object, ByRef downloadstatus As String(), ByRef installationstatus As String())
+    'This program is free software: you can redistribute it and/or modify 
+    'it under the terms of the GNU Lesser General Public License as published by 
+    'the Free Software Foundation, either version 3 of the License, or 
+    '(at your option) any later version. 
+    Sub Loader(ByRef checklanguage As Object, ByRef versionstatus As String(), ByRef dirinstallations As Object, ByRef checkinstallations As Object(), ByRef checkdownloads As Object(), ByVal checkperformance As Object, ByRef checknameserver As Object, ByRef nameservers As String(), ByRef performancestatus As String(), ByRef nservers As Integer, ByRef checkpath As Object(), ByRef path As String(), ByRef checknservers As Object, ByRef checkfolderinstallation As Object, ByRef dirpath As Object, ByRef dirdata As Object, ByRef dirservername As Object, ByRef dirperformance As Object, ByRef dirutils As Object, ByRef checklicense As Object, ByRef downloadstatus As String(), ByRef installationstatus As String())
 
         Dim quit As String
 
         checklicense = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\LICENSE.pdf")
 
         checknservers = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
+
+        checklanguage = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm")
 
         For i = 1 To 10
             checkperformance(i - 1) = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Performance\PerformanceStatus_" + Convert.ToString(i) + ".pm")
@@ -29,8 +44,6 @@
              And checkperformance(0) And checkperformance(1) And checkperformance(2) And checkperformance(3) And checkperformance(4) And checkperformance(5) And checkperformance(6) And checkperformance(7) And checkperformance(8) And checkperformance(9) And checkinstallations(0) _
              And checkinstallations(1) And checkinstallations(2) And checkinstallations(3) And checkinstallations(4) And checkinstallations(5) And checkinstallations(6) And checkinstallations(7) And checkinstallations(8) And checkinstallations(9) And checkdownloads(0) And checkdownloads(1) _
              And checkdownloads(2) And checkdownloads(3) And checkdownloads(4) And checkdownloads(5) And checkdownloads(6) And checkdownloads(7) And checkdownloads(8) And checkdownloads(9) Then
-
-            quit = "N"
 
             Reading(path, nservers, nameservers)
 
@@ -63,11 +76,19 @@
             For i = 1 To 100
                 Console.WriteLine("Loading resource {0}%", i)
             Next
-            Console.WriteLine("Complete! Press ENTER to continue.")
-            Console.ReadLine()
+        End If
+
+        If checklanguage Then 'Language Selector
             quit = "N"
 
+        Else
+            LanguagesSelector.LanguagesSelector()
+
+            Console.WriteLine("Complete! Press ENTER to continue.")
+            Console.ReadLine()
         End If
+
+
     End Sub
 
 End Module

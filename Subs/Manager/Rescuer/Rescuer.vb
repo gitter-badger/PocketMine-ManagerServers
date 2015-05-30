@@ -1,4 +1,4 @@
-﻿Module Manager
+﻿Module Rescuer
     ' _____           _        _   __  __ _                   __  __                                   _____                              
     '|  __ \         | |      | | |  \/  (_)                 |  \/  |                                 / ____|                             
     '| |__) |__   ___| | _____| |_| \  / |_ _ __   ___ ______| \  / | __ _ _ __   __ _  __ _  ___ _ _| (___   ___ _ ____   _____ _ __ ___ 
@@ -13,41 +13,33 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub Manager(ByRef nservers As Integer, ByRef varmanager As String, ByRef performance As String, ByRef performancestatus As String(), ByRef confirmperfomance As String, ByRef nameservers As String(), ByRef numberservers_2 As String(), ByRef numberservers As String(), ByRef checknameserver As Object(), ByRef path As String(), ByRef pathopener As String, ByRef checkpath As Object(), ByRef checkperformance As Object(), ByRef selectperformance As String)
+    Sub Rescuer()
 
-        Reading(path, nservers, nameservers)
+        Dim rescuer As String
 
         Do
             Console.Clear()
             Console.ForegroundColor = ConsoleColor.Green
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
-            Console.ForegroundColor = ConsoleColor.Magenta
-            Console.WriteLine("-------------------------------<Manage Servers>---------------------------------")
+            Console.ForegroundColor = ConsoleColor.Red
+            Console.WriteLine("--------------------------<Backup/Restore Servers>------------------------------")
             Console.ForegroundColor = ConsoleColor.White
-            Console.WriteLine("1- Open [Server/Folder]")
-            Console.WriteLine("2- Edit server performance.")
-            Console.WriteLine("3- Backup/Restore servers.")
-            Console.WriteLine("4- Back")
+            Console.WriteLine("1- Backup servers")
+            Console.WriteLine("2- Restore servers")
+            Console.WriteLine("3- Back")
             Console.WriteLine()
-            Console.Write("Select Option: ")
-            varmanager = Console.ReadLine
+            Console.Write("Select option: ")
+            rescuer = Console.ReadLine
 
-            If varmanager = "1" Then 'Work
-                Opener.Opener(nservers, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, performancestatus)
-
-            End If
-
-            If varmanager = "2" Then
-                Editor.Editor(confirmperfomance, checkpath, checknameserver, performance, nameservers, nservers, selectperformance, performancestatus, path, numberservers)
+            If rescuer = "1" Then
+                Backup.Backup()
 
             End If
 
-            If varmanager = "3" Then
-                Rescuer.Rescuer()
+            If rescuer = "2" Then
+                Restore.Restore()
 
             End If
-
-        Loop While varmanager <> "4"
+        Loop While rescuer <> "3"
     End Sub
-
 End Module
