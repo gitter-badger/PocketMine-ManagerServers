@@ -43,6 +43,7 @@
         'STARTUP
         Loader.Loader(versionstatus, dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, _
                       dirperformance, dirutils, checklicense, downloadstatus, installationstatus)
+
         quit = "N"
 
         CompleterLoader.CompleterLoader(defaultservers)
@@ -56,7 +57,7 @@
             Console.ForegroundColor = ConsoleColor.Red
             Console.WriteLine("-------------------------------<Main Menu>--------------------------------------")
             Console.ForegroundColor = ConsoleColor.Yellow
-            Console.WriteLine("                                                           Version: 1.0 #BUILD 4")
+            Console.WriteLine("                                                                    Version: 1.0")
             Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine("1- Install PocketMine-MP")
             Console.WriteLine("2- Manage Servers")
