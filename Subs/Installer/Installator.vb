@@ -64,7 +64,7 @@
                     Console.WriteLine()
                     Console.Write("Which version do you want to install?: ")
                     stable = Console.ReadLine
-                    Globals.ScriptEngineBuildVersion.ToString()
+
                     If stable = "1" Then 'Stable
                         If chooseserver Then 'Stable
                             If checkpocketmine Then
