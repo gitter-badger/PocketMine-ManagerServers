@@ -79,6 +79,8 @@
 
         Checking(checknameserver, checkpath)
 
+        defaultservers = "Server Minecraft PE"
+
         Console.Clear()
         Console.ForegroundColor = ConsoleColor.Green
         Console.WriteLine("========================<PocketMine Manager Servers>============================")
