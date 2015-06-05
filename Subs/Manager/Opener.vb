@@ -15,6 +15,8 @@
     '(at your option) any later version. 
     Sub Opener(ByRef nservers As Integer, ByRef nameservers As String(), ByRef numberservers_2 As String(), ByRef numberservers As String(), ByRef checknameserver As Object(), ByRef path As String(), ByRef pathopener As String, ByRef checkpath As Object(), ByRef performancestatus As String())
 
+
+
         Reading(path, nservers, nameservers)
 
         Do
@@ -28,18 +30,25 @@
                 Console.WriteLine("{0} server: {1}", numberservers_2(i - 1), nameservers(i - 1))
             Next
             Console.WriteLine()
-            Console.Write("What do you want to do? <Open [Server/Folder]>: ")
-            pathopener = Console.ReadLine.ToUpper
+            Console.WriteLine("Open:")
+            Console.WriteLine("1- Server")
+            Console.WriteLine("2- Folder")
+            Console.WriteLine("3- Back")
+            Console.WriteLine()
+            Console.Write("What do you want to do? ")
+            pathopener = Console.ReadLine
 
-            If pathopener <> "SERVER" And pathopener <> "FOLDER" Then
-                Console.WriteLine("Please, select a correct option")
-                Console.ReadLine()
+            If pathopener = "1" Or pathopener = "2" Then
+                Exit Do
+
+            ElseIf pathopener = "3" Then
+                Exit Sub
 
             End If
 
-        Loop While pathopener <> "SERVER" And pathopener <> "FOLDER"
+        Loop While pathopener <> ""
 
-        If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" And pathopener = "SERVER" Or pathopener = "FOLDER" Then
+        If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" And pathopener = "1" And pathopener = "2" Then
             Console.WriteLine()
             Console.WriteLine("Reading your file(s)...")
             Console.WriteLine("File(s) succefully read!")
@@ -47,7 +56,7 @@
             Console.WriteLine()
             Console.WriteLine("Opening your server(s)...")
 
-            If pathopener = "SERVER" Then
+            If pathopener = "1" Then
 
                 For i = 1 To nservers
                     If nservers > 1 Then
@@ -55,7 +64,7 @@
                         Process.Start(path(i - 1) + "\start.cmd")
 
                         Console.WriteLine("Wait 3 seconds to load each server!")
-                        For index = 1 To 10000 ^ 2.1 'Small Timer xD
+                        For index = 1 To 10000 ^ 2.1 'Small Timer xD                            'TODO: Change it!!!
                             index = index + 0.1
                         Next
                     Else
@@ -66,7 +75,7 @@
 
             End If
 
-            If pathopener = "FOLDER" Then
+            If pathopener = "2" Then
                 For i = 1 To nservers
                     Process.Start(path(i - 1))
 
