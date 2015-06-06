@@ -14,6 +14,8 @@
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
     Sub Main()
+        '#Variables languages
+
         Dim menu, quit, defaultservers As String
         Dim checkfolderinstallation, checklicense, checklanguage As Object
         Dim checklang As Boolean
