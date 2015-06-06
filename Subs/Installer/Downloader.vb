@@ -55,7 +55,7 @@
                 Console.WriteLine("4- Version Soft (Phar File)")
                 Console.WriteLine("5- Back")
                 Console.WriteLine()
-                Console.Write("What kind of version you want to install?")
+                Console.Write("What kind of version you want to download?")
                 version = Console.ReadLine
 
                 If version = "1" Then 'Stable
@@ -64,7 +64,7 @@
                         Console.WriteLine("Current Versions:")
                         Console.WriteLine("1) 1.4.1 API 1.11.0 Zekkou-Cake")
                         Console.WriteLine()
-                        Console.Write("Which version do you want to install?: ")
+                        Console.Write("Which version do you want to download?: ")
                         stable = Console.ReadLine
 
                         If stable = "1" Then 'Stable
@@ -92,7 +92,7 @@
                         Console.WriteLine("Current Versions:")
                         Console.WriteLine("1) 1.4.1 API 1.11.0 Zekkou-Cake")
                         Console.WriteLine()
-                        Console.Write("Which version do you want to install?: ")
+                        Console.Write("Which version do you want to download?: ")
                         beta = Console.ReadLine
 
                         If beta = "1" Then
@@ -120,7 +120,7 @@
                         Console.WriteLine("Current Versions:")
                         Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1153]")
                         Console.WriteLine()
-                        Console.Write("Which version do you want to install?: ")
+                        Console.Write("Which version do you want to download?: ")
                         dev = Console.ReadLine
 
                         If dev = "1" Then
@@ -148,7 +148,7 @@
                         Console.WriteLine("Current Versions:")
                         Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu")
                         Console.WriteLine()
-                        Console.Write("Which version do you want to install?: ")
+                        Console.Write("Which version do you want to download?: ")
                         soft = Console.ReadLine
 
                         If soft = "1" Then

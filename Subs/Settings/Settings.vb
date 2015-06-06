@@ -102,7 +102,7 @@
 
                                         Next
 
-                                        Console.WriteLine("Closing Program")
+                                        Console.WriteLine("Closing Program...")
                                         End
 
                                     Else

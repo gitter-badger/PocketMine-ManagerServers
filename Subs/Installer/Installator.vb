@@ -75,8 +75,7 @@
                                 Console.ReadLine()
 
                             Else
-                                Console.WriteLine("Installer not found!")
-                                Console.WriteLine("Please download the installer!")
+                                Console.WriteLine("Installer not found! Please download the installer!")
                                 Console.ReadLine()
 
                             End If

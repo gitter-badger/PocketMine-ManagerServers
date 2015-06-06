@@ -30,7 +30,7 @@
             Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine("1- License")
             Console.WriteLine("2- Credits")
-            Console.WriteLine("3- More Information")
+            Console.WriteLine("3- More Informations")
             Console.WriteLine("4- Disclaimer")
             Console.WriteLine("5- Back")
             Console.WriteLine()
@@ -55,7 +55,7 @@
                 Console.ForegroundColor = ConsoleColor.DarkYellow
                 Console.WriteLine("-----------------------------------<Credits>------------------------------------")
                 Console.ForegroundColor = ConsoleColor.White
-                Console.WriteLine("This program is free software made by matcracker: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, either version 2 of the License, or at your option) any later version.")
+                Console.WriteLine("This program is free software made by matcracker: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or at your option) any later version.")
                 Console.WriteLine()
                 Console.WriteLine("This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more details.")
                 Console.WriteLine()
