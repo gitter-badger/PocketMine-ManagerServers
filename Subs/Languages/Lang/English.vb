@@ -133,6 +133,11 @@
         option2 = "Reset Program"
         option3 = "Choose the option: "
 
+        '------------#ChangeLanguages
+        Dim lang1 As String
+
+        lang1 = "Please select an avaiable language!"
+
         '------------#ResetProgram
         Dim resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11 As String
 

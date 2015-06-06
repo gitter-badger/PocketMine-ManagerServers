@@ -10,7 +10,7 @@
                 Console.Clear()
                 Console.WriteLine("========================<PocketMine Manager Servers>============================")
                 Console.ForegroundColor = ConsoleColor.DarkMagenta
-                Console.WriteLine("----------------------------<Selection Languages>-------------------------------")
+                Console.WriteLine("----------------------------------<Languages>-----------------------------------")
                 Console.ForegroundColor = ConsoleColor.White
                 Console.WriteLine("1) Afrikaans" + vbTab + vbTab + vbTab + "16) Italian")
                 Console.WriteLine("2) Arabic" + vbTab + vbTab + vbTab + "17) Japanese")

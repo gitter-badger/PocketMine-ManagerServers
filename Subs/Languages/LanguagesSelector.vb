@@ -77,10 +77,10 @@
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Catalan")
 
         ElseIf language = 4 Then 'Chinese Simplified
-            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Chinese Simplified")
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Chinese(Simplified)")
 
         ElseIf language = 5 Then 'Chinese Traditional
-            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Chinese Traditional")
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Chinese(Traditional)")
 
         ElseIf language = 6 Then 'Czech
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Czech")
