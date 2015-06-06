@@ -14,50 +14,58 @@
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
 
-    Sub LanguagesSelector(ByRef dirlanguages As Object)
+    Sub LanguagesSelector(ByRef dirlanguages As Object, ByRef changelang As Boolean)
 
         Dim language As Integer
 
         Do
-            Try
-                Console.ForegroundColor = ConsoleColor.Green
-                Console.Clear()
-                Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                Console.ForegroundColor = ConsoleColor.Red
-                Console.WriteLine("----------------------------<Selection Languages>-------------------------------")
-                Console.ForegroundColor = ConsoleColor.White
-                Console.WriteLine("1) Afrikaans" + vbTab + vbTab + vbTab + "16) Italian")
-                Console.WriteLine("2) Arabic" + vbTab + vbTab + vbTab + "17) Japanese")
-                Console.WriteLine("3) Catalan" + vbTab + vbTab + vbTab + "18) Korean")
-                Console.WriteLine("4) Chinese Simplified" + vbTab + vbTab + "19) Norwegian")
-                Console.WriteLine("5) Chinese Traditional" + vbTab + vbTab + "20) Polish")
-                Console.WriteLine("6) Czech" + vbTab + vbTab + vbTab + "21) Portuguese")
-                Console.WriteLine("7) Danish" + vbTab + vbTab + vbTab + "22) Portuguese, Brazilian")
-                Console.WriteLine("8) Dutch" + vbTab + vbTab + vbTab + "23) Romanian")
-                Console.WriteLine("9) English" + vbTab + vbTab + vbTab + "24) Russian")
-                Console.WriteLine("10) Finnish" + vbTab + vbTab + vbTab + "25) Serbian(Cyrillic)")
-                Console.WriteLine("11) French" + vbTab + vbTab + vbTab + "26) Spanish")
-                Console.WriteLine("12) German" + vbTab + vbTab + vbTab + "27) Swedish")
-                Console.WriteLine("13) Greek" + vbTab + vbTab + vbTab + "28) Turkish")
-                Console.WriteLine("14) Hebrew" + vbTab + vbTab + vbTab + "29) Ukrainian")
-                Console.WriteLine("15) Hungarian" + vbTab + vbTab + vbTab + "30) Vietnamese")
-                Console.WriteLine()
-                Console.Write("Choose language: ")
-                language = Console.ReadLine
+            If changelang = True Then
+                Exit Do
 
-                If language > 30 Or language <= 0 Then
-                    Console.WriteLine("Please select an avaiable language!")
+            Else
+                Try
+                    Console.ForegroundColor = ConsoleColor.Green
+                    Console.Clear()
+                    Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                    Console.ForegroundColor = ConsoleColor.Red
+                    Console.WriteLine("----------------------------<Selection Languages>-------------------------------")
+                    Console.ForegroundColor = ConsoleColor.White
+                    Console.WriteLine("1) Afrikaans" + vbTab + vbTab + vbTab + "16) Italian")
+                    Console.WriteLine("2) Arabic" + vbTab + vbTab + vbTab + "17) Japanese")
+                    Console.WriteLine("3) Catalan" + vbTab + vbTab + vbTab + "18) Korean")
+                    Console.WriteLine("4) Chinese Simplified" + vbTab + vbTab + "19) Norwegian")
+                    Console.WriteLine("5) Chinese Traditional" + vbTab + vbTab + "20) Polish")
+                    Console.WriteLine("6) Czech" + vbTab + vbTab + vbTab + "21) Portuguese")
+                    Console.WriteLine("7) Danish" + vbTab + vbTab + vbTab + "22) Portuguese, Brazilian")
+                    Console.WriteLine("8) Dutch" + vbTab + vbTab + vbTab + "23) Romanian")
+                    Console.WriteLine("9) English" + vbTab + vbTab + vbTab + "24) Russian")
+                    Console.WriteLine("10) Finnish" + vbTab + vbTab + vbTab + "25) Serbian(Cyrillic)")
+                    Console.WriteLine("11) French" + vbTab + vbTab + vbTab + "26) Spanish")
+                    Console.WriteLine("12) German" + vbTab + vbTab + vbTab + "27) Swedish")
+                    Console.WriteLine("13) Greek" + vbTab + vbTab + vbTab + "28) Turkish")
+                    Console.WriteLine("14) Hebrew" + vbTab + vbTab + vbTab + "29) Ukrainian")
+                    Console.WriteLine("15) Hungarian" + vbTab + vbTab + vbTab + "30) Vietnamese")
+                    Console.WriteLine()
+                    Console.Write("Choose language: ")
+                    language = Console.ReadLine
 
-                End If
+                    If language > 30 Or language <= 0 Then
+                        Console.WriteLine("Please select an avaiable language!")
 
-            Catch ex As Exception
-                Console.WriteLine(ex)
+                    End If
 
-            End Try
+                Catch ex As Exception
+                    Console.WriteLine(ex)
+
+                End Try
+            End If
 
         Loop While language > 30 Or language <= 0
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm", language, True)
+        If changelang = False Then
+            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm", language, True)
+
+        End If
 
         If language = 1 Then 'Afrikaans
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Afrikaans")

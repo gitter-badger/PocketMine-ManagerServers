@@ -13,7 +13,7 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub Loader(ByRef checklanguage As Object, ByRef versionstatus As String(), ByRef dirinstallations As Object, ByRef checkinstallations As Object(), ByRef checkdownloads As Object(), ByVal checkperformance As Object, ByRef checknameserver As Object, ByRef nameservers As String(), ByRef performancestatus As String(), ByRef nservers As Integer, ByRef checkpath As Object(), ByRef path As String(), ByRef checknservers As Object, ByRef checkfolderinstallation As Object, ByRef dirpath As Object, ByRef dirdata As Object, ByRef dirservername As Object, ByRef dirperformance As Object, ByRef dirutils As Object, ByRef checklicense As Object, ByRef downloadstatus As String(), ByRef installationstatus As String(), ByRef dirlanguages As Object, ByRef direrrors As Object)
+    Sub Loader(ByRef checklanguage As Object, ByRef versionstatus As String(), ByRef dirinstallations As Object, ByRef checkinstallations As Object(), ByRef checkdownloads As Object(), ByVal checkperformance As Object, ByRef checknameserver As Object, ByRef nameservers As String(), ByRef performancestatus As String(), ByRef nservers As Integer, ByRef checkpath As Object(), ByRef path As String(), ByRef checknservers As Object, ByRef checkfolderinstallation As Object, ByRef dirpath As Object, ByRef dirdata As Object, ByRef dirservername As Object, ByRef dirperformance As Object, ByRef dirutils As Object, ByRef checklicense As Object, ByRef downloadstatus As String(), ByRef installationstatus As String(), ByRef dirlanguages As Object, ByRef direrrors As Object, ByRef changelang As Boolean)
 
         Dim quit As String
 
@@ -85,7 +85,7 @@
             quit = "N"
 
         Else
-            LanguagesSelector.LanguagesSelector(dirlanguages)
+            LanguagesSelector.LanguagesSelector(dirlanguages, changelang)
 
             Console.WriteLine("Complete! Press ENTER to continue.")
             Console.ReadLine()

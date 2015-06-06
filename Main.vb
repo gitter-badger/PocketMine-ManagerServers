@@ -16,6 +16,7 @@
     Sub Main()
         Dim menu, quit, defaultservers As String
         Dim checkfolderinstallation, checklicense, checklanguage As Object
+        Dim checklang As Boolean
 
         '#Variables "Install PocketMine-MP"
         Dim downloadstatus As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
@@ -55,7 +56,7 @@
         'STARTUP
 
         Loader.Loader(checklanguage, versionstatus, dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, _
-                      dirperformance, dirutils, checklicense, downloadstatus, installationstatus, dirlanguages, direrrors)
+                      dirperformance, dirutils, checklicense, downloadstatus, installationstatus, dirlanguages, direrrors, checklang)
 
         quit = "N"
 
@@ -93,7 +94,7 @@
             End If
 
             If menu = "3" Then 'Program Options
-                Settings.Settings(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations, dirlanguages, direrrors)
+                Settings.Settings(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations, dirlanguages, direrrors, checklanguage)
 
             End If
 
