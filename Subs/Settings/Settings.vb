@@ -13,7 +13,8 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub Settings(ByRef nservers As Integer, ByRef checkpath As Object(), ByRef path As String(), ByRef checknservers As Object, ByRef checkfolderinstallation As Object, ByRef dirpath As Object, ByRef dirdata As Object, ByRef dirservername As Object, ByRef dirperformance As Object, ByRef dirinstallations As Object, ByRef dirlanguages As Object, ByRef direrrors As Object, ByRef checklanguage As Object)
+    Sub Settings(ByRef nservers As Integer, ByRef checkpath As Object(), ByRef path As String(), ByRef checknservers As Object, ByRef checkfolderinstallation As Object, ByRef dirpath As Object, ByRef dirdata As Object, ByRef dirservername As Object, ByRef dirperformance As Object, ByRef dirinstallations As Object, ByRef dirlanguages As Object, ByRef direrrors As Object, ByRef checklanguage As Object, _
+                 ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable As String, ByRef versionbeta As String)
 
         '#Variables "Program Options"
         Dim options As String
@@ -33,7 +34,7 @@
             options = Console.ReadLine
 
             If options = "1" Then
-                ChangeLanguages.ChangeLanguages(checklanguage, dirlanguages)
+                ChangeLanguages.ChangeLanguages(checklanguage, dirlanguages, back, changemade, status1, version1, versionstable, VersionBeta)
 
             ElseIf options = "2" Then
                 Resetter.Resetter(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations, dirlanguages, direrrors)

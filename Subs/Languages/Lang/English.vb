@@ -158,7 +158,7 @@
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Editor3.lang", editor3, True)
 
         '-----------------#EditProperties
-        Dim properties1, properties2, properties3, properties4, properties5, properties6, properties7 As String
+        Dim properties1, properties2, properties3, properties4, properties5, properties6 As String
 
         properties1 = "Checking path(s)..."
         properties2 = "Path(s) found!"

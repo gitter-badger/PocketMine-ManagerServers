@@ -14,7 +14,7 @@
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
 
-    Sub LanguagesSelector(ByRef dirlanguages As Object, ByRef changelang As Boolean)
+    Sub LanguagesSelector(ByRef dirlanguages As Object, ByRef changelang As Boolean, ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable As String, ByRef versionbeta As String)
 
         Dim language As Integer
 
@@ -220,6 +220,6 @@
 
         End If
 
-        LanguageReader.LanguageReader(language, changelang)
+        LanguageReader.LanguageReader(language, changelang, back, changemade, status1, version1, versionstable, versionbeta)
     End Sub
 End Module

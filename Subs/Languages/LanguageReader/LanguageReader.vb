@@ -13,7 +13,7 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version.
-    Sub LanguageReader(ByRef language As Integer, ByRef changelang As Boolean)
+    Sub LanguageReader(ByRef language As Integer, ByRef changelang As Boolean, ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable As String, ByRef versionbeta As String)
 
         If language = 1 Then 'Afrikaans
 
@@ -32,7 +32,7 @@
         ElseIf language = 8 Then 'Dutch
 
         ElseIf language = 9 Then 'English
-            EnglishR.EnglishR()
+            EnglishR.EnglishR(back, changemade, status1, version1, versionstable, versionbeta)
 
         ElseIf language = 10 Then 'Finnish
 

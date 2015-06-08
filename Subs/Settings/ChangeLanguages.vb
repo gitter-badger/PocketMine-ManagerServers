@@ -13,7 +13,7 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version.
-    Sub ChangeLanguages(ByRef checklanguage As Object, ByRef dirlanguages As Object)
+    Sub ChangeLanguages(ByRef checklanguage As Object, ByRef dirlanguages As Object, ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable As String, ByRef versionbeta As String)
 
         Dim language As Integer
         Dim changelang As Boolean
@@ -61,7 +61,7 @@
 
                 changelang = True
 
-                LanguagesSelector.LanguagesSelector(dirlanguages, changelang)
+                LanguagesSelector.LanguagesSelector(dirlanguages, changelang, back, changemade, status1, version1, versionstable, VersionBeta)
 
             Else
                 Console.WriteLine("Bad error")
