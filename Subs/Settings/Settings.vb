@@ -14,7 +14,7 @@
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
     Sub Settings(ByRef nservers As Integer, ByRef checkpath As Object(), ByRef path As String(), ByRef checknservers As Object, ByRef checkfolderinstallation As Object, ByRef dirpath As Object, ByRef dirdata As Object, ByRef dirservername As Object, ByRef dirperformance As Object, ByRef dirinstallations As Object, ByRef dirlanguages As Object, ByRef direrrors As Object, ByRef checklanguage As Object, _
-                 ByRef language As Integer, ByRef changelang As Boolean, ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable As String, ByRef versionbeta As String, ByRef versiondev As String, ByRef versionsoft As String, ByRef currentversion As String, ByRef writepath1 As String, ByRef writepath2 As String, _
+                 ByRef language As Integer, ByRef changelang As Boolean, ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable1 As String, ByRef versionbeta1 As String, ByRef versiondev1 As String, ByRef versionsoft1 As String, ByRef currentversion As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, _
                  ByRef menudev As String, ByRef menutitle As String, ByRef menu1 As String, ByRef menu2 As String, ByRef menu3 As String, ByRef menu4 As String, ByRef menu5 As String, ByRef menu6 As String, ByRef installertitle As String, ByRef installer1 As String, ByRef installer2 As String, ByRef installer3 As String, _
                  ByRef installator1 As String, ByRef installator2 As String, ByRef installator3 As String, ByRef installator4 As String, ByRef installator5 As String, ByRef downloader1 As String, ByRef downloader2 As String, ByRef downloader3 As String, ByRef downloader4 As String, ByRef downloader5 As String, ByRef downloader6 As String, _
                  ByRef downloader7 As String, ByRef downloader8 As String, ByRef downloader9 As String, ByRef manager1 As String, ByRef manager2 As String, ByRef manager3 As String, ByRef opener1 As String, ByRef opener2 As String, ByRef opener3 As String, ByRef opener4 As String, ByRef opener5 As String, ByRef opener6 As String, _
@@ -33,15 +33,15 @@
             Console.ForegroundColor = ConsoleColor.Cyan
             Console.WriteLine("------------------------------<Program Options>---------------------------------")
             Console.ForegroundColor = ConsoleColor.White
-            Console.WriteLine("1- Language")
-            Console.WriteLine("2- Reset Program")
-            Console.WriteLine("3- Back")
+            Console.WriteLine("1- {0}", option1)
+            Console.WriteLine("2- {0}", option2)
+            Console.WriteLine("3- {0}", back)
             Console.WriteLine()
-            Console.Write("Choose the option: ")
+            Console.Write("{0}", option3)
             options = Console.ReadLine
 
             If options = "1" Then
-                ChangeLanguages.ChangeLanguages(checklanguage, dirlanguages, language, changelang, back, changemade, status1, version1, versionstable, versionbeta, versiondev, versionsoft, currentversion, writepath1, writepath2, menudev, menutitle, _
+                ChangeLanguages.ChangeLanguages(checklanguage, dirlanguages, language, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
                               menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installator1, installator2, installator3, installator4, _
                               installator5, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, manager1, manager2, manager3, _
                               opener1, opener2, opener3, opener4, opener5, opener6, opener7, editor1, editor2, editor3, properties1, properties2, properties3, properties4, properties5, _
@@ -50,7 +50,8 @@
                               info1, info2, info3, info4, info5, info6, exit1, exit2)
 
             ElseIf options = "2" Then
-                Resetter.Resetter(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations, dirlanguages, direrrors)
+                Resetter.Resetter(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations, dirlanguages, direrrors, back, resetp1, resetp2, resetp3, resetp4, _
+                                  resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11)
 
             End If
 

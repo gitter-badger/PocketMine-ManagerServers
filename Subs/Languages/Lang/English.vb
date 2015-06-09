@@ -17,31 +17,33 @@
     Sub English()
 
         '#UniqueWords
-        Dim back, changemade, status1, version1, versionstable, versionbeta, versiondev, versionsoft, currentversion, writepath1, writepath2 As String
+        Dim back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3 As String
 
         back = "Back"
         changemade = "Changes made! Press ENTER to return to menu."
         status1 = "Status"
         version1 = "Version"
-        versionstable = "Version Stable"
-        versionbeta = "Version Beta"
-        versiondev = "Version Dev"
-        versionsoft = "Version Soft"
+        versionstable1 = "Version Stable"
+        versionbeta1 = "Version Beta"
+        versiondev1 = "Version Dev"
+        versionsoft1 = "Version Soft"
         currentversion = "Current Versions:"
-        writepath1 = "Write the folder path of the {0} server, example 'C:\PocketMine-MP': "
-        writepath2 = "ERROR! Insert a valid path!"
+        writepath1 = "Write the folder path of the"
+        writepath2 = "server, example 'C:\PocketMine-MP': "
+        writepath3 = "ERROR! Insert a valid path!"
 
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords1.lang", back, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords2.lang", changemade, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords3.lang", status1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords4.lang", version1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords5.lang", versionstable, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords6.lang", versionbeta, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords7.lang", versiondev, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords8.lang", versionsoft, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords5.lang", versionstable1, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords6.lang", versionbeta1, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords7.lang", versiondev1, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords8.lang", versionsoft1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords9.lang", currentversion, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords10.lang", writepath1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords11.lang", writepath2, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords12.lang", writepath3, True)
 
         '#Main Menu
         Dim menudev, menutitle, menu1, menu2, menu3, menu4, menu5, menu6 As String

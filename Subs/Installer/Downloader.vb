@@ -13,7 +13,10 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub Downloader(ByRef nameservers As String(), ByRef nservers As Integer, ByRef checkpath As Object(), ByRef path As String(), ByRef numberservers As String(), ByRef downloadstatus As String(), ByRef versionstatus As String(), ByRef checknameserver As Object())
+    Sub Downloader(ByRef nameservers As String(), ByRef nservers As Integer, ByRef checkpath As Object(), ByRef path As String(), ByRef numberservers As String(), ByRef downloadstatus As String(), ByRef versionstatus As String(), ByRef checknameserver As Object(), _
+                   ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable1 As String, ByRef versionbeta1 As String, ByRef versiondev1 As String, ByRef versionsoft1 As String, ByRef currentversion As String, _
+                   ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef downloader1 As String, ByRef downloader2 As String, ByRef downloader3 As String, ByRef downloader4 As String, ByRef downloader5 As String, ByRef downloader6 As String, _
+                   ByRef downloader7 As String, ByRef downloader8 As String, ByRef downloader9 As String)
 
         Dim chooseserver, version, stable, beta, dev, soft, linkstable, linkbeta, linkdev, linksoft, downloadpath As String
 
@@ -39,46 +42,46 @@
             Console.WriteLine("---------------------------<Download PocketMine-MP>-----------------------------")
             Console.ForegroundColor = ConsoleColor.White
             For i = 1 To nservers
-                Console.WriteLine("{0}) {1} -> Version: {2} -> Status: {3}", i, nameservers(i - 1), versionstatus(i - 1), downloadstatus(i - 1))
+                Console.WriteLine("{0}) {1} -> {2}: {3} -> {4}: {5}", i, nameservers(i - 1), version1, versionstatus(i - 1), status1, downloadstatus(i - 1))
 
             Next
-            Console.WriteLine("11) Back")
+            Console.WriteLine("11) {0}", back)
             Console.WriteLine()
-            Console.Write("Which server you want to download the server? ")
+            Console.Write("{0}", downloader2)
             chooseserver = Console.ReadLine
 
             If chooseserver = "1" Or chooseserver = "2" Or chooseserver = "3" Or chooseserver = "4" Or chooseserver = "5" Or chooseserver = "6" Or chooseserver = "7" Or chooseserver = "8" Or chooseserver = "9" Or chooseserver = "10" Then
                 Console.WriteLine()
-                Console.WriteLine("1- Version Stable (Setup File)")
-                Console.WriteLine("2- Version Beta (Phar File)")
-                Console.WriteLine("3- Version Dev-1170 (Phar File)")
-                Console.WriteLine("4- Version Soft (Phar File)")
-                Console.WriteLine("5- Back")
+                Console.WriteLine("1- {0} (Setup File)", versionstable1)
+                Console.WriteLine("2- {0} (Phar File)", versionbeta1)
+                Console.WriteLine("3- {0} (Phar File)", versiondev1)
+                Console.WriteLine("4- {0} (Phar File)", versionsoft1)
+                Console.WriteLine("5- {0}", back)
                 Console.WriteLine()
-                Console.Write("What kind of version you want to download?")
+                Console.Write("{0}", downloader1)
                 version = Console.ReadLine
 
                 If version = "1" Then 'Stable
                     Do
                         Console.WriteLine()
-                        Console.WriteLine("Current Versions:")
+                        Console.WriteLine("{0}", currentversion)
                         Console.WriteLine("1) 1.4.1 API 1.11.0 Zekkou-Cake")
                         Console.WriteLine()
-                        Console.Write("Which version do you want to download?: ")
+                        Console.Write("{0}", downloader2)
                         stable = Console.ReadLine
 
                         If stable = "1" Then 'Stable
                             If checkpocketmine Then
                                 Console.WriteLine()
-                                Console.WriteLine("You have already downloaded this installer!")
+                                Console.WriteLine("{0}", downloader3)
                                 Console.ReadLine()
 
                                 Exit Sub
 
                             Else
-                                Console.WriteLine("Downloading Installer...!")
+                                Console.WriteLine("{0}", downloader4)
                                 Process.Start(linkstable)
-                                Console.WriteLine("Installer downloaded! Press ENTER to continue.")
+                                Console.WriteLine("{0}", downloader5)
                                 Console.ReadLine()
 
                             End If
@@ -89,24 +92,24 @@
                 If version = "2" Then 'Beta
                     Do
                         Console.WriteLine()
-                        Console.WriteLine("Current Versions:")
+                        Console.WriteLine("{0}", currentversion)
                         Console.WriteLine("1) 1.4.1 API 1.11.0 Zekkou-Cake")
                         Console.WriteLine()
-                        Console.Write("Which version do you want to download?: ")
+                        Console.Write("{0}", downloader2)
                         beta = Console.ReadLine
 
                         If beta = "1" Then
                             If checkbeta Then
                                 Console.WriteLine()
-                                Console.WriteLine("You have already downloaded this file!")
+                                Console.WriteLine("{0}", downloader6)
                                 Console.ReadLine()
 
                                 Exit Sub
 
                             Else
-                                Console.WriteLine("Downloading Phar File...!")
+                                Console.WriteLine("{0}", downloader7)
                                 Process.Start(linkbeta)
-                                Console.WriteLine("Phar file downloaded! Press ENTER to continue.")
+                                Console.WriteLine("{0}", downloader8)
                                 Console.ReadLine()
 
                             End If
@@ -117,24 +120,24 @@
                 If version = "3" Then 'Dev
                     Do
                         Console.WriteLine()
-                        Console.WriteLine("Current Versions:")
+                        Console.WriteLine("{0}", currentversion)
                         Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1153]")
                         Console.WriteLine()
-                        Console.Write("Which version do you want to download?: ")
+                        Console.Write("{0}", downloader2)
                         dev = Console.ReadLine
 
                         If dev = "1" Then
                             If checkdev Then
                                 Console.WriteLine()
-                                Console.WriteLine("You have already downloaded this file!")
+                                Console.WriteLine("{0}", downloader6)
                                 Console.ReadLine()
 
                                 Exit Sub
 
                             Else
-                                Console.WriteLine("Downloading Phar File...!")
+                                Console.WriteLine("{0}", downloader7)
                                 Process.Start(linkdev)
-                                Console.WriteLine("Phar file downloaded! Press ENTER to continue.")
+                                Console.WriteLine("{0}", downloader8)
                                 Console.ReadLine()
 
                             End If
@@ -145,24 +148,24 @@
                 If version = "4" Then 'Soft
                     Do
                         Console.WriteLine()
-                        Console.WriteLine("Current Versions:")
+                        Console.WriteLine("{0}", currentversion)
                         Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu")
                         Console.WriteLine()
-                        Console.Write("Which version do you want to download?: ")
+                        Console.Write("{0}", downloader2)
                         soft = Console.ReadLine
 
                         If soft = "1" Then
                             If checksoft Then
                                 Console.WriteLine()
-                                Console.WriteLine("You have already downloaded this file!")
+                                Console.WriteLine("{0}", downloader6)
                                 Console.ReadLine()
 
                                 Exit Sub
 
                             Else
-                                Console.WriteLine("Downloading Phar File...!")
+                                Console.WriteLine("{0}", downloader7)
                                 Process.Start(linksoft)
-                                Console.WriteLine("Phar file downloaded! Press ENTER to continue.")
+                                Console.WriteLine("{0}", downloader8)
                                 Console.ReadLine()
 
                             End If
@@ -176,13 +179,13 @@
 
                         MoveDownloadedFile(checkpocketmine, downloadpath, checkbeta, checkdev, checksoft, version)
 
-                        ManagerInstaller.ChangeVersionStatus(version, chooseserver, versionstatus)
+                        ManagerInstaller.ChangeVersionStatus(version, chooseserver, versionstatus, changemade)
 
                         ChangeDownloadStatus(nservers, downloadstatus, chooseserver)
                     End If
                 Else
                     Do
-                        Console.Write("Please indicate what the link to the folder where you downloaded the installer , example 'C:\PocketMine-MP': ")
+                        Console.Write("{0}", downloader9)
                         downloadpath = Console.ReadLine
 
                     Loop While downloadpath = ""

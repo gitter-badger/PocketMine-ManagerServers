@@ -15,7 +15,7 @@
     '(at your option) any later version. 
     Sub Main()
         '#Variables languages
-        Dim back, changemade, status1, version1, versionstable, versionbeta, versiondev, versionsoft, currentversion, writepath1, writepath2 As String
+        Dim back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3 As String
         Dim menudev, menutitle, menu1, menu2, menu3, menu4, menu5, menu6 As String
         Dim installertitle, installer1, installer2, installer3 As String
         Dim installator1, installator2, installator3, installator4, installator5 As String
@@ -75,7 +75,7 @@
         'STARTUP
 
         Loader.Loader(checklanguage, versionstatus, dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, _
-                      dirperformance, dirutils, checklicense, downloadstatus, installationstatus, dirlanguages, direrrors, changelang, back, changemade, status1, version1, versionstable, versionbeta, versiondev, versionsoft, currentversion, writepath1, writepath2, menudev, menutitle, _
+                      dirperformance, dirutils, checklicense, downloadstatus, installationstatus, dirlanguages, direrrors, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
                       menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installator1, installator2, installator3, installator4, _
                       installator5, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, manager1, manager2, manager3, _
                       opener1, opener2, opener3, opener4, opener5, opener6, opener7, editor1, editor2, editor3, properties1, properties2, properties3, properties4, properties5, _
@@ -91,7 +91,7 @@
         language = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm")
 
         While quit = "N"
-            LanguageReader.LanguageReader(language, changelang, back, changemade, status1, version1, versionstable, versionbeta, versiondev, versionsoft, currentversion, writepath1, writepath2, menudev, menutitle, _
+            LanguageReader.LanguageReader(language, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
                               menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installator1, installator2, installator3, installator4, _
                               installator5, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, manager1, manager2, manager3, _
                               opener1, opener2, opener3, opener4, opener5, opener6, opener7, editor1, editor2, editor3, properties1, properties2, properties3, properties4, properties5, _
@@ -113,11 +113,13 @@
             Console.WriteLine("4- {0}", menu4)
             Console.WriteLine("5- {0}", menu5)
             Console.WriteLine()
-            Console.Write("{0} ", menu6)
+            Console.Write("{0}", menu6)
             menu = Console.ReadLine
 
             If menu = "1" Then
-                ManagerInstaller.ManagerInstaller(path, nameservers, nservers, checkpath, numberservers, downloadstatus, installationstatus, versionstatus, checknameserver)
+                ManagerInstaller.ManagerInstaller(path, nameservers, nservers, checkpath, numberservers, downloadstatus, installationstatus, versionstatus, checknameserver, back, changemade, status1, version1, versionstable1, versionbeta1, _
+                                        versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, installertitle, installer1, installer2, installer3, installator1, installator2, installator3, installator4, installator5, downloader1, downloader2, downloader3, downloader4, _
+                                        downloader5, downloader6, downloader7, downloader8, downloader9)
 
             End If
 
@@ -129,7 +131,7 @@
 
             If menu = "3" Then 'Program Options
                 Settings.Settings(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations, dirlanguages, direrrors, checklanguage, _
-                                  language, changelang, back, changemade, status1, version1, versionstable, versionbeta, versiondev, versionsoft, currentversion, writepath1, writepath2, menudev, menutitle, _
+                                  language, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
                                   menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installator1, installator2, installator3, installator4, _
                                   installator5, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, manager1, manager2, manager3, _
                                   opener1, opener2, opener3, opener4, opener5, opener6, opener7, editor1, editor2, editor3, properties1, properties2, properties3, properties4, properties5, _
@@ -152,12 +154,12 @@
                     Console.ForegroundColor = ConsoleColor.DarkGreen
                     Console.WriteLine("----------------------------------<Exit>----------------------------------------")
                     Console.ForegroundColor = ConsoleColor.White
-                    Console.Write("Are you sure you want to quit? <Y/N>: ")
+                    Console.Write("{0}", exit1)
                     quit = Console.ReadLine.ToUpper
                 Loop While quit <> "Y" And quit <> "N"
 
                 If quit = "Y" Then
-                    Console.WriteLine("See you soon!")
+                    Console.WriteLine("{0}", exit2)
                     Console.ReadLine()
                     End
 
