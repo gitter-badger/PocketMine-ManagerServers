@@ -125,7 +125,10 @@
 
             If menu = "2" Then 'Manage Servers
 
-                Manager.Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance)
+                Manager.Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance, _
+                                back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, manager1, manager2, manager3, opener1, opener2, opener3, _
+                                opener4, opener5, opener6, opener7, editor1, editor2, editor3, properties1, properties2, properties3, properties4, properties5, properties6, performance1, performance2, performance3, performance4, performance5, _
+                                performance6, performance7, performance8, performance9, performance10, performance11, performance12, performance13)
 
             End If
 

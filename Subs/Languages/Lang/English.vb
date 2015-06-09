@@ -137,7 +137,7 @@
         opener3 = "Reading your file(s)..."
         opener4 = "File(s) succefully read!"
         opener5 = "Opening your server(s)..."
-        opener6 = "Loading {0} server!"
+        opener6 = "Loading"
         opener7 = "Wait 3 seconds to load each server!"
 
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener1.lang", opener1, True)

@@ -18,7 +18,9 @@ Module Properties
 
     Public rconpassword As String
 
-    Sub Properties(ByRef checkpath As Object(), ByRef path As String(), ByRef nservers As Integer, ByRef numberservers As String(), ByRef checknameserver As Object())
+    Sub Properties(ByRef checkpath As Object(), ByRef path As String(), ByRef nservers As Integer, ByRef numberservers As String(), ByRef checknameserver As Object(), _
+                   ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef properties1 As String, ByRef properties2 As String, _
+                   ByRef properties3 As String, ByRef properties4 As String, ByRef properties5 As String, ByRef properties6 As String)
 
         Dim motd, serverport, whitelist, achievent, spawn, maxplayers, flight, animals, mobs, gamemode, forcegamemode, _
             hardcore, pvp, difficulty, generator, levelname, levelseed, leveltype, enablequery, enablercon, _
@@ -40,13 +42,13 @@ Module Properties
         Console.ForegroundColor = ConsoleColor.DarkGreen
         Console.WriteLine("--------------------------<Edit Server Properties>------------------------------")
         Console.ForegroundColor = ConsoleColor.White
-        Console.WriteLine("Checking path(s)...")
+        Console.WriteLine("{0}", properties1)
 
         Checking(checknameserver, checkpath)
 
         If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
             Do
-                Console.WriteLine("Path(s) found!")
+                Console.WriteLine("{0}", properties2)
                 Console.WriteLine("#Properties Config file")
                 Console.WriteLine("Sun May 3 13:20:31 AZOST 2015")
 
@@ -240,7 +242,7 @@ Module Properties
                 Loop While autosave <> "on" And autosave <> "off"
 
                 Do
-                    Console.Write("Do you want to confirm your choices? <Y/N>: ")
+                    Console.Write("Do you want to confirm your choices? <Y/N>: ") 'TODO: Add in the language's file
                     confirmedit = Console.ReadLine.ToUpper
 
                     If confirmedit = "Y" Then
@@ -248,7 +250,7 @@ Module Properties
                         Console.Clear()
                         Console.WriteLine("========================<PocketMine Manager Servers>============================")
                         Console.WriteLine("--------------------------<Edit Server Properties>------------------------------")
-                        Console.WriteLine("I'm making your server.properties, wait...")
+                        Console.WriteLine("{0}", properties3)
 
                         propertiesfile =
                         "#Properties Config file" + vbCrLf + _
@@ -279,10 +281,10 @@ Module Properties
                         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Utils\server.properties", propertiesfile, True)
 
                         Console.WriteLine()
-                        Console.WriteLine("Server.properties created!")
+                        Console.WriteLine("{0}", properties4)
 
                         Do
-                            Console.Write("Do you want to replace the old and new properties? (This will create a backup file) <Y/N>: ")
+                            Console.Write("{0}", properties5)
                             replaceproperty = Console.ReadLine.ToUpper
 
 
@@ -318,15 +320,15 @@ Module Properties
             Loop While confirmedit = "N"
 
         Else
-            Console.WriteLine("Path(s) not found!")
+            Console.WriteLine("{0}", properties6)
 
             For i = 1 To nservers
                 Do
-                    Console.Write("Write the folder path of the {0} server, example 'C:\PocketMine-MP': ", numberservers(i - 1))
+                    Console.Write("{0} {1} {0}", writepath1, numberservers(i - 1), writepath2)
                     path(i - 1) = Console.ReadLine
 
                     If path(i - 1) = "" Then
-                        Console.WriteLine("ERROR! Insert a valid path!")
+                        Console.WriteLine("{0}", writepath3)
                         Console.ReadLine()
 
                     End If
