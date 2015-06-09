@@ -16,10 +16,26 @@
     Sub Main()
         '#Variables languages
         Dim back, changemade, status1, version1, versionstable, versionbeta, versiondev, versionsoft, currentversion, writepath1, writepath2 As String
+        Dim menudev, menutitle, menu1, menu2, menu3, menu4, menu5, menu6 As String
+        Dim installertitle, installer1, installer2, installer3 As String
+        Dim installator1, installator2, installator3, installator4, installator5 As String
+        Dim downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9 As String
+        Dim manager1, manager2, manager3 As String
+        Dim opener1, opener2, opener3, opener4, opener5, opener6, opener7 As String
+        Dim editor1, editor2, editor3 As String
+        Dim properties1, properties2, properties3, properties4, properties5, properties6 As String
+        Dim performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, performance12, performance13 As String
+        Dim option1, option2, option3 As String
+        Dim lang1 As String
+        Dim resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11 As String
+        Dim info1, info2, info3, info4, info5, info6 As String
+        Dim exit1, exit2 As String
 
+        '#Variables Main Menu and other (Loader, etc..)
         Dim menu, quit, defaultservers As String
         Dim checkfolderinstallation, checklicense, checklanguage As Object
         Dim checklang, changelang As Boolean
+        Dim language As Integer
 
         '#Variables "Install PocketMine-MP"
         Dim downloadstatus As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
@@ -59,30 +75,45 @@
         'STARTUP
 
         Loader.Loader(checklanguage, versionstatus, dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, _
-                      dirperformance, dirutils, checklicense, downloadstatus, installationstatus, dirlanguages, direrrors, changelang, back, changemade, status1, version1, versionstable, versionbeta)
+                      dirperformance, dirutils, checklicense, downloadstatus, installationstatus, dirlanguages, direrrors, changelang, back, changemade, status1, version1, versionstable, versionbeta, versiondev, versionsoft, currentversion, writepath1, writepath2, menudev, menutitle, _
+                      menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installator1, installator2, installator3, installator4, _
+                      installator5, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, manager1, manager2, manager3, _
+                      opener1, opener2, opener3, opener4, opener5, opener6, opener7, editor1, editor2, editor3, properties1, properties2, properties3, properties4, properties5, _
+                      properties6, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
+                      performance12, performance13, option1, option2, option3, lang1, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
+                      info1, info2, info3, info4, info5, info6, exit1, exit2)
 
         quit = "N"
 
         CompleterLoader.CompleterLoader(defaultservers)
 
         nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
+        language = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm")
 
         While quit = "N"
+            LanguageReader.LanguageReader(language, changelang, back, changemade, status1, version1, versionstable, versionbeta, versiondev, versionsoft, currentversion, writepath1, writepath2, menudev, menutitle, _
+                              menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installator1, installator2, installator3, installator4, _
+                              installator5, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, manager1, manager2, manager3, _
+                              opener1, opener2, opener3, opener4, opener5, opener6, opener7, editor1, editor2, editor3, properties1, properties2, properties3, properties4, properties5, _
+                              properties6, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
+                              performance12, performance13, option1, option2, option3, lang1, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
+                              info1, info2, info3, info4, info5, info6, exit1, exit2)
+
             Console.ForegroundColor = ConsoleColor.Green
             Console.Clear()
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
             Console.ForegroundColor = ConsoleColor.Red
-            Console.WriteLine("-------------------------------<Main Menu>--------------------------------------")
+            Console.WriteLine("-------------------------------<{0}>--------------------------------------", menutitle)
             Console.ForegroundColor = ConsoleColor.Yellow
-            Console.WriteLine("                                                           Version: 1.1 #BUILD 1")
+            Console.WriteLine("{0}", menudev)
             Console.ForegroundColor = ConsoleColor.White
-            Console.WriteLine("1- Install PocketMine-MP")
-            Console.WriteLine("2- Manage Servers")
-            Console.WriteLine("3- Programm Options")
-            Console.WriteLine("4- Informations")
-            Console.WriteLine("5- Exit")
+            Console.WriteLine("1- {0}", menu1)
+            Console.WriteLine("2- {0}", menu2)
+            Console.WriteLine("3- {0}", menu3)
+            Console.WriteLine("4- {0}", menu4)
+            Console.WriteLine("5- {0}", menu5)
             Console.WriteLine()
-            Console.Write("What would you like to do?: ")
+            Console.Write("{0} ", menu6)
             menu = Console.ReadLine
 
             If menu = "1" Then
@@ -98,7 +129,13 @@
 
             If menu = "3" Then 'Program Options
                 Settings.Settings(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations, dirlanguages, direrrors, checklanguage, _
-                                  back, changemade, status1, version1, versionstable, versionbeta)
+                                  language, changelang, back, changemade, status1, version1, versionstable, versionbeta, versiondev, versionsoft, currentversion, writepath1, writepath2, menudev, menutitle, _
+                                  menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installator1, installator2, installator3, installator4, _
+                                  installator5, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, manager1, manager2, manager3, _
+                                  opener1, opener2, opener3, opener4, opener5, opener6, opener7, editor1, editor2, editor3, properties1, properties2, properties3, properties4, properties5, _
+                                  properties6, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
+                                  performance12, performance13, option1, option2, option3, lang1, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
+                                  info1, info2, info3, info4, info5, info6, exit1, exit2)
 
             End If
 

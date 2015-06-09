@@ -13,7 +13,14 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version.
-    Sub LanguageReader(ByRef language As Integer, ByRef changelang As Boolean, ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable As String, ByRef versionbeta As String)
+    Sub LanguageReader(ByRef language As Integer, ByRef changelang As Boolean, ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable As String, ByRef versionbeta As String, ByRef versiondev As String, ByRef versionsoft As String, ByRef currentversion As String, ByRef writepath1 As String, ByRef writepath2 As String, _
+                 ByRef menudev As String, ByRef menutitle As String, ByRef menu1 As String, ByRef menu2 As String, ByRef menu3 As String, ByRef menu4 As String, ByRef menu5 As String, ByRef menu6 As String, ByRef installertitle As String, ByRef installer1 As String, ByRef installer2 As String, ByRef installer3 As String, _
+                 ByRef installator1 As String, ByRef installator2 As String, ByRef installator3 As String, ByRef installator4 As String, ByRef installator5 As String, ByRef downloader1 As String, ByRef downloader2 As String, ByRef downloader3 As String, ByRef downloader4 As String, ByRef downloader5 As String, ByRef downloader6 As String, _
+                 ByRef downloader7 As String, ByRef downloader8 As String, ByRef downloader9 As String, ByRef manager1 As String, ByRef manager2 As String, ByRef manager3 As String, ByRef opener1 As String, ByRef opener2 As String, ByRef opener3 As String, ByRef opener4 As String, ByRef opener5 As String, ByRef opener6 As String, _
+                 ByRef opener7 As String, ByRef editor1 As String, ByRef editor2 As String, ByRef editor3 As String, ByRef properties1 As String, ByRef properties2 As String, ByRef properties3 As String, ByRef properties4 As String, ByRef properties5 As String, ByRef properties6 As String, ByRef performance1 As String, _
+                 ByRef performance2 As String, ByRef performance3 As String, ByRef performance4 As String, ByRef performance5 As String, ByRef performance6 As String, ByRef performance7 As String, ByRef performance8 As String, ByRef performance9 As String, ByRef performance10 As String, ByRef performance11 As String, _
+                 ByRef performance12 As String, ByRef performance13 As String, ByRef option1 As String, ByRef option2 As String, ByRef option3 As String, ByRef lang1 As String, ByRef resetp1 As String, ByRef resetp2 As String, ByRef resetp3 As String, ByRef resetp4 As String, ByRef resetp5 As String, ByRef resetp6 As String, _
+                 ByRef resetp7 As String, ByRef resetp8 As String, ByRef resetp9 As String, ByRef resetp10 As String, ByRef resetp11 As String, ByRef info1 As String, ByRef info2 As String, ByRef info3 As String, ByRef info4 As String, ByRef info5 As String, ByRef info6 As String, ByRef exit1 As String, ByRef exit2 As String)
 
         If language = 1 Then 'Afrikaans
 
@@ -32,7 +39,13 @@
         ElseIf language = 8 Then 'Dutch
 
         ElseIf language = 9 Then 'English
-            EnglishR.EnglishR(back, changemade, status1, version1, versionstable, versionbeta)
+            EnglishR.EnglishR(back, changemade, status1, version1, versionstable, versionbeta, versiondev, versionsoft, currentversion, writepath1, writepath2, menudev, menutitle, _
+                              menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installator1, installator2, installator3, installator4, _
+                              installator5, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, manager1, manager2, manager3, _
+                              opener1, opener2, opener3, opener4, opener5, opener6, opener7, editor1, editor2, editor3, properties1, properties2, properties3, properties4, properties5, _
+                              properties6, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
+                              performance12, performance13, option1, option2, option3, lang1, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
+                              info1, info2, info3, info4, info5, info6, exit1, exit2)
 
         ElseIf language = 10 Then 'Finnish
 
