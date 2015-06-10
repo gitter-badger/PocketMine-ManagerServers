@@ -14,8 +14,9 @@
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
     Sub Installator(ByRef checkpath As Object(), ByRef nservers As Integer, ByRef nameservers As String(), ByRef installationstatus As String(), ByRef versionstatus As String(), ByRef path As String(), ByRef numberservers As String(), _
-                    ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable1 As String, ByRef versionbeta1 As String, ByRef versiondev1 As String, _
-                    ByRef versionsoft1 As String, ByRef currentversion As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef installator1 As String, ByRef installator2 As String, ByRef installator3 As String, ByRef installator4 As String, ByRef installator5 As String)
+                    ByRef back As String, ByRef menu1 As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable1 As String, ByRef versionbeta1 As String, ByRef versiondev1 As String, _
+                    ByRef versionsoft1 As String, ByRef currentversion As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef installator1 As String, ByRef installator2 As String, _
+                    ByRef installator3 As String, ByRef installator4 As String, ByRef installator5 As String, ByRef installator6 As String, ByRef installator7 As String)
 
         Dim chooseserver, version, stable, beta, dev, soft As String
 
@@ -33,7 +34,7 @@
         Console.ForegroundColor = ConsoleColor.Green
         Console.WriteLine("========================<PocketMine Manager Servers>============================")
         Console.ForegroundColor = ConsoleColor.Cyan
-        Console.WriteLine("---------------------------<Install PocketMine-MP>------------------------------")
+        Console.WriteLine("---------------------------<{0}>------------------------------", menu1)
         Console.ForegroundColor = ConsoleColor.White
         For i = 1 To nservers
             Console.WriteLine("{0}) {1} -> {2}: {3} -> {4}: {5}", i, nameservers(i - 1), version1, versionstatus(i - 1), status1, installationstatus(i - 1))
@@ -48,7 +49,7 @@
             Console.ForegroundColor = ConsoleColor.Green
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
             Console.ForegroundColor = ConsoleColor.Cyan
-            Console.WriteLine("---------------------------<Install PocketMine-MP>------------------------------")
+            Console.WriteLine("---------------------------<{0}>------------------------------", menu1)
             Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine("1- {0} (Setup File)", versionstable1)
             Console.WriteLine("2- {0} (Phar File)", versionbeta1)
@@ -84,7 +85,7 @@
                             End If
                         End If
 
-                        ChangeInstallationStatus(nservers, installationstatus, chooseserver)
+                        ChangeInstallationStatus(nservers, installationstatus, chooseserver, installator6, installator7)
 
                     End If
                 Loop While stable <> "1"
@@ -104,7 +105,7 @@
                             If checkbeta Then
 
                                 VersionBeta.VersionBeta(chooseserver, beta, checkbeta, checkphar1, checkphar2, path) 'BETA
-                                ChangeInstallationStatus(nservers, installationstatus, chooseserver)
+                                ChangeInstallationStatus(nservers, installationstatus, chooseserver, installator6, installator7)
 
                             End If
                         End If
@@ -124,7 +125,7 @@
                             If checkdev Then
 
                                 VersionDev.VersionDev(chooseserver, dev, checkdev, checkphar1, checkphar2, path) 'DEV
-                                ChangeInstallationStatus(nservers, installationstatus, chooseserver)
+                                ChangeInstallationStatus(nservers, installationstatus, chooseserver, installator6, installator7)
 
                             End If
                         End If
@@ -144,7 +145,7 @@
                             If checksoft Then
 
                                 VersionSoft.VersionSoft(chooseserver, soft, checksoft, checkphar1, checkphar2, path) 'SOFT
-                                ChangeInstallationStatus(nservers, installationstatus, chooseserver)
+                                ChangeInstallationStatus(nservers, installationstatus, chooseserver, installator6, installator7)
 
                             End If
                         End If
@@ -196,9 +197,9 @@
 
     End Sub
 
-    Sub ChangeInstallationStatus(ByRef nservers As Integer, ByRef installationstatus As String(), ByRef chooseserver As String) 'It is not the best way. I currently use this then I'll change.
+    Sub ChangeInstallationStatus(ByRef nservers As Integer, ByRef installationstatus As String(), ByRef chooseserver As String, ByRef installator6 As String, ByRef installator7 As String) 'It is not the best way. I currently use this then I'll change.
         For i = 1 To nservers
-            installationstatus(i - 1) = "Installed"
+            installationstatus(i - 1) = installator6
 
         Next
 
@@ -245,7 +246,7 @@
         End If
 
         For i = 1 To nservers 'For security.
-            installationstatus(i - 1) = "Not Installed"
+            installationstatus(i - 1) = installator7
 
         Next
 

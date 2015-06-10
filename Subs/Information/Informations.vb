@@ -13,7 +13,7 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub Informations(ByVal checklicense As Object)
+    Sub Informations(ByVal checklicense As Object, ByRef back As String, ByRef menu4 As String, ByRef info1 As String, ByRef info2 As String, ByRef info3 As String, ByRef info4 As String, ByRef info5 As String, ByRef info6 As String)
 
         Dim information, moreinfo, gitlink, twitterlink As String
 
@@ -26,15 +26,15 @@
             Console.ForegroundColor = ConsoleColor.Green
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
             Console.ForegroundColor = ConsoleColor.Yellow
-            Console.WriteLine("--------------------------------<Informations>----------------------------------")
+            Console.WriteLine("--------------------------------<{0}>----------------------------------", menu4)
             Console.ForegroundColor = ConsoleColor.White
-            Console.WriteLine("1- License")
-            Console.WriteLine("2- Credits")
-            Console.WriteLine("3- More Informations")
-            Console.WriteLine("4- Disclaimer")
-            Console.WriteLine("5- Back")
+            Console.WriteLine("1- {0}", info1)
+            Console.WriteLine("2- {0}", info2)
+            Console.WriteLine("3- {0}", info3)
+            Console.WriteLine("4- {0}", info4)
+            Console.WriteLine("5- {0}", back)
             Console.WriteLine()
-            Console.Write("Choose information: ")
+            Console.Write("{0}", info5)
             information = Console.ReadLine
 
             If information = "1" Then
@@ -43,7 +43,7 @@
                     Process.Start("C:\Program Files\PocketMine-ManagerServers\LICENSE.pdf")
                 Else
                     Console.ForegroundColor = ConsoleColor.DarkRed
-                    Console.WriteLine("ERROR! Bad Installation! License not found!")
+                    Console.WriteLine("{0}", info6)
                     Console.ReadLine()
                 End If
             End If
@@ -53,7 +53,7 @@
                 Console.ForegroundColor = ConsoleColor.Green
                 Console.WriteLine("========================<PocketMine Manager Servers>============================")
                 Console.ForegroundColor = ConsoleColor.DarkYellow
-                Console.WriteLine("-----------------------------------<Credits>------------------------------------")
+                Console.WriteLine("-----------------------------------<{0}>------------------------------------", info2)
                 Console.ForegroundColor = ConsoleColor.White
                 Console.WriteLine("This program is free software made by matcracker: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or at your option) any later version.")
                 Console.WriteLine()
@@ -72,7 +72,7 @@
                     Console.ForegroundColor = ConsoleColor.Green
                     Console.WriteLine("========================<PocketMine Manager Servers>============================")
                     Console.ForegroundColor = ConsoleColor.DarkCyan
-                    Console.WriteLine("-----------------------------<More Informations>--------------------------------")
+                    Console.WriteLine("-----------------------------<{0}>--------------------------------", info3)
                     Console.ForegroundColor = ConsoleColor.White
                     Console.WriteLine("1- GitHub")
                     Console.WriteLine("2- Twitter")
@@ -97,7 +97,7 @@
                 Console.ForegroundColor = ConsoleColor.Green
                 Console.WriteLine("========================<PocketMine Manager Servers>============================")
                 Console.ForegroundColor = ConsoleColor.DarkBlue
-                Console.WriteLine("---------------------------------<Disclaimer>-----------------------------------")
+                Console.WriteLine("---------------------------------<{0}>-----------------------------------", info4)
                 Console.ForegroundColor = ConsoleColor.White
                 Console.WriteLine()
                 Console.WriteLine("I do not assume responsibility for the use of this program if being deleted folders or files, for you, important. The use is personal and therefore the connections you supply will have to be primarily related to the creation program server 'PocketMine-MP' or relative.")
