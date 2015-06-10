@@ -50,7 +50,7 @@
                 language = Console.ReadLine
 
                 If language > 30 Or language <= 0 Then
-                    Console.WriteLine("Please select an avaiable language!")
+                    Console.WriteLine("{0}", lang1)
 
                 End If
 

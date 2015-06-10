@@ -41,7 +41,7 @@
 
         Next
         Console.WriteLine()
-        Console.Write("Which server you want to install the server? ")
+        Console.Write("Which server you want to install the server? ") 'TODO: Add in the language's file
         chooseserver = Console.ReadLine
 
         If chooseserver = "1" Or chooseserver = "2" Or chooseserver = "3" Or chooseserver = "4" Or chooseserver = "5" Or chooseserver = "6" Or chooseserver = "7" Or chooseserver = "8" Or chooseserver = "9" Or chooseserver = "10" Then

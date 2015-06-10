@@ -152,6 +152,7 @@
 
         ElseIf language = 16 Then 'Italian
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Italian")
+            Italian.Italian()
 
             changelang = False
 

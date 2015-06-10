@@ -111,7 +111,7 @@
         downloader6 = "You have already downloaded this file!"
         downloader7 = "Downloading Phar File...!"
         downloader8 = "Phar file downloaded! Press ENTER to continue."
-        downloader9 = "Please indicate what the link to the folder where you downloaded the downloader , example 'C:\PocketMine-MP': "
+        downloader9 = "Please indicate what the link to the folder where you downloaded the installer , example 'C:\PocketMine-MP': "
         downloader10 = "Downloaded"
         downloader11 = "Not Downloaded"
 
