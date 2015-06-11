@@ -19,10 +19,10 @@ First you will need to download the beating heart of PocketMine, then select the
 ###Management servers
 This function provides for the management of one or more servers (maximum 10). It includes other two functions: one to open the servers and the other to change the performance.
 
-####Opener
+- ####Opener
 The first function is simple to use, though in the past they had already indicated the connections will not be referred to a second time while on the contrary, if they had not shown connections now you will have to do and then go on.
 
-####Editor
+- ####Editor
 The second function is also divided into two functions: one that changes the properties of the servers (server.properties) and one which changes the performance (High, medium, low)
 
 The first is simple to use, you just need to specify the properties to be attributed to the servers and create the file and place it will show where
