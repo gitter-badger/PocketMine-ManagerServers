@@ -87,7 +87,10 @@
             For i = 1 To 100
                 Console.WriteLine("Loading resource {0}%", i)
             Next
+
         End If
+
+        LanguageLoader.LanguageLoader()
 
         If checklanguage Then 'Language Selector
             quit = "N"
