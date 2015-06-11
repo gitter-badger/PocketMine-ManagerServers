@@ -55,7 +55,7 @@
                 End If
 
             Catch ex As Exception
-                Console.WriteLine(ex)
+
 
             End Try
 

@@ -324,7 +324,7 @@ Module Properties
 
             For i = 1 To nservers
                 Do
-                    Console.Write("{0} {1} {0}", writepath1, numberservers(i - 1), writepath2)
+                    Console.Write("{0} {1} {2}", writepath1, numberservers(i - 1), writepath2)
                     path(i - 1) = Console.ReadLine
 
                     If path(i - 1) = "" Then
