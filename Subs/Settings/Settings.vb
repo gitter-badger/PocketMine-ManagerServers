@@ -41,7 +41,9 @@
             options = Console.ReadLine
 
             If options = "1" Then
-                ChangeLanguages.ChangeLanguages(checklanguage, dirlanguages, language, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
+                changelang = True
+
+                LanguagesSelector.LanguagesSelector(checklanguage, dirlanguages, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
                               menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installator1, installator2, installator3, installator4, _
                               installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, manager1, manager2, manager3, _
                               manager4, opener0, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editor0, editor1, editor2, editor3, properties1, properties2, properties3, properties4, properties5, _
@@ -54,7 +56,6 @@
                                   resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11)
 
             End If
-
         Loop While options <> "3"
 
 

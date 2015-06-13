@@ -203,5 +203,8 @@
             End If
         End If
 
+        Console.WriteLine("Complete! Press ENTER to continue.")
+        Console.ReadLine()
+
     End Sub
 End Module
