@@ -76,9 +76,9 @@
                     Console.ForegroundColor = ConsoleColor.White
                     Console.WriteLine("1- GitHub")
                     Console.WriteLine("2- Twitter")
-                    Console.WriteLine("3- Back")
+                    Console.WriteLine("3- {0}", back)
                     Console.WriteLine()
-                    Console.Write("Choose information: ")
+                    Console.Write("{0}", info5)
                     moreinfo = Console.ReadLine
 
                     If moreinfo = "1" Then
