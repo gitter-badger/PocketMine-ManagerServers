@@ -83,8 +83,8 @@
         '-----------------#Installator
         Dim installator1, installator2, installator3, installator4, installator5, installator6, installator7 As String
 
-        installator1 = "What kind of version you want to install?"
-        installator2 = "Which version do you want to install?:"
+        installator1 = "What kind of version you want to install? "
+        installator2 = "Which version do you want to install?: "
         installator3 = "Starting installation..."
         installator4 = "Installation complete"
         installator5 = "Installer not found! Please download the installer!"

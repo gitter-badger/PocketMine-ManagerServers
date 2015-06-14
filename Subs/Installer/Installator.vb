@@ -116,7 +116,7 @@
                     Do
                         Console.WriteLine()
                         Console.WriteLine("{0}", currentversion)
-                        Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1234]")
+                        Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1240]")
                         Console.WriteLine()
                         Console.Write("{0}", installator2)
                         dev = Console.ReadLine
