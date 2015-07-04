@@ -38,7 +38,7 @@
             Console.ForegroundColor = ConsoleColor.Green
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
             Console.ForegroundColor = ConsoleColor.Blue
-            Console.WriteLine("--------------------------<{0}>----------------------------", installertitle)
+            Console.WriteLine("{0}", installertitle)
             Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine("1- {0}", installer1)
             Console.WriteLine("2- {0}", installer2)

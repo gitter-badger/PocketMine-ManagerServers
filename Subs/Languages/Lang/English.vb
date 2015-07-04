@@ -48,7 +48,7 @@
         '#Main Menu
         Dim menudev, menutitle, menu1, menu2, menu3, menu4, menu5, menu6 As String
 
-        menutitle = "Main Menu"
+        menutitle = "-------------------------------<Main Menu>--------------------------------------" '80 characters
         menudev = "                                                           Version: 1.1 #BUILD 1"
         menu1 = "Install PocketMine-MP"
         menu2 = "Manage Servers"
@@ -69,7 +69,7 @@
         '#Install PocketMine-MP
         Dim installertitle, installer1, installer2, installer3 As String
 
-        installertitle = "Initialize PocketMine-MP"
+        installertitle = "--------------------------<Initialize PocketMine-MP>----------------------------"
         installer1 = "Download"
         installer2 = "Install"
         installer3 = "Choose what do you want to do: "
@@ -81,8 +81,9 @@
 
         '--------#ManagerInstaller
         '-----------------#Installator
-        Dim installator1, installator2, installator3, installator4, installator5, installator6, installator7 As String
+        Dim installatortitle, installator1, installator2, installator3, installator4, installator5, installator6, installator7 As String
 
+        installatortitle = "---------------------------<Install PocketMine-MP>------------------------------"
         installator1 = "What kind of version you want to install? "
         installator2 = "Which version do you want to install?: "
         installator3 = "Starting installation..."
@@ -91,6 +92,7 @@
         installator6 = "Installed"
         installator7 = "Not Installed"
 
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator0.lang", installatortitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator1.lang", installator1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator2.lang", installator2, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator3.lang", installator3, True)
@@ -288,11 +290,13 @@
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info6.lang", info6, True)
 
         '#Exit
-        Dim exit1, exit2 As String
+        Dim exittitle, exit1, exit2 As String
 
+        exittitle = "----------------------------------<Exit>----------------------------------------"
         exit1 = "Are you sure you want to quit? <Y/N>: "
         exit2 = "See you soon!"
 
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Exit0.lang", exittitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Exit1.lang", exit1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Exit2.lang", exit2, True)
 

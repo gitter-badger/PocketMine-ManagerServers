@@ -14,6 +14,7 @@
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
     Sub Main()
+
         '#Variables languages
         Dim back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3 As String
         Dim menudev, menutitle, menu1, menu2, menu3, menu4, menu5, menu6 As String
@@ -68,6 +69,8 @@
         Dim performancestatus As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
 
         Dim checkperformance As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
+        '--------------#Variables Rescuer(Backup)
+        Dim backupstatus As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
 
         '#Variables Mechanical
         Dim dirservername, dirpath, dirdata, dirutils, dirperformance, dirinstallations, dirlanguages, direrrors As Object
@@ -75,7 +78,7 @@
         'STARTUP
 
         Loader.Loader(checklanguage, versionstatus, dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, _
-                      dirperformance, dirutils, checklicense, downloadstatus, installationstatus, dirlanguages, direrrors, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
+                      dirperformance, dirutils, checklicense, downloadstatus, installationstatus, backupstatus, dirlanguages, direrrors, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
                       menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installator1, installator2, installator3, installator4, _
                       installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, manager1, manager2, manager3, _
                       manager4, opener0, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editor0, editor1, editor2, editor3, properties1, properties2, properties3, properties4, properties5, _
@@ -103,7 +106,7 @@
             Console.Clear()
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
             Console.ForegroundColor = ConsoleColor.Red
-            Console.WriteLine("-------------------------------<{0}>--------------------------------------", menutitle)
+            Console.WriteLine("{0}", menutitle)
             Console.ForegroundColor = ConsoleColor.Yellow
             Console.WriteLine("{0}", menudev)
             Console.ForegroundColor = ConsoleColor.White
@@ -124,7 +127,7 @@
             End If
 
             If menu = "2" Then 'Manage Servers
-                Manager.Manager(nservers, varmanager, performance, performancestatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance, _
+                Manager.Manager(nservers, varmanager, performance, performancestatus, backupstatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance, _
                                 back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menu2, manager1, manager2, manager3, manager4, opener0, opener1, opener2, opener3, _
                                 opener4, opener5, opener6, opener7, opener8, editor0, editor1, editor2, editor3, properties1, properties2, properties3, properties4, properties5, properties6, performance0, performance1, performance2, performance3, performance4, performance5, _
                                 performance6, performance7, performance8, performance9, performance10, performance11, performance12)
@@ -154,7 +157,7 @@
                     Console.ForegroundColor = ConsoleColor.Green
                     Console.WriteLine("========================<PocketMine Manager Servers>============================")
                     Console.ForegroundColor = ConsoleColor.DarkGreen
-                    Console.WriteLine("----------------------------------<Exit>----------------------------------------")
+                    Console.WriteLine("{0}")
                     Console.ForegroundColor = ConsoleColor.White
                     Console.Write("{0}", exit1)
                     quit = Console.ReadLine.ToUpper

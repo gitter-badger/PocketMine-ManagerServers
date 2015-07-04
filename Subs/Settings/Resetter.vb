@@ -52,8 +52,9 @@
                         My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Performance", FileIO.DeleteDirectoryOption.DeleteAllContents)
                         My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Installations", FileIO.DeleteDirectoryOption.DeleteAllContents)
                         My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Languages", FileIO.DeleteDirectoryOption.DeleteAllContents)
-                        My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Errors", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                        My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Backups", FileIO.DeleteDirectoryOption.DeleteAllContents)
                         Console.WriteLine("{0}", resetp6)
+                        Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-ManagerServers.exe")
                         End
                     Else
                         Console.WriteLine("{0}", resetp7)
@@ -84,6 +85,7 @@
                                 Next
 
                                 Console.WriteLine("{0}", resetp6)
+                                Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-ManagerServers.exe")
                                 End
 
                             Else
@@ -114,6 +116,8 @@
                         If checkfolderinstallation Then
                             My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers", FileIO.DeleteDirectoryOption.DeleteAllContents)
                             Console.WriteLine("{0}", resetp6)
+
+                            Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-ManagerServers.exe")
                             End
                         Else
                             Console.WriteLine("{0}", resetp10)

@@ -14,7 +14,7 @@
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
     Sub Loader(ByRef checklanguage As Object, ByRef versionstatus As String(), ByRef dirinstallations As Object, ByRef checkinstallations As Object(), ByRef checkdownloads As Object(), ByVal checkperformance As Object, ByRef checknameserver As Object, ByRef nameservers As String(), ByRef performancestatus As String(), ByRef nservers As Integer, ByRef checkpath As Object(), ByRef path As String(), ByRef checknservers As Object, ByRef checkfolderinstallation As Object, _
-               ByRef dirpath As Object, ByRef dirdata As Object, ByRef dirservername As Object, ByRef dirperformance As Object, ByRef dirutils As Object, ByRef checklicense As Object, ByRef downloadstatus As String(), ByRef installationstatus As String(), ByRef dirlanguages As Object, ByRef direrrors As Object, ByRef changelang As Boolean, ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable1 As String, ByRef versionbeta1 As String, ByRef versiondev1 As String, ByRef versionsoft1 As String, ByRef currentversion As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, _
+               ByRef dirpath As Object, ByRef dirdata As Object, ByRef dirservername As Object, ByRef dirperformance As Object, ByRef dirutils As Object, ByRef checklicense As Object, ByRef downloadstatus As String(), ByRef installationstatus As String(), ByRef backupstatus As String(), ByRef dirlanguages As Object, ByRef dirbackups As Object, ByRef changelang As Boolean, ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable1 As String, ByRef versionbeta1 As String, ByRef versiondev1 As String, ByRef versionsoft1 As String, ByRef currentversion As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, _
                  ByRef menudev As String, ByRef menutitle As String, ByRef menu1 As String, ByRef menu2 As String, ByRef menu3 As String, ByRef menu4 As String, ByRef menu5 As String, ByRef menu6 As String, ByRef installertitle As String, ByRef installer1 As String, ByRef installer2 As String, ByRef installer3 As String, _
                  ByRef installator1 As String, ByRef installator2 As String, ByRef installator3 As String, ByRef installator4 As String, ByRef installator5 As String, ByRef installator6 As String, ByRef installator7 As String, ByRef downloadertitle As String, ByRef downloader1 As String, ByRef downloader2 As String, ByRef downloader3 As String, ByRef downloader4 As String, ByRef downloader5 As String, ByRef downloader6 As String, _
                  ByRef downloader7 As String, ByRef downloader8 As String, ByRef downloader9 As String, ByRef downloader10 As String, ByRef downloader11 As String, ByRef manager1 As String, ByRef manager2 As String, ByRef manager3 As String, ByRef manager4 As String, ByRef opener0 As String, ByRef opener1 As String, ByRef opener2 As String, ByRef opener3 As String, ByRef opener4 As String, ByRef opener5 As String, ByRef opener6 As String, _
@@ -46,10 +46,10 @@
         dirutils = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Utils")
         dirinstallations = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Installations")
         dirlanguages = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Languages")
-        direrrors = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Errors")
+        dirbackups = My.Computer.FileSystem.DirectoryExists("C:\Program Files\PocketMine-ManagerServers\Backups")
         Checking(checknameserver, checkpath)
 
-        If dirpath And dirservername And checkfolderinstallation And dirperformance And dirdata And dirutils And dirlanguages And dirinstallations And direrrors And checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) _
+        If dirpath And dirservername And checkfolderinstallation And dirperformance And dirdata And dirutils And dirlanguages And dirinstallations And dirbackups And checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) _
              And checkperformance(0) And checkperformance(1) And checkperformance(2) And checkperformance(3) And checkperformance(4) And checkperformance(5) And checkperformance(6) And checkperformance(7) And checkperformance(8) And checkperformance(9) And checkinstallations(0) _
              And checkinstallations(1) And checkinstallations(2) And checkinstallations(3) And checkinstallations(4) And checkinstallations(5) And checkinstallations(6) And checkinstallations(7) And checkinstallations(8) And checkinstallations(9) And checkdownloads(0) And checkdownloads(1) _
              And checkdownloads(2) And checkdownloads(3) And checkdownloads(4) And checkdownloads(5) And checkdownloads(6) And checkdownloads(7) And checkdownloads(8) And checkdownloads(9) Then
@@ -69,19 +69,22 @@
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Utils") 'Create Folder Utils
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Installations") 'Create Folder Installations
             My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages") 'Create Folder Languages
-            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Errors") 'Create Folder Errors
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Backups") 'Create Folder Backups
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Backups\Status") 'Create Folder Backups -> Status
+            My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Backups\Servers") 'Create Folder Backups -> Servers
 
             For i = 1 To 10
                 performancestatus(i - 1) = "Personal"
                 downloadstatus(i - 1) = "Not Downloaded"
                 installationstatus(i - 1) = "Not Installed"
                 versionstatus(i - 1) = "No version"
+                backupstatus(i - 1) = "Not Backuped"
                 My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm", path(i - 1), True)
                 My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Performance\PerformanceStatus_" + Convert.ToString(i) + ".pm", performancestatus(i - 1), True)
                 My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_" + Convert.ToString(i) + ".pm", downloadstatus(i - 1), True)
                 My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_" + Convert.ToString(i) + ".pm", installationstatus(i - 1), True)
                 My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\VersionStatus_" + Convert.ToString(i) + ".pm", versionstatus(i - 1), True)
-
+                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_" + Convert.ToString(i) + ".pm", backupstatus(i - 1), True)
             Next
 
             For i = 1 To 100

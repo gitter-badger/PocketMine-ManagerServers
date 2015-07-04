@@ -34,7 +34,7 @@
         Console.ForegroundColor = ConsoleColor.Green
         Console.WriteLine("========================<PocketMine Manager Servers>============================")
         Console.ForegroundColor = ConsoleColor.Cyan
-        Console.WriteLine("---------------------------<{0}>------------------------------", menu1)
+        Console.WriteLine("{0}", menu1)
         Console.ForegroundColor = ConsoleColor.White
         For i = 1 To nservers
             Console.WriteLine("{0}) {1} -> {2}: {3} -> {4}: {5}", i, nameservers(i - 1), version1, versionstatus(i - 1), status1, installationstatus(i - 1))

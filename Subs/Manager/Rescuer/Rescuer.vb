@@ -13,7 +13,7 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub Rescuer()
+    Sub Rescuer(ByRef nservers As Integer, ByRef nameservers As String(), ByRef backupstatus As String(), ByRef checkpath As Object(), ByRef path As String())
 
         Dim rescuer As String
 
@@ -32,7 +32,7 @@
             rescuer = Console.ReadLine
 
             If rescuer = "1" Then
-                Backup.Backup()
+                Backup.Backup(nservers, nameservers, backupstatus, checkpath, path)
 
             End If
 
