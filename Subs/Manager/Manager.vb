@@ -49,7 +49,7 @@
             End If
 
             If varmanager = "3" Then
-                Rescuer.Rescuer(nservers, nameservers, backupstatus, checkpath, path)
+                Rescuer.Rescuer(nservers, nameservers, backupstatus, checkpath, path, numberservers, writepath1, writepath2, writepath3)
 
             End If
 

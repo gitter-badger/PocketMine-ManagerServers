@@ -13,9 +13,14 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub Rescuer(ByRef nservers As Integer, ByRef nameservers As String(), ByRef backupstatus As String(), ByRef checkpath As Object(), ByRef path As String())
+    Sub Rescuer(ByRef nservers As Integer, ByRef nameservers As String(), ByRef backupstatus As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef numberservers As String(), ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String)
 
         Dim rescuer As String
+
+        For i = 1 To nservers
+            backupstatus(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_" + Convert.ToString(i) + ".pm")
+
+        Next
 
         Do
             Console.Clear()
@@ -32,12 +37,12 @@
             rescuer = Console.ReadLine
 
             If rescuer = "1" Then
-                Backup.Backup(nservers, nameservers, backupstatus, checkpath, path)
+                Backup.Backup(nservers, nameservers, backupstatus, checkpath, path, numberservers, writepath1, writepath2, writepath3)
 
             End If
 
             If rescuer = "2" Then
-                Restore.Restore()
+                Restore.Restore(nservers, nameservers, backupstatus, checkpath, path)
 
             End If
         Loop While rescuer <> "3"
