@@ -139,9 +139,9 @@
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Manager4.lang", manager4, True)
 
         '-----------#Opener
-        Dim opener0, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8 As String
+        Dim openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8 As String
 
-        opener0 = "Apritore"
+        openertitle = "Apritore"
         opener1 = "Apri"
         opener2 = "Che cosa vuoi fare? "
         opener3 = "Leggento i tuoi file(s)..."
@@ -151,7 +151,7 @@
         opener7 = "Aspetta 3 secondi per ogni carimanto dei server!"
         opener8 = "Cartelle"
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Opener0.lang", opener0, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Opener0.lang", openertitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Opener1.lang", opener1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Opener2.lang", opener2, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Opener3.lang", opener3, True)
@@ -162,14 +162,14 @@
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Opener8.lang", opener8, True)
 
         '-----------#Editor
-        Dim editor0, editor1, editor2, editor3 As String
+        Dim editortitle, editor1, editor2, editor3 As String
 
-        editor0 = "Modificatore"
+        editortitle = "Modificatore"
         editor1 = "Modifica proprietà del server"
         editor2 = "Modifica prestazioni del server"
         editor3 = "Che cosa vuoi modificare? "
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Editor0.lang", editor0, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Editor0.lang", editortitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Editor1.lang", editor1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Editor2.lang", editor2, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Editor3.lang", editor3, True)
@@ -192,9 +192,9 @@
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Properties6.lang", properties6, True)
 
         '----------------#EditPerformance
-        Dim performance0, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, performance12 As String
+        Dim performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, performance12 As String
 
-        performance0 = "Prestazioni"
+        performancetitle = "Prestazioni"
         performance1 = "Le tue prestazioni attuali sono: "
         performance2 = "Che caratteristica vuoi attribuire ai tuoi servers?"
         performance3 = "Alte"
@@ -208,7 +208,7 @@
         performance11 = "Su quale server vuoi applicare queste impostazioni? "
         performance12 = "Sto facendo i cambiamenti..."
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Performance0.lang", performance0, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Performance0.lang", performancetitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Performance1.lang", performance1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Performance2.lang", performance2, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Performance3.lang", performance3, True)

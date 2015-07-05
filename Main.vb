@@ -19,18 +19,22 @@
         Dim back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3 As String
         Dim menudev, menutitle, menu1, menu2, menu3, menu4, menu5, menu6 As String
         Dim installertitle, installer1, installer2, installer3 As String
-        Dim installator1, installator2, installator3, installator4, installator5, installator6, installator7 As String
+        Dim installatortitle, installator1, installator2, installator3, installator4, installator5, installator6, installator7 As String
+        Dim versions1, versions2, versions3 As String
         Dim downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11 As String
-        Dim manager1, manager2, manager3, manager4 As String
-        Dim opener0, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8 As String
-        Dim editor0, editor1, editor2, editor3 As String
-        Dim properties1, properties2, properties3, properties4, properties5, properties6 As String
-        Dim performance0, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, performance12 As String
-        Dim option1, option2, option3 As String
+        Dim managertitle, manager1, manager2, manager3, manager4 As String
+        Dim openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8 As String
+        Dim editortitle, editor1, editor2, editor3 As String
+        Dim propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6 As String
+        Dim performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, performance12 As String
+        Dim rescuertitle, rescuer1, rescuer2 As String
+        Dim backuptitle, backup1, backup2, backup3 As String
+        Dim restoretitle, restore1, restore2, restore3, restore4 As String
+        Dim optiontitle, option1, option2, option3 As String
         Dim lang1 As String
-        Dim resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11 As String
-        Dim info1, info2, info3, info4, info5, info6 As String
-        Dim exit1, exit2 As String
+        Dim resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11 As String
+        Dim infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6 As String
+        Dim exittitle, exit1, exit2 As String
 
         '#Variables Main Menu and other (Loader, etc..)
         Dim menu, quit, defaultservers As String
@@ -79,12 +83,13 @@
 
         Loader.Loader(checklanguage, versionstatus, dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, _
                       dirperformance, dirutils, checklicense, downloadstatus, installationstatus, backupstatus, dirlanguages, direrrors, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
-                      menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installator1, installator2, installator3, installator4, _
-                      installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, manager1, manager2, manager3, _
-                      manager4, opener0, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editor0, editor1, editor2, editor3, properties1, properties2, properties3, properties4, properties5, _
-                      properties6, performance0, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
-                      performance12, option1, option2, option3, lang1, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
-                      info1, info2, info3, info4, info5, info6, exit1, exit2)
+                      menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
+                      installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
+                      manager4, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
+                      properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
+                      performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, restoretitle, restore1, restore2, restore3, restore4, optiontitle, option1, option2, option3, lang1, _
+                      resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
+                      infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3)
 
         quit = "N"
 
@@ -94,13 +99,14 @@
         language = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm")
 
         While quit = "N"
-            LanguageReader.LanguageReader(language, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
-                              menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installator1, installator2, installator3, installator4, _
-                              installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, manager1, manager2, manager3, _
-                              manager4, opener0, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editor0, editor1, editor2, editor3, properties1, properties2, properties3, properties4, properties5, _
-                              properties6, performance0, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
-                              performance12, option1, option2, option3, lang1, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
-                              info1, info2, info3, info4, info5, info6, exit1, exit2)
+            LanguageReader.LanguageReader(language, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
+                              menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
+                              installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
+                              manager4, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
+                              properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
+                              performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, restoretitle, restore1, restore2, restore3, restore4, optiontitle, option1, option2, option3, lang1, _
+                              resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
+                              infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3)
 
             Console.ForegroundColor = ConsoleColor.Green
             Console.Clear()
@@ -121,33 +127,34 @@
 
             If menu = "1" Then 'Install PocketMine
                 ManagerInstaller.ManagerInstaller(path, nameservers, nservers, checkpath, numberservers, downloadstatus, installationstatus, versionstatus, checknameserver, back, changemade, status1, version1, versionstable1, versionbeta1, _
-                                        versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menu1, installertitle, installer1, installer2, installer3, installator1, installator2, installator3, installator4, installator5, _
-                                        installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11)
+                                        versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menu1, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, installator5, _
+                                        installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, versions1, versions2, versions3)
 
             End If
 
             If menu = "2" Then 'Manage Servers
                 Manager.Manager(nservers, varmanager, performance, performancestatus, backupstatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance, _
-                                back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menu2, manager1, manager2, manager3, manager4, opener0, opener1, opener2, opener3, _
-                                opener4, opener5, opener6, opener7, opener8, editor0, editor1, editor2, editor3, properties1, properties2, properties3, properties4, properties5, properties6, performance0, performance1, performance2, performance3, performance4, performance5, _
-                                performance6, performance7, performance8, performance9, performance10, performance11, performance12)
+                                back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, managertitle, manager1, manager2, manager3, manager4, openertitle, opener1, opener2, opener3, _
+                                opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, _
+                                performance6, performance7, performance8, performance9, performance10, performance11, performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, restoretitle, restore1, restore2, restore3, restore4)
 
             End If
 
             If menu = "3" Then 'Program Options
                 Settings.Settings(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations, dirlanguages, direrrors, checklanguage, _
                                   language, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
-                              menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installator1, installator2, installator3, installator4, _
-                              installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, manager1, manager2, manager3, _
-                              manager4, opener0, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editor0, editor1, editor2, editor3, properties1, properties2, properties3, properties4, properties5, _
-                              properties6, performance0, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
-                              performance12, option1, option2, option3, lang1, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
-                              info1, info2, info3, info4, info5, info6, exit1, exit2)
+                              menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
+                              installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
+                              manager4, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
+                              properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
+                              performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, restoretitle, restore1, restore2, restore3, restore4, optiontitle, option1, option2, option3, lang1, _
+                              resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
+                              infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3)
 
             End If
 
             If menu = "4" Then 'Informations
-                Informations.Informations(checklicense, back, menu4, info1, info2, info3, info4, info5, info6)
+                Informations.Informations(checklicense, back, menu4, info1, info2, info3, info4, info5, info6, infotitle, infocredits, infoinformations, infodisclaimer)
 
             End If
 
@@ -157,7 +164,7 @@
                     Console.ForegroundColor = ConsoleColor.Green
                     Console.WriteLine("========================<PocketMine Manager Servers>============================")
                     Console.ForegroundColor = ConsoleColor.DarkGreen
-                    Console.WriteLine("{0}")
+                    Console.WriteLine("{0}", exittitle)
                     Console.ForegroundColor = ConsoleColor.White
                     Console.Write("{0}", exit1)
                     quit = Console.ReadLine.ToUpper

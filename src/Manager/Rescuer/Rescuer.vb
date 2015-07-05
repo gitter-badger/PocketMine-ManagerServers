@@ -13,7 +13,9 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub Rescuer(ByRef nservers As Integer, ByRef nameservers As String(), ByRef backupstatus As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef numberservers As String(), ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String)
+    Sub Rescuer(ByRef nservers As Integer, ByRef nameservers As String(), ByRef backupstatus As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef numberservers As String(), ByRef back As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, _
+                ByRef manager4 As String, ByRef rescuertitle As String, ByRef rescuer1 As String, ByRef rescuer2 As String, ByRef backuptitle As String, ByRef backup1 As String, ByRef backup2 As String, ByRef backup3 As String, ByRef restoretitle As String, ByRef restore1 As String, ByRef restore2 As String, _
+                ByRef restore3 As String, ByRef restore4 As String)
 
         Dim rescuer As String
 
@@ -27,22 +29,22 @@
             Console.ForegroundColor = ConsoleColor.Green
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
             Console.ForegroundColor = ConsoleColor.Red
-            Console.WriteLine("--------------------------<Backup/Restore Servers>------------------------------")
+            Console.WriteLine("{0}", rescuertitle)
             Console.ForegroundColor = ConsoleColor.White
-            Console.WriteLine("1- Backup servers")
-            Console.WriteLine("2- Restore servers")
-            Console.WriteLine("3- Back")
+            Console.WriteLine("1- {0}", rescuer1)
+            Console.WriteLine("2- {0}", rescuer2)
+            Console.WriteLine("3- {0}", back)
             Console.WriteLine()
-            Console.Write("Select option: ")
+            Console.Write("{0}", manager4)
             rescuer = Console.ReadLine
 
             If rescuer = "1" Then
-                Backup.Backup(nservers, nameservers, backupstatus, checkpath, path, numberservers, writepath1, writepath2, writepath3)
+                Backup.Backup(nservers, nameservers, back, backupstatus, checkpath, path, numberservers, backuptitle, backup1, backup2, backup3, writepath1, writepath2, writepath3)
 
             End If
 
             If rescuer = "2" Then
-                Restore.Restore(nservers, nameservers, backupstatus, checkpath, path)
+                Restore.Restore(nservers, nameservers, backupstatus, checkpath, path, back, restoretitle, restore1, restore2, restore3, restore4)
 
             End If
         Loop While rescuer <> "3"

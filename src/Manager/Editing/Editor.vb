@@ -1,8 +1,8 @@
 ﻿Module Editor
 
     Sub Editor(ByRef confirmperfomance As String, ByRef checkpath As Object(), ByRef checknameserver As Object(), ByRef performance As String, ByRef nameservers As String(), ByRef nservers As Integer, ByRef selectperformance As String, ByRef performancestatus As String(), ByRef path As Object(), ByRef numberservers As String(), _
-               ByRef back As String, ByRef changemade As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef editor0 As String, ByRef editor1 As String, ByRef editor2 As String, ByRef editor3 As String, ByRef properties1 As String, ByRef properties2 As String, ByRef properties3 As String, ByRef properties4 As String, ByRef properties5 As String, ByRef properties6 As String, _
-               ByRef performance0 As String, ByRef performance1 As String, ByRef performance2 As String, ByRef performance3 As String, ByRef performance4 As String, ByRef performance5 As String, ByRef performance6 As String, ByRef performance7 As String, ByRef performance8 As String, ByRef performance9 As String, ByRef performance10 As String, ByRef performance11 As String, _
+               ByRef back As String, ByRef changemade As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef editortitle As String, ByRef editor1 As String, ByRef editor2 As String, ByRef editor3 As String, ByRef propertiestitle As String, ByRef properties1 As String, ByRef properties2 As String, ByRef properties3 As String, ByRef properties4 As String, ByRef properties5 As String, ByRef properties6 As String, _
+               ByRef performancetitle As String, ByRef performance1 As String, ByRef performance2 As String, ByRef performance3 As String, ByRef performance4 As String, ByRef performance5 As String, ByRef performance6 As String, ByRef performance7 As String, ByRef performance8 As String, ByRef performance9 As String, ByRef performance10 As String, ByRef performance11 As String, _
                ByRef performance12 As String)
 
         Dim choosedit As String
@@ -12,7 +12,7 @@
             Console.ForegroundColor = ConsoleColor.Green
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
             Console.ForegroundColor = ConsoleColor.Yellow
-            Console.WriteLine("------------------------------------<{0}>------------------------------------", editor0)
+            Console.WriteLine("{0}", editortitle)
             Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine("1- {0}", editor1)
             Console.WriteLine("2- {0}", editor2)
@@ -23,7 +23,7 @@
 
             If choosedit = "1" Then
                 Properties.Properties(checkpath, path, nservers, numberservers, checknameserver, writepath1, writepath2, writepath3, _
-                                      properties1, properties2, properties3, properties4, properties5, properties6)
+                                      propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6)
 
             End If
 
@@ -38,7 +38,7 @@
                     Console.ForegroundColor = ConsoleColor.Green
                     Console.WriteLine("========================<PocketMine Manager Servers>============================")
                     Console.ForegroundColor = ConsoleColor.Gray
-                    Console.WriteLine("--------------------------------<{0}>-----------------------------------", performance0)
+                    Console.WriteLine("{0}", performancetitle)
                     Console.ForegroundColor = ConsoleColor.White
                     Console.WriteLine("{0}", performance1)
                     For i = 1 To nservers
@@ -64,7 +64,7 @@
 
                         If confirmperfomance = "Y" Then
                             Performances.Performances(checkpath, checknameserver, performance, nameservers, nservers, selectperformance, performancestatus, path, numberservers, changemade, writepath1, _
-                                                      writepath2, writepath3, performance0, performance11, performance12)
+                                                      writepath2, writepath3, performancetitle, performance11, performance12)
 
                         End If
                     End If
@@ -77,7 +77,7 @@
 
                         If confirmperfomance = "Y" Then
                             Performances.Performances(checkpath, checknameserver, performance, nameservers, nservers, selectperformance, performancestatus, path, numberservers, changemade, writepath1, _
-                                                      writepath2, writepath3, performance0, performance11, performance12)
+                                                      writepath2, writepath3, performancetitle, performance11, performance12)
                         End If
                     End If
 
@@ -89,7 +89,7 @@
 
                         If confirmperfomance = "Y" Then
                             Performances.Performances(checkpath, checknameserver, performance, nameservers, nservers, selectperformance, performancestatus, path, numberservers, changemade, writepath1, _
-                                                      writepath2, writepath3, performance0, performance11, performance12)
+                                                      writepath2, writepath3, performancetitle, performance11, performance12)
 
                         End If
                     End If

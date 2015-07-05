@@ -14,8 +14,9 @@ Module Restore
     'This program is free software: you can redistribute it and/or modify 
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
-    '(at your option) any later version. 
-    Sub Restore(ByRef nservers As Integer, ByRef nameservers As String(), ByRef backupstatus As String(), ByRef checkpath As Object(), ByRef path As String())
+    '(at your option) any later version.
+    Sub Restore(ByRef nservers As Integer, ByRef nameservers As String(), ByRef backupstatus As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef back As String, ByRef restoretitle As String, _
+                ByRef restore1 As String, ByRef restore2 As String, ByRef restore3 As String, ByRef restore4 As String)
 
         Dim chooserestore As String
 
@@ -26,17 +27,17 @@ Restore:
             Console.ForegroundColor = ConsoleColor.Green
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
             Console.ForegroundColor = ConsoleColor.Magenta
-            Console.WriteLine("-------------------------------<Restore Server>---------------------------------")
+            Console.WriteLine("{0}", restoretitle)
             Console.ForegroundColor = ConsoleColor.White
 
             For i = 1 To nservers
                 Console.WriteLine("{0}) {1}: {2}", i, nameservers(i - 1), backupstatus(i - 1))
 
             Next
-            Console.WriteLine("11) Back")
+            Console.WriteLine("11) {0}", back)
 
             Console.WriteLine()
-            Console.Write("Choose which server do you want to backup: ")
+            Console.Write("{0}", restore1)
             chooserestore = Console.ReadLine
 
             If chooserestore = "11" Then
@@ -53,7 +54,7 @@ Restore:
             Dim ZipToUnpack As String = nameservers(0) + ".zip"
             Dim UnpackDirectory As String = "Extracted " + nameservers(0)
 
-            Console.WriteLine("I'm extracting your server, please wait!")
+            Console.WriteLine("{0}", restore2)
             Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                 Dim e As ZipEntry
 
@@ -61,7 +62,7 @@ Restore:
                     e.Extract(UnpackDirectory, ExtractExistingFileAction.OverwriteSilently)
                 Next
                 Console.ForegroundColor = ConsoleColor.Green
-                Console.WriteLine("DONE! Press ENTER to continue.")
+                Console.WriteLine("{0}", restore3)
             End Using
             Console.ReadLine()
 
@@ -70,7 +71,7 @@ Restore:
             Dim ZipToUnpack As String = nameservers(1) + ".zip"
             Dim UnpackDirectory As String = "Extracted " + nameservers(1)
 
-            Console.WriteLine("I'm extracting your server, please wait!")
+            Console.WriteLine("{0}", restore2)
             Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                 Dim e As ZipEntry
 
@@ -78,7 +79,7 @@ Restore:
                     e.Extract(UnpackDirectory, ExtractExistingFileAction.OverwriteSilently)
                 Next
                 Console.ForegroundColor = ConsoleColor.Green
-                Console.WriteLine("DONE! Press ENTER to continue.")
+                Console.WriteLine("{0}", restore3)
             End Using
             Console.ReadLine()
 
@@ -87,7 +88,7 @@ Restore:
             Dim ZipToUnpack As String = nameservers(2) + ".zip"
             Dim UnpackDirectory As String = "Extracted " + nameservers(2)
 
-            Console.WriteLine("I'm extracting your server, please wait!")
+            Console.WriteLine("{0}", restore2)
             Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                 Dim e As ZipEntry
 
@@ -95,7 +96,7 @@ Restore:
                     e.Extract(UnpackDirectory, ExtractExistingFileAction.OverwriteSilently)
                 Next
                 Console.ForegroundColor = ConsoleColor.Green
-                Console.WriteLine("DONE! Press ENTER to continue.")
+                Console.WriteLine("{0}", restore3)
             End Using
             Console.ReadLine()
 
@@ -104,7 +105,7 @@ Restore:
             Dim ZipToUnpack As String = nameservers(3) + ".zip"
             Dim UnpackDirectory As String = "Extracted " + nameservers(3)
 
-            Console.WriteLine("I'm extracting your server, please wait!")
+            Console.WriteLine("{0}", restore2)
             Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                 Dim e As ZipEntry
 
@@ -112,7 +113,7 @@ Restore:
                     e.Extract(UnpackDirectory, ExtractExistingFileAction.OverwriteSilently)
                 Next
                 Console.ForegroundColor = ConsoleColor.Green
-                Console.WriteLine("DONE! Press ENTER to continue.")
+                Console.WriteLine("{0}", restore3)
             End Using
             Console.ReadLine()
 
@@ -121,7 +122,7 @@ Restore:
             Dim ZipToUnpack As String = nameservers(4) + ".zip"
             Dim UnpackDirectory As String = "Extracted " + nameservers(4)
 
-            Console.WriteLine("I'm extracting your server, please wait!")
+            Console.WriteLine("{0}", restore2)
             Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                 Dim e As ZipEntry
 
@@ -129,7 +130,7 @@ Restore:
                     e.Extract(UnpackDirectory, ExtractExistingFileAction.OverwriteSilently)
                 Next
                 Console.ForegroundColor = ConsoleColor.Green
-                Console.WriteLine("DONE! Press ENTER to continue.")
+                Console.WriteLine("{0}", restore3)
             End Using
             Console.ReadLine()
 
@@ -138,7 +139,7 @@ Restore:
             Dim ZipToUnpack As String = nameservers(5) + ".zip"
             Dim UnpackDirectory As String = "Extracted " + nameservers(5)
 
-            Console.WriteLine("I'm extracting your server, please wait!")
+            Console.WriteLine("{0}", restore2)
             Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                 Dim e As ZipEntry
 
@@ -146,7 +147,7 @@ Restore:
                     e.Extract(UnpackDirectory, ExtractExistingFileAction.OverwriteSilently)
                 Next
                 Console.ForegroundColor = ConsoleColor.Green
-                Console.WriteLine("DONE! Press ENTER to continue.")
+                Console.WriteLine("{0}", restore3)
             End Using
             Console.ReadLine()
 
@@ -155,7 +156,7 @@ Restore:
             Dim ZipToUnpack As String = nameservers(6) + ".zip"
             Dim UnpackDirectory As String = "Extracted " + nameservers(6)
 
-            Console.WriteLine("I'm extracting your server, please wait!")
+            Console.WriteLine("{0}", restore2)
             Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                 Dim e As ZipEntry
 
@@ -163,7 +164,7 @@ Restore:
                     e.Extract(UnpackDirectory, ExtractExistingFileAction.OverwriteSilently)
                 Next
                 Console.ForegroundColor = ConsoleColor.Green
-                Console.WriteLine("DONE! Press ENTER to continue.")
+                Console.WriteLine("{0}", restore3)
             End Using
             Console.ReadLine()
 
@@ -172,7 +173,7 @@ Restore:
             Dim ZipToUnpack As String = nameservers(7) + ".zip"
             Dim UnpackDirectory As String = "Extracted " + nameservers(7)
 
-            Console.WriteLine("I'm extracting your server, please wait!")
+            Console.WriteLine("{0}", restore2)
             Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                 Dim e As ZipEntry
 
@@ -180,7 +181,7 @@ Restore:
                     e.Extract(UnpackDirectory, ExtractExistingFileAction.OverwriteSilently)
                 Next
                 Console.ForegroundColor = ConsoleColor.Green
-                Console.WriteLine("DONE! Press ENTER to continue.")
+                Console.WriteLine("{0}", restore3)
             End Using
             Console.ReadLine()
 
@@ -189,7 +190,7 @@ Restore:
             Dim ZipToUnpack As String = nameservers(8) + ".zip"
             Dim UnpackDirectory As String = "Extracted " + nameservers(8)
 
-            Console.WriteLine("I'm extracting your server, please wait!")
+            Console.WriteLine("{0}", restore2)
             Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                 Dim e As ZipEntry
 
@@ -197,7 +198,7 @@ Restore:
                     e.Extract(UnpackDirectory, ExtractExistingFileAction.OverwriteSilently)
                 Next
                 Console.ForegroundColor = ConsoleColor.Green
-                Console.WriteLine("DONE! Press ENTER to continue.")
+                Console.WriteLine("{0}", restore3)
             End Using
             Console.ReadLine()
 
@@ -206,7 +207,7 @@ Restore:
             Dim ZipToUnpack As String = nameservers(9) + ".zip"
             Dim UnpackDirectory As String = "Extracted " + nameservers(9)
 
-            Console.WriteLine("I'm extracting your server, please wait!")
+            Console.WriteLine("{0}", restore2)
             Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                 Dim e As ZipEntry
 
@@ -214,11 +215,11 @@ Restore:
                     e.Extract(UnpackDirectory, ExtractExistingFileAction.OverwriteSilently)
                 Next
                 Console.ForegroundColor = ConsoleColor.Green
-                Console.WriteLine("DONE! Press ENTER to continue.")
+                Console.WriteLine("{0}", restore3)
             End Using
             Console.ReadLine()
         Else
-            Console.WriteLine("Error, first do a backup of a your server!")
+            Console.WriteLine("{0}", restore4)
             Console.ReadLine()
 
             GoTo Restore

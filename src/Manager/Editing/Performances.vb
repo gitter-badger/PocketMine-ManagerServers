@@ -14,7 +14,7 @@
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
     Sub Performances(ByRef checkpath As Object(), ByRef checknameservers As Object(), ByRef performance As String, ByRef nameservers As String(), ByRef nservers As Integer, ByRef selectperformance As String, ByRef performancestatus As String(), ByRef path As Object(), ByRef numberservers As String(), _
-                     ByRef changemade As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef performance0 As String, ByRef performance11 As String, ByRef performance12 As String)
+                     ByRef changemade As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef performancetitle As String, ByRef performance11 As String, ByRef performance12 As String)
 
         Dim checkyml, checkyml2 As Object
 
@@ -23,7 +23,7 @@
         If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
             Console.Clear()
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
-            Console.WriteLine("--------------------------------<{0}>-----------------------------------", performance0)
+            Console.WriteLine("{0}", performancetitle)
             For i = 1 To nservers
                 Console.WriteLine("{0}) {1}", i, nameservers(i - 1))
 

@@ -13,13 +13,14 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub VersionBeta(ByRef chooseserver As String, ByRef beta As String, ByRef checkbeta As Object, ByRef checkphar1 As Object, ByRef checkphar2 As Object, ByRef path As String())
+    Sub VersionBeta(ByRef chooseserver As String, ByRef beta As String, ByRef checkbeta As Object, ByRef checkphar1 As Object, ByRef checkphar2 As Object, ByRef path As String(), _
+                    ByRef versions1 As String, ByRef versions2 As String, ByRef versions3 As String)
 
         Dim confirmphar As String
 
         If chooseserver = "1" And beta = "1" Then
             If checkbeta Then
-                Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                Console.WriteLine("{0} ", versions1)
                 confirmphar = Console.ReadLine.ToUpper
 
                 If confirmphar = "Y" Then
@@ -28,8 +29,8 @@
                 End If
 
             Else
-                Console.WriteLine("Phar file not found!")
-                Console.WriteLine("Please download the file.")
+                Console.WriteLine("{0}", versions2)
+                Console.WriteLine("{0}", versions3)
                 Console.ReadLine()
 
             End If
@@ -37,7 +38,7 @@
 
         If chooseserver = "2" And beta = "1" Then
             If checkbeta Then
-                Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                Console.WriteLine("{0} ", versions1)
                 confirmphar = Console.ReadLine.ToUpper
 
                 If confirmphar = "Y" Then
@@ -46,8 +47,8 @@
                 End If
 
             Else
-                Console.WriteLine("Phar file not found!")
-                Console.WriteLine("Please download the file.")
+                Console.WriteLine("{0}", versions2)
+                Console.WriteLine("{0}", versions3)
                 Console.ReadLine()
 
             End If
@@ -55,7 +56,7 @@
 
         If chooseserver = "3" And beta = "1" Then
             If checkbeta Then
-                Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                Console.WriteLine("{0} ", versions1)
                 confirmphar = Console.ReadLine.ToUpper
 
                 If confirmphar = "Y" Then
@@ -64,8 +65,8 @@
                 End If
 
             Else
-                Console.WriteLine("Phar file not found!")
-                Console.WriteLine("Please download the file.")
+                Console.WriteLine("{0}", versions2)
+                Console.WriteLine("{0}", versions3)
                 Console.ReadLine()
 
             End If
@@ -73,7 +74,7 @@
 
         If chooseserver = "4" And beta = "1" Then
             If checkbeta Then
-                Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                Console.WriteLine("{0} ", versions1)
                 confirmphar = Console.ReadLine.ToUpper
 
                 If confirmphar = "Y" Then
@@ -82,8 +83,8 @@
                 End If
 
             Else
-                Console.WriteLine("Phar file not found!")
-                Console.WriteLine("Please download the file.")
+                Console.WriteLine("{0}", versions2)
+                Console.WriteLine("{0}", versions3)
                 Console.ReadLine()
 
             End If
@@ -91,7 +92,7 @@
 
         If chooseserver = "5" And beta = "1" Then
             If checkbeta Then
-                Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                Console.WriteLine("{0} ", versions1)
                 confirmphar = Console.ReadLine.ToUpper
 
                 If confirmphar = "Y" Then
@@ -100,8 +101,8 @@
                 End If
 
             Else
-                Console.WriteLine("Phar file not found!")
-                Console.WriteLine("Please download the file.")
+                Console.WriteLine("{0}", versions2)
+                Console.WriteLine("{0}", versions3)
                 Console.ReadLine()
 
             End If
@@ -109,7 +110,7 @@
 
         If chooseserver = "6" And beta = "1" Then
             If checkbeta Then
-                Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                Console.WriteLine("{0} ", versions1)
                 confirmphar = Console.ReadLine.ToUpper
 
                 If confirmphar = "Y" Then
@@ -118,8 +119,8 @@
                 End If
 
             Else
-                Console.WriteLine("Phar file not found!")
-                Console.WriteLine("Please download the file.")
+                Console.WriteLine("{0}", versions2)
+                Console.WriteLine("{0}", versions3)
                 Console.ReadLine()
 
             End If
@@ -127,7 +128,7 @@
 
         If chooseserver = "7" And beta = "1" Then
             If checkbeta Then
-                Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                Console.WriteLine("{0} ", versions1)
                 confirmphar = Console.ReadLine.ToUpper
 
                 If confirmphar = "Y" Then
@@ -136,8 +137,8 @@
                 End If
 
             Else
-                Console.WriteLine("Phar file not found!")
-                Console.WriteLine("Please download the file.")
+                Console.WriteLine("{0}", versions2)
+                Console.WriteLine("{0}", versions3)
                 Console.ReadLine()
 
             End If
@@ -145,7 +146,7 @@
 
         If chooseserver = "8" And beta = "1" Then
             If checkbeta Then
-                Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                Console.WriteLine("{0} ", versions1)
                 confirmphar = Console.ReadLine.ToUpper
 
                 If confirmphar = "Y" Then
@@ -154,8 +155,8 @@
                 End If
 
             Else
-                Console.WriteLine("Phar file not found!")
-                Console.WriteLine("Please download the file.")
+                Console.WriteLine("{0}", versions2)
+                Console.WriteLine("{0}", versions3)
                 Console.ReadLine()
 
             End If
@@ -163,7 +164,7 @@
 
         If chooseserver = "9" And beta = "1" Then
             If checkbeta Then
-                Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                Console.WriteLine("{0} ", versions1)
                 confirmphar = Console.ReadLine.ToUpper
 
                 If confirmphar = "Y" Then
@@ -172,8 +173,8 @@
                 End If
 
             Else
-                Console.WriteLine("Phar file not found!")
-                Console.WriteLine("Please download the file.")
+                Console.WriteLine("{0}", versions2)
+                Console.WriteLine("{0}", versions3)
                 Console.ReadLine()
 
             End If
@@ -181,7 +182,7 @@
 
         If chooseserver = "10" And beta = "1" Then
             If checkbeta Then
-                Console.WriteLine("Are you sure you want to replace the file phar with the current one? (This will create a copy) <Y/N>: ")
+                Console.WriteLine("{0} ", versions1)
                 confirmphar = Console.ReadLine.ToUpper
 
                 If confirmphar = "Y" Then
@@ -190,8 +191,8 @@
                 End If
 
             Else
-                Console.WriteLine("Phar file not found!")
-                Console.WriteLine("Please download the file.")
+                Console.WriteLine("{0}", versions2)
+                Console.WriteLine("{0}", versions3)
                 Console.ReadLine()
 
             End If

@@ -19,7 +19,7 @@ Module Properties
     Public rconpassword As String
 
     Sub Properties(ByRef checkpath As Object(), ByRef path As String(), ByRef nservers As Integer, ByRef numberservers As String(), ByRef checknameserver As Object(), _
-                   ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef properties1 As String, ByRef properties2 As String, _
+                   ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef propertiestitle As String, ByRef properties1 As String, ByRef properties2 As String, _
                    ByRef properties3 As String, ByRef properties4 As String, ByRef properties5 As String, ByRef properties6 As String)
 
         Dim motd, serverport, whitelist, achievent, spawn, maxplayers, flight, animals, mobs, gamemode, forcegamemode, _
@@ -40,7 +40,7 @@ Module Properties
         Console.ForegroundColor = ConsoleColor.Green
         Console.WriteLine("========================<PocketMine Manager Servers>============================")
         Console.ForegroundColor = ConsoleColor.DarkGreen
-        Console.WriteLine("--------------------------<Edit Server Properties>------------------------------")
+        Console.WriteLine("{0}", propertiestitle)
         Console.ForegroundColor = ConsoleColor.White
         Console.WriteLine("{0}", properties1)
 
@@ -249,7 +249,7 @@ Module Properties
                         Console.Clear()
                         Console.Clear()
                         Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                        Console.WriteLine("--------------------------<Edit Server Properties>------------------------------")
+                        Console.WriteLine("{0}", propertiestitle)
                         Console.WriteLine("{0}", properties3)
 
                         propertiesfile =

@@ -15,9 +15,9 @@
     '(at your option) any later version. 
     Sub ManagerInstaller(ByRef path As String(), ByRef nameservers As String(), ByRef nservers As Integer, ByRef checkpath As Object(), ByRef numberservers As String(), ByRef downloadstatus As String(), ByRef installationstatus As String(), ByRef versionstatus As String(), ByRef checknameserver As Object(), _
                          ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable1 As String, ByRef versionbeta1 As String, ByRef versiondev1 As String, ByRef versionsoft1 As String, ByRef currentversion As String, ByRef writepath1 As String, _
-                         ByRef writepath2 As String, ByRef writepath3 As String, ByRef menu1 As String, ByRef installertitle As String, ByRef installer1 As String, ByRef installer2 As String, ByRef installer3 As String, ByRef installator1 As String, ByRef installator2 As String, ByRef installator3 As String, ByRef installator4 As String, ByRef installator5 As String, _
+                         ByRef writepath2 As String, ByRef writepath3 As String, ByRef menu1 As String, ByRef installertitle As String, ByRef installer1 As String, ByRef installer2 As String, ByRef installer3 As String, ByRef installatortitle As String, ByRef installator1 As String, ByRef installator2 As String, ByRef installator3 As String, ByRef installator4 As String, ByRef installator5 As String, _
                          ByRef installator6 As String, ByRef installator7 As String, ByRef downloadertitle As String, ByRef downloader1 As String, ByRef downloader2 As String, ByRef downloader3 As String, ByRef downloader4 As String, ByRef downloader5 As String, ByRef downloader6 As String, ByRef downloader7 As String, ByRef downloader8 As String, _
-                         ByRef downloader9 As String, ByRef downloader10 As String, ByRef downloader11 As String)
+                         ByRef downloader9 As String, ByRef downloader10 As String, ByRef downloader11 As String, ByRef versions1 As String, ByRef versions2 As String, ByRef versions3 As String)
 
         '#Variables "Install PocketMine-MP"
         Dim chooseinstallation As String
@@ -56,8 +56,8 @@
 
             If chooseinstallation = "2" Then
                 Installator.Installator(checkpath, nservers, nameservers, installationstatus, versionstatus, path, numberservers, back, changemade, status1, version1, versionstable1, versionbeta1, _
-                                        versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menu1, installator1, installator2, installator3, installator4, installator5, installator6, _
-                                        installator7)
+                                        versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menu1, installatortitle, installator1, installator2, installator3, installator4, installator5, installator6, _
+                                        installator7, versions1, versions2, versions3)
 
             End If
 

@@ -101,10 +101,22 @@
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator6.lang", installator6, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator7.lang", installator7, True)
 
+        '------------------------#Versions(Beta, Dev, Soft)
+
+        Dim versions1, versions2, versions3 As String
+
+        versions1 = "Are you sure you want to replace the file phar with the current one? (This will create a copy)"
+        versions2 = "Phar file not found!"
+        versions3 = "Please download the file."
+
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Versions1.lang", versions1, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Versions2.lang", versions2, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Versions3.lang", versions3, True)
+
         '-----------------#Downloader
         Dim downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11 As String
 
-        downloadertitle = "Download PocketMine-MP"
+        downloadertitle = "---------------------------<Download PocketMine-MP>-----------------------------"
         downloader1 = "What kind of version you want to download?"
         downloader2 = "Which version do you want to download?:"
         downloader3 = "You have already downloaded this installer!"
@@ -130,23 +142,26 @@
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader10.lang", downloader10, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader11.lang", downloader11, True)
 
-        '#ManageServers
-        Dim manager1, manager2, manager3, manager4 As String
 
+        '#ManageServers
+        Dim managertitle, manager1, manager2, manager3, manager4 As String
+
+        managertitle = "-------------------------------<Manage Servers>---------------------------------"
         manager1 = "Open [Server/Folder]"
         manager2 = "Edit server performance."
         manager3 = "Backup/Restore servers."
         manager4 = "Select option: "
 
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager0.lang", managertitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager1.lang", manager1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager2.lang", manager2, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager3.lang", manager3, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager4.lang", manager4, True)
 
         '-----------#Opener
-        Dim opener0, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8 As String
+        Dim openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8 As String
 
-        opener0 = "Opener"
+        openertitle = "-----------------------------------<Opener>-------------------------------------"
         opener1 = "Open"
         opener2 = "What do you want to do? "
         opener3 = "Reading your file(s)..."
@@ -156,7 +171,7 @@
         opener7 = "Wait 3 seconds to load each server!"
         opener8 = "Folders"
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener0.lang", opener0, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener0.lang", openertitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener1.lang", opener1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener2.lang", opener2, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener3.lang", opener3, True)
@@ -167,21 +182,22 @@
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener8.lang", opener8, True)
 
         '-----------#Editor
-        Dim editor0, editor1, editor2, editor3 As String
+        Dim editortitle, editor1, editor2, editor3 As String
 
-        editor0 = "Editor"
+        editortitle = "------------------------------------<Editor>------------------------------------"
         editor1 = "Edit Server Properties"
         editor2 = "Edit Performance Server"
         editor3 = "What do you want to edit? "
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Editor0.lang", editor0, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Editor0.lang", editortitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Editor1.lang", editor1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Editor2.lang", editor2, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Editor3.lang", editor3, True)
 
         '-----------------#EditProperties
-        Dim properties1, properties2, properties3, properties4, properties5, properties6 As String
+        Dim propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6 As String
 
+        propertiestitle = "--------------------------<Edit Server Properties>------------------------------"
         properties1 = "Checking path(s)..."
         properties2 = "Path(s) found!"
         properties3 = "I'm making your server.properties, wait..."
@@ -189,6 +205,7 @@
         properties5 = "Do you want to replace the old and new properties? (This will create a backup file) <Y/N>: "
         properties6 = "Path(s) not found!"
 
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties0.lang", propertiestitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties1.lang", properties1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties2.lang", properties2, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties3.lang", properties3, True)
@@ -197,9 +214,9 @@
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties6.lang", properties6, True)
 
         '----------------#EditPerformance
-        Dim performance0, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, performance12 As String
+        Dim performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, performance12 As String
 
-        performance0 = "Performance"
+        performancetitle = "--------------------------------<Performance>-----------------------------------"
         performance1 = "Your current performance are: "
         performance2 = "What features do you want to assign to your servers?"
         performance3 = "High"
@@ -213,7 +230,7 @@
         performance11 = "On which server you want to apply this setting? "
         performance12 = "I'm making the changes..."
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance0.lang", performance0, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance0.lang", performancetitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance1.lang", performance1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance2.lang", performance2, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance3.lang", performance3, True)
@@ -227,13 +244,55 @@
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance11.lang", performance11, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance12.lang", performance12, True)
 
-        '#Options
-        Dim option1, option2, option3 As String
+        '-----------#Rescuer
+        Dim rescuertitle, rescuer1, rescuer2 As String
 
+        rescuertitle = "--------------------------<Backup/Restore Servers>------------------------------"
+        rescuer1 = "Backup servers"
+        rescuer2 = "Restore servers"
+
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Rescuer0.lang", rescuertitle, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Rescuer1.lang", rescuer1, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Rescuer2.lang", rescuer2, True)
+
+        '----------------#Backup
+        Dim backuptitle, backup1, backup2, backup3 As String
+
+        backuptitle = "--------------------------------<Backup Server>---------------------------------"
+        backup1 = "Choose which server do you want to backup: "
+        backup2 = "I'm doing the backup, please wait!"
+        backup3 = "DONE! Press ENTER to continue."
+
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup0.lang", backuptitle, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup1.lang", backup1, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup2.lang", backup2, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup3.lang", backup3, True)
+
+        '----------------#Restore
+        Dim restoretitle, restore1, restore2, restore3, restore4 As String
+
+        restoretitle = "-------------------------------<Restore Server>---------------------------------"
+        restore1 = "Choose which server do you want to restore: "
+        restore2 = "I'm extracting your server, please wait!"
+        restore3 = "DONE! Press ENTER to continue."
+        restore4 = "Error, first do a backup of a your server!"
+
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore0.lang", restoretitle, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore1.lang", restore1, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore2.lang", restore2, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore3.lang", restore3, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore4.lang", restore4, True)
+
+
+        '#Options
+        Dim optiontitle, option1, option2, option3 As String
+
+        optiontitle = "------------------------------<Program Options>---------------------------------"
         option1 = "Language"
         option2 = "Reset Program"
         option3 = "Choose the option: "
 
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Option0.lang", optiontitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Option1.lang", option1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Option2.lang", option2, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Option3.lang", option3, True)
@@ -246,8 +305,9 @@
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Lang1.lang", lang1, True)
 
         '------------#ResetProgram
-        Dim resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11 As String
+        Dim resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11 As String
 
+        resettitle = "-------------------------------<Reset Program>----------------------------------"
         resetp1 = "Reset data of servers (Only Programm)"
         resetp2 = "Reset data of servers (Only your specified server)"
         resetp3 = "Reset all data/folders of programm"
@@ -260,6 +320,7 @@
         resetp10 = "There is no path to be deleted!"
         resetp11 = "Are you sure to want to reset all data/folders of program (It delete folders of program)? <Y/N>: "
 
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp0.lang", resettitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp1.lang", resetp1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp2.lang", resetp2, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp3.lang", resetp3, True)
@@ -273,8 +334,12 @@
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp11.lang", resetp11, True)
 
         '#Informations
-        Dim info1, info2, info3, info4, info5, info6 As String
+        Dim infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6 As String
 
+        infotitle = "--------------------------------<Informations>----------------------------------"
+        infocredits = "-----------------------------------<Credits>------------------------------------"
+        infoinformations = "-----------------------------<More Informations>--------------------------------"
+        infodisclaimer = "---------------------------------<Disclaimer>-----------------------------------"
         info1 = "License"
         info2 = "Credits"
         info3 = "More Informations"
@@ -282,12 +347,16 @@
         info5 = "Choose information: "
         info6 = "ERROR! Bad Installation! License not found!"
 
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info0.lang", infotitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info1.lang", info1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info2.lang", info2, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info3.lang", info3, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info4.lang", info4, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info5.lang", info5, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info6.lang", info6, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info7.lang", infocredits, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info8.lang", infoinformations, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info9.lang", infodisclaimer, True)
 
         '#Exit
         Dim exittitle, exit1, exit2 As String
