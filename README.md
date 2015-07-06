@@ -17,7 +17,7 @@ After selecting the item appear other two items: a download and installation.
 First you will need to download the beating heart of PocketMine, then select the version you want to download, and the download will start automatically! Once you download the indicated link to the folder where you saved it and go to the installation phase! It too will have procedures similar but different tasks. The difference lies in having to specify the connection folder in which you want to install the server, that's all!
 
 ###Management servers
-This function provides for the management of one or more servers (maximum 10). It includes other two functions: one to open the servers and the other to change the performance.
+This function provides for the management of one or more servers (maximum 10). It includes other three functions: one to open the servers, second the other to change the performance and the last for do backup or restore for yuor server.
 
 ######Opener
 The first function is simple to use, though in the past they had already indicated the connections will not be referred to a second time while on the contrary, if they had not shown connections now you will have to do and then go on.
