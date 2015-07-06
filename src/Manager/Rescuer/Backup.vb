@@ -16,9 +16,10 @@ Module Backup
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
     Sub Backup(ByRef nservers As Integer, ByRef nameservers As String(), ByRef back As String, ByRef backupstatus As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef numberservers As String(), ByRef backuptitle As String, _
-               ByRef backup1 As String, ByRef backup2 As String, ByRef backup3 As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String)
+               ByRef backup1 As String, ByRef backup2 As String, ByRef backup3 As String, ByRef backup4 As String, ByRef backup5 As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String)
 
         Dim choosebackup As Integer
+        Dim openbackup, overwrite As String
 
         Do
             Console.Clear()
@@ -48,24 +49,48 @@ Module Backup
 
         If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
 
-            'TODO: Say if you want to open the folder.
             If choosebackup > 0 Or choosebackup <= 10 Then
-                Console.WriteLine("{0}", backup2)
-                Using Zip As ZipFile = New ZipFile()
-                    Zip.AddDirectory(path(choosebackup - 1))
-                    Zip.Save("C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(choosebackup - 1) + ".zip")
-                    Console.ForegroundColor = ConsoleColor.Green
+                If backupstatus(choosebackup - 1) = "Backuped" Then
+                    Do
+                        Console.Write("{0} <Y/N>: ", backup4)
+                        overwrite = Console.ReadLine.ToUpper
 
-                    backupstatus(choosebackup - 1) = "Backuped"
-                    My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_" + Convert.ToString(choosebackup) + ".pm")
-                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_" + Convert.ToString(choosebackup) + ".pm", backupstatus(choosebackup - 1), True)
+                        If overwrite = "Y" Then
+                            GoTo Overwrite
 
-                    Console.WriteLine("{0}", backup3)
-                End Using
-                Console.ReadLine()
+                        End If
 
+                    Loop While overwrite <> "Y" And overwrite <> "N"
+                Else
+Overwrite:
+                    Console.WriteLine("{0}", backup2)
+                    Using Zip As ZipFile = New ZipFile()
+                        Zip.AddDirectory(path(choosebackup - 1))
+                        Zip.Save("C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(choosebackup - 1) + ".zip")
+                        Console.ForegroundColor = ConsoleColor.Green
+
+                        backupstatus(choosebackup - 1) = "Backuped"
+                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_" + Convert.ToString(choosebackup) + ".pm")
+                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_" + Convert.ToString(choosebackup) + ".pm", backupstatus(choosebackup - 1), True)
+
+                        Console.WriteLine("{0}", backup3)
+
+                    End Using
+                    Console.ReadLine()
+
+                    Do
+                        Console.ForegroundColor = ConsoleColor.White
+                        Console.Write("{0} <Y/N>: ", backup5)
+                        openbackup = Console.ReadLine.ToUpper
+
+                        If openbackup = "Y" Then
+                            Process.Start("C:\Program Files\PocketMine-ManagerServers\Backups")
+
+                        End If
+
+                    Loop While openbackup <> "Y" And openbackup <> "N"
+                End If
             End If
-            
         Else
             For i = 1 To nservers
                 Do

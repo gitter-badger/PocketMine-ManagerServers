@@ -28,8 +28,8 @@
         Dim propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6 As String
         Dim performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, performance12 As String
         Dim rescuertitle, rescuer1, rescuer2 As String
-        Dim backuptitle, backup1, backup2, backup3 As String
-        Dim restoretitle, restore1, restore2, restore3, restore4 As String
+        Dim backuptitle, backup1, backup2, backup3, backup4, backup5 As String
+        Dim restoretitle, restore1, restore2, restore3, restore4, restore5 As String
         Dim optiontitle, option1, option2, option3 As String
         Dim lang1 As String
         Dim resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11 As String
@@ -87,7 +87,7 @@
                       installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
                       manager4, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
                       properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
-                      performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, restoretitle, restore1, restore2, restore3, restore4, optiontitle, option1, option2, option3, lang1, _
+                      performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
                       resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
                       infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3)
 
@@ -104,7 +104,7 @@
                               installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
                               manager4, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
                               properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
-                              performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, restoretitle, restore1, restore2, restore3, restore4, optiontitle, option1, option2, option3, lang1, _
+                              performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
                               resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
                               infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3)
 
@@ -136,7 +136,7 @@
                 Manager.Manager(nservers, varmanager, performance, performancestatus, backupstatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance, _
                                 back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, managertitle, manager1, manager2, manager3, manager4, openertitle, opener1, opener2, opener3, _
                                 opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, _
-                                performance6, performance7, performance8, performance9, performance10, performance11, performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, restoretitle, restore1, restore2, restore3, restore4)
+                                performance6, performance7, performance8, performance9, performance10, performance11, performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4)
 
             End If
 
@@ -147,7 +147,7 @@
                               installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
                               manager4, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
                               properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
-                              performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, restoretitle, restore1, restore2, restore3, restore4, optiontitle, option1, option2, option3, lang1, _
+                              performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
                               resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
                               infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3)
 

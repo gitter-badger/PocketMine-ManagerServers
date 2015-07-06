@@ -256,32 +256,38 @@
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Rescuer2.lang", rescuer2, True)
 
         '----------------#Backup
-        Dim backuptitle, backup1, backup2, backup3 As String
+        Dim backuptitle, backup1, backup2, backup3, backup4, backup5 As String
 
         backuptitle = "--------------------------------<Backup Server>---------------------------------"
         backup1 = "Choose which server do you want to backup: "
         backup2 = "I'm doing the backup, please wait!"
         backup3 = "DONE! Press ENTER to continue."
+        backup4 = "There is already another backup of this server, do you want to overwrite it? <Y/N>: "
+        backup5 = "You can find your backup in 'C:\Program Files\PocketMine-ManagerServers\Backups\', do you want to open this folder?"
 
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup0.lang", backuptitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup1.lang", backup1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup2.lang", backup2, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup3.lang", backup3, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup4.lang", backup4, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup5.lang", backup5, True)
 
         '----------------#Restore
-        Dim restoretitle, restore1, restore2, restore3, restore4 As String
+        Dim restoretitle, restore1, restore2, restore3, restore4, restore5 As String
 
         restoretitle = "-------------------------------<Restore Server>---------------------------------"
         restore1 = "Choose which server do you want to restore: "
         restore2 = "I'm extracting your server, please wait!"
         restore3 = "DONE! Press ENTER to continue."
         restore4 = "Error, first do a backup of a your server!"
+        restore5 = "You can find your backup in 'C:\Program Files\PocketMine-ManagerServers\Backups\', do you want to open this folder?"
 
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore0.lang", restoretitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore1.lang", restore1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore2.lang", restore2, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore3.lang", restore3, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore4.lang", restore4, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore5.lang", restore5, True)
 
 
         '#Options

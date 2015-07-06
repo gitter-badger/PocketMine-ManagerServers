@@ -19,6 +19,7 @@ Module Restore
                 ByRef restore1 As String, ByRef restore2 As String, ByRef restore3 As String, ByRef restore4 As String)
 
         Dim chooserestore As Integer
+        Dim openrestore As String
 
 Restore:
         Do
@@ -64,6 +65,18 @@ Restore:
                 Console.WriteLine("{0}", restore3)
             End Using
             Console.ReadLine()
+
+            Do
+                Console.ForegroundColor = ConsoleColor.White
+                Console.Write("You can find your backup in 'C:\Program Files\PocketMine-ManagerServers\Backups\', do you want to open this folder? <Y/N>: ")
+                openrestore = Console.ReadLine.ToUpper
+
+                If openrestore = "Y" Then
+                    Process.Start("C:\Program Files\PocketMine-ManagerServers\Backups")
+
+                End If
+
+            Loop While openrestore <> "Y" And openrestore <> "N"
 
         Else
             Console.WriteLine("{0}", restore4)

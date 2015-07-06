@@ -14,7 +14,7 @@
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
     Sub Rescuer(ByRef nservers As Integer, ByRef nameservers As String(), ByRef backupstatus As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef numberservers As String(), ByRef back As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, _
-                ByRef manager4 As String, ByRef rescuertitle As String, ByRef rescuer1 As String, ByRef rescuer2 As String, ByRef backuptitle As String, ByRef backup1 As String, ByRef backup2 As String, ByRef backup3 As String, ByRef restoretitle As String, ByRef restore1 As String, ByRef restore2 As String, _
+                ByRef manager4 As String, ByRef rescuertitle As String, ByRef rescuer1 As String, ByRef rescuer2 As String, ByRef backuptitle As String, ByRef backup1 As String, ByRef backup2 As String, ByRef backup3 As String, ByRef backup4 As String, ByRef backup5 As String, ByRef restoretitle As String, ByRef restore1 As String, ByRef restore2 As String, _
                 ByRef restore3 As String, ByRef restore4 As String)
 
         Dim rescuer As String
@@ -39,7 +39,7 @@
             rescuer = Console.ReadLine
 
             If rescuer = "1" Then
-                Backup.Backup(nservers, nameservers, back, backupstatus, checkpath, path, numberservers, backuptitle, backup1, backup2, backup3, writepath1, writepath2, writepath3)
+                Backup.Backup(nservers, nameservers, back, backupstatus, checkpath, path, numberservers, backuptitle, backup1, backup2, backup3, backup4, backup5, writepath1, writepath2, writepath3)
 
             End If
 
