@@ -262,7 +262,7 @@
         backup1 = "Choose which server do you want to backup: "
         backup2 = "I'm doing the backup, please wait!"
         backup3 = "DONE! Press ENTER to continue."
-        backup4 = "There is already another backup of this server, do you want to overwrite it? <Y/N>: "
+        backup4 = "There is already another backup of this server, do you want to overwrite it? "
         backup5 = "You can find your backup in 'C:\Program Files\PocketMine-ManagerServers\Backups\', do you want to open this folder?"
 
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup0.lang", backuptitle, True)
@@ -288,7 +288,6 @@
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore3.lang", restore3, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore4.lang", restore4, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore5.lang", restore5, True)
-
 
         '#Options
         Dim optiontitle, option1, option2, option3 As String
