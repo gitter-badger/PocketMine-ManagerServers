@@ -117,8 +117,6 @@
                             My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers", FileIO.DeleteDirectoryOption.DeleteAllContents)
                             Console.WriteLine("{0}", resetp6)
 
-                            Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-ManagerServers.exe")
-                            End
                         Else
                             Console.WriteLine("{0}", resetp10)
                             Console.ReadLine()

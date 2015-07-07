@@ -30,146 +30,148 @@
         checkdev = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_DEV.phar")
         checksoft = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_SOFT.phar")
 
-        Console.Clear()
-        Console.ForegroundColor = ConsoleColor.Green
-        Console.WriteLine("========================<PocketMine Manager Servers>============================")
-        Console.ForegroundColor = ConsoleColor.Cyan
-        Console.WriteLine("{0}", installatortitle)
-        Console.ForegroundColor = ConsoleColor.White
-        For i = 1 To nservers
-            Console.WriteLine("{0}) {1} -> {2}: {3} -> {4}: {5}", i, nameservers(i - 1), version1, versionstatus(i - 1), status1, installationstatus(i - 1))
-
-        Next
-        Console.WriteLine()
-        Console.Write("{0} ", installator2)
-        chooseserver = Console.ReadLine
-
-        If chooseserver = "1" Or chooseserver = "2" Or chooseserver = "3" Or chooseserver = "4" Or chooseserver = "5" Or chooseserver = "6" Or chooseserver = "7" Or chooseserver = "8" Or chooseserver = "9" Or chooseserver = "10" Then
+        Do
             Console.Clear()
             Console.ForegroundColor = ConsoleColor.Green
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
             Console.ForegroundColor = ConsoleColor.Cyan
             Console.WriteLine("{0}", installatortitle)
             Console.ForegroundColor = ConsoleColor.White
-            Console.WriteLine("1- {0} (Setup File)", versionstable1)
-            Console.WriteLine("2- {0} (Phar File)", versionbeta1)
-            Console.WriteLine("3- {0} (Phar File)", versiondev1)
-            Console.WriteLine("4- {0} (Phar File)", versionsoft1)
-            Console.WriteLine("5- {0}", back)
+            For i = 1 To nservers
+                Console.WriteLine("{0}) {1} -> {2}: {3} -> {4}: {5}", i, nameservers(i - 1), version1, versionstatus(i - 1), status1, installationstatus(i - 1))
+
+            Next
             Console.WriteLine()
-            Console.WriteLine("{0}", installator1)
-            version = Console.ReadLine
+            Console.Write("{0}", installator2)
+            chooseserver = Console.ReadLine
 
-            If version = "1" Then 'Stable
-                Do
-                    Console.WriteLine()
-                    Console.WriteLine("{0}", currentversion)
-                    Console.WriteLine("1) 1.4.1 API 1.11.0 Zekkou-Cake")
-                    Console.WriteLine()
-                    Console.Write("{0}", installator2)
-                    stable = Console.ReadLine
+            If chooseserver = "1" Or chooseserver = "2" Or chooseserver = "3" Or chooseserver = "4" Or chooseserver = "5" Or chooseserver = "6" Or chooseserver = "7" Or chooseserver = "8" Or chooseserver = "9" Or chooseserver = "10" Then
+                Console.Clear()
+                Console.ForegroundColor = ConsoleColor.Green
+                Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                Console.ForegroundColor = ConsoleColor.Cyan
+                Console.WriteLine("{0}", installatortitle)
+                Console.ForegroundColor = ConsoleColor.White
+                Console.WriteLine("1- {0} (Setup File)", versionstable1)
+                Console.WriteLine("2- {0} (Phar File)", versionbeta1)
+                Console.WriteLine("3- {0} (Phar File)", versiondev1)
+                Console.WriteLine("4- {0} (Phar File)", versionsoft1)
+                Console.WriteLine("5- {0}", back)
+                Console.WriteLine()
+                Console.Write("{0}", installator1)
+                version = Console.ReadLine
 
-                    If stable = "1" Then 'Stable
-                        If chooseserver Then 'Stable
-                            If checkpocketmine Then
-                                Console.WriteLine()
-                                Console.WriteLine("{0}", installator3)
-                                Process.Start("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_Installer_1.4.1_x86.exe")
-                                Console.WriteLine("{0}", installator4)
-                                Console.ReadLine()
-
-                            Else
-                                Console.WriteLine("{0}", installator5)
-                                Console.ReadLine()
-
-                            End If
-                        End If
-
-                        ChangeInstallationStatus(nservers, installationstatus, chooseserver, installator6, installator7)
-
-                    End If
-                Loop While stable <> "1"
-            End If
-
-            If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
-                If version = "2" Then 'Beta
+                If version = "1" Then 'Stable
                     Do
                         Console.WriteLine()
                         Console.WriteLine("{0}", currentversion)
                         Console.WriteLine("1) 1.4.1 API 1.11.0 Zekkou-Cake")
                         Console.WriteLine()
                         Console.Write("{0}", installator2)
-                        beta = Console.ReadLine
+                        stable = Console.ReadLine
 
-                        If beta = "1" Then
-                            If checkbeta Then
+                        If stable = "1" Then 'Stable
+                            If chooseserver Then 'Stable
+                                If checkpocketmine Then
+                                    Console.WriteLine()
+                                    Console.WriteLine("{0}", installator3)
+                                    Process.Start("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_Installer_1.4.1_x86.exe")
+                                    Console.WriteLine("{0}", installator4)
+                                    Console.ReadLine()
 
-                                VersionBeta.VersionBeta(chooseserver, beta, checkbeta, checkphar1, checkphar2, path, versions1, versions2, versions3) 'BETA
-                                ChangeInstallationStatus(nservers, installationstatus, chooseserver, installator6, installator7)
+                                Else
+                                    Console.WriteLine("{0}", installator5)
+                                    Console.ReadLine()
 
+                                End If
                             End If
+
+                            ChangeInstallationStatus(nservers, installationstatus, chooseserver, installator6, installator7)
+
                         End If
-                    Loop While beta <> "1"
+                    Loop While stable <> "1"
                 End If
 
-                If version = "3" Then 'Dev
-                    Do
-                        Console.WriteLine()
-                        Console.WriteLine("{0}", currentversion)
-                        Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1240]")
-                        Console.WriteLine()
-                        Console.Write("{0}", installator2)
-                        dev = Console.ReadLine
+                If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
+                    If version = "2" Then 'Beta
+                        Do
+                            Console.WriteLine()
+                            Console.WriteLine("{0}", currentversion)
+                            Console.WriteLine("1) 1.4.1 API 1.11.0 Zekkou-Cake")
+                            Console.WriteLine()
+                            Console.Write("{0}", installator2)
+                            beta = Console.ReadLine
 
-                        If dev = "1" Then
-                            If checkdev Then
+                            If beta = "1" Then
+                                If checkbeta Then
 
-                                VersionDev.VersionDev(chooseserver, dev, checkdev, checkphar1, checkphar2, path, versions1, versions2, versions3) 'DEV
-                                ChangeInstallationStatus(nservers, installationstatus, chooseserver, installator6, installator7)
+                                    VersionBeta.VersionBeta(chooseserver, beta, checkbeta, checkphar1, checkphar2, path, versions1, versions2, versions3) 'BETA
+                                    ChangeInstallationStatus(nservers, installationstatus, chooseserver, installator6, installator7)
+
+                                End If
+                            End If
+                        Loop While beta <> "1"
+                    End If
+
+                    If version = "3" Then 'Dev
+                        Do
+                            Console.WriteLine()
+                            Console.WriteLine("{0}", currentversion)
+                            Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1240]")
+                            Console.WriteLine()
+                            Console.Write("{0}", installator2)
+                            dev = Console.ReadLine
+
+                            If dev = "1" Then
+                                If checkdev Then
+
+                                    VersionDev.VersionDev(chooseserver, dev, checkdev, checkphar1, checkphar2, path, versions1, versions2, versions3) 'DEV
+                                    ChangeInstallationStatus(nservers, installationstatus, chooseserver, installator6, installator7)
+
+                                End If
+                            End If
+                        Loop While dev <> "1"
+                    End If
+
+                    If version = "4" Then 'Soft
+                        Do
+                            Console.WriteLine()
+                            Console.WriteLine("{0}", currentversion)
+                            Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu")
+                            Console.WriteLine()
+                            Console.Write("{0}", installator2)
+                            soft = Console.ReadLine
+
+                            If soft = "1" Then
+                                If checksoft Then
+
+                                    VersionSoft.VersionSoft(chooseserver, soft, checksoft, checkphar1, checkphar2, path, versions1, versions2, versions3) 'SOFT
+                                    ChangeInstallationStatus(nservers, installationstatus, chooseserver, installator6, installator7)
+
+                                End If
+                            End If
+                        Loop While soft <> "1"
+                    End If
+
+                Else
+                    For i = 1 To nservers
+                        Do
+                            Console.Write("{0} {1} {2} ", writepath1, numberservers(i - 1), writepath2)
+                            path(i - 1) = Console.ReadLine
+
+                            If path(i - 1) = "" Then
+                                Console.WriteLine("{0}", writepath3)
+                                Console.ReadLine()
 
                             End If
-                        End If
-                    Loop While dev <> "1"
+                        Loop While path(i - 1) = ""
+
+                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm", path(i - 1), True)
+
+                    Next
                 End If
-
-                If version = "4" Then 'Soft
-                    Do
-                        Console.WriteLine()
-                        Console.WriteLine("{0}", currentversion)
-                        Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu")
-                        Console.WriteLine()
-                        Console.Write("{0}", installator2)
-                        soft = Console.ReadLine
-
-                        If soft = "1" Then
-                            If checksoft Then
-
-                                VersionSoft.VersionSoft(chooseserver, soft, checksoft, checkphar1, checkphar2, path, versions1, versions2, versions3) 'SOFT
-                                ChangeInstallationStatus(nservers, installationstatus, chooseserver, installator6, installator7)
-
-                            End If
-                        End If
-                    Loop While soft <> "1"
-                End If
-
-            Else
-                For i = 1 To nservers
-                    Do
-                        Console.Write("{0} {1} {2} ", writepath1, numberservers(i - 1), writepath2)
-                        path(i - 1) = Console.ReadLine
-
-                        If path(i - 1) = "" Then
-                            Console.WriteLine("{0}", writepath3)
-                            Console.ReadLine()
-
-                        End If
-                    Loop While path(i - 1) = ""
-
-                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm", path(i - 1), True)
-
-                Next
             End If
-        End If
+        Loop While chooseserver <> "11"
     End Sub
 
     Sub ChangeInstallationFiles(ByRef path As String, ByRef priority As String, ByRef checkphar1 As Object, ByRef checkphar2 As Object)

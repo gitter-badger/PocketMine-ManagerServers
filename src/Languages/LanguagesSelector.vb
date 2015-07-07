@@ -74,12 +74,6 @@
                 My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm")
                 My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm", language, True)
 
-                Console.WriteLine("Closing programm...")
-
-                Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-ManagerServers.exe") 'TODO: Don't close the program, it's currently the only way to solve the problem
-
-                End
-
             Else
                 Console.WriteLine("Bad error")
 
