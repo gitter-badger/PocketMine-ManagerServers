@@ -13,12 +13,13 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
+
+
+
     Sub Installator(ByRef checkpath As Object(), ByRef nservers As Integer, ByRef nameservers As String(), ByRef installationstatus As String(), ByRef versionstatus As String(), ByRef path As String(), ByRef numberservers As String(), _
                     ByRef back As String, ByRef menu1 As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable1 As String, ByRef versionbeta1 As String, ByRef versiondev1 As String, _
                     ByRef versionsoft1 As String, ByRef currentversion As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef installatortitle As String, ByRef installator1 As String, ByRef installator2 As String, _
                     ByRef installator3 As String, ByRef installator4 As String, ByRef installator5 As String, ByRef installator6 As String, ByRef installator7 As String, ByRef versions1 As String, ByRef versions2 As String, ByRef versions3 As String)
-
-        Dim chooseserver, version, stable, beta, dev, soft As String
 
         Dim checkpocketmine, checkbeta, checkdev, checksoft As Object
 
@@ -29,6 +30,8 @@
         checkbeta = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_BETA.phar")
         checkdev = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_DEV.phar")
         checksoft = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_SOFT.phar")
+
+        Dim chooseserver, stable, beta, dev, soft As String
 
         Do
             Console.Clear()
@@ -46,6 +49,9 @@
             chooseserver = Console.ReadLine
 
             If chooseserver = "1" Or chooseserver = "2" Or chooseserver = "3" Or chooseserver = "4" Or chooseserver = "5" Or chooseserver = "6" Or chooseserver = "7" Or chooseserver = "8" Or chooseserver = "9" Or chooseserver = "10" Then
+
+                Dim version As String
+
                 Console.Clear()
                 Console.ForegroundColor = ConsoleColor.Green
                 Console.WriteLine("========================<PocketMine Manager Servers>============================")
@@ -117,7 +123,7 @@
                         Do
                             Console.WriteLine()
                             Console.WriteLine("{0}", currentversion)
-                            Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1240]")
+                            Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1258]")
                             Console.WriteLine()
                             Console.Write("{0}", installator2)
                             dev = Console.ReadLine

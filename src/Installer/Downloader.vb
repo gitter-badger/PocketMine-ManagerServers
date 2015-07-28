@@ -31,7 +31,7 @@
 
         linkstable = "https://github.com/PocketMine/PocketMine-MP/releases/download/1.4.1/PocketMine-MP_Installer_1.4.1_x86.exe"
         linkbeta = "https://github.com/PocketMine/PocketMine-MP/releases/download/1.4.1dev-936/PocketMine-MP_1.4.1dev-936.phar"
-        linkdev = "http://jenkins.pocketmine.net/job/PocketMine-MP/1244/artifact/PocketMine-MP_1.5dev-1244_33e312c7_API-1.12.0.phar"
+        linkdev = "http://jenkins.pocketmine.net/job/PocketMine-MP/1258/artifact/PocketMine-MP_1.5dev-1258_0380e900_API-1.12.0.phar"
         linksoft = "http://jenkins.pocketmine.net/job/PocketMine-Soft/lastSuccessfulBuild/artifact/PocketMine-Soft_1.5dev-243_3a09c50b_API-1.12.0.phar"
 
         Do
@@ -121,7 +121,7 @@
                     Do
                         Console.WriteLine()
                         Console.WriteLine("{0}", currentversion)
-                        Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1240]")
+                        Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1258]")
                         Console.WriteLine()
                         Console.Write("{0}", downloader2)
                         dev = Console.ReadLine

@@ -60,7 +60,6 @@
                                         installator7, versions1, versions2, versions3)
 
             End If
-
         Loop While chooseinstallation <> "3"
     End Sub
 
