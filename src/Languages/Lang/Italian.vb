@@ -46,7 +46,7 @@
         Dim menudev, menutitle, menu1, menu2, menu3, menu4, menu5, menu6 As String
 
         menutitle = "----------------------------<Menù Principale>-----------------------------------"
-        menudev = "                                                           Version: 1.1 #BUILD 2"
+        menudev = "                                                           Version: 1.2 #BUILD 1"
         menu1 = "Installa PocketMine-MP"
         menu2 = "Gestisci Servers"
         menu3 = "Opzioni del programma"

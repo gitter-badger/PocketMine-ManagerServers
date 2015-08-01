@@ -23,10 +23,12 @@
                     ByRef performance12 As String, ByRef rescuertitle As String, ByRef rescuer1 As String, ByRef rescuer2 As String, ByRef backuptitle As String, ByRef backup1 As String, ByRef backup2 As String, ByRef backup3 As String, ByRef backup4 As String, ByRef backup5 As String, ByRef restoretitle As String, ByRef restore1 As String, ByRef restore2 As String, ByRef restore3 As String, ByRef restore4 As String, ByRef restore5 As String, ByRef optiontitle As String, _
                     ByRef option1 As String, ByRef option2 As String, ByRef option3 As String, ByRef lang1 As String, ByRef resettitle As String, ByRef resetp1 As String, ByRef resetp2 As String, ByRef resetp3 As String, ByRef resetp4 As String, ByRef resetp5 As String, ByRef resetp6 As String, _
                     ByRef resetp7 As String, ByRef resetp8 As String, ByRef resetp9 As String, ByRef resetp10 As String, ByRef resetp11 As String, ByRef infotitle As String, ByRef infocredits As String, ByRef infoinformations As String, ByRef infodisclaimer As String, ByRef info1 As String, _
-                    ByRef info2 As String, ByRef info3 As String, ByRef info4 As String, ByRef info5 As String, ByRef info6 As String, ByRef exittitle As String, ByRef exit1 As String, ByRef exit2 As String, ByRef versions1 As String, ByRef versions2 As String, ByRef versions3 As String)
+                    ByRef info2 As String, ByRef info3 As String, ByRef info4 As String, ByRef info5 As String, ByRef info6 As String, ByRef exittitle As String, ByRef exit1 As String, ByRef exit2 As String, ByRef versions1 As String, ByRef versions2 As String, ByRef versions3 As String, ByRef devmode As Boolean)
 
         '#Variables "Program Options"
         Dim options As String
+
+        devmode = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
 
         Do
             Console.Clear()
@@ -34,13 +36,26 @@
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
             Console.ForegroundColor = ConsoleColor.Cyan
             Console.WriteLine("{0}", optiontitle)
+            If devmode = True Then
+                Console.ForegroundColor = ConsoleColor.Yellow
+                Console.WriteLine("                                                                  DEVMODE ACTIVE")
+            End If
             Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine("1- {0}", option1)
-            Console.WriteLine("2- {0}", option2)
-            Console.WriteLine("3- {0}", back)
+
+            If devmode = True Then
+                Console.WriteLine("2- {0}", option2)
+                Console.WriteLine("3- {0}", back)
+            Else
+                Console.WriteLine("2- {0}", back)
+            End If
             Console.WriteLine()
             Console.Write("{0}", option3)
             options = Console.ReadLine
+
+            If devmode = False And options = "2" Then
+                options = "3"
+            End If
 
             If options = "1" Then
                 changelang = True
@@ -54,7 +69,7 @@
                               resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
                               infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3)
 
-            ElseIf options = "2" Then
+            ElseIf options = "2" And devmode = True Then
                 Resetter.Resetter(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations, dirlanguages, direrrors, back, option2, resettitle, resetp1, resetp2, resetp3, resetp4, _
                                   resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11)
 
