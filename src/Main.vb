@@ -103,6 +103,12 @@
             nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
             language = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm")
 
+            checkdevmode = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
+
+            If checkdevmode Then
+                devmode = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
+            End If
+
             LanguageReader.LanguageReader(language, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
                               menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
                               installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
@@ -120,15 +126,29 @@
             Console.ForegroundColor = ConsoleColor.Yellow
             Console.WriteLine("{0}", menudev)
             'Console.WriteLine("                                                                    Version: 1.2")
+            If devmode = True Then
+                Console.ForegroundColor = ConsoleColor.Yellow
+                Console.WriteLine("                                                                  DEVMODE ACTIVE")
+            End If
             Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine("1- {0}", menu1)
             Console.WriteLine("2- {0}", menu2)
             Console.WriteLine("3- {0}", menu3)
             Console.WriteLine("4- {0}", menu4)
             Console.WriteLine("5- {0}", menu5)
+            If devmode = True Then
+                Console.ForegroundColor = ConsoleColor.Yellow
+                Console.WriteLine()
+                Console.WriteLine("=={DEVMODE MENU}==")
+                Console.ForegroundColor = ConsoleColor.Cyan
+                Console.WriteLine("6- Memory Usage")
+                Console.ForegroundColor = ConsoleColor.White
+
+            End If
             Console.WriteLine()
             Console.Write("{0}", menu6)
             menu = Console.ReadLine
+
 
             If menu = "1" Then 'Install PocketMine
                 ManagerInstaller.ManagerInstaller(path, nameservers, nservers, checkpath, numberservers, downloadstatus, installationstatus, versionstatus, checknameserver, back, changemade, status1, version1, versionstable1, versionbeta1, _
@@ -183,45 +203,87 @@
                 End If
             End If
 
+            '=============DEV MODE
+            If menu = "6" Then
+
+                Console.WriteLine()
+                Console.ForegroundColor = ConsoleColor.Yellow
+                Console.WriteLine("Current Memory Usage:")
+                Console.ForegroundColor = ConsoleColor.White
+                Console.WriteLine()
+
+                'Memory process
+                Dim c As Process = Process.GetCurrentProcess()
+
+                For index = 1 To 5
+
+                    Console.WriteLine("Mem Usage (Working Set): " & (c.WorkingSet64 / 1024).ToString & " K" & vbCrLf _
+                    & "VM Size (Private Bytes): " & (c.PagedMemorySize64 / 1024).ToString & " K" & vbCrLf _
+                    & "GC TotalMemory: " & GC.GetTotalMemory(True) & " bytes")
+
+                    System.Threading.Thread.Sleep(2000)
+
+                    Console.WriteLine()
+                Next
+                Console.ForegroundColor = ConsoleColor.Yellow
+                Console.WriteLine("DONE! Press ENTER to continue.")
+
+                Console.ReadLine()
+
+            End If
+
             Dim i As Integer
-            checkdevmode = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
 
             If i >= 3 Then
                 i = 0
             End If
 
-            If menu = "devon" Then
+            If menu.ToLower = "devon" Then
                 i += 1
 
-                If i = 3 Then
-                    If devmode = False And checkdevmode Then
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
-
-                    End If
-
-                    devmode = True
-                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm", devmode, True)
-                    Console.ForegroundColor = ConsoleColor.Yellow
-                    Console.WriteLine("DEV MODE ACTIVATED")
+                If i = 3 And devmode = True Then
+                    Console.WriteLine("DEV MODE is already active")
                     Console.ReadLine()
+                    Console.WriteLine("DEV MODE is already off")
+
+                Else
+                    If i = 3 Then
+                        If devmode = False And checkdevmode Then
+                            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
+
+                        End If
+
+                        devmode = True
+                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm", devmode, True)
+                        Console.ForegroundColor = ConsoleColor.Yellow
+                        Console.WriteLine("DEV MODE ENABLED")
+                        Console.ReadLine()
+                    End If
                 End If
 
-            ElseIf menu = "devoff" Then
+
+            ElseIf menu.ToLower = "devoff" Then
                 i += 1
 
-                If i = 3 Then
-                    If devmode = True And checkdevmode Then
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
+                If i = 3 And devmode = False Then
+                    Console.WriteLine("DEV MODE is already disable")
+                    Console.ReadLine()
 
+                Else
+                    If i = 3 Then
+                        If devmode = True And checkdevmode Then
+                            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
+
+                        End If
+
+                        devmode = False
+                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm", devmode, True)
+                        Console.ForegroundColor = ConsoleColor.Red
+                        Console.WriteLine("DEV MODE DISABLED")
+                        Console.ReadLine()
                     End If
 
-                    devmode = False
-                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm", devmode, True)
-                    Console.ForegroundColor = ConsoleColor.Red
-                    Console.WriteLine("DEV MODE DEACTIVATED")
-                    Console.ReadLine()
                 End If
-
             End If
         End While
     End Sub

@@ -36,10 +36,6 @@
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
             Console.ForegroundColor = ConsoleColor.Cyan
             Console.WriteLine("{0}", optiontitle)
-            If devmode = True Then
-                Console.ForegroundColor = ConsoleColor.Yellow
-                Console.WriteLine("                                                                  DEVMODE ACTIVE")
-            End If
             Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine("1- {0}", option1)
 
