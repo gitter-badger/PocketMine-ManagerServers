@@ -204,7 +204,7 @@
             End If
 
             '=============DEV MODE
-            If menu = "6" Then
+            If menu = "6" And devmode = True Then
 
                 Console.WriteLine()
                 Console.ForegroundColor = ConsoleColor.Yellow
