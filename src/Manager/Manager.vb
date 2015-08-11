@@ -31,7 +31,8 @@
             Console.WriteLine("1- {0}", manager1)
             Console.WriteLine("2- {0}", manager2)
             Console.WriteLine("3- {0}", manager3)
-            Console.WriteLine("4- {0}", back)
+            Console.WriteLine("4- Server Restarter")
+            Console.WriteLine("5- {0}", back)
             Console.WriteLine()
             Console.Write("{0}", manager4)
             varmanager = Console.ReadLine
@@ -54,7 +55,12 @@
 
             End If
 
-        Loop While varmanager <> "4"
+            If varmanager = "4" Then
+                Restarter.Restarter(nservers, checkpath, path, numberservers, writepath1, writepath2, writepath3)
+
+            End If
+
+        Loop While varmanager <> "5"
     End Sub
 
 End Module
