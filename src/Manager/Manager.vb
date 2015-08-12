@@ -56,7 +56,7 @@
             End If
 
             If varmanager = "4" Then
-                Restarter.Restarter(nservers, checkpath, path, numberservers, writepath1, writepath2, writepath3)
+                Restarter.Restarter(nservers, nameservers, checkpath, path, numberservers, writepath1, writepath2, writepath3)
 
             End If
 
