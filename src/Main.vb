@@ -143,6 +143,7 @@
                 Console.WriteLine("=={DEVMODE MENU}==")
                 Console.ForegroundColor = ConsoleColor.Cyan
                 Console.WriteLine("6- Memory Usage")
+                Console.WriteLine("7- Server Restarter (BackgroundTask)")
                 Console.ForegroundColor = ConsoleColor.White
 
             End If
@@ -286,6 +287,12 @@
 
                 End If
             End If
+
+            If menu = "7" And devmode = True Then
+                'Process.Start("C:\Program Files\PocketMine-ManagerServers\BackgroudTask.exe")
+
+            End If
+
         End While
     End Sub
 
