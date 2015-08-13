@@ -21,6 +21,9 @@ Module BackgroudTask
     Private Const SW_SHOW As Integer = 5
 
     Sub Main()
+
+        Console.Title = "PocketMine-ManagerServers(BackgroudTask)"
+
         Dim path As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
 
         Dim devmode As Boolean
@@ -32,87 +35,97 @@ Module BackgroudTask
 
         Dim hWndConsole As IntPtr
 
+        Dim checktime, checkchoosetime, checkchooseserver As Object
+
+        checktime = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\Time.pm")
+        checkchoosetime = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\ChooseTime.pm")
+        checkchooseserver = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\ChooseServer.pm")
+
         checkdevmode = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
 
-        time = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\Time.pm")
-        choosetime = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\ChooseTime.pm")
-        nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
-        chooseserver = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\ChooseServer.pm")
+        If checktime And checkchooseserver And checkchoosetime Then
+            time = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\Time.pm")
+            choosetime = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\ChooseTime.pm")
+            nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
+            chooseserver = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\ChooseServer.pm")
 
-        hWndConsole = GetConsoleWindow()
+            hWndConsole = GetConsoleWindow()
 
-        For i = 1 To nservers
-            path(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm")
-        Next
-
-        Console.Title = "PocketMine-ManagerServers(BackgroudTask)"
-
-        If checkdevmode Then
-            devmode = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
-        End If
-
-        Do
-            Console.Clear()
-            If devmode = True Then
-                Console.ForegroundColor = ConsoleColor.Yellow
-                Console.WriteLine("                                                                  DEVMODE ACTIVE")
-            End If
-
-            Console.ForegroundColor = ConsoleColor.White
-            Console.WriteLine("This program run in background in 5 seconds...")
-            System.Threading.Thread.Sleep(5000)
-            Console.WriteLine("Starting timer...")
-            Console.WriteLine()
-
-            If devmode = False Then
-                ShowWindow(hWndConsole, SW_HIDE)
-
-            ElseIf devmode = True Then
-                ShowWindow(hWndConsole, SW_SHOW)
-
-            End If
-
-            If choosetime = "1" Then
-                System.Threading.Thread.Sleep(time * 24 * 3600 * 1000)
-
-            ElseIf choosetime = "2" Then
-                System.Threading.Thread.Sleep(time * 3600 * 1000)
-
-            ElseIf choosetime = "3" Then
-                System.Threading.Thread.Sleep(time * 60 * 1000)
-
-            End If
-
-            'SERVER RESTARTING
-            Dim PMProcess() As Process = System.Diagnostics.Process.GetProcessesByName("mintty") 'Process of PocketMine-MP
-            Console.WriteLine("Restarting...")
-            For Each p As Process In PMProcess 'TODO: Add /save-all and /stop command for security restart
-                p.Kill() 'This is so bad for the moment.
+            For i = 1 To nservers
+                path(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm")
             Next
 
-            Console.WriteLine()
-            Console.WriteLine("Wait 3 seconds...")
-            System.Threading.Thread.Sleep(3000)
-            Process.Start(path(chooseserver - 1) + "\start.cmd")
-
-            Console.WriteLine("Server Restarted!")
-            Console.WriteLine()
-
-            If devmode = True Then
-                Console.Write("Do you want to restart again? <Y/N>: ")
-                chooserestart2 = Console.ReadLine().ToUpper
-            Else
-                Console.WriteLine("Rerun timer...")
-                System.Threading.Thread.Sleep(2000)
-                autorestart = True
-            End If
-            'END
-
-            If chooserestart2 = "N" Then
-                Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-ManagerServers.exe")
+            If checkdevmode Then
+                devmode = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
             End If
 
-        Loop While chooserestart2 = "Y" Or autorestart = True
+            Do
+                Console.Clear()
+                If devmode = True Then
+                    Console.ForegroundColor = ConsoleColor.Yellow
+                    Console.WriteLine("                                                                  DEVMODE ACTIVE")
+                End If
+
+                Console.ForegroundColor = ConsoleColor.White
+                Console.WriteLine("This program run in background in 5 seconds...")
+                System.Threading.Thread.Sleep(5000)
+                Console.WriteLine("Starting timer...")
+                Console.WriteLine()
+
+                If devmode = False Then
+                    ShowWindow(hWndConsole, SW_HIDE)
+
+                ElseIf devmode = True Then
+                    ShowWindow(hWndConsole, SW_SHOW)
+
+                End If
+
+                If choosetime = "1" Then
+                    System.Threading.Thread.Sleep(time * 24 * 3600 * 1000)
+
+                ElseIf choosetime = "2" Then
+                    System.Threading.Thread.Sleep(time * 3600 * 1000)
+
+                ElseIf choosetime = "3" Then
+                    System.Threading.Thread.Sleep(time * 60 * 1000)
+
+                End If
+
+                'SERVER RESTARTING
+                Dim PMProcess() As Process = Process.GetProcessesByName("mintty") 'Process of PocketMine-MP
+                Console.WriteLine("Restarting...")
+                For Each p As Process In PMProcess 'TODO: Add /save-all and /stop command for security restart
+                    p.Kill() 'This is so bad for the moment.
+                Next
+
+                Console.WriteLine()
+                Console.WriteLine("Wait 3 seconds...")
+                System.Threading.Thread.Sleep(3000)
+                Process.Start(path(chooseserver - 1) + "\start.cmd")
+
+                Console.WriteLine("Server Restarted!")
+                Console.WriteLine()
+
+                If devmode = True Then
+                    Console.Write("Do you want to restart again? <Y/N>: ")
+                    chooserestart2 = Console.ReadLine().ToUpper
+                Else
+                    Console.WriteLine("Rerun timer...")
+                    System.Threading.Thread.Sleep(2000)
+                    autorestart = True
+                End If
+                'END
+
+                If chooserestart2 = "N" Then
+                    Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-ManagerServers.exe")
+                End If
+
+            Loop While chooserestart2 = "Y" Or autorestart = True
+        Else
+            Console.Clear()
+            Console.WriteLine("You must first enter the values for the restart of servers")
+            Console.ReadLine()
+        End If
     End Sub
 
 End Module

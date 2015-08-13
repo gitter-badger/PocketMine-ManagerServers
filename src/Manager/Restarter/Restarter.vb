@@ -96,7 +96,7 @@
 
                         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\Time.pm", time, True)
 
-                        Process.Start("C:\Program Files\PocketMine-ManagerServers\BackgroudTask.exe")
+                        Process.Start("C:\Program Files\PocketMine-ManagerServers\PM-MS(BackgroudTask).exe")
 
                     End If
 
@@ -122,7 +122,7 @@
 
             If chooserestart = "2" Then
                 Dim chooseserver As Integer
-                Dim PMProcess() As Process = System.Diagnostics.Process.GetProcessesByName("mintty") 'Process of PocketMine-MP
+                Dim PMProcess() As Process = Process.GetProcessesByName("mintty") 'Process of PocketMine-MP
 
                 Console.WriteLine()
                 For i = 1 To nservers
@@ -132,7 +132,7 @@
                 Console.Write("Choose the server that you want to restart: ")
                 chooseserver = Console.ReadLine
 
-                Console.WriteLine("Restarting...")
+                Console.WriteLine("Restarting {0}...", nameservers(chooseserver - 1))
                 For Each p As Process In PMProcess 'TODO: Add /save-all and /stop command for security restart
                     p.Kill() 'This is so bad for the moment.
                 Next
@@ -142,8 +142,9 @@
                 System.Threading.Thread.Sleep(3000)
                 Process.Start(path(chooseserver - 1) + "\start.cmd")
 
-                Console.WriteLine("Server Restarted!")
                 Console.WriteLine()
+                Console.WriteLine("Server Restarted!")
+                Console.ReadLine()
 
             End If
         Loop While chooserestart <> "3"
