@@ -44,7 +44,7 @@
             End If
 
             If varmanager = "2" Then
-                Editor.Editor(confirmperfomance, checkpath, checknameserver, performance, nameservers, nservers, selectperformance, performancestatus, path, numberservers, back, changemade, writepath1, writepath2, writepath3, editortitle, editor1, _
+                Editor.Editor(confirmperfomance, checkpath, checknameserver, performance, nameservers, nservers, performancestatus, path, numberservers, back, changemade, writepath1, writepath2, writepath3, editortitle, editor1, _
                               editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6, performance0, performance1, performance2, performance3, performance4, performance5, performance6, performance7, _
                               performance8, performance9, performance10, performance11, performance12)
 

@@ -102,21 +102,19 @@
 
                     Else
 
-                        For i = 1 To chooseserver
-                            Do
-                                Console.Write("{0} {1} {2}", writepath1, numberservers(i - 1), writepath2)
-                                path(i - 1) = Console.ReadLine
+                    Do
+                        Console.Write("{0} {1} {2}", writepath1, nameservers(chooseserver - 1), writepath2)
+                        path(chooseserver - 1) = Console.ReadLine
 
-                                If path(i - 1) = "" Then
-                                    Console.WriteLine("{0}", writepath3)
-                                    Console.ReadLine()
+                        If path(chooseserver - 1) = "" Then
+                            Console.WriteLine("{0}", writepath3)
+                            Console.ReadLine()
 
-                                End If
-                            Loop While path(i - 1) = ""
+                        End If
+                    Loop While path(chooseserver - 1) = ""
 
-                            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm", path(i - 1), True)
+                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(chooseserver) + ".pm", path(chooseserver - 1), True)
 
-                        Next
                     End If
             End If
 
