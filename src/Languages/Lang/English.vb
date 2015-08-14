@@ -28,8 +28,8 @@
         versiondev1 = "Version Dev"
         versionsoft1 = "Version Soft"
         currentversion = "Current Versions:"
-        writepath1 = "Write the folder path of the"
-        writepath2 = "server, example 'C:\PocketMine-MP': "
+        writepath1 = "Write the folder path of "
+        writepath2 = ", example 'C:\PocketMine-MP': "
         writepath3 = "ERROR! Insert a valid path!"
 
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords1.lang", back, True)

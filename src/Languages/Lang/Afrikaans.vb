@@ -1,3 +1,0 @@
-﻿Module Afrikaans
-
-End Module

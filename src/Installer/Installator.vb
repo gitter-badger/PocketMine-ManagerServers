@@ -31,24 +31,32 @@
         checkdev = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_DEV.phar")
         checksoft = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_SOFT.phar")
 
-        Dim chooseserver, stable, beta, dev, soft As String
+        Dim stable, beta, dev, soft, confirmphar As String
+        Dim chooseserver As Object
 
         Do
-            Console.Clear()
-            Console.ForegroundColor = ConsoleColor.Green
-            Console.WriteLine("========================<PocketMine Manager Servers>============================")
-            Console.ForegroundColor = ConsoleColor.Cyan
-            Console.WriteLine("{0}", installatortitle)
-            Console.ForegroundColor = ConsoleColor.White
-            For i = 1 To nservers
-                Console.WriteLine("{0}) {1} -> {2}: {3} -> {4}: {5}", i, nameservers(i - 1), version1, versionstatus(i - 1), status1, installationstatus(i - 1))
+            Do
+                    Console.Clear()
+                    Console.ForegroundColor = ConsoleColor.Green
+                    Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                    Console.ForegroundColor = ConsoleColor.Cyan
+                    Console.WriteLine("{0}", installatortitle)
+                    Console.ForegroundColor = ConsoleColor.White
+                    For i = 1 To nservers
+                        Console.WriteLine("{0}) {1} -> {2}: {3} -> {4}: {5}", i, nameservers(i - 1), version1, versionstatus(i - 1), status1, installationstatus(i - 1))
 
-            Next
-            Console.WriteLine()
-            Console.Write("{0}", installator2)
-            chooseserver = Console.ReadLine
+                    Next
+                Console.WriteLine("11) {0}", back)
+                    Console.WriteLine()
+                Console.Write("{0} ", installator2)
+                    chooseserver = Console.ReadLine
 
-            If chooseserver = "1" Or chooseserver = "2" Or chooseserver = "3" Or chooseserver = "4" Or chooseserver = "5" Or chooseserver = "6" Or chooseserver = "7" Or chooseserver = "8" Or chooseserver = "9" Or chooseserver = "10" Then
+                    If chooseserver = "11" Then
+                        Exit Sub
+                End If
+            Loop While chooseserver < "1" Or chooseserver > "10"
+
+            If chooseserver >= "1" Or chooseserver <= "10" Then
 
                 Dim version As String
 
@@ -92,13 +100,13 @@
                                 End If
                             End If
 
-                            ChangeInstallationStatus(nservers, installationstatus, chooseserver, installator6, installator7)
+                            ChangeInstallationStatus(installationstatus, chooseserver, installator6, installator7)
 
                         End If
                     Loop While stable <> "1"
                 End If
 
-                If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
+                If checkpath(chooseserver - 1) And path(chooseserver - 1) <> "" Then
                     If version = "2" Then 'Beta
                         Do
                             Console.WriteLine()
@@ -110,12 +118,23 @@
 
                             If beta = "1" Then
                                 If checkbeta Then
+                                    Do
+                                        Console.WriteLine("{0} ", versions1)
+                                        confirmphar = Console.ReadLine.ToUpper
 
-                                    VersionBeta.VersionBeta(chooseserver, beta, checkbeta, checkphar1, checkphar2, path, versions1, versions2, versions3) 'BETA
-                                    ChangeInstallationStatus(nservers, installationstatus, chooseserver, installator6, installator7)
+                                        If confirmphar = "Y" Then
+                                            ChangeInstallationFiles(path(chooseserver - 1), "BETA", checkphar1, checkphar2)
+
+                                        End If
+                                    Loop While confirmphar <> "Y" Or confirmphar <> "N"
+                                Else
+                                    Console.WriteLine("{0}", versions2)
+                                    Console.WriteLine("{0}", versions3)
+                                    Console.ReadLine()
 
                                 End If
                             End If
+                            ChangeInstallationStatus(installationstatus, chooseserver, installator6, installator7)
                         Loop While beta <> "1"
                     End If
 
@@ -130,9 +149,20 @@
 
                             If dev = "1" Then
                                 If checkdev Then
+                                    Do
+                                        Console.WriteLine("{0} <Y/N>: ", versions1)
+                                        confirmphar = Console.ReadLine.ToUpper
 
-                                    VersionDev.VersionDev(chooseserver, dev, checkdev, checkphar1, checkphar2, path, versions1, versions2, versions3) 'DEV
-                                    ChangeInstallationStatus(nservers, installationstatus, chooseserver, installator6, installator7)
+                                        If confirmphar = "Y" Then
+                                            ChangeInstallationFiles(path(chooseserver - 1), "DEV", checkphar1, checkphar2)
+
+                                        End If
+                                    Loop While confirmphar <> "Y" Or confirmphar <> "N"
+
+                                Else
+                                    Console.WriteLine("{0}", versions2)
+                                    Console.WriteLine("{0}", versions3)
+                                    Console.ReadLine()
 
                                 End If
                             End If
@@ -150,34 +180,41 @@
 
                             If soft = "1" Then
                                 If checksoft Then
+                                    Console.WriteLine("{0} ", versions1)
+                                    confirmphar = Console.ReadLine.ToUpper
 
-                                    VersionSoft.VersionSoft(chooseserver, soft, checksoft, checkphar1, checkphar2, path, versions1, versions2, versions3) 'SOFT
-                                    ChangeInstallationStatus(nservers, installationstatus, chooseserver, installator6, installator7)
+                                    If confirmphar = "Y" Then
+                                        ChangeInstallationFiles(path(chooseserver - 1), "SOFT", checkphar1, checkphar2)
+
+                                    End If
+
+                                Else
+                                    Console.WriteLine("{0}", versions2)
+                                    Console.WriteLine("{0}", versions3)
+                                    Console.ReadLine()
 
                                 End If
                             End If
                         Loop While soft <> "1"
                     End If
 
+
                 Else
-                    For i = 1 To nservers
-                        Do
-                            Console.Write("{0} {1} {2} ", writepath1, numberservers(i - 1), writepath2)
-                            path(i - 1) = Console.ReadLine
+                    Do
+                        Console.Write("{0} {1} {2} ", writepath1, nameservers(chooseserver - 1), writepath2)
+                        path(chooseserver - 1) = Console.ReadLine
 
-                            If path(i - 1) = "" Then
-                                Console.WriteLine("{0}", writepath3)
-                                Console.ReadLine()
+                        If path(chooseserver - 1) = "" Then
+                            Console.WriteLine("{0}", writepath3)
+                            Console.ReadLine()
 
-                            End If
-                        Loop While path(i - 1) = ""
+                        End If
+                    Loop While path(chooseserver - 1) = ""
 
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm", path(i - 1), True)
-
-                    Next
+                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(chooseserver) + ".pm", path(chooseserver - 1), True)
                 End If
             End If
-        Loop While chooseserver <> "11"
+        Loop While chooseserver <> 11
     End Sub
 
     Sub ChangeInstallationFiles(ByRef path As String, ByRef priority As String, ByRef checkphar1 As Object, ByRef checkphar2 As Object)
@@ -205,58 +242,13 @@
 
     End Sub
 
-    Sub ChangeInstallationStatus(ByRef nservers As Integer, ByRef installationstatus As String(), ByRef chooseserver As String, ByRef installator6 As String, ByRef installator7 As String) 'It is not the best way. I currently use this then I'll change.
-        For i = 1 To nservers
-            installationstatus(i - 1) = installator6
+    Sub ChangeInstallationStatus(ByRef installationstatus As String(), ByRef chooseserver As String, ByRef installator6 As String, ByRef installator7 As String)
+        installationstatus(chooseserver - 1) = installator6
 
-        Next
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_1" + Convert.ToString(chooseserver) + ".pm")
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_" + Convert.ToString(chooseserver) + ".pm", installationstatus(chooseserver - 1), True)
 
-        If chooseserver = "1" Then
-            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_1.pm")
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_1.pm", installationstatus(0), True)
-
-        ElseIf chooseserver = "2" Then
-            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_2.pm")
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_2.pm", installationstatus(1), True)
-
-        ElseIf chooseserver = "3" Then
-            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_3.pm")
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_3.pm", installationstatus(2), True)
-
-        ElseIf chooseserver = "4" Then
-            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_4.pm")
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_4.pm", installationstatus(3), True)
-
-        ElseIf chooseserver = "5" Then
-            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_5.pm")
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_5.pm", installationstatus(4), True)
-
-        ElseIf chooseserver = "6" Then
-            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_6.pm")
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_6.pm", installationstatus(5), True)
-
-        ElseIf chooseserver = "7" Then
-            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_7.pm")
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_7.pm", installationstatus(6), True)
-
-        ElseIf chooseserver = "8" Then
-            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_8.pm")
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_8.pm", installationstatus(7), True)
-
-        ElseIf chooseserver = "9" Then
-            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_9.pm")
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_9.pm", installationstatus(8), True)
-
-        ElseIf chooseserver = "10" Then
-            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_10.pm")
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_10.pm", installationstatus(9), True)
-
-        End If
-
-        For i = 1 To nservers 'For security.
-            installationstatus(i - 1) = installator7
-
-        Next
+        installationstatus(chooseserver - 1) = installator7 'For security.
 
     End Sub
 End Module
