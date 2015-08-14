@@ -18,9 +18,9 @@ Module Properties
 
     Public rconpassword As String
 
-    Sub Properties(ByRef checkpath As Object(), ByRef path As String(), ByRef nservers As Integer, ByRef numberservers As String(), ByRef checknameserver As Object(), _
-                   ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef propertiestitle As String, ByRef properties1 As String, ByRef properties2 As String, _
-                   ByRef properties3 As String, ByRef properties4 As String, ByRef properties5 As String, ByRef properties6 As String)
+    Sub Properties(ByRef checkpath As Object(), ByRef path As String(), ByRef nservers As Integer, ByRef nameservers As String(), ByRef checknameserver As Object(), _
+                   ByRef back As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef propertiestitle As String, ByRef properties1 As String, ByRef properties2 As String, _
+                   ByRef properties3 As String, ByRef properties4 As String, ByRef properties5 As String, ByRef properties6 As String, ByRef performance11 As String)
 
         Dim motd, serverport, whitelist, achievent, spawn, maxplayers, flight, animals, mobs, gamemode, forcegamemode, _
             hardcore, pvp, difficulty, generator, levelname, levelseed, leveltype, enablequery, enablercon, _
@@ -34,20 +34,37 @@ Module Properties
 
         Dim propertiesfile, confirmedit, replaceproperty As String
 
-        Dim checkproperty, checkproperty2 As Object
+        Dim chooseserver, checkproperty, checkproperty2 As Object
 
-        Console.Clear()
-        Console.ForegroundColor = ConsoleColor.Green
-        Console.WriteLine("========================<PocketMine Manager Servers>============================")
-        Console.ForegroundColor = ConsoleColor.DarkGreen
-        Console.WriteLine("{0}", propertiestitle)
-        Console.ForegroundColor = ConsoleColor.White
+        Do
+            Console.Clear()
+            Console.ForegroundColor = ConsoleColor.Green
+            Console.WriteLine("========================<PocketMine Manager Servers>============================")
+            Console.ForegroundColor = ConsoleColor.DarkGreen
+            Console.WriteLine("{0}", propertiestitle)
+            Console.ForegroundColor = ConsoleColor.White
+            For i = 1 To nservers
+                Console.WriteLine("{0}) {1}", i, nameservers(i - 1))
+
+            Next
+            Console.WriteLine("11- {0}", back)
+            Console.WriteLine()
+            Console.Write("{0}", performance11)
+            chooseserver = Console.ReadLine
+
+            If chooseserver = "11" Then
+                Exit Sub
+            End If
+
+        Loop While chooseserver < "1" Or chooseserver > "10"
+        Console.WriteLine()
         Console.WriteLine("{0}", properties1)
 
         Checking(checknameserver, checkpath)
 
-        If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
+        If checkpath(chooseserver - 1) And path(chooseserver - 1) <> "" And (chooseserver >= "1" Or chooseserver <= "10") Then
             Do
+                Console.WriteLine()
                 Console.WriteLine("{0}", properties2)
                 Console.WriteLine("#Properties Config file")
                 Console.WriteLine("Sun May 3 13:20:31 AZOST 2015")
@@ -322,21 +339,19 @@ Module Properties
         Else
             Console.WriteLine("{0}", properties6)
 
-            For i = 1 To nservers
-                Do
-                    Console.Write("{0} {1} {2}", writepath1, numberservers(i - 1), writepath2)
-                    path(i - 1) = Console.ReadLine
+            Do
+                Console.Write("{0} {1} {2}", writepath1, nameservers(chooseserver - 1), writepath2)
+                path(chooseserver - 1) = Console.ReadLine
 
-                    If path(i - 1) = "" Then
-                        Console.WriteLine("{0}", writepath3)
-                        Console.ReadLine()
+                If path(chooseserver - 1) = "" Then
+                    Console.WriteLine("{0}", writepath3)
+                    Console.ReadLine()
 
-                    End If
-                Loop While path(i - 1) = ""
+                End If
+            Loop While path(chooseserver - 1) = ""
 
-                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm", path(i - 1), True)
+            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(chooseserver) + ".pm", path(chooseserver - 1), True)
 
-            Next
 
         End If
     End Sub

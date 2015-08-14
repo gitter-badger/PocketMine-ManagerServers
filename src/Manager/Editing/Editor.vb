@@ -22,8 +22,8 @@
             choosedit = Console.ReadLine
 
             If choosedit = "1" Then
-                Properties.Properties(checkpath, path, nservers, numberservers, checknameserver, writepath1, writepath2, writepath3, _
-                                      propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6)
+                Properties.Properties(checkpath, path, nservers, nameservers, checknameserver, back, writepath1, writepath2, writepath3, _
+                                      propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6, performance11)
 
             End If
 
