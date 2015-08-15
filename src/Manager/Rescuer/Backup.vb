@@ -47,7 +47,7 @@ Module Backup
 
         Console.WriteLine()
 
-        If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
+        If checkpath(choosebackup - 1) And path(choosebackup - 1) <> "" Then
 
             If choosebackup > 0 Or choosebackup <= 10 Then
                 If backupstatus(choosebackup - 1) = "Backuped" Then
@@ -92,21 +92,19 @@ Overwrite:
                 End If
             End If
         Else
-            For i = 1 To nservers
                 Do
-                    Console.Write("{0} {1} {2} ", writepath1, numberservers(i - 1), writepath2)
-                    path(i - 1) = Console.ReadLine
+                Console.Write("{0} {1} {2} ", writepath1, nameservers(choosebackup - 1), writepath2)
+                path(choosebackup - 1) = Console.ReadLine
 
-                    If path(i - 1) = "" Then
-                        Console.WriteLine("{0}", writepath3)
-                        Console.ReadLine()
+                If path(choosebackup - 1) = "" Then
+                    Console.WriteLine("{0}", writepath3)
+                    Console.ReadLine()
 
-                    End If
-                Loop While path(i - 1) = ""
+                End If
+            Loop While path(choosebackup - 1) = ""
 
-                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm", path(i - 1), True)
+            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(choosebackup) + ".pm", path(choosebackup - 1), True)
 
-            Next
         End If
 
     End Sub

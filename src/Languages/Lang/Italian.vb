@@ -26,8 +26,8 @@
         versiondev1 = "Versione Dev"
         versionsoft1 = "Versione Soft"
         currentversion = "Versione attuale:"
-        writepath1 = "Scrivi il collegamento della cartella del"
-        writepath2 = "server, ad esempio 'C:\PocketMine-MP': "
+        writepath1 = "Scrivi il collegamento della cartella del server "
+        writepath2 = " , ad esempio 'C:\PocketMine-MP': "
         writepath3 = "ERRORE! Inserisci un collegamento valido!"
 
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\UniqueWords1.lang", back, True)
@@ -47,7 +47,7 @@
         Dim menudev, menutitle, menu1, menu2, menu3, menu4, menu5, menu6 As String
 
         menutitle = "----------------------------<Menù Principale>-----------------------------------"
-        menudev = "                                                           Version: 1.2 #BUILD 1"
+        menudev = "                                                           Version: 1.2 #BUILD 2"
         menu1 = "Installa PocketMine-MP"
         menu2 = "Gestisci Servers"
         menu3 = "Opzioni del programma"
