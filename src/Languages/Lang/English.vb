@@ -28,7 +28,7 @@
         versiondev1 = "Version Dev"
         versionsoft1 = "Version Soft"
         currentversion = "Current Versions:"
-        writepath1 = "Write the folder path of "
+        writepath1 = "Write the folder path of"
         writepath2 = ", example 'C:\PocketMine-MP': "
         writepath3 = "ERROR! Insert a valid path!"
 
