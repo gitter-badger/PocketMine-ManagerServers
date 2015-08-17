@@ -75,6 +75,10 @@
                 Console.Write("{0}", installator1)
                 version = Console.ReadLine
 
+                If version = "5" Then
+                    Exit Do
+                End If
+
                 If version = "1" Then 'Stable
                     Do
                         Console.WriteLine()

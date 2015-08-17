@@ -100,7 +100,7 @@
 
                     End If
 
-                    Else
+                Else
 
                     Do
                         Console.Write("{0} {1} {2}", writepath1, nameservers(chooseserver - 1), writepath2)
@@ -115,7 +115,7 @@
 
                     My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(chooseserver) + ".pm", path(chooseserver - 1), True)
 
-                    End If
+                End If
             End If
 
             If chooserestart = "2" Then
@@ -131,6 +131,7 @@
                 chooseserver = Console.ReadLine
 
                 Console.WriteLine("Restarting {0}...", nameservers(chooseserver - 1))
+
                 For Each p As Process In PMProcess 'TODO: Add /save-all and /stop command for security restart
                     p.Kill() 'This is so bad for the moment.
                 Next
