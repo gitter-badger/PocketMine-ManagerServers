@@ -1,4 +1,5 @@
-﻿Module English
+﻿Imports Ionic.Zip
+Module English
     ' _____           _        _   __  __ _                   __  __                                   _____                              
     '|  __ \         | |      | | |  \/  (_)                 |  \/  |                                 / ____|                             
     '| |__) |__   ___| | _____| |_| \  / |_ _ __   ___ ______| \  / | __ _ _ __   __ _  __ _  ___ _ _| (___   ___ _ ____   _____ _ __ ___ 
@@ -373,6 +374,165 @@
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Exit0.lang", exittitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Exit1.lang", exit1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Exit2.lang", exit2, True)
+
+        Using lang As ZipFile = New ZipFile()
+            lang.Password = "PocketMine-ManagerServers".GetHashCode
+            lang.AddDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\English")
+            lang.Save("C:\Program Files\PocketMine-ManagerServers\Languages\English\English.lang")
+
+        End Using
+        LanguageDeletor()
+    End Sub
+
+    Sub LanguageDeletor()
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords2.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords3.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords4.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords5.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords6.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords7.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords8.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords9.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords10.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords11.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords12.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Menu1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Menu2.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Menu3.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Menu4.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Menu5.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Menu6.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Menu7.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Menu8.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Install1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Install2.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Install3.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Install4.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator0.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator2.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator3.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator4.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator5.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator6.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator7.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Versions1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Versions2.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Versions3.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader0.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader2.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader3.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader4.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader5.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader6.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader7.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader8.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader9.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader10.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader11.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager0.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager2.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager3.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager4.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener0.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener2.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener3.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener4.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener5.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener6.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener7.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener8.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Editor0.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Editor1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Editor2.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Editor3.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties0.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties2.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties3.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties4.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties5.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties6.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance0.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance2.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance3.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance4.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance5.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance6.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance7.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance8.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance9.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance10.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance11.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance12.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Rescuer0.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Rescuer1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Rescuer2.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup0.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup2.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup3.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup4.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup5.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore0.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore2.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore3.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore4.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore5.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Option0.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Option1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Option2.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Option3.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Lang1.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp0.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp2.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp3.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp4.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp5.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp6.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp7.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp8.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp9.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp10.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp11.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info0.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info2.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info3.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info4.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info5.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info6.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info7.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info8.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info9.lang")
+
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Exit0.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Exit1.lang")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\Exit2.lang")
 
     End Sub
 End Module

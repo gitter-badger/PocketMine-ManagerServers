@@ -92,7 +92,8 @@ Overwrite:
                 End If
             End If
         Else
-                Do
+
+            Do
                 Console.Write("{0} {1} {2} ", writepath1, nameservers(choosebackup - 1), writepath2)
                 path(choosebackup - 1) = Console.ReadLine
 

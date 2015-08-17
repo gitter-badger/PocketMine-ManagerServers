@@ -99,6 +99,9 @@
 
         CompleterLoader.CompleterLoader(defaultservers)
 
+        Console.Clear()
+        Console.WriteLine("Loading resource...")
+
         While quit = "N"
 
             nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")

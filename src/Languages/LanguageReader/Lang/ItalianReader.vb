@@ -1,4 +1,5 @@
-﻿Module ItalianReader
+﻿Imports Ionic.Zip
+Module ItalianReader
     ' _____           _        _   __  __ _                   __  __                                   _____                              
     '|  __ \         | |      | | |  \/  (_)                 |  \/  |                                 / ____|                             
     '| |__) |__   ___| | _____| |_| \  / |_ _ __   ___ ______| \  / | __ _ _ __   __ _  __ _  ___ _ _| (___   ___ _ ____   _____ _ __ ___ 
@@ -23,6 +24,22 @@
                     ByRef option1 As String, ByRef option2 As String, ByRef option3 As String, ByRef lang1 As String, ByRef resettitle As String, ByRef resetp1 As String, ByRef resetp2 As String, ByRef resetp3 As String, ByRef resetp4 As String, ByRef resetp5 As String, ByRef resetp6 As String, _
                     ByRef resetp7 As String, ByRef resetp8 As String, ByRef resetp9 As String, ByRef resetp10 As String, ByRef resetp11 As String, ByRef infotitle As String, ByRef infocredits As String, ByRef infoinformations As String, ByRef infodisclaimer As String, ByRef info1 As String, _
                     ByRef info2 As String, ByRef info3 As String, ByRef info4 As String, ByRef info5 As String, ByRef info6 As String, ByRef exittitle As String, ByRef exit1 As String, ByRef exit2 As String, ByRef versions1 As String, ByRef versions2 As String, ByRef versions3 As String)
+
+        Dim ZipToUnpack As String = "C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Italian.lang"
+        Dim UnpackDirectory As String = "C:\Program Files\PocketMine-ManagerServers\Languages\Italian"
+
+        Using lang As ZipFile = ZipFile.Read(ZipToUnpack)
+            Dim extraction As ZipEntry
+            lang.Password = "PocketMine-ManagerServers".GetHashCode
+            For Each extraction In lang
+                Try
+                    extraction.Extract(UnpackDirectory, ExtractExistingFileAction.OverwriteSilently)
+                Catch ex As Exception
+
+                End Try
+
+            Next
+        End Using
 
         back = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\UniqueWords1.lang")
         changemade = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\UniqueWords2.lang")
@@ -172,6 +189,14 @@
         exittitle = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Exit0.lang")
         exit1 = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Exit1.lang")
         exit2 = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Exit2.lang")
+
+        Using lang As ZipFile = New ZipFile()
+            lang.Password = "PocketMine-ManagerServers".GetHashCode
+            lang.AddDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\Italian")
+            lang.Save("C:\Program Files\PocketMine-ManagerServers\Languages\English\Italian.lang")
+
+        End Using
+        Italian.LanguageDeletor()
 
     End Sub
 End Module
