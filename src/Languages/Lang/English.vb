@@ -145,19 +145,21 @@ Module English
 
 
         '#ManageServers
-        Dim managertitle, manager1, manager2, manager3, manager4 As String
+        Dim managertitle, manager1, manager2, manager3, manager4, manager5 As String
 
         managertitle = "-------------------------------<Manage Servers>---------------------------------"
         manager1 = "Open [Server/Folder]"
         manager2 = "Edit server performance."
         manager3 = "Backup/Restore servers."
         manager4 = "Select option: "
+        manager5 = "Server Restarter"
 
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager0.lang", managertitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager1.lang", manager1, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager2.lang", manager2, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager3.lang", manager3, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager4.lang", manager4, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager5.lang", manager5, True)
 
         '-----------#Opener
         Dim openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8 As String
@@ -289,6 +291,37 @@ Module English
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore3.lang", restore3, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore4.lang", restore4, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore5.lang", restore5, True)
+
+        '-----------#Server Restarter
+        Dim restartertitle, restarter1, restarter2, restarter3, restarter4, restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12 As String
+
+        restartertitle = "=============================<Server Restarter>================================="
+        restarter1 = "Define restarter timer"
+        restarter2 = "Restart your server"
+        restarter3 = "Choose the server that do you want to apply the restarter: "
+        restarter4 = "Choose the time that do you want to restart your server: "
+        restarter5 = "Day(s)"
+        restarter6 = "Hour(s)"
+        restarter7 = "Minute(s)"
+        restarter8 = "How many"
+        restarter9 = "Choose the server that you want to restart: "
+        restarter10 = "Restarting"
+        restarter11 = "Wait 3 seconds"
+        restarter12 = "Server Restarted!"
+
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter0.lang", restartertitle, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter1.lang", restarter1, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter2.lang", restarter2, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter3.lang", restarter3, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter4.lang", restarter4, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter5.lang", restarter5, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter6.lang", restarter6, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter7.lang", restarter7, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter8.lang", restarter8, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter9.lang", restarter9, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter10.lang", restarter10, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter11.lang", restarter11, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter12.lang", restarter12, True)
 
         '#Options
         Dim optiontitle, option1, option2, option3 As String

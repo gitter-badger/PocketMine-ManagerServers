@@ -13,7 +13,9 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version.
-    Sub Restarter(ByRef nservers As Integer, ByRef nameservers As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef numberservers As String(), ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String)
+    Sub Restarter(ByRef nservers As Integer, ByRef nameservers As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef back As String, ByRef installer3 As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, _
+                  ByRef restartertitle As String, ByRef restarter1 As String, ByRef restarter2 As String, ByRef restarter3 As String, ByRef restarter4 As String, ByRef restarter5 As String, ByRef restarter6 As String, ByRef restarter7 As String, _
+                  ByRef restarter8 As String, ByRef restarter9 As String, ByRef restarter10 As String, ByRef restarter11 As String, ByRef restarter12 As String)
 
         Dim chooserestart, choosetime, chooserestart2 As String
         Dim checktime, checkchoosetime, checkchooseserver As Object
@@ -27,13 +29,13 @@
             Console.Clear()
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
             Console.ForegroundColor = ConsoleColor.Red
-            Console.WriteLine("=============================<Server Restarter>=================================")
+            Console.WriteLine("{0}", restartertitle)
             Console.ForegroundColor = ConsoleColor.White
-            Console.WriteLine("1- Define restarter timer")
-            Console.WriteLine("2- Restart your server")
-            Console.WriteLine("3- Back")
+            Console.WriteLine("1- {0}", restarter1)
+            Console.WriteLine("2- {0}", restarter2)
+            Console.WriteLine("3- {0}", back)
             Console.WriteLine()
-            Console.Write("Choose one option: ")
+            Console.Write("{0}", installer3)
             chooserestart = Console.ReadLine
 
             If chooserestart = "1" Then
@@ -46,7 +48,7 @@
                 Next
 
                 Console.WriteLine()
-                Console.Write("Choose the server that do you want to apply the restarter: ")
+                Console.Write("{0}", restarter3)
                 chooseserver = Console.ReadLine
 
                 If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
@@ -59,10 +61,10 @@
                     My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\ChooseServer.pm", chooseserver, True)
 
                     Console.WriteLine()
-                    Console.WriteLine("1- Day")
-                    Console.WriteLine("2- Hour")
-                    Console.WriteLine("3- Minute")
-                    Console.Write("Choose the time that do you want to restart your server: ")
+                    Console.WriteLine("1- {0}", restarter5)
+                    Console.WriteLine("2- {0}", restarter6)
+                    Console.WriteLine("3- {0}", restarter7)
+                    Console.Write("{0}", restarter4)
                     choosetime = Console.ReadLine
 
                     If choosetime = "1" Or choosetime = "2" Or choosetime = "3" Then
@@ -76,15 +78,14 @@
 
                         Dim time As Integer
 
-                        Console.Write("How many ")
                         If choosetime = "1" Then
-                            Console.Write("days? ")
+                            Console.Write("{0} {1}? ", restarter8, restarter5.ToLower)
 
                         ElseIf choosetime = "2" Then
-                            Console.Write("hours? ")
+                            Console.Write("{0} {0}? ", restarter8, restarter6.ToLower)
 
                         ElseIf choosetime = "3" Then
-                            Console.Write("minutes? ")
+                            Console.Write("{0} {0}? ", restarter8, restarter7.ToLower)
 
                         End If
                         time = Console.ReadLine
@@ -127,22 +128,22 @@
                     Console.WriteLine("{0}- {1}", i, nameservers(i - 1))
 
                 Next
-                Console.Write("Choose the server that you want to restart: ")
+                Console.Write("{0}", restarter9)
                 chooseserver = Console.ReadLine
 
-                Console.WriteLine("Restarting {0}...", nameservers(chooseserver - 1))
+                Console.WriteLine("{0} {1}...", restarter10, nameservers(chooseserver - 1))
 
                 For Each p As Process In PMProcess 'TODO: Add /save-all and /stop command for security restart
                     p.Kill() 'This is so bad for the moment.
                 Next
 
                 Console.WriteLine()
-                Console.WriteLine("Wait 3 seconds...")
+                Console.WriteLine("{0} ...", restarter11)
                 System.Threading.Thread.Sleep(3000)
                 Process.Start(path(chooseserver - 1) + "\start.cmd")
 
                 Console.WriteLine()
-                Console.WriteLine("Server Restarted!")
+                Console.WriteLine("{0}", restarter12)
                 Console.ReadLine()
 
             End If
