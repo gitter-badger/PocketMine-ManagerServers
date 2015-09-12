@@ -75,22 +75,9 @@
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Loader.Loader(checklanguage, versionstatus, dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername,
                       dirperformance, dirutils, checklicense, downloadstatus, installationstatus, backupstatus, dirlanguages, direrrors)
-
+        CompleteLoader.CompleteLoader_Load(sender, e)
     End Sub
 
-
-    'Sub Selection(ByRef nservers As Integer, ByRef nameservers As String(), ByRef numberservers As String(), ByRef defaultservers As String)
-    '    For i = 1 To nservers
-    '        defaultservers = ("Server Minecraft PE_" + Convert.ToString(i))
-
-    '        Console.Write("{0}) Name of {1} server?: ", i, numberservers(i - 1))
-    '        nameservers(i - 1) = Console.ReadLine
-
-    '        If nameservers(i - 1) = "" Then
-    '            nameservers(i - 1) = defaultservers
-    '        End If
-    '    Next
-    'End Sub
 End Class
 
 Public Module CollectionOfUtility
@@ -101,7 +88,7 @@ Public Module CollectionOfUtility
         Next
     End Sub
 
-    Public Sub Reading(ByRef path As Object(), ByRef nservers As Integer, ByRef nameservers As String())
+    Sub Reading(ByRef path As Object(), ByRef nservers As Integer, ByRef nameservers As String())
         For i = 1 To nservers
             path(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers[GUI]\Path\path_" + Convert.ToString(i) + ".pm")
             nameservers(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers[GUI]\ServersName\ServerName_" + Convert.ToString(i) + ".pm")
@@ -115,6 +102,32 @@ Public Module CollectionOfUtility
             checknameserver(i - 1) = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers[GUI]\ServersName\ServerName_" + Convert.ToString(i) + ".pm")
             checkpath(i - 1) = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers[GUI]\Path\path_" + Convert.ToString(i) + ".pm")
 
+        Next
+    End Sub
+
+    Sub Selection(ByRef nservers As Integer, ByRef nameservers As String(), ByRef numberservers As String(), ByRef defaultservers As String)
+        Dim lbl_NameServers As Label = New Label()
+        Dim txt_NameServers As TextBox = New TextBox()
+
+        txt_NameServers.Location = New Point(120, 43)
+        txt_NameServers.Size = New Point(201, 20)
+        txt_NameServers.Name = "txt_NameServers"
+
+        lbl_NameServers.Location = New Point(13, 46)
+        lbl_NameServers.Size = New Point(101, 13)
+
+        For i = 1 To nservers
+            lbl_NameServers.Location = New Point(13 + 2, 46 + 2)
+
+            txt_NameServers.Location = New Point(120 + 2, 43 + 2)
+
+            defaultservers = ("Server Minecraft PE_" + Convert.ToString(i))
+
+            lbl_NameServers.Text = i & ") Name of " & numberservers(i - 1) & " server?:"
+
+            If nameservers(i - 1) = "" Then
+                nameservers(i - 1) = defaultservers
+            End If
         Next
     End Sub
 End Module

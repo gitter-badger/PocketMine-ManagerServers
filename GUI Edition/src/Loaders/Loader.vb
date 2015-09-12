@@ -97,8 +97,8 @@
                 My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers[GUI]\Installations\VersionStatus_" + Convert.ToString(i) + ".pm", versionstatus(i - 1), True)
                 My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers[GUI]\Backups\Status\BackupStatus_" + Convert.ToString(i) + ".pm", backupstatus(i - 1), True)
             Next
-            Main.Show()
             Me.Close()
+            CompleteLoader.Show()
 
         End If
     End Sub
