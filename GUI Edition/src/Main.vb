@@ -72,12 +72,22 @@
         Me.Hide()
     End Sub
 
-    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Loader.Loader(checklanguage, versionstatus, dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername,
-                      dirperformance, dirutils, checklicense, downloadstatus, installationstatus, backupstatus, dirlanguages, direrrors)
-        CompleteLoader.CompleteLoader_Load(sender, e)
+    Private Sub btn_Informations_Click(sender As Object, e As EventArgs) Handles btn_Informations.Click
+        Informations.Show()
+        Me.Hide()
+
     End Sub
 
+    Private Sub btn_Options_Click(sender As Object, e As EventArgs) Handles btn_Options.Click
+        Settings.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Hide()
+        Loader.Loader(checklanguage, versionstatus, dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername,
+                      dirperformance, dirutils, checklicense, downloadstatus, installationstatus, backupstatus, dirlanguages, direrrors)
+    End Sub
 End Class
 
 Public Module CollectionOfUtility
@@ -105,29 +115,29 @@ Public Module CollectionOfUtility
         Next
     End Sub
 
-    Sub Selection(ByRef nservers As Integer, ByRef nameservers As String(), ByRef numberservers As String(), ByRef defaultservers As String)
-        Dim lbl_NameServers As Label = New Label()
-        Dim txt_NameServers As TextBox = New TextBox()
+    'Sub Selection(ByRef nservers As Integer, ByRef nameservers As String(), ByRef numberservers As String(), ByRef defaultservers As String)
+    '    Dim lbl_NameServers As Label = New Label()
+    '    Dim txt_NameServers As TextBox = New TextBox()
 
-        txt_NameServers.Location = New Point(120, 43)
-        txt_NameServers.Size = New Point(201, 20)
-        txt_NameServers.Name = "txt_NameServers"
+    '    txt_NameServers.Location = New Point(120, 43)
+    '    txt_NameServers.Size = New Point(201, 20)
+    '    txt_NameServers.Name = "txt_NameServers"
 
-        lbl_NameServers.Location = New Point(13, 46)
-        lbl_NameServers.Size = New Point(101, 13)
+    '    lbl_NameServers.Location = New Point(13, 46)
+    '    lbl_NameServers.Size = New Point(101, 13)
 
-        For i = 1 To nservers
-            lbl_NameServers.Location = New Point(13 + 2, 46 + 2)
+    '    For i = 1 To nservers
+    '        lbl_NameServers.Location = New Point(13 + 2, 46 + 2)
 
-            txt_NameServers.Location = New Point(120 + 2, 43 + 2)
+    '        txt_NameServers.Location = New Point(120 + 2, 43 + 2)
 
-            defaultservers = ("Server Minecraft PE_" + Convert.ToString(i))
+    '        defaultservers = ("Server Minecraft PE_" + Convert.ToString(i))
 
-            lbl_NameServers.Text = i & ") Name of " & numberservers(i - 1) & " server?:"
+    '        lbl_NameServers.Text = i & ") Name of " & numberservers(i - 1) & " server?:"
 
-            If nameservers(i - 1) = "" Then
-                nameservers(i - 1) = defaultservers
-            End If
-        Next
-    End Sub
+    '        If nameservers(i - 1) = "" Then
+    '            nameservers(i - 1) = defaultservers
+    '        End If
+    '    Next
+    'End Sub
 End Module
