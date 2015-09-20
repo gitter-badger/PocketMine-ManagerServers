@@ -99,7 +99,8 @@
 
         quit = "N"
 
-        Const version_pm As String = "1.2"
+        Const version_pm As String = "1.3"
+        Const build_pm As String = "BUILD 1"
 
         CompleterLoader.CompleterLoader(defaultservers)
 
@@ -133,8 +134,8 @@
             Console.ForegroundColor = ConsoleColor.Red
             Console.WriteLine("{0}", menutitle)
             Console.ForegroundColor = ConsoleColor.Yellow
-            'Console.WriteLine("{0}", menudev)
-            Console.WriteLine("Developed by matcracker                                             Version: " + version_pm)
+            Console.WriteLine("Developed by matcracker                                     Version: " + version_pm + " " + build_pm)
+            'Console.WriteLine("Developed by matcracker                                             Version: " + version_pm)
             If devmode = True Then
                 Console.ForegroundColor = ConsoleColor.Yellow
                 Console.WriteLine("                                                                  DEVMODE ACTIVE")
@@ -152,6 +153,7 @@
                 Console.ForegroundColor = ConsoleColor.Cyan
                 Console.WriteLine("6- Memory Usage")
                 Console.WriteLine("7- Server Restarter (BackgroundTask)")
+                Console.WriteLine("8- Console executor (Not server, only software)")
                 Console.ForegroundColor = ConsoleColor.White
 
             End If
@@ -221,7 +223,7 @@
                 i = 0
             End If
 
-            If menu = "devon" Or menu = "devoff" Or menu = "6" Or menu = "7" Then
+            If menu = "devon" Or menu = "devoff" Or menu = "6" Or menu = "7" Or menu = "8" Then
                 i += 1
                 DevMenu.DevMenu(menu, devmode, checkdevmode, i)
             End If

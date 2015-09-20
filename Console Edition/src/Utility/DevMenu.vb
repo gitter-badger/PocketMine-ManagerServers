@@ -89,5 +89,11 @@
             Process.Start("C:\Program Files\PocketMine-ManagerServers\PM-MS(BackgroudTask).exe")
 
         End If
+
+        If menu = "8" And devmode = True Then
+            ConsoleCommand.ConsoleCommand()
+
+        End If
+
     End Sub
 End Module
