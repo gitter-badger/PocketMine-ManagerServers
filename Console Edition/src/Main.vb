@@ -99,6 +99,8 @@
 
         quit = "N"
 
+        Const version_pm As String = "1.2"
+
         CompleterLoader.CompleterLoader(defaultservers)
 
         Console.Clear()
@@ -131,8 +133,8 @@
             Console.ForegroundColor = ConsoleColor.Red
             Console.WriteLine("{0}", menutitle)
             Console.ForegroundColor = ConsoleColor.Yellow
-            Console.WriteLine("{0}", menudev)
-            'Console.WriteLine("                                                                    Version: 1.2")
+            'Console.WriteLine("{0}", menudev)
+            Console.WriteLine("Developed by matcracker                                             Version: " + version_pm)
             If devmode = True Then
                 Console.ForegroundColor = ConsoleColor.Yellow
                 Console.WriteLine("                                                                  DEVMODE ACTIVE")

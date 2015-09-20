@@ -40,64 +40,77 @@
 
             If chooserestart = "1" Then
                 Dim chooseserver As Integer
+                Do
+                    Try
 
-                Console.WriteLine()
-                For i = 1 To nservers
-                    Console.WriteLine("{0}- {1}", i, nameservers(i - 1))
+                        Console.WriteLine()
+                        For i = 1 To nservers
+                            Console.WriteLine("{0}- {1}", i, nameservers(i - 1))
 
-                Next
+                        Next
 
-                Console.WriteLine()
-                Console.Write("{0}", restarter3)
-                chooseserver = Console.ReadLine
+                        Console.WriteLine()
+                        Console.Write("{0}", restarter3)
+                        chooseserver = Console.ReadLine
 
-                If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
+                    Catch ex As Exception
 
-                    If checkchooseserver Then
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\ChooseServer.pm")
+                    End Try
+                Loop While chooseserver < 1 Or chooseserver > 10
 
-                    End If
+                If chooserestart < nservers Then
+                    If checkpath(chooseserver - 1) And path(chooseserver - 1) <> "" Then
 
-                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\ChooseServer.pm", chooseserver, True)
-
-                    Console.WriteLine()
-                    Console.WriteLine("1- {0}", restarter5)
-                    Console.WriteLine("2- {0}", restarter6)
-                    Console.WriteLine("3- {0}", restarter7)
-                    Console.Write("{0}", restarter4)
-                    choosetime = Console.ReadLine
-
-                    If choosetime = "1" Or choosetime = "2" Or choosetime = "3" Then
-
-                        If checkchoosetime Then
-                            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\ChooseTime.pm")
+                        If checkchooseserver Then
+                            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\ChooseServer.pm")
 
                         End If
 
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\ChooseTime.pm", choosetime, True)
+                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\ChooseServer.pm", chooseserver, True)
 
-                        Dim time As Integer
+                        Console.WriteLine()
+                        Console.WriteLine("1- {0}", restarter5)
+                        Console.WriteLine("2- {0}", restarter6)
+                        Console.WriteLine("3- {0}", restarter7)
+                        Console.Write("{0}", restarter4)
+                        choosetime = Console.ReadLine
 
-                        If choosetime = "1" Then
-                            Console.Write("{0} {1}? ", restarter8, restarter5.ToLower)
+                        If choosetime = "1" Or choosetime = "2" Or choosetime = "3" Then
 
-                        ElseIf choosetime = "2" Then
-                            Console.Write("{0} {0}? ", restarter8, restarter6.ToLower)
+                            If checkchoosetime Then
+                                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\ChooseTime.pm")
 
-                        ElseIf choosetime = "3" Then
-                            Console.Write("{0} {0}? ", restarter8, restarter7.ToLower)
+                            End If
+
+                            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\ChooseTime.pm", choosetime, True)
+
+                            Dim time As Integer
+
+                            If choosetime = "1" Then
+                                Console.Write("{0} {1}? ", restarter8, restarter5.ToLower)
+
+                            ElseIf choosetime = "2" Then
+                                Console.Write("{0} {0}? ", restarter8, restarter6.ToLower)
+
+                            ElseIf choosetime = "3" Then
+                                Console.Write("{0} {0}? ", restarter8, restarter7.ToLower)
+
+                            End If
+                            time = Console.ReadLine
+
+                            If checktime Then
+                                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\Time.pm")
+
+                            End If
+
+                            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\Time.pm", time, True)
+
+                            Process.Start("C:\Program Files\PocketMine-ManagerServers\PM-MS(BackgroudTask).exe")
 
                         End If
-                        time = Console.ReadLine
-
-                        If checktime Then
-                            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\Time.pm")
-
-                        End If
-
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\Time.pm", time, True)
-
-                        Process.Start("C:\Program Files\PocketMine-ManagerServers\PM-MS(BackgroudTask).exe")
+                    Else
+                        Console.WriteLine("Select an avaible server!")
+                        Console.ReadLine()
 
                     End If
 
@@ -128,23 +141,32 @@
                     Console.WriteLine("{0}- {1}", i, nameservers(i - 1))
 
                 Next
+                Console.WriteLine()
                 Console.Write("{0}", restarter9)
                 chooseserver = Console.ReadLine
 
-                Console.WriteLine("{0} {1}...", restarter10, nameservers(chooseserver - 1))
+                If chooseserver < nservers Then
 
-                For Each p As Process In PMProcess 'TODO: Add /save-all and /stop command for security restart
-                    p.Kill() 'This is so bad for the moment.
-                Next
+                    Console.WriteLine("{0} {1}...", restarter10, nameservers(chooseserver - 1))
 
-                Console.WriteLine()
-                Console.WriteLine("{0} ...", restarter11)
-                System.Threading.Thread.Sleep(3000)
-                Process.Start(path(chooseserver - 1) + "\start.cmd")
+                    For Each p As Process In PMProcess 'TODO: Add /save-all and /stop command for security restart
+                        p.Kill() 'This is so bad for the moment.
+                    Next
 
-                Console.WriteLine()
-                Console.WriteLine("{0}", restarter12)
-                Console.ReadLine()
+                    Console.WriteLine()
+                    Console.WriteLine("{0} ...", restarter11)
+                    System.Threading.Thread.Sleep(3000)
+                    Process.Start(path(chooseserver - 1) + "\start.cmd")
+
+                    Console.WriteLine()
+                    Console.WriteLine("{0}", restarter12)
+                    Console.ReadLine()
+
+                Else
+                    Console.WriteLine("Select an avaible server!")
+                    Console.ReadLine()
+
+                End If
 
             End If
         Loop While chooserestart <> "3"
