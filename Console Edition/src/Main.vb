@@ -146,6 +146,7 @@
             Console.WriteLine("3- {0}", menu3)
             Console.WriteLine("4- {0}", menu4)
             Console.WriteLine("5- {0}", menu5)
+
             If devmode = True Then
                 Console.ForegroundColor = ConsoleColor.Yellow
                 Console.WriteLine()
@@ -225,7 +226,7 @@
 
             If menu = "devon" Or menu = "devoff" Or menu = "6" Or menu = "7" Or menu = "8" Then
                 i += 1
-                DevMenu.DevMenu(menu, devmode, checkdevmode, i)
+                DevMenu.DevMenu(menu, devmode, checkdevmode, i, nameservers, nservers, path, checkpath)
             End If
 
         End While

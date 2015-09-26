@@ -13,34 +13,60 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub ConsoleCommand()
+    Sub ConsoleCommand(ByRef nameservers As String(), ByRef nservers As Integer, ByRef path As String(), ByRef checkpath As Object())
 
         Dim command As String = ""
-        Dim servername As String
+        Dim args As String()
+        Dim i As Integer
 
         Console.Clear()
         Console.ForegroundColor = ConsoleColor.Green
         Console.WriteLine("========================<PocketMine Manager Servers>============================")
-        Console.ForegroundColor = ConsoleColor.White
+        Console.WriteLine("====================<PocketMine Manager Servers Commander>======================")
 
         While command <> "exit"
-            Console.Write(">")
-            command = Console.ReadLine.ToLower.Replace("/", "")
+            Console.ForegroundColor = ConsoleColor.White
+            Console.Write(">/")
+            command = Console.ReadLine.Replace("/", "").ToLower
             Console.WriteLine()
 
-            If command = "help" Then
-                Console.WriteLine(">help: Show help page")
-                Console.WriteLine(">start <servername|all>: Start one or all servers")
-                Console.WriteLine(">stop <servername|all>: Stop one or all servers")
+            args = command.Split(New Char() {" "c})
 
-            ElseIf command = "" Then
-                Console.ForegroundColor = ConsoleColor.Red
-                Console.WriteLine("Command not valid, write 'help' for a list of avaible commands")
-                Console.ForegroundColor = ConsoleColor.White
+            Try
+                If command = "help" Or command = "" Then
+                    If args(0) = "help" Then
+                        Console.ForegroundColor = ConsoleColor.Yellow
+                        Console.WriteLine(">/help : Show help page")
+                        Console.WriteLine(">/start <servername|all> : Start one or all servers")
+                        Console.WriteLine(">/stop <servername|all> : Stop one or all servers")
+                        Console.WriteLine(">/exit : Return in the main menu")
 
-            End If
+                    ElseIf args(0) = "" Then
+                        Console.ForegroundColor = ConsoleColor.Red
+                        Console.WriteLine("Command not valid, write /help for a list of avaible commands")
 
+                    End If
 
+                ElseIf args.Length >= 1 Then
+                    If (args(0) = "start") Then
+                        StartCommand.StartCommand(command, args, checkpath, path, nservers, nameservers)
+
+                    ElseIf (args(0) = "start " + args(1)) Then
+                        StartCommand.StartCommand(command, args, checkpath, path, nservers, nameservers)
+
+                    End If
+
+                    If (args(0) = "stop") Then
+                        StopCommand.StopCommand()
+
+                    ElseIf (args(0) = "start " + args(1)) Then
+                        StopCommand.StopCommand()
+
+                    End If
+                End If
+            Catch ex As Exception
+
+            End Try
             Console.WriteLine()
         End While
 
