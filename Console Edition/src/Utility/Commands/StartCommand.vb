@@ -15,7 +15,7 @@
     '(at your option) any later version. 
     Sub StartCommand(ByRef command As String, ByRef args As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef nservers As Integer, ByRef nameservers As String())
 
-        If command = "start" Then
+        If command = "start" Then 'TODO: Test it!!!
             Console.ForegroundColor = ConsoleColor.Yellow
             Console.WriteLine("Correct command is /start <servername|all>")
 

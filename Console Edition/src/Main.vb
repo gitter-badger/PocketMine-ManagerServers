@@ -83,6 +83,12 @@
         '#Variables Mechanical
         Dim dirservername, dirpath, dirdata, dirutils, dirperformance, dirinstallations, dirlanguages, direrrors As Object
 
+        Const version_pm As String = "1.3"
+        Const build_pm As String = "BUILD 1"
+
+        Dim commandstart As Boolean
+        Dim checkcommand As Object = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\Starter.pm")
+
         'STARTUP
         Console.Title = "PocketMine-ManagerServers"
 
@@ -99,15 +105,25 @@
 
         quit = "N"
 
-        Const version_pm As String = "1.3"
-        Const build_pm As String = "BUILD 1"
-
         CompleterLoader.CompleterLoader(defaultservers)
 
         Console.Clear()
         Console.WriteLine("Loading resource...")
 
+        If checkcommand Then
+            commandstart = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\Starter.pm")
+
+        Else
+            commandstart = False
+
+        End If
+
         While quit = "N"
+
+            If commandstart = True Then
+                ConsoleCommand.ConsoleCommand(nameservers, nservers, path, checkpath)
+
+            End If
 
             nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
             language = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm")

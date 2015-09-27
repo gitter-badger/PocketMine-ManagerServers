@@ -17,7 +17,7 @@
 
         Dim command As String = ""
         Dim args As String()
-        Dim i As Integer
+        Dim commandstart As Boolean
 
         Console.Clear()
         Console.ForegroundColor = ConsoleColor.Green
@@ -28,13 +28,13 @@
         Console.WriteLine("Write a command with or not '/', example /help for list of avaiable commands.")
         Console.WriteLine()
 
-        While command <> "exit"
+        While command <> "menu"
             Console.ForegroundColor = ConsoleColor.White
             Console.Write(">")
             command = Console.ReadLine.Replace("/", "").ToLower
             Console.WriteLine()
 
-            args = command.Split(New Char() {" "c})
+            args = command.Split(New Char() {" "})
 
             Try
                 If command = "help" Or command = "" Then
@@ -44,18 +44,27 @@
                         Console.WriteLine("/backup <servername|all> : Create a backup of one or all servers")
                         Console.WriteLine("/edit <performance|properties> : Edit your server's performace or properties")
                         Console.WriteLine("/language <languagename> : Change language of program.")
+                        Console.WriteLine("/menu : Return in the main menu")
                         Console.WriteLine("/restart <servername|all> : Restart one or all servers.")
                         Console.WriteLine("/restore <servername|all> : Restore a backup of one or all servers")
                         Console.WriteLine("/set start <commander|menu> : Set the initial interface when the program starts")
                         Console.WriteLine("/start <servername|all> : Start one or all servers")
                         Console.WriteLine("/stop <servername|all> : Stop one or all servers")
-                        Console.WriteLine("/exit : Return in the main menu")
+                        Console.WriteLine("/exit : Leave the program.")
 
                     ElseIf args(0) = "" Then
                         Console.ForegroundColor = ConsoleColor.Red
                         Console.WriteLine("Command not valid, write /help for a list of avaible commands")
 
                     End If
+
+                ElseIf command = "set" Or command = "set start" Or command = "set start commander" Or command = "set start menu" Then
+                    SetCommand.SetCommand(args, command)
+
+                ElseIf command = "exit" Then
+                    Console.WriteLine("See you soon!")
+                    Console.ReadLine()
+                    End
 
                 ElseIf args.Length >= 1 Then
                     If (args(0) = "start") Then
@@ -69,13 +78,8 @@
                     If (args(0) = "stop") Then
                         StopCommand.StopCommand()
 
-                    ElseIf (args(0) = "start " + args(1)) Then
+                    ElseIf (args(0) = "stop " + args(1)) Then
                         StopCommand.StopCommand() 'TODO: Add command functions
-
-                    End If
-
-                    If command = "set start" Then
-                        SetCommand.SetCommand() 'TODO: Add command function
 
                     End If
 
