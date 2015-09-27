@@ -33,8 +33,14 @@ noted previously)
 ######Backup & Restore
 This function implemented with version 1.1 allows you to create backup files whenever you like , for your server and wanting can also restore them !
 
+######Server Restarter
+You can choose an interval of time to decide when to restart the server.
+
 ###Options
-The section includes two feature options, the first very simply allows you to change the language of the program, the second reset settings and, depending on your choice, delete the data of the servers or the program (**Must be used with great caution!!**)
+This fuction allows you to change the language of the program.
+
+###Dev Menu
+You can enable the menu from developer writing three times "devon" in the main menu, to disable write 3 times "devoff". The devmenu has two functions, one to control the use of memory that the program uses, the second to restart the server without the "BackgroundTask" disappear. It also enables the options the possibility of resetting the program data.
 
 ###Exit
 Exit the program :S
