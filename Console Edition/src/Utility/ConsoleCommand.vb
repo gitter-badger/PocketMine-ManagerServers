@@ -23,10 +23,14 @@
         Console.ForegroundColor = ConsoleColor.Green
         Console.WriteLine("========================<PocketMine Manager Servers>============================")
         Console.WriteLine("====================<PocketMine Manager Servers Commander>======================")
+        Console.ForegroundColor = ConsoleColor.White
+
+        Console.WriteLine("Write a command with or not '/', example /help for list of avaiable commands.")
+        Console.WriteLine()
 
         While command <> "exit"
             Console.ForegroundColor = ConsoleColor.White
-            Console.Write(">/")
+            Console.Write(">")
             command = Console.ReadLine.Replace("/", "").ToLower
             Console.WriteLine()
 
@@ -36,10 +40,16 @@
                 If command = "help" Or command = "" Then
                     If args(0) = "help" Then
                         Console.ForegroundColor = ConsoleColor.Yellow
-                        Console.WriteLine(">/help : Show help page")
-                        Console.WriteLine(">/start <servername|all> : Start one or all servers")
-                        Console.WriteLine(">/stop <servername|all> : Stop one or all servers")
-                        Console.WriteLine(">/exit : Return in the main menu")
+                        Console.WriteLine("/help : Show help page")
+                        Console.WriteLine("/backup <servername|all> : Create a backup of one or all servers")
+                        Console.WriteLine("/edit <performance|properties> : Edit your server's performace or properties")
+                        Console.WriteLine("/language <languagename> : Change language of program.")
+                        Console.WriteLine("/restart <servername|all> : Restart one or all servers.")
+                        Console.WriteLine("/restore <servername|all> : Restore a backup of one or all servers")
+                        Console.WriteLine("/set start <commander|menu> : Set the initial interface when the program starts")
+                        Console.WriteLine("/start <servername|all> : Start one or all servers")
+                        Console.WriteLine("/stop <servername|all> : Stop one or all servers")
+                        Console.WriteLine("/exit : Return in the main menu")
 
                     ElseIf args(0) = "" Then
                         Console.ForegroundColor = ConsoleColor.Red
@@ -60,9 +70,15 @@
                         StopCommand.StopCommand()
 
                     ElseIf (args(0) = "start " + args(1)) Then
-                        StopCommand.StopCommand()
+                        StopCommand.StopCommand() 'TODO: Add command functions
 
                     End If
+
+                    If command = "set start" Then
+                        SetCommand.SetCommand() 'TODO: Add command function
+
+                    End If
+
                 End If
             Catch ex As Exception
 
