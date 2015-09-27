@@ -118,13 +118,12 @@
 
         End If
 
+        If commandstart = True Then
+            ConsoleCommand.ConsoleCommand(nameservers, nservers, path, checkpath)
+
+        End If
+
         While quit = "N"
-
-            If commandstart = True Then
-                ConsoleCommand.ConsoleCommand(nameservers, nservers, path, checkpath)
-
-            End If
-
             nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
             language = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm")
 
