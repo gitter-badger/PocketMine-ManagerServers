@@ -1,4 +1,4 @@
-﻿Module DevMenu
+﻿Module LanguageCommand
     ' _____           _        _   __  __ _                   __  __                                   _____                              
     '|  __ \         | |      | | |  \/  (_)                 |  \/  |                                 / ____|                             
     '| |__) |__   ___| | _____| |_| \  / |_ _ __   ___ ______| \  / | __ _ _ __   __ _  __ _  ___ _ _| (___   ___ _ ____   _____ _ __ ___ 
@@ -13,8 +13,7 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub DevMenu(ByRef menu As String, ByRef devmode As Boolean, ByRef checkdevmode As Object, ByRef i As Integer, ByRef nameservers As String(), ByRef nservers As Integer, ByRef path As String(), _
-                ByRef checkpath As Object(), ByRef language As Integer, ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable1 As String, ByRef versionbeta1 As String, ByRef versiondev1 As String, ByRef versionsoft1 As String, ByRef currentversion As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, _
+    Sub LanguageCommand(ByRef args As String(), ByRef command As String, ByRef language As Integer, ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable1 As String, ByRef versionbeta1 As String, ByRef versiondev1 As String, ByRef versionsoft1 As String, ByRef currentversion As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, _
                     ByRef menudev As String, ByRef menutitle As String, ByRef menu1 As String, ByRef menu2 As String, ByRef menu3 As String, ByRef menu4 As String, ByRef menu5 As String, ByRef menu6 As String, ByRef installertitle As String, ByRef installer1 As String, ByRef installer2 As String, ByRef installer3 As String, _
                     ByRef installatortitle As String, ByRef installator1 As String, ByRef installator2 As String, ByRef installator3 As String, ByRef installator4 As String, ByRef installator5 As String, ByRef installator6 As String, ByRef installator7 As String, ByRef downloadertitle As String, ByRef downloader1 As String, ByRef downloader2 As String, ByRef downloader3 As String, ByRef downloader4 As String, ByRef downloader5 As String, ByRef downloader6 As String, _
                     ByRef downloader7 As String, ByRef downloader8 As String, ByRef downloader9 As String, ByRef downloader10 As String, ByRef downloader11 As String, ByRef managertitle As String, ByRef manager1 As String, ByRef manager2 As String, ByRef manager3 As String, ByRef manager4 As String, ByRef manager5 As String, ByRef openertitle As String, ByRef opener1 As String, ByRef opener2 As String, ByRef opener3 As String, ByRef opener4 As String, ByRef opener5 As String, ByRef opener6 As String, _
@@ -27,83 +26,42 @@
                     ByRef restartertitle As String, ByRef restarter1 As String, ByRef restarter2 As String, ByRef restarter3 As String, ByRef restarter4 As String, ByRef restarter5 As String, ByRef restarter6 As String, ByRef restarter7 As String, ByRef restarter8 As String, ByRef restarter9 As String, _
                     ByRef restarter10 As String, ByRef restarter11 As String, ByRef restarter12 As String)
 
-        If menu = "devon" Then
-            If i = 3 And devmode = True Then
-                Console.WriteLine("DEV MODE is already active")
-                Console.ReadLine()
-
-            Else
-                If i = 3 Then
-                    If devmode = False And checkdevmode Then
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
-
-                    End If
-
-                    devmode = True
-                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm", devmode, True)
-                    Console.ForegroundColor = ConsoleColor.Yellow
-                    Console.WriteLine("DEV MODE ENABLED")
-                    Console.ReadLine()
-                End If
-            End If
-
-
-        ElseIf menu = "devoff" Then
-            If i = 3 And devmode = False Then
-                Console.WriteLine("DEV MODE is already disable")
-                Console.ReadLine()
-
-            Else
-                If i = 3 Then
-                    If devmode = True And checkdevmode Then
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
-
-                    End If
-
-                    devmode = False
-                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm", devmode, True)
-                    Console.ForegroundColor = ConsoleColor.Red
-                    Console.WriteLine("DEV MODE DISABLED")
-                    Console.ReadLine()
-                End If
-            End If
-        End If
-
-        If menu = "6" And devmode = True Then
-
-            Console.WriteLine()
+        If command = "language" Then
             Console.ForegroundColor = ConsoleColor.Yellow
-            Console.WriteLine("Current Memory Usage:")
-            Console.ForegroundColor = ConsoleColor.White
-            Console.WriteLine()
+            Console.WriteLine("Correct command is /language <languagename>")
 
-            'Memory process
-            Dim c As Process = Process.GetCurrentProcess()
+        ElseIf command = "language list" Then
 
-            For index = 1 To 5
+            Console.WriteLine("1) Afrikaans" + vbTab + vbTab + vbTab + "16) Italian")
+            Console.WriteLine("2) Arabic" + vbTab + vbTab + vbTab + "17) Japanese")
+            Console.WriteLine("3) Catalan" + vbTab + vbTab + vbTab + "18) Korean")
+            Console.WriteLine("4) Chinese Simplified" + vbTab + vbTab + "19) Norwegian")
+            Console.WriteLine("5) Chinese Traditional" + vbTab + vbTab + "20) Polish")
+            Console.WriteLine("6) Czech" + vbTab + vbTab + vbTab + "21) Portuguese")
+            Console.WriteLine("7) Danish" + vbTab + vbTab + vbTab + "22) Portuguese, Brazilian")
+            Console.WriteLine("8) Dutch" + vbTab + vbTab + vbTab + "23) Romanian")
+            Console.WriteLine("9) English" + vbTab + vbTab + vbTab + "24) Russian")
+            Console.WriteLine("10) Finnish" + vbTab + vbTab + vbTab + "25) Serbian(Cyrillic)")
+            Console.WriteLine("11) French" + vbTab + vbTab + vbTab + "26) Spanish")
+            Console.WriteLine("12) German" + vbTab + vbTab + vbTab + "27) Swedish")
+            Console.WriteLine("13) Greek" + vbTab + vbTab + vbTab + "28) Turkish")
+            Console.WriteLine("14) Hebrew" + vbTab + vbTab + vbTab + "29) Ukrainian")
+            Console.WriteLine("15) Hungarian" + vbTab + vbTab + vbTab + "30) Vietnamese")
+        Else
+            If command.ToLower = "language " + args(1) Then
+                If args(1) = "italian" Or args(1) = 16 Then
+                    language = 16
+                    Console.ForegroundColor = ConsoleColor.Blue
+                    Console.WriteLine("Languange set to Italian")
 
-                Console.WriteLine("Mem Usage (Working Set): " & (c.WorkingSet64 / 1024).ToString & " K" & vbCrLf _
-                & "VM Size (Private Bytes): " & (c.PagedMemorySize64 / 1024).ToString & " K" & vbCrLf _
-                & "GC TotalMemory: " & GC.GetTotalMemory(True) & " bytes")
+                ElseIf args(1) = "english" Or args(1) = 9 Then
+                    language = 9
+                    Console.ForegroundColor = ConsoleColor.Blue
+                    Console.WriteLine("Languange set to English")
 
-                System.Threading.Thread.Sleep(2000)
+                End If
 
-                Console.WriteLine()
-            Next
-            Console.ForegroundColor = ConsoleColor.Yellow
-            Console.WriteLine("DONE! Press ENTER to continue.")
-
-            Console.ReadLine()
-
-        End If
-
-        If menu = "7" And devmode = True Then
-            Process.Start("C:\Program Files\PocketMine-ManagerServers\PM-MS(BackgroudTask).exe")
-
-        End If
-
-        If menu = "8" And devmode = True Then
-            ConsoleCommand.ConsoleCommand(nameservers, nservers, path, checkpath, language, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
+                LanguageReader.LanguageReader(language, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
                               menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
                               installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
                               manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
@@ -112,8 +70,10 @@
                               resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
                               infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, restartertitle, restarter1, restarter2, restarter3, _
                               restarter4, restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12)
-
+            End If
         End If
 
+
     End Sub
+
 End Module
