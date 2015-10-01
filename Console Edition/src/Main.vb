@@ -119,7 +119,7 @@
         End If
 
         If commandstart = True Then
-            ConsoleCommand.ConsoleCommand(nameservers, nservers, path, checkpath, language, checklanguage)
+            ConsoleCommand.ConsoleCommand(nameservers, nservers, path, checkpath, language, checklanguage, backupstatus, checknameserver)
 
         End If
 
@@ -241,7 +241,7 @@
 
             If menu = "devon" Or menu = "devoff" Or menu = "6" Or menu = "7" Or menu = "8" Then
                 i += 1
-                DevMenu.DevMenu(menu, devmode, checkdevmode, i, nameservers, nservers, path, checkpath, language, checklanguage)
+                DevMenu.DevMenu(menu, devmode, checkdevmode, i, nameservers, nservers, path, checkpath, language, checklanguage, backupstatus, checknameserver)
             End If
 
         End While

@@ -14,7 +14,7 @@
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
     Sub DevMenu(ByRef menu As String, ByRef devmode As Boolean, ByRef checkdevmode As Object, ByRef i As SByte, ByRef nameservers As String(), ByRef nservers As SByte, ByRef path As String(), _
-                ByRef checkpath As Object(), ByRef language As SByte, ByRef checklanguage As Object)
+                ByRef checkpath As Object(), ByRef language As SByte, ByRef checklanguage As Object, ByRef backupstatus As String(), ByRef checknameserver As Object())
 
         If menu = "devon" Then
             If i = 3 And devmode = True Then
@@ -92,7 +92,7 @@
         End If
 
         If menu = "8" And devmode = True Then
-            ConsoleCommand.ConsoleCommand(nameservers, nservers, path, checkpath, language, checklanguage)
+            ConsoleCommand.ConsoleCommand(nameservers, nservers, path, checkpath, language, checklanguage, backupstatus, checknameserver)
 
         End If
 

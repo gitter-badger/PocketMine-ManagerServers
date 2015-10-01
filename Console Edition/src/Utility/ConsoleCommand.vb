@@ -13,11 +13,15 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub ConsoleCommand(ByRef nameservers As String(), ByRef nservers As SByte, ByRef path As String(), ByRef checkpath As Object(), ByRef language As SByte, ByRef checklanguage As Object)
+    Sub ConsoleCommand(ByRef nameservers As String(), ByRef nservers As SByte, ByRef path As String(), ByRef checkpath As Object(), ByRef language As SByte, ByRef checklanguage As Object, _
+                       ByRef backupstatus As String(), ByRef checknameserver As Object())
 
         Dim command As String = ""
         Dim args As String()
         Dim commandstart As Boolean
+
+        Checking(checknameserver, checkpath)
+        Reading(path, nservers, nameservers)
 
         Console.Clear()
         Console.ForegroundColor = ConsoleColor.Green
@@ -31,13 +35,13 @@
         While command <> "menu"
             Console.ForegroundColor = ConsoleColor.White
             Console.Write(">")
-            command = Console.ReadLine.Replace("/", "").ToLower
+            command = Console.ReadLine.Replace("/", "")
             Console.WriteLine()
 
             args = command.Split(New Char() {" "})
 
             Try
-                If command = "help" Then
+                If command.ToLower = "help" Then
                     Console.ForegroundColor = ConsoleColor.Yellow
                     Console.WriteLine("/help : Show help page")
                     Console.WriteLine("/backup <servername|all> : Create a backup of one or all servers")
@@ -55,23 +59,25 @@
                     Console.ForegroundColor = ConsoleColor.Red
                     Console.WriteLine("Command not valid, write /help for a list of avaible commands")
 
-                ElseIf command = "set" Or command = "set start" Or command = "set start commander" Or command = "set start menu" Then
+                ElseIf command.ToLower = "set" Or command.ToLower = "set start" Or command.ToLower = "set start commander" Or command.ToLower = "set start menu" Then
                     SetCommand.SetCommand(args, command)
 
-                ElseIf command = "exit" Then
+                ElseIf command.ToLower = "exit" Then
                     Console.WriteLine("See you soon!")
                     Console.ReadLine()
                     End
 
-                ElseIf command = "language" Or command = "language list" Then
+                ElseIf command.ToLower = "language" Or command.ToLower = "language list" Then
                     LanguageCommand.LanguageCommand(args, command, language, checklanguage)
 
-                ElseIf command = "start" Then
+                ElseIf command.ToLower = "start" Then
                     StartCommand.StartCommand(command, args, checkpath, path, nservers, nameservers)
 
-                ElseIf command = "stop" Then
+                ElseIf command.ToLower = "stop" Then
                     StopCommand.StopCommand()
 
+                ElseIf command.ToLower = "backup" Then
+                    BackupCommand.BackupCommand(args, command, nservers, path, checkpath, nameservers, backupstatus)
                 End If
 
                 If args.Length > 1 Then
@@ -83,6 +89,10 @@
 
                     ElseIf command = "language " + args(1) Then
                         LanguageCommand.LanguageCommand(args, command, language, checklanguage)
+
+                    ElseIf command = "backup " + args(1) Then
+
+                        BackupCommand.BackupCommand(args, command, nservers, path, checkpath, nameservers, backupstatus)
                     End If
                 End If
 
