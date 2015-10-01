@@ -13,7 +13,7 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub ConsoleCommand(ByRef nameservers As String(), ByRef nservers As Integer, ByRef path As String(), ByRef checkpath As Object(), ByRef language As Integer, ByRef checklanguage As Object)
+    Sub ConsoleCommand(ByRef nameservers As String(), ByRef nservers As SByte, ByRef path As String(), ByRef checkpath As Object(), ByRef language As SByte, ByRef checklanguage As Object)
 
         Dim command As String = ""
         Dim args As String()
@@ -81,7 +81,7 @@
                     ElseIf command = "stop " + args(1) Then
                         StopCommand.StopCommand() 'TODO: Add command functions
 
-                    ElseIf command = "language " + args(1) Then 'TODO: Fix correct change
+                    ElseIf command = "language " + args(1) Then
                         LanguageCommand.LanguageCommand(args, command, language, checklanguage)
                     End If
                 End If

@@ -18,7 +18,7 @@ Module Properties
 
     Public rconpassword As String
 
-    Sub Properties(ByRef checkpath As Object(), ByRef path As String(), ByRef nservers As Integer, ByRef nameservers As String(), ByRef checknameserver As Object(), _
+    Sub Properties(ByRef checkpath As Object(), ByRef path As String(), ByRef nservers As SByte, ByRef nameservers As String(), ByRef checknameserver As Object(), _
                    ByRef back As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef propertiestitle As String, ByRef properties1 As String, ByRef properties2 As String, _
                    ByRef properties3 As String, ByRef properties4 As String, ByRef properties5 As String, ByRef properties6 As String, ByRef performance11 As String)
 
@@ -236,7 +236,7 @@ Module Properties
 
                         If rconpassword = "" Then
                             For i = 1 To 10
-                                Dim idx As Integer = r.Next(0, 35)
+                                Dim idx As SByte = r.Next(0, 35)
                                 sb.Append(rcongenerator.Substring(idx, 1))
 
                             Next

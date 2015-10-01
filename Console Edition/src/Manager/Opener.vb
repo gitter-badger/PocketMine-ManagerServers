@@ -13,12 +13,12 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub Opener(ByRef nservers As Integer, ByRef nameservers As String(), ByRef numberservers_2 As String(), ByRef numberservers As String(), ByRef checknameserver As Object(), ByRef path As String(), ByRef pathopener As String, ByRef checkpath As Object(), ByRef performancestatus As String(), _
+    Sub Opener(ByRef nservers As SByte, ByRef nameservers As String(), ByRef numberservers_2 As String(), ByRef numberservers As String(), ByRef checknameserver As Object(), ByRef path As String(), ByRef pathopener As String, ByRef checkpath As Object(), ByRef performancestatus As String(), _
                ByRef back As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef manager1 As String, ByRef manager2 As String, ByRef manager3 As String, ByRef openertitle As String, ByRef opener1 As String, ByRef opener2 As String, ByRef opener3 As String, ByRef opener4 As String, _
                ByRef opener5 As String, ByRef opener6 As String, ByRef opener7 As String, ByRef opener8 As String)
 
         Reading(path, nservers, nameservers)
-        Dim chooseserver As Integer
+        Dim chooseserver As SByte
 
         Do
             Console.Clear()

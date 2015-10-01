@@ -13,7 +13,7 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub Performances(ByRef checkpath As Object(), ByRef checknameservers As Object(), ByRef performance As String, ByRef nameservers As String(), ByRef nservers As Integer, ByRef performancestatus As String(), ByRef path As Object(), ByRef back As String, _
+    Sub Performances(ByRef checkpath As Object(), ByRef checknameservers As Object(), ByRef performance As String, ByRef nameservers As String(), ByRef nservers As SByte, ByRef performancestatus As String(), ByRef path As Object(), ByRef back As String, _
                      ByRef changemade As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef performancetitle As String, ByRef performance11 As String, ByRef performance12 As String)
 
         Dim selectperformance, checkyml, checkyml2 As Object
@@ -107,8 +107,8 @@
 
     Sub ChoosePerformance(ByRef selectperformance As String, ByRef performancestatus As String(), ByRef performance As String, ByRef changemade As String)
 
-        Dim index As Integer
-        Dim indexstatus As Integer = -1
+        Dim index As SByte
+        Dim indexstatus As SByte = -1
         Dim status As String() = New String() {"High", "Medium", "Low"}
         Dim verified As Boolean = False
 

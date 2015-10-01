@@ -13,7 +13,7 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub StartCommand(ByRef command As String, ByRef args As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef nservers As Integer, ByRef nameservers As String())
+    Sub StartCommand(ByRef command As String, ByRef args As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef nservers As SByte, ByRef nameservers As String())
 
         If command = "start" Then 'TODO: Test it!!!
             Console.ForegroundColor = ConsoleColor.Yellow

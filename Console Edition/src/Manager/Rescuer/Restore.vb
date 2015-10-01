@@ -15,10 +15,10 @@ Module Restore
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version.
-    Sub Restore(ByRef nservers As Integer, ByRef nameservers As String(), ByRef backupstatus As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef back As String, ByRef restoretitle As String, _
+    Sub Restore(ByRef nservers As SByte, ByRef nameservers As String(), ByRef backupstatus As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef back As String, ByRef restoretitle As String, _
                 ByRef restore1 As String, ByRef restore2 As String, ByRef restore3 As String, ByRef restore4 As String)
 
-        Dim chooserestore As Integer
+        Dim chooserestore As SByte
         Dim openrestore As String
 
 Restore:

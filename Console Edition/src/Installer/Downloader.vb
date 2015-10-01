@@ -13,7 +13,7 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub Downloader(ByRef nameservers As String(), ByRef nservers As Integer, ByRef checkpath As Object(), ByRef path As String(), ByRef numberservers As String(), ByRef downloadstatus As String(), ByRef versionstatus As String(), ByRef checknameserver As Object(), _
+    Sub Downloader(ByRef nameservers As String(), ByRef nservers As SByte, ByRef checkpath As Object(), ByRef path As String(), ByRef numberservers As String(), ByRef downloadstatus As String(), ByRef versionstatus As String(), ByRef checknameserver As Object(), _
                    ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable1 As String, ByRef versionbeta1 As String, ByRef versiondev1 As String, ByRef versionsoft1 As String, ByRef currentversion As String, _
                    ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef downloadertitle As String, ByRef downloader1 As String, ByRef downloader2 As String, ByRef downloader3 As String, ByRef downloader4 As String, ByRef downloader5 As String, ByRef downloader6 As String, _
                    ByRef downloader7 As String, ByRef downloader8 As String, ByRef downloader9 As String, ByRef downloader10 As String, ByRef downloader11 As String)
@@ -222,7 +222,7 @@
         End If
     End Sub
 
-    Sub ChangeDownloadStatus(ByRef nservers As Integer, ByRef downloadstatus As String(), ByRef chooseserver As String, ByRef downloader10 As String, ByRef downloader11 As String) 'It is not the best way. I currently use this then I'll change.
+    Sub ChangeDownloadStatus(ByRef nservers As SByte, ByRef downloadstatus As String(), ByRef chooseserver As String, ByRef downloader10 As String, ByRef downloader11 As String) 'It is not the best way. I currently use this then I'll change.
 
         downloadstatus(chooseserver - 1) = downloader10
 

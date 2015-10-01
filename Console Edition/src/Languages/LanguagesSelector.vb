@@ -27,7 +27,7 @@
                     ByRef restartertitle As String, ByRef restarter1 As String, ByRef restarter2 As String, ByRef restarter3 As String, ByRef restarter4 As String, ByRef restarter5 As String, ByRef restarter6 As String, ByRef restarter7 As String, ByRef restarter8 As String, ByRef restarter9 As String, _
                     ByRef restarter10 As String, ByRef restarter11 As String, ByRef restarter12 As String)
 
-        Dim language As Integer
+        Dim language As SByte
 
         Do
             Try

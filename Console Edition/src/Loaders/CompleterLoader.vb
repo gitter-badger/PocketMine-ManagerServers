@@ -16,7 +16,7 @@
     Sub CompleterLoader(ByRef defaultservers As String)
 
         '#Variables "Manage Servers"
-        Dim nservers As Integer
+        Dim nservers As SByte
         Dim nameservers As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
         Dim numberservers As String() = New String() {"first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"}
         Dim numberservers_2 As String() = New String() {"First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth"}

@@ -13,8 +13,8 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub DevMenu(ByRef menu As String, ByRef devmode As Boolean, ByRef checkdevmode As Object, ByRef i As Integer, ByRef nameservers As String(), ByRef nservers As Integer, ByRef path As String(), _
-                ByRef checkpath As Object(), ByRef language As Integer, ByRef checklanguage As Object)
+    Sub DevMenu(ByRef menu As String, ByRef devmode As Boolean, ByRef checkdevmode As Object, ByRef i As SByte, ByRef nameservers As String(), ByRef nservers As SByte, ByRef path As String(), _
+                ByRef checkpath As Object(), ByRef language As SByte, ByRef checklanguage As Object)
 
         If menu = "devon" Then
             If i = 3 And devmode = True Then

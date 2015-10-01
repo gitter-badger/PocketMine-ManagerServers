@@ -41,7 +41,7 @@
         Dim menu, quit, defaultservers As String
         Dim checkfolderinstallation, checklicense, checklanguage As Object
         Dim checklang, changelang As Boolean
-        Dim language As Integer
+        Dim language As SByte
 
         Dim devmode As Boolean
         Dim checkdevmode As Object
@@ -55,7 +55,7 @@
         Dim checkdownloads As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
 
         '#Variables "Manage Servers"
-        Dim nservers As Integer
+        Dim nservers As SByte
         Dim nameservers As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
         Dim numberservers As String() = New String() {"first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"}
         Dim numberservers_2 As String() = New String() {"First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth"}
@@ -233,7 +233,7 @@
                 End If
             End If
 
-            Dim i As Integer
+            Dim i As SByte
 
             If i >= 3 Then
                 i = 0
@@ -247,14 +247,14 @@
         End While
     End Sub
 
-    Sub Writing(ByRef nameservers As String(), ByRef nservers As Integer, ByRef path As String())
+    Sub Writing(ByRef nameservers As String(), ByRef nservers As SByte, ByRef path As String())
         For i = 1 To nservers
             My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(i) + ".pm", nameservers(i - 1), True)
 
         Next
     End Sub
 
-    Sub Reading(ByRef path As Object(), ByRef nservers As Integer, ByRef nameservers As String())
+    Sub Reading(ByRef path As Object(), ByRef nservers As SByte, ByRef nameservers As String())
         For i = 1 To nservers
             path(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm")
             nameservers(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(i) + ".pm")
@@ -271,7 +271,7 @@
         Next
     End Sub
 
-    Sub Selection(ByRef nservers As Integer, ByRef nameservers As String(), ByRef numberservers As String(), ByRef defaultservers As String)
+    Sub Selection(ByRef nservers As SByte, ByRef nameservers As String(), ByRef numberservers As String(), ByRef defaultservers As String)
         For i = 1 To nservers
             defaultservers = ("Server Minecraft PE_" + Convert.ToString(i))
 

@@ -13,7 +13,7 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version.
-    Sub Restarter(ByRef nservers As Integer, ByRef nameservers As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef back As String, ByRef installer3 As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, _
+    Sub Restarter(ByRef nservers As SByte, ByRef nameservers As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef back As String, ByRef installer3 As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, _
                   ByRef restartertitle As String, ByRef restarter1 As String, ByRef restarter2 As String, ByRef restarter3 As String, ByRef restarter4 As String, ByRef restarter5 As String, ByRef restarter6 As String, ByRef restarter7 As String, _
                   ByRef restarter8 As String, ByRef restarter9 As String, ByRef restarter10 As String, ByRef restarter11 As String, ByRef restarter12 As String)
 
@@ -39,7 +39,7 @@
             chooserestart = Console.ReadLine
 
             If chooserestart = "1" Then
-                Dim chooseserver As Integer
+                Dim chooseserver As SByte
                 Do
                     Try
 
@@ -84,7 +84,7 @@
 
                             My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\ChooseTime.pm", choosetime, True)
 
-                            Dim time As Integer
+                            Dim time As SByte
 
                             If choosetime = "1" Then
                                 Console.Write("{0} {1}? ", restarter8, restarter5.ToLower)
@@ -133,7 +133,7 @@
             End If
 
             If chooserestart = "2" Then
-                Dim chooseserver As Integer
+                Dim chooseserver As SByte
                 Dim PMProcess() As Process = Process.GetProcessesByName("mintty") 'Process of PocketMine-MP
 
                 Console.WriteLine()

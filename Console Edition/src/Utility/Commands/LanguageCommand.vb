@@ -13,7 +13,7 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub LanguageCommand(ByRef args As String(), ByRef command As String, ByRef language As Integer, ByRef checklanguage As Object)
+    Sub LanguageCommand(ByRef args As String(), ByRef command As String, ByRef language As SByte, ByRef checklanguage As Object)
 
         If command = "language" Then
             Console.ForegroundColor = ConsoleColor.Yellow

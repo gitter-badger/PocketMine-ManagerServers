@@ -15,10 +15,10 @@ Module Backup
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub Backup(ByRef nservers As Integer, ByRef nameservers As String(), ByRef back As String, ByRef backupstatus As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef numberservers As String(), ByRef backuptitle As String, _
+    Sub Backup(ByRef nservers As SByte, ByRef nameservers As String(), ByRef back As String, ByRef backupstatus As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef numberservers As String(), ByRef backuptitle As String, _
                ByRef backup1 As String, ByRef backup2 As String, ByRef backup3 As String, ByRef backup4 As String, ByRef backup5 As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String)
 
-        Dim choosebackup As Integer
+        Dim choosebackup As SByte
         Dim openbackup, overwrite As String
 
         Do
