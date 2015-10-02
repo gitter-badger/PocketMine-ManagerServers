@@ -156,7 +156,7 @@ Module BackupCommand
 
                     Console.Write("Succefully backuped: ")
                     For i = 1 To nservers
-                        Console.Write("{0}, ", nameservers(i))
+                        Console.Write("{0}, ", nameservers(i - 1))
                     Next
 
                 ElseIf args(1) = nameservers(0) Or args(1) = nameservers(1) Or args(1) = nameservers(2) Or args(1) = nameservers(3) _

@@ -23,7 +23,7 @@
             If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
                 If args(1) = "all" Then
                     For i = 1 To nservers
-                        Process.Start(path(i - 1) + "start.cmd")
+                        Process.Start(path(i - 1) + "\start.cmd")
 
                     Next
 

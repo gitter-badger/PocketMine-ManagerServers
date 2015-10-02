@@ -78,6 +78,10 @@
 
                 ElseIf command.ToLower = "backup" Then
                     BackupCommand.BackupCommand(args, command, nservers, path, checkpath, nameservers, backupstatus)
+
+                ElseIf command.ToLower() = "restore" Then
+                    RestoreCommand.RestoreCommand(args, command, nservers, path, checkpath, nameservers, backupstatus)
+
                 End If
 
                 If args.Length > 1 Then
@@ -92,6 +96,9 @@
 
                     ElseIf command = "backup " + args(1) Then
                         BackupCommand.BackupCommand(args, command, nservers, path, checkpath, nameservers, backupstatus)
+
+                    ElseIf command = "restore " + args(1) Then
+                        RestoreCommand.RestoreCommand(args, command, nservers, path, checkpath, nameservers, backupstatus)
 
                     End If
                 End If
