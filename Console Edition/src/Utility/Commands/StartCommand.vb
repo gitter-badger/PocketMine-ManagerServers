@@ -15,60 +15,58 @@
     '(at your option) any later version. 
     Sub StartCommand(ByRef command As String, ByRef args As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef nservers As SByte, ByRef nameservers As String())
 
-        If command = "start" Then 'TODO: Test it!!!
+        If command = "start" Then
             Console.ForegroundColor = ConsoleColor.Yellow
             Console.WriteLine("Correct command is /start <servername|all>")
 
-        Else
-            If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" And args(1) <> "" Then
-                If command = "start all" Then
+        ElseIf command = "start " + args(1) Then
+            If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
+                If args(1) = "all" Then
                     For i = 1 To nservers
                         Process.Start(path(i - 1) + "start.cmd")
 
                     Next
 
-                ElseIf command = "start " + args(1) Then
-                    If args(1) = nameservers(0) Then
-                        Process.Start(path(0) + "start.cmd")
+                ElseIf args(1) = nameservers(0) Then
+                    Process.Start(path(0) + "\start.cmd")
 
-                    ElseIf args(1) = nameservers(1) Then
-                        Process.Start(path(1) + "start.cmd")
+                ElseIf args(1) = nameservers(1) Then
+                    Process.Start(path(1) + "\start.cmd")
 
-                    ElseIf args(1) = nameservers(2) Then
-                        Process.Start(path(2) + "start.cmd")
+                ElseIf args(1) = nameservers(2) Then
+                    Process.Start(path(2) + "\start.cmd")
 
-                    ElseIf args(1) = nameservers(3) Then
-                        Process.Start(path(3) + "start.cmd")
+                ElseIf args(1) = nameservers(3) Then
+                    Process.Start(path(3) + "\start.cmd")
 
-                    ElseIf args(1) = nameservers(4) Then
-                        Process.Start(path(4) + "start.cmd")
+                ElseIf args(1) = nameservers(4) Then
+                    Process.Start(path(4) + "\start.cmd")
 
-                    ElseIf args(1) = nameservers(5) Then
-                        Process.Start(path(5) + "start.cmd")
+                ElseIf args(1) = nameservers(5) Then
+                    Process.Start(path(5) + "\start.cmd")
 
-                    ElseIf args(1) = nameservers(6) Then
-                        Process.Start(path(6) + "start.cmd")
+                ElseIf args(1) = nameservers(6) Then
+                    Process.Start(path(6) + "\start.cmd")
 
-                    ElseIf args(1) = nameservers(7) Then
-                        Process.Start(path(7) + "start.cmd")
+                ElseIf args(1) = nameservers(7) Then
+                    Process.Start(path(7) + "\start.cmd")
 
-                    ElseIf args(1) = nameservers(8) Then
-                        Process.Start(path(8) + "start.cmd")
+                ElseIf args(1) = nameservers(8) Then
+                    Process.Start(path(8) + "\start.cmd")
 
-                    ElseIf args(1) = nameservers(9) Then
-                        Process.Start(path(9) + "start.cmd")
+                ElseIf args(1) = nameservers(9) Then
+                    Process.Start(path(9) + "\start.cmd")
 
-                    Else
-                        Console.ForegroundColor = ConsoleColor.Red
-                        Console.WriteLine("Any server with this name exist!")
+                Else
+                    Console.ForegroundColor = ConsoleColor.Red
+                    Console.WriteLine("Any server with this name exist!")
 
-                    End If
                 End If
-            Else
-                Console.ForegroundColor = ConsoleColor.Red
-                Console.WriteLine("You must define the path of your servers!")
-
             End If
+        Else
+            Console.ForegroundColor = ConsoleColor.Red
+            Console.WriteLine("You must define the path of your servers!")
+
         End If
     End Sub
 End Module

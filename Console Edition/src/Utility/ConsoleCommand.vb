@@ -91,8 +91,8 @@
                         LanguageCommand.LanguageCommand(args, command, language, checklanguage)
 
                     ElseIf command = "backup " + args(1) Then
-
                         BackupCommand.BackupCommand(args, command, nservers, path, checkpath, nameservers, backupstatus)
+
                     End If
                 End If
 

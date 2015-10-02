@@ -110,6 +110,15 @@
         Console.Clear()
         Console.WriteLine("Loading resource...")
 
+        nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
+        language = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm")
+
+        checkdevmode = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
+
+        If checkdevmode Then
+            devmode = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
+        End If
+
         If checkcommand Then
             commandstart = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\Starter.pm")
 
@@ -124,15 +133,6 @@
         End If
 
         While quit = "N"
-            nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
-            language = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm")
-
-            checkdevmode = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
-
-            If checkdevmode Then
-                devmode = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
-            End If
-
             LanguageReader.LanguageReader(language, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
                               menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
                               installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _

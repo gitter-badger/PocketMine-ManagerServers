@@ -23,7 +23,13 @@ Module BackupCommand
 
         ElseIf command = "backup " + args(1) Then
             If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
-                Console.WriteLine("I'm doing the backup...")
+
+                If args(1) = nameservers(0) Or args(1) = nameservers(1) Or args(1) = nameservers(2) Or args(1) = nameservers(3) _
+                    Or args(1) = nameservers(4) Or args(1) = nameservers(5) Or args(1) = nameservers(6) Or args(1) = nameservers(7) _
+                    Or args(1) = nameservers(8) Or args(1) = nameservers(9) Or args(1) = "all" Then
+
+                    Console.WriteLine("I'm doing the backup...")
+                End If
 
                 If args(1) = "all" Then
                     For i = 1 To nservers
@@ -147,11 +153,16 @@ Module BackupCommand
 
                 Console.ForegroundColor = ConsoleColor.Blue
                 If args(1) = "all" Then
+
+                    Console.Write("Succefully backuped: ")
                     For i = 1 To nservers
-                        Console.WriteLine("Succefully backuped: ")
                         Console.Write("{0}, ", nameservers(i))
                     Next
-                Else
+
+                ElseIf args(1) = nameservers(0) Or args(1) = nameservers(1) Or args(1) = nameservers(2) Or args(1) = nameservers(3) _
+                    Or args(1) = nameservers(4) Or args(1) = nameservers(5) Or args(1) = nameservers(6) Or args(1) = nameservers(7) _
+                    Or args(1) = nameservers(8) Or args(1) = nameservers(9) Then
+
                     Console.WriteLine("Succefully backuped " + args(1))
 
                 End If
@@ -159,6 +170,6 @@ Module BackupCommand
                 Console.ForegroundColor = ConsoleColor.Red
                 Console.WriteLine("You must define the path of your servers!")
             End If
-            End If
+        End If
     End Sub
 End Module
