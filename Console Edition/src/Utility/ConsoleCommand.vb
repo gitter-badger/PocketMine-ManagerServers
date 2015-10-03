@@ -79,8 +79,11 @@
                 ElseIf command.ToLower = "backup" Then
                     BackupCommand.BackupCommand(args, command, nservers, path, checkpath, nameservers, backupstatus)
 
-                ElseIf command.ToLower() = "restore" Then
+                ElseIf command.ToLower = "restore" Then
                     RestoreCommand.RestoreCommand(args, command, nservers, path, checkpath, nameservers, backupstatus)
+
+                ElseIf command.ToLower = "edit" Or command.ToLower = "edit properties" Or command.ToLower = "edit performance" Then
+                    EditCommand.EditCommand(args, command, nservers, path, checkpath, nameservers)
 
                 End If
 
