@@ -87,7 +87,14 @@
         End If
 
         If menu = "7" And devmode = True Then
-            Process.Start("C:\Program Files\PocketMine-ManagerServers\PM-MS(BackgroudTask).exe")
+            Try
+                Process.Start("C:\Program Files\PocketMine-ManagerServers\PM-MS(BackgroudTask).exe")
+
+            Catch ex As Exception
+                Console.ForegroundColor = ConsoleColor.Red
+                Console.WriteLine("Error! Bad Installation!")
+                Console.ReadLine()
+            End Try
 
         End If
 

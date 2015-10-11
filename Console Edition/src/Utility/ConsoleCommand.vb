@@ -41,6 +41,7 @@
             args = command.Split(New Char() {" "})
 
             Try
+                command.ToLower()
                 If command.ToLower = "help" Then
                     Console.ForegroundColor = ConsoleColor.Yellow
                     Console.WriteLine("/help : Show help page")
@@ -83,7 +84,11 @@
                     RestoreCommand.RestoreCommand(args, command, nservers, path, checkpath, nameservers, backupstatus)
 
                 ElseIf command.ToLower = "edit" Or command.ToLower = "edit properties" Or command.ToLower = "edit performance" Then
-                    EditCommand.EditCommand(args, command, nservers, path, checkpath, nameservers)
+                    If command.ToLower = "edit" Or command.ToLower = "edit properties" Then
+                        EditorCommand.PropertiesCommand(args, command, nservers, path, checkpath, nameservers)
+                    Else
+                        EditorCommand.PerformanceCommand(args, command, nservers, path, checkpath, nameservers)
+                    End If
 
                 End If
 

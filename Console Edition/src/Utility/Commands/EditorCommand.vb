@@ -1,6 +1,6 @@
 ﻿Imports System.Text
 
-Module EditCommand
+Module EditorCommand
     ' _____           _        _   __  __ _                   __  __                                   _____                              
     '|  __ \         | |      | | |  \/  (_)                 |  \/  |                                 / ____|                             
     '| |__) |__   ___| | _____| |_| \  / |_ _ __   ___ ______| \  / | __ _ _ __   __ _  __ _  ___ _ _| (___   ___ _ ____   _____ _ __ ___ 
@@ -18,11 +18,16 @@ Module EditCommand
 
     Public rconpassword As String
 
-    Sub EditCommand(ByRef args As String(), ByRef command As String, ByRef nservers As SByte, ByRef path As String(), ByRef checkpath As Object(), ByRef nameservers As String())
+    Sub PropertiesCommand(ByRef args As String(), ByRef command As String, ByRef nservers As SByte, ByRef path As String(), ByRef checkpath As Object(), ByRef nameservers As String())
 
         If command = "edit" Then
             Console.ForegroundColor = ConsoleColor.Yellow
-            Console.WriteLine("Correct command is /edit <properties|performance>")
+            Console.WriteLine("Correct command is /edit <properties|performance> [PerformanceType]")
+            Console.WriteLine()
+            Console.WriteLine("<PerformanceType>")
+            Console.WriteLine("1 <=> High")
+            Console.WriteLine("2 <=> Medium")
+            Console.WriteLine("3 <=> Low")
 
         ElseIf command = "edit properties" Then
             If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
@@ -41,8 +46,8 @@ Module EditCommand
                 Do
                     Console.WriteLine()
                     Console.WriteLine("#Properties Config file")
-                    Console.WriteLine("Sun May 3 13:20:31 AZOST 2015")
-
+                    Console.WriteLine(Today.DayOfWeek.ToString.Remove(3) + " " + MonthName(Date.Now.Month, True) + " " + Date.Now.Day.ToString + " " +
+                                      Date.Now.Hour.ToString + ":" + Date.Now.Minute.ToString + ":" + Date.Now.Second.ToString + " UTC " + Date.Today.Year.ToString)
                     Console.Write("Motd <by default Server Minecraft PE>: ")
                     motd = Console.ReadLine.ToLower
 
@@ -278,5 +283,9 @@ Module EditCommand
 
             End If
         End If
+    End Sub
+
+    Sub PerformanceCommand(ByRef args As String(), ByRef command As String, ByRef nservers As SByte, ByRef path As String(), ByRef checkpath As Object(), ByRef nameservers As String())
+
     End Sub
 End Module
