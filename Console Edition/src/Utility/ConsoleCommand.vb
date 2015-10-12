@@ -99,7 +99,7 @@
                     ElseIf command = "stop " + args(1) Then
                         StopCommand.StopCommand() 'TODO: Add command functions
 
-                    ElseIf command = "language " + args(1) Then
+                    ElseIf command = "language " + args(1) And args(1) <> "list" Then
                         LanguageCommand.LanguageCommand(args, command, language, checklanguage)
 
                     ElseIf command = "backup " + args(1) Then

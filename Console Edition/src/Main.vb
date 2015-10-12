@@ -109,6 +109,7 @@
 
         Console.Clear()
         Console.WriteLine("Loading resource...")
+        System.Threading.Thread.Sleep(500)
 
         nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
         language = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm")
