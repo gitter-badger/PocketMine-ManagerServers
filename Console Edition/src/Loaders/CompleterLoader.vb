@@ -25,15 +25,10 @@
 
         Dim checknameserver As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
 
-        Dim pathopener As String
         Dim path As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
 
         Dim checkpath As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
         '-------------------------------------------------------------------------------------------------------------------------------------------------
-        Dim varmanager As String
-
-        '-------------------------------------------------------------------------------------------------------------------------------------------------
-        Dim performance, confirmperfomance, selectperformance As String
 
         Dim performancestatus As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
 
@@ -67,8 +62,6 @@
                     End If
 
                 Catch ex As Exception
-                    Console.WriteLine(ex)
-                    'My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Errors\error_1.pm", Convert.ToString(ex), True)
 
                 End Try
             Loop While nservers > 10 Or nservers <= 0
