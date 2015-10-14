@@ -23,6 +23,7 @@
         Checking(checknameserver, checkpath)
         Reading(path, nservers, nameservers)
 
+Clear:
         Console.Clear()
         Console.ForegroundColor = ConsoleColor.Green
         Console.WriteLine("========================<PocketMine Manager Servers>============================")
@@ -44,9 +45,11 @@
                 command.ToLower()
                 If command.ToLower = "help" Then
                     Console.ForegroundColor = ConsoleColor.Yellow
-                    Console.WriteLine("/help : Show help page")
                     Console.WriteLine("/backup <servername|all> : Create a backup of one or all servers")
+                    Console.WriteLine("/clear : Clean the console.")
                     Console.WriteLine("/edit <performance|properties> : Edit your server's performace or properties")
+                    Console.WriteLine("/exit : Leave the program.")
+                    Console.WriteLine("/help : Show help page")
                     Console.WriteLine("/language <languagename|list> : Change language of program.")
                     Console.WriteLine("/menu : Return in the main menu")
                     Console.WriteLine("/restart <servername|all> : Restart one or all servers.")
@@ -54,7 +57,6 @@
                     Console.WriteLine("/set start <commander|menu> : Set the initial interface when the program starts")
                     Console.WriteLine("/start <servername|all> : Start one or all servers")
                     Console.WriteLine("/stop <servername|all> : Stop one or all servers")
-                    Console.WriteLine("/exit : Leave the program.")
 
                 ElseIf command = "" Then
                     Console.ForegroundColor = ConsoleColor.Red
@@ -62,6 +64,12 @@
 
                 ElseIf command.ToLower = "set" Or command.ToLower = "set start" Or command.ToLower = "set start commander" Or command.ToLower = "set start menu" Then
                     SetCommand.SetCommand(args, command)
+
+                ElseIf command.ToLower = "clear" Then
+                    Console.ForegroundColor = ConsoleColor.Green
+                    Console.WriteLine("Console cleaned")
+                    System.Threading.Thread.Sleep(350)
+                    GoTo Clear
 
                 ElseIf command.ToLower = "exit" Then
                     Console.WriteLine("See you soon!")
