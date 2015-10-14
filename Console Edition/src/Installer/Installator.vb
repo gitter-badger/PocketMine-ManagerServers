@@ -249,7 +249,7 @@
     Sub ChangeInstallationStatus(ByRef installationstatus As String(), ByRef chooseserver As String, ByRef installator6 As String, ByRef installator7 As String)
         installationstatus(chooseserver - 1) = installator6
 
-        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_1" + Convert.ToString(chooseserver) + ".pm")
+        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_" + Convert.ToString(chooseserver) + ".pm")
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_" + Convert.ToString(chooseserver) + ".pm", installationstatus(chooseserver - 1), True)
 
         installationstatus(chooseserver - 1) = installator7 'For security.

@@ -1,4 +1,4 @@
-﻿Namespace ServerManagerAPI
+﻿Namespace EditorAPI
     ' _____           _        _   __  __ _                   __  __                                   _____                              
     '|  __ \         | |      | | |  \/  (_)                 |  \/  |                                 / ____|                             
     '| |__) |__   ___| | _____| |_| \  / |_ _ __   ___ ______| \  / | __ _ _ __   __ _  __ _  ___ _ _| (___   ___ _ ____   _____ _ __ ___ 
@@ -12,17 +12,27 @@
     'This program is free software: you can redistribute it and/or modify 
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
-    '(at your option) any later version. 
-    Friend Class getManager
+    '(at your option) any later version.
+    Friend Class Editor
         Public Shared Function getProperties()
+            Dim motd, serverport, whitelist, achievent, spawn, maxplayers, flight, animals, mobs, gamemode, forcegamemode, _
+            hardcore, pvp, difficulty, generator, levelname, levelseed, leveltype, enablequery, enablercon, _
+            autosave As String
 
-            Return ServerManagerAPI.getManager.getProperties
+            Dim properties As Object = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Utils\server.properties")
+
+            If My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\server.properties") Then
+                motd = properties.ToString.Replace("motd=", "")
+                serverport = properties.ToString.Replace("serverport=", "")
+
+                'TODO: Continue and try another way
+            Else
+                MsgBox("You can't use this function, because file doesn't exitst.", MsgBoxStyle.Critical)
+
+            End If
+
+            Return EditorAPI.Editor.getProperties
         End Function
-
-        Public Shared Function getPerformance()
-
-            Return ServerManagerAPI.getManager.getPerformance
-        End Function
-
     End Class
+
 End Namespace
