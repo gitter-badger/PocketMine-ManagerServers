@@ -33,7 +33,8 @@
             Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine("1- {0}", restarter1)
             Console.WriteLine("2- {0}", restarter2)
-            Console.WriteLine("3- {0}", back)
+            Console.WriteLine("3- Kill Restarter")
+            Console.WriteLine("4- {0}", back)
             Console.WriteLine()
             Console.Write("{0}", installer3)
             chooserestart = Console.ReadLine
@@ -169,7 +170,29 @@
                 End If
 
             End If
-        Loop While chooserestart <> "3"
+
+            If chooserestart = "3" Then
+                Dim BackgroundTask() As Process = Process.GetProcessesByName("PM-MS(BackgroudTask)")
+
+                Console.WriteLine()
+
+                If BackgroundTask.Length > 0 Then
+                    For Each bt As Process In BackgroundTask
+                        bt.Kill()
+
+                    Next
+                    Console.ForegroundColor = ConsoleColor.Green
+                    Console.WriteLine("Restarter killed")
+
+                Else
+                    Console.ForegroundColor = ConsoleColor.Red
+                    Console.WriteLine("The restarter is not running")
+
+                End If
+                Console.ReadLine()
+
+            End If
+        Loop While chooserestart <> "4"
     End Sub
 
 End Module
