@@ -27,7 +27,7 @@ Clear:
         Console.Clear()
         Console.ForegroundColor = ConsoleColor.Green
         Console.WriteLine("========================<PocketMine Manager Servers>============================")
-        Console.WriteLine("====================<PocketMine Manager Servers Commander>======================")
+        Console.WriteLine("===============================<Commands Mode>==================================")
         Console.ForegroundColor = ConsoleColor.White
 
         Console.WriteLine("Write a command with or not '/', example /help for list of avaiable commands.")

@@ -90,7 +90,8 @@
         Dim checkcommand As Object = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\Starter.pm")
 
         'STARTUP
-        Console.Title = "PocketMine-ManagerServers"
+        'Console.Title = "PocketMine-ManagerServers v" + version_pm
+        Console.Title = "PocketMine-ManagerServers v" + version_pm + " [" + build_pm + "]"
 
         Loader.Loader(checklanguage, versionstatus, dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, _
                       dirperformance, dirutils, checklicense, downloadstatus, installationstatus, backupstatus, dirlanguages, direrrors, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
@@ -170,7 +171,7 @@
                 Console.ForegroundColor = ConsoleColor.Cyan
                 Console.WriteLine("6- Memory Usage")
                 Console.WriteLine("7- Server Restarter (BackgroundTask)")
-                Console.WriteLine("8- Console executor (Not server, only software)")
+                Console.WriteLine("8- Commands Mode (Not server, only software)")
                 Console.ForegroundColor = ConsoleColor.White
 
             End If
