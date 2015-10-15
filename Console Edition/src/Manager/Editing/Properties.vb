@@ -16,7 +16,7 @@ Module Properties
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
 
-    Public rconpassword As String
+    Private rconpassword As String
 
     Sub Properties(ByRef checkpath As Object(), ByRef path As String(), ByRef nservers As SByte, ByRef nameservers As String(), ByRef checknameserver As Object(), _
                    ByRef back As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef propertiestitle As String, ByRef properties1 As String, ByRef properties2 As String, _

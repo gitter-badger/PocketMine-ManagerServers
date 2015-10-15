@@ -70,10 +70,14 @@
                 Return InstallerAPI.getInstaller.Installer.getInstallationStatus(nservers)
             End Function
 
-            Public Shared Function changeInstallationStatus()
+            Public Shared Function changeInstallationStatus(ByVal installationstatus As String(), ByVal nservers As SByte, ByVal status As String)
 
+                installationstatus(nservers - 1) = status 'You can personalize the status
 
-                Return InstallerAPI.getInstaller.Installer.changeInstallationStatus()
+                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_" + Convert.ToString(nservers) + ".pm")
+                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_" + Convert.ToString(nservers) + ".pm", installationstatus(nservers - 1), True)
+
+                Return InstallerAPI.getInstaller.Installer.changeInstallationStatus(installationstatus, nservers, status)
             End Function
 
         End Class
@@ -115,10 +119,14 @@
                 Return InstallerAPI.getInstaller.Downloader.getDownloadStatus(nservers)
             End Function
 
-            Public Shared Function changeDownloadStatus()
+            Public Shared Function changeDownloadStatus(ByVal downloadstatus As String(), ByVal nservers As SByte, ByVal status As String)
 
+                downloadstatus(nservers - 1) = status 'You can personalize the status
 
-                Return InstallerAPI.getInstaller.Installer.changeInstallationStatus()
+                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_" + Convert.ToString(nservers) + ".pm")
+                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_" + Convert.ToString(nservers) + ".pm", downloadstatus(nservers - 1), True)
+
+                Return InstallerAPI.getInstaller.Downloader.changeDownloadStatus(downloadstatus, nservers, status)
             End Function
 
         End Class
