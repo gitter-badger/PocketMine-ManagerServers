@@ -286,6 +286,7 @@ Module EditorCommand
     End Sub
 
     Sub PerformanceCommand(ByRef args As String(), ByRef command As String, ByRef nservers As SByte, ByRef path As String(), ByRef checkpath As Object(), ByRef nameservers As String())
-
+        Console.ForegroundColor = ConsoleColor.Magenta
+        Console.WriteLine("Sorry, but this fuction isn't implemented yet.")
     End Sub
 End Module

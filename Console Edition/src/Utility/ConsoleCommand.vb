@@ -83,7 +83,7 @@ Clear:
                     StartCommand.StartCommand(command, args, checkpath, path, nservers, nameservers)
 
                 ElseIf command.ToLower = "stop" Then
-                    StopCommand.StopCommand()
+                    StopCommand.StopCommand(args, command)
 
                 ElseIf command.ToLower = "backup" Then
                     BackupCommand.BackupCommand(args, command, nservers, path, checkpath, nameservers, backupstatus)
@@ -98,6 +98,8 @@ Clear:
                         EditorCommand.PerformanceCommand(args, command, nservers, path, checkpath, nameservers)
                     End If
 
+                ElseIf command.ToLower = "restart" Then
+                    RestartCommand.RestartCommand(args, command, path, nservers, checkpath)
                 End If
 
                 If args.Length > 1 Then
@@ -105,7 +107,7 @@ Clear:
                         StartCommand.StartCommand(command, args, checkpath, path, nservers, nameservers)
 
                     ElseIf command = "stop " + args(1) Then
-                        StopCommand.StopCommand() 'TODO: Add command functions
+                        StopCommand.StopCommand(args, command) 'TODO: To complete
 
                     ElseIf command = "language " + args(1) And args(1) <> "list" Then
                         LanguageCommand.LanguageCommand(args, command, language, checklanguage)
@@ -116,6 +118,8 @@ Clear:
                     ElseIf command = "restore " + args(1) Then
                         RestoreCommand.RestoreCommand(args, command, nservers, path, checkpath, nameservers, backupstatus)
 
+                    ElseIf command = "restart " + args(1) Then
+                        RestartCommand.RestartCommand(args, command, path, nservers, checkpath) 'TODO: To complete
                     End If
                 End If
 
