@@ -14,7 +14,6 @@
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
     Sub Main()
-
         '#Variables languages
         Dim back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3 As String
         Dim menudev, menutitle, menu1, menu2, menu3, menu4, menu5, menu6 As String

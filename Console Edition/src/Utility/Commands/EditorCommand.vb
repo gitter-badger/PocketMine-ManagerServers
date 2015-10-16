@@ -30,258 +30,251 @@ Module EditorCommand
             Console.WriteLine("3 <=> Low")
 
         ElseIf command = "edit properties" Then
-            If checkpath(0) And checkpath(1) And checkpath(2) And checkpath(3) And checkpath(4) And checkpath(5) And checkpath(6) And checkpath(7) And checkpath(8) And checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
-                Dim motd, serverport, whitelist, achievent, spawn, maxplayers, flight, animals, mobs, gamemode, forcegamemode, _
+            Dim motd, serverport, whitelist, achievent, spawn, maxplayers, flight, animals, mobs, gamemode, forcegamemode, _
                 hardcore, pvp, difficulty, generator, levelname, levelseed, leveltype, enablequery, enablercon, _
                 autosave As String
 
-                'Random Generation (Casual Variables)
-                Dim rcongenerator As String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-                Dim r As New Random
-                Dim sb As New StringBuilder
-                '-------------------------------------
+            'Random Generation (Casual Variables)
+            Dim rcongenerator As String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+            Dim r As New Random
+            Dim sb As New StringBuilder
+            '-------------------------------------
 
-                Dim propertiesfile, confirmedit As String
+            Dim propertiesfile, confirmedit As String
+
+            Do
+                Console.WriteLine()
+                Console.WriteLine("#Properties Config file")
+                Console.WriteLine(Today.DayOfWeek.ToString.Remove(3) + " " + MonthName(Date.Now.Month, True) + " " + Date.Now.Day.ToString + " " +
+                                  Date.Now.Hour.ToString + ":" + Date.Now.Minute.ToString + ":" + Date.Now.Second.ToString + " UTC " + Date.Today.Year.ToString)
+                Console.Write("Motd <by default Server Minecraft PE>: ")
+                motd = Console.ReadLine.ToLower
+
+                If motd = "" Then
+                    motd = "Server Minecraft PE"
+                End If
+
+                Console.Write("Server port <by default 19132>: ")
+                serverport = Console.ReadLine.ToLower
+
+                If serverport = "" Then
+                    serverport = "19132"
+                End If
 
                 Do
-                    Console.WriteLine()
-                    Console.WriteLine("#Properties Config file")
-                    Console.WriteLine(Today.DayOfWeek.ToString.Remove(3) + " " + MonthName(Date.Now.Month, True) + " " + Date.Now.Day.ToString + " " +
-                                      Date.Now.Hour.ToString + ":" + Date.Now.Minute.ToString + ":" + Date.Now.Second.ToString + " UTC " + Date.Today.Year.ToString)
-                    Console.Write("Motd <by default Server Minecraft PE>: ")
-                    motd = Console.ReadLine.ToLower
+                    Console.Write("White-list <on/off>: ")
+                    whitelist = Console.ReadLine.ToLower
 
-                    If motd = "" Then
-                        motd = "Server Minecraft PE"
+                    If whitelist = "" Then
+                        whitelist = "on"
                     End If
 
-                    Console.Write("Server port <by default 19132>: ")
-                    serverport = Console.ReadLine.ToLower
+                Loop While whitelist <> "on" And whitelist <> "off"
 
-                    If serverport = "" Then
-                        serverport = "19132"
+                Do
+                    Console.Write("Announce player achivements <on/off>: ")
+                    achievent = Console.ReadLine.ToLower
+
+                    If achievent = "" Then
+                        achievent = "on"
                     End If
 
-                    Do
-                        Console.Write("White-list <on/off>: ")
-                        whitelist = Console.ReadLine.ToLower
+                Loop While achievent <> "on" And achievent <> "off"
 
-                        If whitelist = "" Then
-                            whitelist = "on"
-                        End If
+                Console.Write("Spawn Protection <by default is 20>: ")
+                spawn = Console.ReadLine.ToLower
 
-                    Loop While whitelist <> "on" And whitelist <> "off"
+                If spawn = "" Then
+                    spawn = "20"
+                End If
 
-                    Do
-                        Console.Write("Announce player achivements <on/off>: ")
-                        achievent = Console.ReadLine.ToLower
+                Console.Write("Max Players <by default is 20>: ")
+                maxplayers = Console.ReadLine.ToLower
 
-                        If achievent = "" Then
-                            achievent = "on"
-                        End If
+                If maxplayers = "" Then
+                    maxplayers = "20"
+                End If
 
-                    Loop While achievent <> "on" And achievent <> "off"
+                Do
+                    Console.Write("Allow flight <on/off>: ")
+                    flight = Console.ReadLine.ToLower
 
-                    Console.Write("Spawn Protection <by default is 20>: ")
-                    spawn = Console.ReadLine.ToLower
-
-                    If spawn = "" Then
-                        spawn = "20"
+                    If flight = "" Then
+                        flight = "off"
                     End If
 
-                    Console.Write("Max Players <by default is 20>: ")
-                    maxplayers = Console.ReadLine.ToLower
+                Loop While flight <> "on" And flight <> "off"
 
-                    If maxplayers = "" Then
-                        maxplayers = "20"
+                Do
+                    Console.Write("Spawn Animals <on/off>: ")
+                    animals = Console.ReadLine.ToLower
+
+                    If animals = "" Then
+                        animals = "off"
                     End If
 
-                    Do
-                        Console.Write("Allow flight <on/off>: ")
-                        flight = Console.ReadLine.ToLower
+                Loop While animals <> "on" And animals <> "off"
 
-                        If flight = "" Then
-                            flight = "off"
-                        End If
+                Do
+                    Console.Write("Spawn mobs <on/off>: ")
+                    mobs = Console.ReadLine.ToLower
 
-                    Loop While flight <> "on" And flight <> "off"
-
-                    Do
-                        Console.Write("Spawn Animals <on/off>: ")
-                        animals = Console.ReadLine.ToLower
-
-                        If animals = "" Then
-                            animals = "off"
-                        End If
-
-                    Loop While animals <> "on" And animals <> "off"
-
-                    Do
-                        Console.Write("Spawn mobs <on/off>: ")
-                        mobs = Console.ReadLine.ToLower
-
-                        If mobs = "" Then
-                            mobs = "off"
-                        End If
-
-                    Loop While mobs <> "on" And mobs <> "off"
-
-                    Console.Write("Gamemode [0/1/2] <by default is 0>: ")
-                    gamemode = Console.ReadLine.ToLower
-
-                    If gamemode = "" Then
-                        gamemode = "0"
+                    If mobs = "" Then
+                        mobs = "off"
                     End If
 
-                    Do
-                        Console.Write("Force gamemode <on/off>: ")
-                        forcegamemode = Console.ReadLine.ToLower
+                Loop While mobs <> "on" And mobs <> "off"
 
-                        If forcegamemode = "" Then
-                            forcegamemode = "off"
-                        End If
+                Console.Write("Gamemode [0/1/2] <by default is 0>: ")
+                gamemode = Console.ReadLine.ToLower
 
-                    Loop While forcegamemode <> "on" And forcegamemode <> "off"
+                If gamemode = "" Then
+                    gamemode = "0"
+                End If
 
-                    Do
-                        Console.Write("Hardcore <on/off>: ")
-                        hardcore = Console.ReadLine.ToLower
+                Do
+                    Console.Write("Force gamemode <on/off>: ")
+                    forcegamemode = Console.ReadLine.ToLower
 
-                        If hardcore = "" Then
-                            hardcore = "off"
-                        End If
-
-                    Loop While hardcore <> "on" And hardcore <> "off"
-
-                    Do
-                        Console.Write("Pvp <on/off>: ")
-                        pvp = Console.ReadLine.ToLower
-
-                        If pvp = "" Then
-                            pvp = "on"
-                        End If
-
-                    Loop While pvp <> "on" And pvp <> "off"
-
-                    Console.Write("Difficulty [0/1/2] <by default is 1>: ")
-                    difficulty = Console.ReadLine.ToLower
-
-                    If difficulty = "" Then
-                        difficulty = "1"
+                    If forcegamemode = "" Then
+                        forcegamemode = "off"
                     End If
 
-                    Console.Write("Generator-Settings: ")
-                    generator = Console.ReadLine
+                Loop While forcegamemode <> "on" And forcegamemode <> "off"
 
-                    Console.Write("Level name <by default is world>: ")
-                    levelname = Console.ReadLine
+                Do
+                    Console.Write("Hardcore <on/off>: ")
+                    hardcore = Console.ReadLine.ToLower
 
-                    If levelname = "" Then
-                        levelname = "world"
+                    If hardcore = "" Then
+                        hardcore = "off"
                     End If
 
-                    Console.Write("Level seed: ")
-                    levelseed = Console.ReadLine.ToLower
+                Loop While hardcore <> "on" And hardcore <> "off"
 
-                    Console.Write("Level type <by default is DEFAULT>: ")
-                    leveltype = Console.ReadLine.ToUpper
+                Do
+                    Console.Write("Pvp <on/off>: ")
+                    pvp = Console.ReadLine.ToLower
 
-                    If leveltype = "" Then
-                        leveltype = "DEFAULT"
+                    If pvp = "" Then
+                        pvp = "on"
                     End If
 
-                    Do
-                        Console.Write("Enable query <on/off>: ")
-                        enablequery = Console.ReadLine.ToLower
+                Loop While pvp <> "on" And pvp <> "off"
 
-                        If enablequery = "" Then
-                            enablequery = "off"
-                        End If
+                Console.Write("Difficulty [0/1/2] <by default is 1>: ")
+                difficulty = Console.ReadLine.ToLower
 
-                    Loop While enablequery <> "on" And enablequery <> "off"
+                If difficulty = "" Then
+                    difficulty = "1"
+                End If
 
-                    Do
-                        Console.Write("Enable rcon <on/off>: ")
-                        enablercon = Console.ReadLine.ToLower
+                Console.Write("Generator-Settings: ")
+                generator = Console.ReadLine
 
-                        If enablercon = "" Then
-                            enablercon = "on"
+                Console.Write("Level name <by default is world>: ")
+                levelname = Console.ReadLine
 
-                        End If
+                If levelname = "" Then
+                    levelname = "world"
+                End If
 
-                        If enablercon = "on" Then
-                            Console.Write("Rcon password: ")
-                            rconpassword = Console.ReadLine.ToLower
+                Console.Write("Level seed: ")
+                levelseed = Console.ReadLine.ToLower
 
-                            If rconpassword = "" Then
-                                For i = 1 To 10
-                                    Dim idx As SByte = r.Next(0, 35)
-                                    sb.Append(rcongenerator.Substring(idx, 1))
+                Console.Write("Level type <by default is DEFAULT>: ")
+                leveltype = Console.ReadLine.ToUpper
 
-                                Next
+                If leveltype = "" Then
+                    leveltype = "DEFAULT"
+                End If
 
-                                rconpassword = sb.ToString()
+                Do
+                    Console.Write("Enable query <on/off>: ")
+                    enablequery = Console.ReadLine.ToLower
 
-                            End If
+                    If enablequery = "" Then
+                        enablequery = "off"
+                    End If
 
-                        End If
-                    Loop While enablercon <> "on" And enablercon <> "off"
+                Loop While enablequery <> "on" And enablequery <> "off"
 
-                    Do
-                        Console.Write("Auto-Save <on/off>: ")
-                        autosave = Console.ReadLine.ToLower
+                Do
+                    Console.Write("Enable rcon <on/off>: ")
+                    enablercon = Console.ReadLine.ToLower
 
-                        If autosave = "" Then
-                            autosave = "on"
-                        End If
+                    If enablercon = "" Then
+                        enablercon = "on"
 
-                    Loop While autosave <> "on" And autosave <> "off"
+                    End If
 
-                    Do
-                        Console.Write("Do you want to confirm your choices? <Y/N>: ")
-                        confirmedit = Console.ReadLine.ToUpper
+                    If enablercon = "on" Then
+                        Console.Write("Rcon password: ")
+                        rconpassword = Console.ReadLine.ToLower
 
-                        If confirmedit = "Y" Then
-                            propertiesfile =
-                            "#Properties Config file" + vbCrLf + _
-                            "Sun May 3 17:16:00 AZOST 2015" + vbCrLf + _
-                            "motd=" + motd + vbCrLf + _
-                            "server-port=" + serverport + vbCrLf + _
-                            "white-list=" + whitelist + vbCrLf + _
-                            "announce-player-achievements=" + achievent + vbCrLf + _
-                            "spawn-protection=" + spawn + vbCrLf + _
-                            "max-players=" + maxplayers + vbCrLf + _
-                            "allow-flight=" + flight + vbCrLf + _
-                            "spawn-animals=" + animals + vbCrLf + _
-                            "spawn-mobs=" + mobs + vbCrLf + _
-                            "gamemode=" + gamemode + vbCrLf + _
-                            "force-gamemode=" + forcegamemode + vbCrLf + _
-                            "hardcore=" + hardcore + vbCrLf + _
-                            "pvp=" + pvp + vbCrLf + _
-                            "difficulty=" + difficulty + vbCrLf + _
-                            "generator-settings=" + generator + vbCrLf + _
-                            "level-name=" + levelname + vbCrLf + _
-                            "level-seed=" + levelseed + vbCrLf + _
-                            "level-type=" + leveltype + vbCrLf + _
-                            "enable-query=" + enablequery + vbCrLf + _
-                            "enable-rcon=" + enablercon + vbCrLf + _
-                            "rcon.password=" + rconpassword + vbCrLf + _
-                            "auto-save=" + autosave
+                        If rconpassword = "" Then
+                            For i = 1 To 10
+                                Dim idx As SByte = r.Next(0, 35)
+                                sb.Append(rcongenerator.Substring(idx, 1))
 
-                            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Utils\server.properties", propertiesfile, True)
+                            Next
 
-                            Console.ForegroundColor = ConsoleColor.Blue
-                            Console.WriteLine("Server.properties has been created!")
+                            rconpassword = sb.ToString()
 
                         End If
-                    Loop While confirmedit <> "Y" And confirmedit <> "N"
+
+                    End If
+                Loop While enablercon <> "on" And enablercon <> "off"
+
+                Do
+                    Console.Write("Auto-Save <on/off>: ")
+                    autosave = Console.ReadLine.ToLower
+
+                    If autosave = "" Then
+                        autosave = "on"
+                    End If
+
+                Loop While autosave <> "on" And autosave <> "off"
+
+                Do
+                    Console.Write("Do you want to confirm your choices? <Y/N>: ")
+                    confirmedit = Console.ReadLine.ToUpper
+
+                    If confirmedit = "Y" Then
+                        propertiesfile =
+                        "#Properties Config file" + vbCrLf + _
+                        "Sun May 3 17:16:00 AZOST 2015" + vbCrLf + _
+                        "motd=" + motd + vbCrLf + _
+                        "server-port=" + serverport + vbCrLf + _
+                        "white-list=" + whitelist + vbCrLf + _
+                        "announce-player-achievements=" + achievent + vbCrLf + _
+                        "spawn-protection=" + spawn + vbCrLf + _
+                        "max-players=" + maxplayers + vbCrLf + _
+                        "allow-flight=" + flight + vbCrLf + _
+                        "spawn-animals=" + animals + vbCrLf + _
+                        "spawn-mobs=" + mobs + vbCrLf + _
+                        "gamemode=" + gamemode + vbCrLf + _
+                        "force-gamemode=" + forcegamemode + vbCrLf + _
+                        "hardcore=" + hardcore + vbCrLf + _
+                        "pvp=" + pvp + vbCrLf + _
+                        "difficulty=" + difficulty + vbCrLf + _
+                        "generator-settings=" + generator + vbCrLf + _
+                        "level-name=" + levelname + vbCrLf + _
+                        "level-seed=" + levelseed + vbCrLf + _
+                        "level-type=" + leveltype + vbCrLf + _
+                        "enable-query=" + enablequery + vbCrLf + _
+                        "enable-rcon=" + enablercon + vbCrLf + _
+                        "rcon.password=" + rconpassword + vbCrLf + _
+                        "auto-save=" + autosave
+
+                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Utils\server.properties", propertiesfile, True)
+
+                        Console.ForegroundColor = ConsoleColor.Blue
+                        Console.WriteLine("Server.properties has been created!")
+
+                    End If
                 Loop While confirmedit <> "Y" And confirmedit <> "N"
-
-            Else
-                Console.ForegroundColor = ConsoleColor.Red
-                Console.WriteLine("You must define the path of your servers!")
-
-            End If
+            Loop While confirmedit <> "Y" And confirmedit <> "N"
         End If
     End Sub
 

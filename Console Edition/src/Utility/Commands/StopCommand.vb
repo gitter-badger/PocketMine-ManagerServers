@@ -38,6 +38,7 @@
             Else
                 Console.ForegroundColor = ConsoleColor.Magenta
                 Console.WriteLine("Sorry, but this fuction isn't implemented yet.")
+
             End If
         End If
     End Sub

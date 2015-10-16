@@ -117,12 +117,17 @@ Module BackgroudTask
                 'END
 
                 If chooserestart2 = "N" Then
-                    Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-ManagerServers.exe")
+                    Try
+                        Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-ManagerServers.exe")
+                    Catch ex As Exception
+                        Console.WriteLine("BAD INSTALLATION")
+                    End Try
                 End If
 
             Loop While chooserestart2 = "Y" Or autorestart = True
         Else
             Console.Clear()
+            Console.ForegroundColor = ConsoleColor.Red
             Console.WriteLine("You must first enter the values for the restart of servers")
             Console.ReadLine()
         End If

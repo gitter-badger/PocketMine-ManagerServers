@@ -20,6 +20,8 @@
         Dim chooserestart, choosetime, chooserestart2 As String
         Dim checktime, checkchoosetime, checkchooseserver As Object
 
+        Dim PMProcess() As Process = Process.GetProcessesByName("mintty") 'Process of PocketMine-MP
+
         checktime = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\Time.pm")
         checkchoosetime = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\ChooseTime.pm")
         checkchooseserver = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\ChooseServer.pm")
@@ -57,62 +59,68 @@
                     Catch ex As Exception
 
                     End Try
-                Loop While chooseserver < 1 Or chooseserver > 10
+                Loop While chooseserver < "1" Or chooseserver > "10"
 
-                If chooserestart < nservers Then
-                    If checkpath(chooseserver - 1) And path(chooseserver - 1) <> "" Then
+                If checkpath(chooseserver - 1) And path(chooseserver - 1) <> "" Then
 
-                        If checkchooseserver Then
-                            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\ChooseServer.pm")
+                    If checkchooseserver Then
+                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\ChooseServer.pm")
+
+                    End If
+
+                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\ChooseServer.pm", chooseserver, True)
+
+                    Console.WriteLine()
+                    Console.WriteLine("1- {0}", restarter5)
+                    Console.WriteLine("2- {0}", restarter6)
+                    Console.WriteLine("3- {0}", restarter7)
+                    Console.Write("{0}", restarter4)
+                    choosetime = Console.ReadLine
+
+                    If choosetime = "1" Or choosetime = "2" Or choosetime = "3" Then
+
+                        If checkchoosetime Then
+                            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\ChooseTime.pm")
+
+                        End If
+
+                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\ChooseTime.pm", choosetime, True)
+
+                        Dim time As SByte
+
+                        If choosetime = "1" Then
+                            Console.Write("{0} {1}? ", restarter8, restarter5.ToLower)
+
+                        ElseIf choosetime = "2" Then
+                            Console.Write("{0} {1}? ", restarter8, restarter6.ToLower)
+
+                        ElseIf choosetime = "3" Then
+                            Console.Write("{0} {1}? ", restarter8, restarter7.ToLower)
+
+                        End If
+                        time = Console.ReadLine
+
+                        If checktime Then
+                            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\Time.pm")
 
                         End If
 
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\ChooseServer.pm", chooseserver, True)
+                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\Time.pm", time, True)
 
-                        Console.WriteLine()
-                        Console.WriteLine("1- {0}", restarter5)
-                        Console.WriteLine("2- {0}", restarter6)
-                        Console.WriteLine("3- {0}", restarter7)
-                        Console.Write("{0}", restarter4)
-                        choosetime = Console.ReadLine
+                        If PMProcess.Length > 0 Then
+                            Try
+                                Process.Start("C:\Program Files\PocketMine-ManagerServers\PM-MS(BackgroudTask).exe")
 
-                        If choosetime = "1" Or choosetime = "2" Or choosetime = "3" Then
+                            Catch ex As Exception
+                                Console.WriteLine("BAD INSTALLATION")
+                            End Try
+                        Else
 
-                            If checkchoosetime Then
-                                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\ChooseTime.pm")
-
-                            End If
-
-                            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\ChooseTime.pm", choosetime, True)
-
-                            Dim time As SByte
-
-                            If choosetime = "1" Then
-                                Console.Write("{0} {1}? ", restarter8, restarter5.ToLower)
-
-                            ElseIf choosetime = "2" Then
-                                Console.Write("{0} {0}? ", restarter8, restarter6.ToLower)
-
-                            ElseIf choosetime = "3" Then
-                                Console.Write("{0} {0}? ", restarter8, restarter7.ToLower)
-
-                            End If
-                            time = Console.ReadLine
-
-                            If checktime Then
-                                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\Time.pm")
-
-                            End If
-
-                            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\Time.pm", time, True)
-
-                            Process.Start("C:\Program Files\PocketMine-ManagerServers\PM-MS(BackgroudTask).exe")
+                            Console.ForegroundColor = ConsoleColor.Red
+                            Console.WriteLine("Any servers is running!")
+                            Console.ReadLine()
 
                         End If
-                    Else
-                        Console.WriteLine("Select an avaible server!")
-                        Console.ReadLine()
-
                     End If
 
                 Else
@@ -135,7 +143,6 @@
 
             If chooserestart = "2" Then
                 Dim chooseserver As SByte
-                Dim PMProcess() As Process = Process.GetProcessesByName("mintty") 'Process of PocketMine-MP
 
                 Console.WriteLine()
                 For i = 1 To nservers
