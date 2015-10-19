@@ -68,6 +68,13 @@
 
         Loop While language > 30 Or language <= 0
 
+        If language <> 9 And language <> 16 Then
+            Console.ForegroundColor = ConsoleColor.Yellow
+            Console.WriteLine("You've chosen a language not available, by default will be english")
+            System.Threading.Thread.Sleep(1000)
+
+        End If
+
         If changelang = False Then
             My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm", language, True)
 

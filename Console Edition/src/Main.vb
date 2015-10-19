@@ -133,8 +133,7 @@
 
         End If
 
-        While quit = "N"
-            LanguageReader.LanguageReader(language, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
+        LanguageReader.LanguageReader(language, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
                               menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
                               installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
                               manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
@@ -144,6 +143,7 @@
                               infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, restartertitle, restarter1, restarter2, restarter3, _
                               restarter4, restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12)
 
+        While quit = "N"
             Console.ForegroundColor = ConsoleColor.Green
             Console.Clear()
             Console.WriteLine("========================<PocketMine Manager Servers>============================")
@@ -274,13 +274,20 @@
 
     Sub Selection(ByRef nservers As SByte, ByRef nameservers As String(), ByRef numberservers As String(), ByRef defaultservers As String)
         For i = 1 To nservers
-            defaultservers = ("Server Minecraft PE_" + Convert.ToString(i))
+            defaultservers = ("Server_Minecraft_PE_" + Convert.ToString(i))
 
             Console.Write("{0}) Name of {1} server?: ", i, numberservers(i - 1))
             nameservers(i - 1) = Console.ReadLine
 
-            If nameservers(i - 1) = "" Then
-                nameservers(i - 1) = defaultservers
+            If nameservers(i - 1).Contains(" ") Then
+                Console.WriteLine("Sorry, but you can't insert space from name")
+                Console.ReadLine()
+                CompleterLoader.CompleterLoader(defaultservers)
+
+            Else
+                If nameservers(i - 1) = "" Then
+                    nameservers(i - 1) = defaultservers
+                End If
             End If
         Next
     End Sub

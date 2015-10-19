@@ -120,6 +120,7 @@ Clear:
 
                     ElseIf command = "restart " + args(1) Then
                         RestartCommand.RestartCommand(args, command, path, nservers, checkpath) 'TODO: To complete
+
                     End If
                 End If
 

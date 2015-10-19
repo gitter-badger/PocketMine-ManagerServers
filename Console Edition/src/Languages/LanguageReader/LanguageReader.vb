@@ -26,23 +26,24 @@
                     ByRef restartertitle As String, ByRef restarter1 As String, ByRef restarter2 As String, ByRef restarter3 As String, ByRef restarter4 As String, ByRef restarter5 As String, ByRef restarter6 As String, ByRef restarter7 As String, ByRef restarter8 As String, ByRef restarter9 As String, _
                     ByRef restarter10 As String, ByRef restarter11 As String, ByRef restarter12 As String)
 
-        If language = 1 Then 'Afrikaans
+        'If language = 1 Then 'Afrikaans 'When other languages will be avaiable I "unlock" these
 
-        ElseIf language = 2 Then 'Arabic
+        'ElseIf language = 2 Then 'Arabic
 
-        ElseIf language = 3 Then 'Catalan
+        'ElseIf language = 3 Then 'Catalan
 
-        ElseIf language = 4 Then 'Chinese Simplified
+        'ElseIf language = 4 Then 'Chinese Simplified
 
-        ElseIf language = 5 Then 'Chinese Traditional
+        'ElseIf language = 5 Then 'Chinese Traditional
 
-        ElseIf language = 6 Then 'Czech
+        'ElseIf language = 6 Then 'Czech
 
-        ElseIf language = 7 Then 'Danish
+        'ElseIf language = 7 Then 'Danish
 
-        ElseIf language = 8 Then 'Dutch
+        'ElseIf language = 8 Then 'Dutch
 
-        ElseIf language = 9 Then 'English
+        'Else
+        If language = 9 Or language <> 16 Then 'English
             EnglishReader.EnglishReader(back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
                               menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
                               installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
@@ -53,17 +54,17 @@
                               infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, restartertitle, restarter1, restarter2, restarter3, _
                               restarter4, restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12)
 
-        ElseIf language = 10 Then 'Finnish
+            'ElseIf language = 10 Then 'Finnish
 
-        ElseIf language = 11 Then 'French
+            'ElseIf language = 11 Then 'French
 
-        ElseIf language = 12 Then 'German
+            'ElseIf language = 12 Then 'German
 
-        ElseIf language = 13 Then 'Greek
+            'ElseIf language = 13 Then 'Greek
 
-        ElseIf language = 14 Then 'Hebrew
+            'ElseIf language = 14 Then 'Hebrew
 
-        ElseIf language = 15 Then 'Hungarian
+            'ElseIf language = 15 Then 'Hungarian
 
         ElseIf language = 16 Then 'Italian
             ItalianReader.ItalianReader(back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
@@ -76,33 +77,33 @@
                               infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, restartertitle, restarter1, restarter2, restarter3, _
                               restarter4, restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12)
 
-        ElseIf language = 17 Then 'Japanese
+            'ElseIf language = 17 Then 'Japanese
 
-        ElseIf language = 18 Then 'Korean
+            'ElseIf language = 18 Then 'Korean
 
-        ElseIf language = 19 Then 'Norwegian
+            'ElseIf language = 19 Then 'Norwegian
 
-        ElseIf language = 20 Then 'Polish
+            'ElseIf language = 20 Then 'Polish
 
-        ElseIf language = 21 Then 'Portuguese
+            'ElseIf language = 21 Then 'Portuguese
 
-        ElseIf language = 22 Then 'Portuguese(Brazilian)
+            'ElseIf language = 22 Then 'Portuguese(Brazilian)
 
-        ElseIf language = 23 Then 'Romanian
+            'ElseIf language = 23 Then 'Romanian
 
-        ElseIf language = 24 Then 'Russian
+            'ElseIf language = 24 Then 'Russian
 
-        ElseIf language = 25 Then 'Serbian(Cyrillic)
+            'ElseIf language = 25 Then 'Serbian(Cyrillic)
 
-        ElseIf language = 26 Then 'Spanish
+            'ElseIf language = 26 Then 'Spanish
 
-        ElseIf language = 27 Then 'Swedish
+            'ElseIf language = 27 Then 'Swedish
 
-        ElseIf language = 28 Then 'Turkish
+            'ElseIf language = 28 Then 'Turkish
 
-        ElseIf language = 29 Then 'Ukrainian
+            'ElseIf language = 29 Then 'Ukrainian
 
-        ElseIf language = 30 Then 'Vietnamese
+            'ElseIf language = 30 Then 'Vietnamese
 
         End If
 

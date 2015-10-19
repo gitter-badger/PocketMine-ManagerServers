@@ -72,7 +72,7 @@
 
         Checking(checknameserver, checkpath)
 
-        defaultservers = "Server Minecraft PE"
+        defaultservers = "Server_Minecraft_PE"
 
         Console.Clear()
         Console.ForegroundColor = ConsoleColor.Green
