@@ -171,6 +171,7 @@
                 Console.WriteLine("6- Memory Usage")
                 Console.WriteLine("7- Server Restarter (BackgroundTask)")
                 Console.WriteLine("8- Commands Mode (Not server, only software)")
+                Console.WriteLine("9- Restart PocketMine-ManagerServers")
                 Console.ForegroundColor = ConsoleColor.White
 
             End If
@@ -240,7 +241,7 @@
                 i = 0
             End If
 
-            If menu = "devon" Or menu = "devoff" Or menu = "6" Or menu = "7" Or menu = "8" Then
+            If menu = "devon" Or menu = "devoff" Or menu = "6" Or menu = "7" Or menu = "8" Or menu = "9" Then
                 i += 1
                 DevMenu.DevMenu(menu, devmode, checkdevmode, i, nameservers, nservers, path, checkpath, language, checklanguage, backupstatus, checknameserver)
             End If

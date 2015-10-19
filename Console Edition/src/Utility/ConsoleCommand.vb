@@ -52,7 +52,7 @@ Clear:
                     Console.WriteLine("/help : Show help page")
                     Console.WriteLine("/language <languagename|list> : Change language of program.")
                     Console.WriteLine("/menu : Return in the main menu")
-                    Console.WriteLine("/restart <servername|all> : Restart one or all servers.")
+                    Console.WriteLine("/restart <pocketmine|servername|all> : Restart PocketMine-ManagerServers or one or all servers.")
                     Console.WriteLine("/restore <servername|all> : Restore a backup of one or all servers")
                     Console.WriteLine("/set start <commander|menu> : Set the initial interface when the program starts")
                     Console.WriteLine("/start <servername|all> : Start one or all servers")

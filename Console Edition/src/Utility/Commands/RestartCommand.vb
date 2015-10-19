@@ -34,10 +34,18 @@
                     Next
                     Console.ForegroundColor = ConsoleColor.Green
                     Console.WriteLine("All servers are restarted!")
-
+                ElseIf args(1) = "pocketmine" Or args(1) = "pm" Then
+                    Try
+                        Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-ManagerServers.exe")
+                        End
+                    Catch ex As Exception
+                        Console.ForegroundColor = ConsoleColor.Red
+                        Console.WriteLine("Error! Bad Installation!")
+                        Console.ReadLine()
+                    End Try
                 Else
-                    Console.ForegroundColor = ConsoleColor.Magenta
-                    Console.WriteLine("Sorry but this fuction isn't implemented yet.")
+                        Console.ForegroundColor = ConsoleColor.Magenta
+                        Console.WriteLine("Sorry but this fuction isn't implemented yet.")
                 End If
             Else
                 Console.ForegroundColor = ConsoleColor.Red

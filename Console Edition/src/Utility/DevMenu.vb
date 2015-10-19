@@ -103,5 +103,16 @@
 
         End If
 
+        If menu = "9" And devmode = True Then
+            Try
+                Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-ManagerServers.exe")
+                End
+            Catch ex As Exception
+                Console.ForegroundColor = ConsoleColor.Red
+                Console.WriteLine("Error! Bad Installation!")
+                Console.ReadLine()
+            End Try
+        End If
+
     End Sub
 End Module
