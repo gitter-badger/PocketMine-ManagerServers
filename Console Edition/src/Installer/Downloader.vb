@@ -18,11 +18,11 @@
                    ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef downloadertitle As String, ByRef downloader1 As String, ByRef downloader2 As String, ByRef downloader3 As String, ByRef downloader4 As String, ByRef downloader5 As String, ByRef downloader6 As String, _
                    ByRef downloader7 As String, ByRef downloader8 As String, ByRef downloader9 As String, ByRef downloader10 As String, ByRef downloader11 As String)
 
-        Dim version, stable, beta, dev, soft, linkstable, linkbeta, linkdev, linksoft, downloadpath As String
+        Dim version, stable, beta, dev, soft, linkstable, linkbeta, linkdev, linkdev2, linksoft, downloadpath As String
 
         Dim chooseserver As Object
 
-        Dim checkpocketmine, checkdownloadpath, checkbeta, checkdev, checksoft As Object
+        Dim checkpocketmine, checkdownloadpath, checkbeta, checkdev, checkdev2, checksoft As Object
 
         checkpocketmine = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_Installer_1.4.1_x86.exe")
         checkdownloadpath = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\PathDownload.pm")
@@ -33,9 +33,10 @@
 
         linkstable = "https://github.com/PocketMine/PocketMine-MP/releases/download/1.4.1/PocketMine-MP_Installer_1.4.1_x86.exe"
         linkbeta = "https://github.com/PocketMine/PocketMine-MP/releases/download/1.4.1dev-936/PocketMine-MP_1.4.1dev-936.phar"
-        linkdev = "http://jenkins.pocketmine.net/job/PocketMine-MP/1258/artifact/PocketMine-MP_1.5dev-1258_0380e900_API-1.12.0.phar"
-        linksoft = "http://jenkins.pocketmine.net/job/PocketMine-Soft/lastSuccessfulBuild/artifact/PocketMine-Soft_1.5dev-243_3a09c50b_API-1.12.0.phar"
-
+        linkdev = "http://jenkins.pocketmine.net/job/PocketMine-MP/lastSuccessfulBuild/artifact/PocketMine-MP_1.5dev-1264_04fc062b_API-1.12.0.phar"
+        linkdev2 = "http://jenkins.pocketmine.net/job/PocketMine-MP-Bleeding/lastSuccessfulBuild/artifact/PocketMine-MP_1.6dev-48_mcpe-0.12_f9d7e204_API-1.13.0.phar"
+        linksoft = "http://jenkins.pocketmine.net/job/PocketMine-Soft/lastSuccessfulBuild/artifact/PocketMine-Soft_1.5dev-245_cb9f360e_API-1.12.0.phar"
+        'TODO: Re-write it for simplify the addition of new versions [IMPORTANT]
         Do
             Console.Clear()
             Console.ForegroundColor = ConsoleColor.Green
@@ -71,7 +72,7 @@
                     Do
                         Console.WriteLine()
                         Console.WriteLine("{0}", currentversion)
-                        Console.WriteLine("1) 1.4.1 API 1.11.0 Zekkou-Cake")
+                        Console.WriteLine("1) 1.4.1 API 1.11.0 Zekkou-Cake {MC:PE 0.10.x}")
                         Console.WriteLine()
                         Console.Write("{0}", downloader2)
                         stable = Console.ReadLine
@@ -99,7 +100,7 @@
                     Do
                         Console.WriteLine()
                         Console.WriteLine("{0}", currentversion)
-                        Console.WriteLine("1) 1.4.1 API 1.11.0 Zekkou-Cake")
+                        Console.WriteLine("1) 1.4.1 API 1.11.0 Zekkou-Cake {MC:PE 0.10.x}")
                         Console.WriteLine()
                         Console.Write("{0}", downloader2)
                         beta = Console.ReadLine
@@ -127,7 +128,8 @@
                     Do
                         Console.WriteLine()
                         Console.WriteLine("{0}", currentversion)
-                        Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1258]")
+                        Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1264] {MC:PE 0.11.x}")
+                        Console.WriteLine("2) 1.6 API 1.13.0 No-Name [#Dev Build 48] {MC:PE 0.12.x}")
                         Console.WriteLine()
                         Console.Write("{0}", downloader2)
                         dev = Console.ReadLine
@@ -147,8 +149,24 @@
                                 Console.ReadLine()
 
                             End If
+
+                        ElseIf dev = "2" Then
+                            If checkdev2 Then
+                                Console.WriteLine()
+                                Console.WriteLine("{0}", downloader6)
+                                Console.ReadLine()
+
+                                Exit Sub
+
+                            Else
+                                Console.WriteLine("{0}", downloader7)
+                                Process.Start(linkdev2)
+                                Console.WriteLine("{0}", downloader8)
+                                Console.ReadLine()
+
+                            End If
                         End If
-                    Loop While dev <> "1"
+                    Loop While dev <> "1" And dev <> "2"
                 End If
 
                 If version = "4" Then 'Soft
@@ -203,7 +221,7 @@
         Loop While chooseserver <> "11"
     End Sub
 
-    Sub MoveDownloadedFile(ByRef checkpocketmine As Object, ByRef downloadpath As String, ByRef checkbeta As Object, ByRef checkdev As Object, ByRef checksoft As Object, ByRef version As String)
+    Sub MoveDownloadedFile(ByRef checkpocketmine As Object, ByRef downloadpath As String, ByRef checkbeta As Object, ByRef checkdev As Object, ByRef checksoft As Object, ByRef version As String) 'TODO: Update! [IMPORTANT]
         If version = "2" And checkbeta = False Then
             My.Computer.FileSystem.CopyFile(downloadpath + "\PocketMine-MP_1.4.1dev-936.phar", "C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_1.4.1dev-936.phar", overwrite:=True)
             My.Computer.FileSystem.RenameFile("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_1.4.1dev-936.phar", "PocketMine-MP_BETA.phar")
