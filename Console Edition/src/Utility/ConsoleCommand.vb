@@ -46,7 +46,7 @@ Clear:
                 If command.ToLower = "help" Then
                     Console.ForegroundColor = ConsoleColor.Yellow
                     Console.WriteLine("/backup <servername|all> : Create a backup of one or all servers")
-                    Console.WriteLine("/clear : Clean the console.")
+                    Console.WriteLine("/clear : Clean the console screen.")
                     Console.WriteLine("/edit <performance|properties> : Edit your server's performace or properties")
                     Console.WriteLine("/exit : Leave the program.")
                     Console.WriteLine("/help : Show help page")

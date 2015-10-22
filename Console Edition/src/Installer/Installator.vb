@@ -21,14 +21,15 @@
                     ByRef versionsoft1 As String, ByRef currentversion As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef installatortitle As String, ByRef installator1 As String, ByRef installator2 As String, _
                     ByRef installator3 As String, ByRef installator4 As String, ByRef installator5 As String, ByRef installator6 As String, ByRef installator7 As String, ByRef versions1 As String, ByRef versions2 As String, ByRef versions3 As String)
 
-        Dim checkpocketmine, checkbeta, checkdev, checksoft As Object
+        Dim checkpocketmine, checkbeta, checkdev, checkdev2, checksoft As Object
 
         Dim checkphar1, checkphar2 As Object
 
         checkpocketmine = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_Installer_1.4.1_x86.exe")
 
         checkbeta = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_BETA.phar")
-        checkdev = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_DEV.phar")
+        checkdev = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_DEV_1.5.phar")
+        checkdev2 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_DEV_1.6.phar")
         checksoft = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_SOFT.phar")
 
         Dim stable, beta, dev, soft, confirmphar As String
@@ -115,7 +116,7 @@
                         Do
                             Console.WriteLine()
                             Console.WriteLine("{0}", currentversion)
-                            Console.WriteLine("1) 1.4.1 API 1.11.0 Zekkou-Cake")
+                            Console.WriteLine("1) 1.4.1 API 1.11.0 Zekkou-Cake {MC:PE 0.10.x}")
                             Console.WriteLine()
                             Console.Write("{0}", installator2)
                             beta = Console.ReadLine
@@ -146,7 +147,7 @@
                         Do
                             Console.WriteLine()
                             Console.WriteLine("{0}", currentversion)
-                            Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1258]")
+                            Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1264] {MC:PE 0.11.x}")
                             Console.WriteLine()
                             Console.Write("{0}", installator2)
                             dev = Console.ReadLine
@@ -158,7 +159,26 @@
                                         confirmphar = Console.ReadLine.ToUpper
 
                                         If confirmphar = "Y" Then
-                                            ChangeInstallationFiles(path(chooseserver - 1), "DEV", checkphar1, checkphar2)
+                                            ChangeInstallationFiles(path(chooseserver - 1), "DEV_1.5", checkphar1, checkphar2)
+
+                                        End If
+                                    Loop While confirmphar <> "Y" Or confirmphar <> "N"
+
+                                Else
+                                    Console.WriteLine("{0}", versions2)
+                                    Console.WriteLine("{0}", versions3)
+                                    Console.ReadLine()
+
+                                End If
+
+                            ElseIf dev = "2" Then
+                                If checkdev2 Then
+                                    Do
+                                        Console.WriteLine("{0} <Y/N>: ", versions1)
+                                        confirmphar = Console.ReadLine.ToUpper
+
+                                        If confirmphar = "Y" Then
+                                            ChangeInstallationFiles(path(chooseserver - 1), "DEV_1.6", checkphar1, checkphar2)
 
                                         End If
                                     Loop While confirmphar <> "Y" Or confirmphar <> "N"
@@ -170,14 +190,14 @@
 
                                 End If
                             End If
-                        Loop While dev <> "1"
+                        Loop While dev <> "1" And dev <> "2"
                     End If
 
                     If version = "4" Then 'Soft
                         Do
                             Console.WriteLine()
                             Console.WriteLine("{0}", currentversion)
-                            Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu")
+                            Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu {MC:PE 0.11.x}")
                             Console.WriteLine()
                             Console.Write("{0}", installator2)
                             soft = Console.ReadLine

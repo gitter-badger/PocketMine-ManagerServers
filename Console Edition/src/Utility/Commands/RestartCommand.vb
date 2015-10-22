@@ -44,8 +44,8 @@
                         Console.ReadLine()
                     End Try
                 Else
-                        Console.ForegroundColor = ConsoleColor.Magenta
-                        Console.WriteLine("Sorry but this fuction isn't implemented yet.")
+                    Console.ForegroundColor = ConsoleColor.Magenta
+                    Console.WriteLine("Sorry but this fuction isn't implemented yet.")
                 End If
             Else
                 Console.ForegroundColor = ConsoleColor.Red
