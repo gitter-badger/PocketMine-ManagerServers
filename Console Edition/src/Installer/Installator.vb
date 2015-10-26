@@ -16,8 +16,8 @@
 
 
 
-    Sub Installator(ByRef checkpath As Object(), ByRef nservers As SByte, ByRef nameservers As String(), ByRef installationstatus As String(), ByRef versionstatus As String(), ByRef path As String(), ByRef numberservers As String(), _
-                    ByRef back As String, ByRef menu1 As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable1 As String, ByRef versionbeta1 As String, ByRef versiondev1 As String, _
+    Sub Installator(ByRef nameservers As String(), ByRef nservers As SByte, ByRef checkpath As Object(), ByRef path As String(), ByRef numberservers As String(), ByRef installationstatus As String(), ByRef versionstatus As String(), _
+                    ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable1 As String, ByRef versionbeta1 As String, ByRef versiondev1 As String, _
                     ByRef versionsoft1 As String, ByRef currentversion As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef installatortitle As String, ByRef installator1 As String, ByRef installator2 As String, _
                     ByRef installator3 As String, ByRef installator4 As String, ByRef installator5 As String, ByRef installator6 As String, ByRef installator7 As String, ByRef versions1 As String, ByRef versions2 As String, ByRef versions3 As String)
 

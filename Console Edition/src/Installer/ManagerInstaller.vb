@@ -55,8 +55,8 @@
             End If
 
             If chooseinstallation = "2" Then
-                Installator.Installator(checkpath, nservers, nameservers, installationstatus, versionstatus, path, numberservers, back, changemade, status1, version1, versionstable1, versionbeta1, _
-                                        versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menu1, installatortitle, installator1, installator2, installator3, installator4, installator5, installator6, _
+                Installator.Installator(nameservers, nservers, checkpath, path, numberservers, downloadstatus, versionstatus, back, changemade, status1, version1, versionstable1, versionbeta1, _
+                                        versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, installatortitle, installator1, installator2, installator3, installator4, installator5, installator6, _
                                         installator7, versions1, versions2, versions3)
 
             End If
