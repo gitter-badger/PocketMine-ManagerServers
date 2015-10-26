@@ -83,7 +83,7 @@
         Dim dirservername, dirpath, dirdata, dirutils, dirperformance, dirinstallations, dirlanguages, direrrors As Object
 
         Const version_pm As String = "1.3"
-        Const build_pm As String = "BUILD 1"
+        Const build_pm As String = "BUILD 2"
 
         Dim commandstart As Boolean
         Dim checkcommand As Object = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\Starter.pm")

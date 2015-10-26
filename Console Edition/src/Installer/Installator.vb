@@ -14,8 +14,6 @@
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
 
-
-
     Sub Installator(ByRef nameservers As String(), ByRef nservers As SByte, ByRef checkpath As Object(), ByRef path As String(), ByRef numberservers As String(), ByRef installationstatus As String(), ByRef versionstatus As String(), _
                     ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable1 As String, ByRef versionbeta1 As String, ByRef versiondev1 As String, _
                     ByRef versionsoft1 As String, ByRef currentversion As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef installatortitle As String, ByRef installator1 As String, ByRef installator2 As String, _
