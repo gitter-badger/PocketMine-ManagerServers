@@ -44,19 +44,19 @@
                 Console.WriteLine("{0}", performance12)
 
                 If performance = "1" Then 'High
-                    ChangePerformance(path(selectperformance - 1), "HIGH", checkyml, checkyml2)
+                    ChangePerformance(path(selectperformance - 1), "HIGH")
                     ChoosePerformance(selectperformance, performancestatus, performance, changemade)
 
                 End If
 
                 If performance = "2" Then 'Medium
-                    ChangePerformance(path(selectperformance - 1), "MEDIUM", checkyml, checkyml2)
+                    ChangePerformance(path(selectperformance - 1), "MEDIUM")
                     ChoosePerformance(selectperformance, performancestatus, performance, changemade)
 
                 End If
 
                 If performance = "3" Then
-                    ChangePerformance(path(selectperformance - 1), "LOW", checkyml, checkyml2)
+                    ChangePerformance(path(selectperformance - 1), "LOW")
                     ChoosePerformance(selectperformance, performancestatus, performance, changemade)
 
                 End If
@@ -80,10 +80,10 @@
 
     End Sub
 
-    Sub ChangePerformance(ByRef path As String, ByRef priority As String, ByRef checkyml As Boolean, ByRef checkyml2 As Boolean)
+    Sub ChangePerformance(ByRef path As String, ByRef priority As String)
 
-        checkyml = My.Computer.FileSystem.FileExists(path + "\pocketmine.yml")
-        checkyml2 = My.Computer.FileSystem.FileExists(path + "\pocketmine_OLD.yml")
+        Dim checkyml As Boolean = My.Computer.FileSystem.FileExists(path + "\pocketmine.yml")
+        Dim checkyml2 As Boolean = My.Computer.FileSystem.FileExists(path + "\pocketmine_OLD.yml")
 
         If checkyml Then
             If checkyml2 Then

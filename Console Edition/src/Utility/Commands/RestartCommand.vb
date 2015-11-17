@@ -34,6 +34,7 @@
                     Next
                     Console.ForegroundColor = ConsoleColor.Green
                     Console.WriteLine("All servers are restarted!")
+
                 ElseIf args(1) = "pocketmine" Or args(1) = "pm" Then
                     Try
                         Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-ManagerServers.exe")

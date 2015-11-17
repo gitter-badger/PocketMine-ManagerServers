@@ -53,9 +53,9 @@
                 If chooseserver = "11" Then
                     Exit Sub
                 End If
-            Loop While chooseserver < "1" Or chooseserver > "10"
+            Loop While chooseserver < 1 Or chooseserver > 10
 
-            If chooseserver >= "1" Or chooseserver <= "10" Then
+            If chooseserver >= 1 Or chooseserver <= 10 Then
 
                 Dim version As String
 

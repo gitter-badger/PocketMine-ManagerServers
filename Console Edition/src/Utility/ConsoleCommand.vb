@@ -47,7 +47,7 @@ Clear:
                     Console.ForegroundColor = ConsoleColor.Yellow
                     Console.WriteLine("/backup <servername|all> : Create a backup of one or all servers")
                     Console.WriteLine("/clear : Clean the console screen.")
-                    Console.WriteLine("/edit <performance|properties> : Edit your server's performace or properties")
+                    Console.WriteLine("/edit <performance|properties> [PerformanceType] : Edit your server's performace or properties")
                     Console.WriteLine("/exit : Leave the program.")
                     Console.WriteLine("/help : Show help page")
                     Console.WriteLine("/language <languagename|list> : Change language of program.")
@@ -92,11 +92,7 @@ Clear:
                     RestoreCommand.RestoreCommand(args, command, nservers, path, checkpath, nameservers, backupstatus)
 
                 ElseIf command.ToLower = "edit" Or command.ToLower = "edit properties" Or command.ToLower = "edit performance" Then
-                    If command.ToLower = "edit" Or command.ToLower = "edit properties" Then
-                        EditorCommand.PropertiesCommand(args, command, nservers, path, checkpath, nameservers)
-                    Else
-                        EditorCommand.PerformanceCommand(args, command, nservers, path, checkpath, nameservers)
-                    End If
+                    EditorCommand.EditCommand(args, command, nservers, path, checkpath, nameservers)
 
                 ElseIf command.ToLower = "restart" Then
                     RestartCommand.RestartCommand(args, command, path, nservers, checkpath)
@@ -120,6 +116,9 @@ Clear:
 
                     ElseIf command = "restart " + args(1) Then
                         RestartCommand.RestartCommand(args, command, path, nservers, checkpath) 'TODO: To complete
+
+                    ElseIf command = "edit performance " + args(2) + " " + args(3) Then
+                        EditorCommand.EditCommand(args, command, nservers, path, checkpath, nameservers)
 
                     End If
                 End If
