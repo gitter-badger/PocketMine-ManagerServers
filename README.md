@@ -1,6 +1,16 @@
 #PocketMine-ManagerServers
 PocketMine-ManagerServers is a program that is able to install and manage servers for PocketMine-MP! (Others will be added in future thanks to your requests!)
 
+## How to install PocketMine-ManagerServers
+There are 2 type of versions for PocketMine-ManagerServers:
+- **Stable versions**: It's a build with minor bugs and with setup file.
+- **Beta versions (Builds)**: It's the last build with new fuctions added in future version.
+
+### Stable version
+If you [download](https://github.com/matcracker/PocketMine-ManagerServers/releases) a stable version from v1.1 to v1.2 when you run the setup and finished the installation, you must go to the directory folder (**C:\Program Files\PocketMine-ManagerServers**) and move the DLL file (**Ionic.Zip.dll**) from the folder "Libraries" into the main folder. When you do this, you can run the software. Instead if you install the v1.3 you can do without moving the DLL's file.
+### Beta versions (Builds)
+If you [download](https://github.com/matcracker/PocketMine-ManagerServers/releases) a beta version, first install the last stable version, then replace the new build **PocketMine-ManagerServers.exe** with the current executable. Eventually for a correct working, delete the **Languages** folder and run the software.
+
 ## How it works PocketMine-ManagerServers?
 It's use is very simple! It will begin with a call screen in the main menu which lists the functions of the program.
 
