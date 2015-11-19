@@ -91,8 +91,8 @@
         Dim checkionic As Object = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Ionic.Zip.dll")
 
         'STARTUP
-        'Console.Title = "PocketMine-ManagerServers v" + version_pm
-        Console.Title = "PocketMine-ManagerServers v" + version_pm + " [" + build_pm + "]"
+        Console.Title = "PocketMine-ManagerServers v" + version_pm
+        'Console.Title = "PocketMine-ManagerServers v" + version_pm + " [" + build_pm + "]"
 
         If checkionic = False Then
             Dim downloadionic As Char
@@ -169,8 +169,8 @@
                 Console.ForegroundColor = ConsoleColor.Red
                 Console.WriteLine("{0}", menutitle)
                 Console.ForegroundColor = ConsoleColor.Yellow
-                Console.WriteLine("Developed by matcracker                                     Version: " + version_pm + " " + build_pm)
-                'Console.WriteLine("Developed by matcracker                                             Version: " + version_pm)
+                'Console.WriteLine("Developed by matcracker                                     Version: " + version_pm + " " + build_pm)
+                Console.WriteLine("Developed by matcracker                                             Version: " + version_pm)
                 If devmode = True Then
                     Console.ForegroundColor = ConsoleColor.Yellow
                     Console.WriteLine("                                                                  DEVMODE ACTIVE")

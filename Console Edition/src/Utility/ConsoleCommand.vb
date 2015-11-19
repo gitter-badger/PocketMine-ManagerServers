@@ -47,7 +47,7 @@ Clear:
                     Console.ForegroundColor = ConsoleColor.Yellow
                     Console.WriteLine("/backup <servername|all> : Create a backup of one or all servers")
                     Console.WriteLine("/clear : Clean the console screen.")
-                    Console.WriteLine("/edit <performance|properties> [PerformanceType] : Edit your server's performace or properties")
+                    Console.WriteLine("/edit <performance|properties> [PerformanceType] [ServerName]: Edit your server's performace or properties")
                     Console.WriteLine("/exit : Leave the program.")
                     Console.WriteLine("/help : Show help page")
                     Console.WriteLine("/language <languagename|list> : Change language of program.")
