@@ -1,5 +1,11 @@
 #PocketMine-ManagerServers
-PocketMine-ManagerServers is a program that is able to install and manage servers for PocketMine-MP! (Others will be added in future thanks to your requests!)
+PocketMine-ManagerServers is a useful software that allow you to install and manage servers for PocketMine-MP! You can install servers MC:PE from 0.10.x to 0.12.x, you can open directly from the software, you can change the performance and properties for each server, you can choose how many times you want to restart the server; in conclusion you can do everything for administrate a server!
+
+##Minimum System Requirements
+- Operative System (OS): Windows XP/7/8/8.1/10 32-64 bit
+- CPU Frequency: 1 GHz
+- Hard Disk space (HDD): 50 MByte  
+- RAM: 500 MB
 
 ## How to install PocketMine-ManagerServers
 There are 2 type of versions for PocketMine-ManagerServers:
