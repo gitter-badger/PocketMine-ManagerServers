@@ -47,7 +47,7 @@
                 Next
                 Console.WriteLine("11) {0}", back)
                 Console.WriteLine()
-                Console.Write("{0} ", installator2)
+                Console.Write("{0}", installator2)
                 chooseserver = Console.ReadLine
 
                 If chooseserver = "11" Then

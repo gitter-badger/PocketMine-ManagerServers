@@ -88,165 +88,185 @@
         Dim commandstart As Boolean
         Dim checkcommand As Object = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\Starter.pm")
 
+        Dim checkionic As Object = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Ionic.Zip.dll")
+
         'STARTUP
         'Console.Title = "PocketMine-ManagerServers v" + version_pm
         Console.Title = "PocketMine-ManagerServers v" + version_pm + " [" + build_pm + "]"
 
-        Loader.Loader(checklanguage, versionstatus, dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, _
-                      dirperformance, dirutils, checklicense, downloadstatus, installationstatus, backupstatus, dirlanguages, direrrors, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
-                      menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
-                      installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
-                      manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
-                      properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
-                      performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
-                      resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
-                      infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, restartertitle, restarter1, restarter2, restarter3, restarter4, restarter5, _
-                      restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12)
+        If checkionic = False Then
+            Dim downloadionic As Char
+            Console.ForegroundColor = ConsoleColor.Red
+            Console.WriteLine("Critical error! Can't find 'Ionic.Zip.dll' in the main directory! Update to version 1.3 or higher, or download the .dll binary from GitHub's repository")
+            Console.ResetColor()
+            Console.WriteLine()
+            Console.Write("Do you want to download the .dll file? <Y/N>: ")
+            downloadionic = Console.ReadLine.ToUpper
 
-        quit = "N"
-
-        CompleterLoader.CompleterLoader(defaultservers)
-
-        Console.Clear()
-        Console.WriteLine("Loading resource...")
-        System.Threading.Thread.Sleep(500)
-
-        nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
-        language = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm")
-
-        checkdevmode = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
-
-        If checkdevmode Then
-            devmode = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
-        End If
-
-        If checkcommand Then
-            commandstart = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\Starter.pm")
+            If downloadionic = "Y" Then
+                Process.Start("http://www.dllme.com/dll-download.php?code=e0d53caf6b271aed4e007c363e29769c&type=dll&file=15330")
+                Console.WriteLine("Now restart the software; if it does not work, make sure you put the .dll file in the root directory if not, contact the developer.")
+            Else
+                End
+            End If
 
         Else
-            commandstart = False
+            Loader.Loader(checklanguage, versionstatus, dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, _
+                          dirperformance, dirutils, checklicense, downloadstatus, installationstatus, backupstatus, dirlanguages, direrrors, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
+                          menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
+                          installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
+                          manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
+                          properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
+                          performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
+                          resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
+                          infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, restartertitle, restarter1, restarter2, restarter3, restarter4, restarter5, _
+                          restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12)
 
-        End If
+            quit = "N"
 
-        If commandstart = True Then
-            ConsoleCommand.ConsoleCommand(nameservers, nservers, path, checkpath, language, checklanguage, backupstatus, checknameserver)
+            CompleterLoader.CompleterLoader(defaultservers)
 
-        End If
-
-        LanguageReader.LanguageReader(language, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
-                              menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
-                              installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
-                              manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
-                              properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
-                              performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
-                              resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
-                              infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, restartertitle, restarter1, restarter2, restarter3, _
-                              restarter4, restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12)
-
-        While quit = "N"
-            Console.ForegroundColor = ConsoleColor.Green
             Console.Clear()
-            Console.WriteLine("========================<PocketMine Manager Servers>============================")
-            Console.ForegroundColor = ConsoleColor.Red
-            Console.WriteLine("{0}", menutitle)
-            Console.ForegroundColor = ConsoleColor.Yellow
-            Console.WriteLine("Developed by matcracker                                     Version: " + version_pm + " " + build_pm)
-            'Console.WriteLine("Developed by matcracker                                             Version: " + version_pm)
-            If devmode = True Then
-                Console.ForegroundColor = ConsoleColor.Yellow
-                Console.WriteLine("                                                                  DEVMODE ACTIVE")
-            End If
-            Console.ForegroundColor = ConsoleColor.White
-            Console.WriteLine("1- {0}", menu1)
-            Console.WriteLine("2- {0}", menu2)
-            Console.WriteLine("3- {0}", menu3)
-            Console.WriteLine("4- {0}", menu4)
-            Console.WriteLine("5- {0}", menu5)
+            Console.WriteLine("Loading resource...")
+            System.Threading.Thread.Sleep(500)
 
-            If devmode = True Then
+            nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
+            language = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm")
+
+            checkdevmode = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
+
+            If checkdevmode Then
+                devmode = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
+            End If
+
+            If checkcommand Then
+                commandstart = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\Starter.pm")
+
+            Else
+                commandstart = False
+
+            End If
+
+            If commandstart = True Then
+                ConsoleCommand.ConsoleCommand(nameservers, nservers, path, checkpath, language, checklanguage, backupstatus, checknameserver)
+
+            End If
+
+            LanguageReader.LanguageReader(language, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
+                                  menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
+                                  installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
+                                  manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
+                                  properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
+                                  performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
+                                  resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
+                                  infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, restartertitle, restarter1, restarter2, restarter3, _
+                                  restarter4, restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12)
+
+            While quit = "N"
+                Console.ForegroundColor = ConsoleColor.Green
+                Console.Clear()
+                Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                Console.ForegroundColor = ConsoleColor.Red
+                Console.WriteLine("{0}", menutitle)
                 Console.ForegroundColor = ConsoleColor.Yellow
-                Console.WriteLine()
-                Console.WriteLine("=={DEVMODE MENU}==")
-                Console.ForegroundColor = ConsoleColor.Cyan
-                Console.WriteLine("6- Memory Usage")
-                Console.WriteLine("7- Server Restarter (BackgroundTask)")
-                Console.WriteLine("8- Commands Mode (Not server, only software)")
-                Console.WriteLine("9- Restart PocketMine-ManagerServers")
+                Console.WriteLine("Developed by matcracker                                     Version: " + version_pm + " " + build_pm)
+                'Console.WriteLine("Developed by matcracker                                             Version: " + version_pm)
+                If devmode = True Then
+                    Console.ForegroundColor = ConsoleColor.Yellow
+                    Console.WriteLine("                                                                  DEVMODE ACTIVE")
+                End If
                 Console.ForegroundColor = ConsoleColor.White
+                Console.WriteLine("1- {0}", menu1)
+                Console.WriteLine("2- {0}", menu2)
+                Console.WriteLine("3- {0}", menu3)
+                Console.WriteLine("4- {0}", menu4)
+                Console.WriteLine("5- {0}", menu5)
 
-            End If
-            Console.WriteLine()
-            Console.Write("{0}", menu6)
-            menu = Console.ReadLine.ToLower
-
-
-            If menu = "1" Then 'Install PocketMine
-                ManagerInstaller.ManagerInstaller(path, nameservers, nservers, checkpath, numberservers, downloadstatus, installationstatus, versionstatus, checknameserver, back, changemade, status1, version1, versionstable1, versionbeta1, _
-                                        versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menu1, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, installator5, _
-                                        installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, versions1, versions2, versions3)
-
-            End If
-
-            If menu = "2" Then 'Manage Servers
-                Manager.Manager(nservers, varmanager, performance, performancestatus, backupstatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance, _
-                                back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, managertitle, manager1, manager2, manager3, manager4, manager5, openertitle, opener1, opener2, opener3, _
-                                opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, _
-                                performance6, performance7, performance8, performance9, performance10, performance11, performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, _
-                                restartertitle, restarter1, restarter2, restarter3, restarter4, restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12, installer3)
-
-            End If
-
-            If menu = "3" Then 'Program Options
-                Settings.Settings(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations, dirlanguages, direrrors, checklanguage, _
-                                  language, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
-                              menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
-                              installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
-                              manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
-                              properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
-                              performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
-                              resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
-                              infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, devmode, checkdevmode, restartertitle, restarter1, restarter2, restarter3, restarter4, _
-                              restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12)
-
-            End If
-
-            If menu = "4" Then 'Informations
-                Informations.Informations(checklicense, back, menu4, info1, info2, info3, info4, info5, info6, infotitle, infocredits, infoinformations, infodisclaimer)
-
-            End If
-
-            If menu = "5" Then 'Exit
-                Do
-                    Console.Clear()
-                    Console.ForegroundColor = ConsoleColor.Green
-                    Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                    Console.ForegroundColor = ConsoleColor.DarkGreen
-                    Console.WriteLine("{0}", exittitle)
+                If devmode = True Then
+                    Console.ForegroundColor = ConsoleColor.Yellow
+                    Console.WriteLine()
+                    Console.WriteLine("=={DEVMODE MENU}==")
+                    Console.ForegroundColor = ConsoleColor.Cyan
+                    Console.WriteLine("6- Memory Usage")
+                    Console.WriteLine("7- Server Restarter (BackgroundTask)")
+                    Console.WriteLine("8- Commands Mode (Not server, only software)")
+                    Console.WriteLine("9- Restart PocketMine-ManagerServers")
                     Console.ForegroundColor = ConsoleColor.White
-                    Console.Write("{0}", exit1)
-                    quit = Console.ReadLine.ToUpper
-                Loop While quit <> "Y" And quit <> "N"
-
-                If quit = "Y" Then
-                    Console.WriteLine("{0}", exit2)
-                    Console.ReadLine()
-                    End
 
                 End If
-            End If
+                Console.WriteLine()
+                Console.Write("{0}", menu6)
+                menu = Console.ReadLine.ToLower
 
-            Dim i As SByte
 
-            If i >= 3 Then
-                i = 0
-            End If
+                If menu = "1" Then 'Install PocketMine
+                    ManagerInstaller.ManagerInstaller(path, nameservers, nservers, checkpath, numberservers, downloadstatus, installationstatus, versionstatus, checknameserver, back, changemade, status1, version1, versionstable1, versionbeta1, _
+                                            versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menu1, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, installator5, _
+                                            installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, versions1, versions2, versions3)
 
-            If menu = "devon" Or menu = "devoff" Or menu = "6" Or menu = "7" Or menu = "8" Or menu = "9" Then
-                i += 1
-                DevMenu.DevMenu(menu, devmode, checkdevmode, i, nameservers, nservers, path, checkpath, language, checklanguage, backupstatus, checknameserver)
-            End If
+                End If
 
-        End While
+                If menu = "2" Then 'Manage Servers
+                    Manager.Manager(nservers, varmanager, performance, performancestatus, backupstatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance, _
+                                    back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, managertitle, manager1, manager2, manager3, manager4, manager5, openertitle, opener1, opener2, opener3, _
+                                    opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, _
+                                    performance6, performance7, performance8, performance9, performance10, performance11, performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, _
+                                    restartertitle, restarter1, restarter2, restarter3, restarter4, restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12, installer3)
+
+                End If
+
+                If menu = "3" Then 'Program Options
+                    Settings.Settings(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations, dirlanguages, direrrors, checklanguage, _
+                                      language, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
+                                  menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
+                                  installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
+                                  manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
+                                  properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
+                                  performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
+                                  resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
+                                  infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, devmode, checkdevmode, restartertitle, restarter1, restarter2, restarter3, restarter4, _
+                                  restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12)
+
+                End If
+
+                If menu = "4" Then 'Informations
+                    Informations.Informations(checklicense, back, menu4, info1, info2, info3, info4, info5, info6, infotitle, infocredits, infoinformations, infodisclaimer)
+
+                End If
+
+                If menu = "5" Then 'Exit
+                    Do
+                        Console.Clear()
+                        Console.ForegroundColor = ConsoleColor.Green
+                        Console.WriteLine("========================<PocketMine Manager Servers>============================")
+                        Console.ForegroundColor = ConsoleColor.DarkGreen
+                        Console.WriteLine("{0}", exittitle)
+                        Console.ForegroundColor = ConsoleColor.White
+                        Console.Write("{0}", exit1)
+                        quit = Console.ReadLine.ToUpper
+                    Loop While quit <> "Y" And quit <> "N"
+
+                    If quit = "Y" Then
+                        Console.WriteLine("{0}", exit2)
+                        Console.ReadLine()
+                        End
+
+                    End If
+                End If
+
+                Dim i As SByte
+
+                If i >= 3 Then
+                    i = 0
+                End If
+
+                If menu = "devon" Or menu = "devoff" Or menu = "6" Or menu = "7" Or menu = "8" Or menu = "9" Then
+                    i += 1
+                    DevMenu.DevMenu(menu, devmode, checkdevmode, i, nameservers, nservers, path, checkpath, language, checklanguage, backupstatus, checknameserver)
+                End If
+
+            End While
+        End If
     End Sub
 
     Sub Writing(ByRef nameservers As String(), ByRef nservers As SByte, ByRef path As String())
