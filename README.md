@@ -24,8 +24,6 @@ The current functions of the program are:
 - Installation PocketMine-MP
 - Management servers
 - Program options
-- Credits
-- Exit
 
 ###Installation PocketMine-MP
 The function itself says it does, install the system creating servers for Minecraft PE (Pocket Edition)
@@ -56,7 +54,24 @@ You can choose an interval of time to decide when to restart the server.
 This fuction allows you to change the language of the program.
 
 ###Dev Menu
-You can enable the menu from developer writing three times "devon" in the main menu, to disable write 3 times "devoff". The devmenu has two functions, one to control the use of memory that the program uses, the second to restart the server without the "BackgroundTask" disappear. It also enables the options the possibility of resetting the program data.
+You can enable the menu from developer writing three times "devon" in the main menu, to disable write 3 times "devoff". The devmenu contains some fuctions:
+- Memory usage
+- Force opening BackgroundTask
+- Commands mode
+- Restarting software
+- Resetting program data (in option menu)
 
-###Exit
-Exit the program :S
+####Memory usage
+This fuction allow you to control memory usage that the program uses.
+
+####Force opening BackgroundTask
+This fuction allow you to restart the server without the "BackgroundTask" disappear and open it if the "task" is turn off
+
+####Commands mode
+This fuction allow you to use program fuctions with the commands, like a real console! Digit **/help** or only **help** for show the all avaible commands.
+
+####Restarting software
+This fuction allow you simplify restart the software.
+
+####Resetting program data
+When you enable the devmode in the option menu you can see a new option **"Reset program"** that you can reset some data.
