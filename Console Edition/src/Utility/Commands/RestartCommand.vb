@@ -30,7 +30,13 @@
                     Next
 
                     For i = 1 To nservers
-                        Process.Start(path(i - 1) + "\start.cmd")
+                        Try
+                            Process.Start(path(i - 1) + "\start.cmd")
+                        Catch ex As Exception
+                            Console.ForegroundColor = ConsoleColor.Red
+                            Console.WriteLine("Can't find the start.cmd")
+                            Console.ForegroundColor = ConsoleColor.White
+                        End Try
                     Next
                     Console.ForegroundColor = ConsoleColor.Green
                     Console.WriteLine("All servers are restarted!")

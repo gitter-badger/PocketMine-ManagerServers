@@ -112,7 +112,9 @@
                                 Process.Start("C:\Program Files\PocketMine-ManagerServers\PM-MS(BackgroudTask).exe")
 
                             Catch ex As Exception
-                                Console.WriteLine("BAD INSTALLATION")
+                                Console.ForegroundColor = ConsoleColor.Red
+                                Console.WriteLine("Can't find the BackgroundTask, re-install correctly the software")
+                                Console.ForegroundColor = ConsoleColor.White
                             End Try
                         Else
 
@@ -164,7 +166,13 @@
                     Console.WriteLine()
                     Console.WriteLine("{0} ...", restarter11)
                     System.Threading.Thread.Sleep(3000)
-                    Process.Start(path(chooseserver - 1) + "\start.cmd")
+                    Try
+                        Process.Start(path(chooseserver - 1) + "\start.cmd")
+                    Catch ex As Exception
+                        Console.ForegroundColor = ConsoleColor.Red
+                        Console.WriteLine("Can't find the start.cmd")
+                        Console.ForegroundColor = ConsoleColor.White
+                    End Try
 
                     Console.WriteLine()
                     Console.WriteLine("{0}", restarter12)

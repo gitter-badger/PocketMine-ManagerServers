@@ -15,7 +15,7 @@
     '(at your option) any later version. 
     Sub Opener(ByRef nservers As SByte, ByRef nameservers As String(), ByRef numberservers_2 As String(), ByRef numberservers As String(), ByRef checknameserver As Object(), ByRef path As String(), ByRef pathopener As String, ByRef checkpath As Object(), ByRef performancestatus As String(), _
                ByRef back As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef manager1 As String, ByRef manager2 As String, ByRef manager3 As String, ByRef openertitle As String, ByRef opener1 As String, ByRef opener2 As String, ByRef opener3 As String, ByRef opener4 As String, _
-               ByRef opener5 As String, ByRef opener6 As String, ByRef opener7 As String, ByRef opener8 As String)
+               ByRef opener5 As String, ByRef opener6 As String, ByRef opener7 As String, ByRef opener8 As String, ByRef opener9 As String, ByRef opener10 As String)
 
         Reading(path, nservers, nameservers)
         Dim chooseserver As SByte
@@ -61,7 +61,7 @@
                 End Try
             Loop While chooseserver < 1 Or chooseserver > 10
 
-            If chooseserver < nservers Then
+            If chooseserver <= nservers Then
                 If checkpath(chooseserver - 1) And path(chooseserver - 1) <> "" And (pathopener = "1" Or pathopener = "2") Then
 
                     Console.WriteLine()
@@ -77,7 +77,7 @@
 
                         Console.WriteLine()
                         Do
-                            Console.Write("Do you want to open all servers? <Y/N>: ")
+                            Console.Write("{0} <Y/N>: ", opener9)
                             allservers = Console.ReadLine.ToUpper
 
                         Loop While allservers <> "Y" And allservers <> "N"
@@ -86,7 +86,13 @@
                             For i = 1 To nservers
                                 If nservers > 1 Then
                                     Console.WriteLine("{0} {1} server!", opener6, numberservers(i - 1))
-                                    Process.Start(path(i - 1) + "\start.cmd")
+                                    Try
+                                        Process.Start(path(i - 1) + "\start.cmd")
+                                    Catch ex As Exception
+                                        Console.ForegroundColor = ConsoleColor.Red
+                                        Console.WriteLine("Can't find the start.cmd")
+                                        Console.ForegroundColor = ConsoleColor.White
+                                    End Try
 
                                     Console.WriteLine("{0}", opener7)
 
@@ -94,37 +100,60 @@
 
                                 Else
                                     Console.WriteLine("{0} {1} server!", opener6, numberservers(i - 1))
-                                    Process.Start(path(i - 1) + "\start.cmd")
+                                    Try
+                                        Process.Start(path(i - 1) + "\start.cmd")
+                                    Catch ex As Exception
+                                        Console.ForegroundColor = ConsoleColor.Red
+                                        Console.WriteLine("Can't find the start.cmd")
+                                        Console.ForegroundColor = ConsoleColor.White
+                                    End Try
                                 End If
                             Next
                         ElseIf allservers = "N" Then
                             Console.WriteLine("{0} {1}", opener6, nameservers(chooseserver - 1))
-                            Process.Start(path(chooseserver - 1) + "\start.cmd")
+                            Try
+                                Process.Start(path(chooseserver - 1) + "\start.cmd")
+                            Catch ex As Exception
+                                Console.ForegroundColor = ConsoleColor.Red
+                                Console.WriteLine("Can't find the start.cmd")
+                                Console.ForegroundColor = ConsoleColor.White
+                            End Try
 
                         End If
                     End If
 
                     If pathopener = "2" Then
                         Do
-                            Console.Write("Do you want to open all folders of servers? <Y/N>: ")
+                            Console.Write("{0} <Y/N>: ", opener10)
                             allservers = Console.ReadLine.ToUpper
 
                         Loop While allservers <> "Y" And allservers <> "N"
 
                         If allservers = "Y" Then
                             For i = 1 To nservers
-                                Process.Start(path(i - 1))
-
+                                Try
+                                    Process.Start(path(i - 1) + "\start.cmd")
+                                Catch ex As Exception
+                                    Console.ForegroundColor = ConsoleColor.Red
+                                    Console.WriteLine("Can't find the start.cmd")
+                                    Console.ForegroundColor = ConsoleColor.White
+                                End Try
                             Next
                         ElseIf allservers = "N" Then
-                            Process.Start(path(chooseserver - 1))
+                            Try
+                                Process.Start(path(chooseserver - 1) + "\start.cmd")
+                            Catch ex As Exception
+                                Console.ForegroundColor = ConsoleColor.Red
+                                Console.WriteLine("Can't find the start.cmd")
+                                Console.ForegroundColor = ConsoleColor.White
+                            End Try
                         End If
                     End If
 
                 Else
 
                     Do
-                        Console.Write("{0} {1} {2} ", writepath1, nameservers(chooseserver - 1), writepath2)
+                        Console.Write("{0} {1}{2} ", writepath1, nameservers(chooseserver - 1), writepath2)
                         path(chooseserver - 1) = Console.ReadLine
 
                         If path(chooseserver - 1) = "" Then
