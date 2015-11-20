@@ -48,13 +48,13 @@ noted previously)
 This function implemented with version 1.1 allows you to create backup files whenever you like , for your server and wanting can also restore them !
 
 ######Server Restarter
-You can choose an interval of time to decide when to restart the server.
+You can choose an interval of time to decide when to restart the server and you can kill the BackgroudTask if is turned on.
 
 ###Options
 This fuction allows you to change the language of the program.
 
 ###Dev Menu
-You can enable the menu from developer writing three times "devon" in the main menu, to disable write 3 times "devoff". The devmenu contains some fuctions:
+You can enable the menu for developer writing three times "devon" in the main menu, to disable write 3 times "devoff". The devmenu contains some fuctions:
 - Memory usage
 - Force opening BackgroundTask
 - Commands mode
