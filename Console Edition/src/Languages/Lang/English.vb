@@ -162,7 +162,7 @@ Module English
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager5.lang", manager5, True)
 
         '-----------#Opener
-        Dim openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8 As String
+        Dim openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, opener9, opener10 As String
 
         openertitle = "-----------------------------------<Opener>-------------------------------------"
         opener1 = "Open"
@@ -173,6 +173,8 @@ Module English
         opener6 = "Loading"
         opener7 = "Wait 3 seconds to load each server!"
         opener8 = "Folders"
+        opener9 = "Do you want to open all servers? "
+        opener10 = "Do you want to open all folders of servers? "
 
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener0.lang", openertitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener1.lang", opener1, True)
@@ -183,6 +185,8 @@ Module English
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener6.lang", opener6, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener7.lang", opener7, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener8.lang", opener8, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener9.lang", opener9, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener10.lang", opener10, True)
 
         '-----------#Editor
         Dim editortitle, editor1, editor2, editor3 As String
@@ -198,7 +202,7 @@ Module English
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Editor3.lang", editor3, True)
 
         '-----------------#EditProperties
-        Dim propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6 As String
+        Dim propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6, properties7 As String
 
         propertiestitle = "--------------------------<Edit Server Properties>------------------------------"
         properties1 = "Checking path(s)..."
@@ -207,6 +211,7 @@ Module English
         properties4 = "Server.properties created!"
         properties5 = "Do you want to replace the old and new properties? (This will create a backup file) <Y/N>: "
         properties6 = "Path(s) not found!"
+        properties7 = "Do you want to confirm your choices? "
 
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties0.lang", propertiestitle, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties1.lang", properties1, True)
@@ -215,6 +220,7 @@ Module English
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties4.lang", properties4, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties5.lang", properties5, True)
         My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties6.lang", properties6, True)
+        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties7.lang", properties7, True)
 
         '----------------#EditPerformance
         Dim performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, performance12 As String

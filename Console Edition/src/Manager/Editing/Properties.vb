@@ -20,7 +20,7 @@ Module Properties
 
     Sub Properties(ByRef checkpath As Object(), ByRef path As String(), ByRef nservers As SByte, ByRef nameservers As String(), ByRef checknameserver As Object(), _
                    ByRef back As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef propertiestitle As String, ByRef properties1 As String, ByRef properties2 As String, _
-                   ByRef properties3 As String, ByRef properties4 As String, ByRef properties5 As String, ByRef properties6 As String, ByRef performance11 As String)
+                   ByRef properties3 As String, ByRef properties4 As String, ByRef properties5 As String, ByRef properties6 As String, ByRef properties7 As String, ByRef performance11 As String)
 
         Dim motd, serverport, whitelist, achievent, spawn, maxplayers, flight, animals, mobs, gamemode, forcegamemode, _
             hardcore, pvp, difficulty, generator, levelname, levelseed, leveltype, enablequery, enablercon, _
@@ -260,7 +260,7 @@ Module Properties
                 Loop While autosave <> "on" And autosave <> "off"
 
                 Do
-                    Console.Write("Do you want to confirm your choices? <Y/N>: ") 'TODO: Add in the language's file
+                    Console.Write("{0} <Y/N>: ", properties7) 'TODO: Add in the language's file
                     confirmedit = Console.ReadLine.ToUpper
 
                     If confirmedit = "Y" Then

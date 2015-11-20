@@ -22,9 +22,9 @@
         Dim versions1, versions2, versions3 As String
         Dim downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11 As String
         Dim managertitle, manager1, manager2, manager3, manager4, manager5 As String
-        Dim openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8 As String
+        Dim openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, opener9, opener10 As String
         Dim editortitle, editor1, editor2, editor3 As String
-        Dim propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6 As String
+        Dim propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6, properties7 As String
         Dim performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, performance12 As String
         Dim rescuertitle, rescuer1, rescuer2 As String
         Dim backuptitle, backup1, backup2, backup3, backup4, backup5 As String
@@ -95,6 +95,7 @@
         'Console.Title = "PocketMine-ManagerServers v" + version_pm + " [" + build_pm + "]"
 
         If checkionic = False Then
+
             Dim downloadionic As Char
             Console.ForegroundColor = ConsoleColor.Red
             Console.WriteLine("Critical error! Can't find 'Ionic.Zip.dll' in the main directory! Update to version 1.3 or higher, or download the .dll binary from GitHub's repository")
@@ -115,8 +116,8 @@
                           dirperformance, dirutils, checklicense, downloadstatus, installationstatus, backupstatus, dirlanguages, direrrors, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
                           menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
                           installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
-                          manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
-                          properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
+                          manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, opener9, opener10, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
+                          properties6, properties7, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
                           performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
                           resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
                           infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, restartertitle, restarter1, restarter2, restarter3, restarter4, restarter5, _
@@ -155,8 +156,8 @@
             LanguageReader.LanguageReader(language, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
                                   menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
                                   installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
-                                  manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
-                                  properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
+                                  manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, opener9, opener10, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
+                                  properties6, properties7, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
                                   performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
                                   resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
                                   infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, restartertitle, restarter1, restarter2, restarter3, _
@@ -198,7 +199,6 @@
                 Console.Write("{0}", menu6)
                 menu = Console.ReadLine.ToLower
 
-
                 If menu = "1" Then 'Install PocketMine
                     ManagerInstaller.ManagerInstaller(path, nameservers, nservers, checkpath, numberservers, downloadstatus, installationstatus, versionstatus, checknameserver, back, changemade, status1, version1, versionstable1, versionbeta1, _
                                             versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menu1, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, installator5, _
@@ -209,7 +209,7 @@
                 If menu = "2" Then 'Manage Servers
                     Manager.Manager(nservers, varmanager, performance, performancestatus, backupstatus, confirmperfomance, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, checkperformance, selectperformance, _
                                     back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, managertitle, manager1, manager2, manager3, manager4, manager5, openertitle, opener1, opener2, opener3, _
-                                    opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, _
+                                    opener4, opener5, opener6, opener7, opener8, opener9, opener10, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6, properties7, performancetitle, performance1, performance2, performance3, performance4, performance5, _
                                     performance6, performance7, performance8, performance9, performance10, performance11, performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, _
                                     restartertitle, restarter1, restarter2, restarter3, restarter4, restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12, installer3)
 
@@ -220,8 +220,8 @@
                                       language, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
                                   menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
                                   installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
-                                  manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
-                                  properties6, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
+                                  manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, opener9, opener10, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
+                                  properties6, properties7, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
                                   performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
                                   resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
                                   infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, devmode, checkdevmode, restartertitle, restarter1, restarter2, restarter3, restarter4, _

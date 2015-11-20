@@ -223,7 +223,7 @@
 
                 Else
                     Do
-                        Console.Write("{0} {1} {2} ", writepath1, nameservers(chooseserver - 1), writepath2)
+                        Console.Write("{0} {1}{2} ", writepath1, nameservers(chooseserver - 1), writepath2)
                         path(chooseserver - 1) = Console.ReadLine
 
                         If path(chooseserver - 1) = "" Then

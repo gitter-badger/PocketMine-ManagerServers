@@ -1,7 +1,7 @@
 ﻿Module Editor
 
     Sub Editor(ByRef confirmperfomance As String, ByRef checkpath As Object(), ByRef checknameserver As Object(), ByRef performance As String, ByRef nameservers As String(), ByRef nservers As SByte, ByRef performancestatus As String(), ByRef path As Object(), ByRef numberservers As String(), _
-               ByRef back As String, ByRef changemade As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef editortitle As String, ByRef editor1 As String, ByRef editor2 As String, ByRef editor3 As String, ByRef propertiestitle As String, ByRef properties1 As String, ByRef properties2 As String, ByRef properties3 As String, ByRef properties4 As String, ByRef properties5 As String, ByRef properties6 As String, _
+               ByRef back As String, ByRef changemade As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef editortitle As String, ByRef editor1 As String, ByRef editor2 As String, ByRef editor3 As String, ByRef propertiestitle As String, ByRef properties1 As String, ByRef properties2 As String, ByRef properties3 As String, ByRef properties4 As String, ByRef properties5 As String, ByRef properties6 As String, ByRef properties7 As String, _
                ByRef performancetitle As String, ByRef performance1 As String, ByRef performance2 As String, ByRef performance3 As String, ByRef performance4 As String, ByRef performance5 As String, ByRef performance6 As String, ByRef performance7 As String, ByRef performance8 As String, ByRef performance9 As String, ByRef performance10 As String, ByRef performance11 As String, _
                ByRef performance12 As String)
 
@@ -23,7 +23,7 @@
 
             If choosedit = "1" Then
                 Properties.Properties(checkpath, path, nservers, nameservers, checknameserver, back, writepath1, writepath2, writepath3, _
-                                      propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6, performance11)
+                                      propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6, properties7, performance11)
 
             End If
 

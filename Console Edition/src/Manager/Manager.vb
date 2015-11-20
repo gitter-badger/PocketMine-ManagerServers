@@ -15,7 +15,7 @@
     '(at your option) any later version. 
     Sub Manager(ByRef nservers As SByte, ByRef varmanager As String, ByRef performance As String, ByRef performancestatus As String(), ByRef backupstatus As String(), ByRef confirmperfomance As String, ByRef nameservers As String(), ByRef numberservers_2 As String(), ByRef numberservers As String(), ByRef checknameserver As Object(), ByRef path As String(), ByRef pathopener As String, ByRef checkpath As Object(), ByRef checkperformance As Object(), ByRef selectperformance As String, _
                 ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable1 As String, ByRef versionbeta1 As String, ByRef versiondev1 As String, ByRef versionsoft1 As String, ByRef currentversion As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef managertitle As String, ByRef manager1 As String, ByRef manager2 As String, ByRef manager3 As String, ByRef manager4 As String, ByRef manager5 As String, _
-                ByRef openertitle As String, ByRef opener1 As String, ByRef opener2 As String, ByRef opener3 As String, ByRef opener4 As String, ByRef opener5 As String, ByRef opener6 As String, ByRef opener7 As String, ByRef opener8 As String, ByRef editortitle As String, ByRef editor1 As String, ByRef editor2 As String, ByRef editor3 As String, ByRef propertiestitle As String, ByRef properties1 As String, ByRef properties2 As String, ByRef properties3 As String, ByRef properties4 As String, ByRef properties5 As String, ByRef properties6 As String, _
+                ByRef openertitle As String, ByRef opener1 As String, ByRef opener2 As String, ByRef opener3 As String, ByRef opener4 As String, ByRef opener5 As String, ByRef opener6 As String, ByRef opener7 As String, ByRef opener8 As String, ByRef opener9 As String, ByRef opener10 As String, ByRef editortitle As String, ByRef editor1 As String, ByRef editor2 As String, ByRef editor3 As String, ByRef propertiestitle As String, ByRef properties1 As String, ByRef properties2 As String, ByRef properties3 As String, ByRef properties4 As String, ByRef properties5 As String, ByRef properties6 As String, ByRef properties7 As String, _
                 ByRef performance0 As String, ByRef performance1 As String, ByRef performance2 As String, ByRef performance3 As String, ByRef performance4 As String, ByRef performance5 As String, ByRef performance6 As String, ByRef performance7 As String, ByRef performance8 As String, ByRef performance9 As String, ByRef performance10 As String, ByRef performance11 As String, ByRef performance12 As String, ByRef rescuertitle As String, ByRef rescuer1 As String, ByRef rescuer2 As String, ByRef backuptitle As String, _
                 ByRef backup1 As String, ByRef backup2 As String, ByRef backup3 As String, ByRef backup4 As String, ByRef backup5 As String, ByRef restoretitle As String, ByRef restore1 As String, ByRef restore2 As String, ByRef restore3 As String, ByRef restore4 As String, ByRef restartertitle As String, ByRef restarter1 As String, ByRef restarter2 As String, ByRef restarter3 As String, ByRef restarter4 As String, ByRef restarter5 As String, ByRef restarter6 As String, ByRef restarter7 As String, ByRef restarter8 As String, ByRef restarter9 As String, _
                 ByRef restarter10 As String, ByRef restarter11 As String, ByRef restarter12 As String, ByRef installer3 As String)
@@ -40,13 +40,13 @@
 
             If varmanager = "1" Then 'Work
                 Opener.Opener(nservers, nameservers, numberservers_2, numberservers, checknameserver, path, pathopener, checkpath, performancestatus, back, writepath1, writepath2, writepath3, manager1, manager2, manager3, _
-                              openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8)
+                              openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, opener9, opener10)
 
             End If
 
             If varmanager = "2" Then
                 Editor.Editor(confirmperfomance, checkpath, checknameserver, performance, nameservers, nservers, performancestatus, path, numberservers, back, changemade, writepath1, writepath2, writepath3, editortitle, editor1, _
-                              editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6, performance0, performance1, performance2, performance3, performance4, performance5, performance6, performance7, _
+                              editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6, properties7, performance0, performance1, performance2, performance3, performance4, performance5, performance6, performance7, _
                               performance8, performance9, performance10, performance11, performance12)
 
             End If
