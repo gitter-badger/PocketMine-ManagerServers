@@ -18,7 +18,7 @@
                 ByRef openertitle As String, ByRef opener1 As String, ByRef opener2 As String, ByRef opener3 As String, ByRef opener4 As String, ByRef opener5 As String, ByRef opener6 As String, ByRef opener7 As String, ByRef opener8 As String, ByRef opener9 As String, ByRef opener10 As String, ByRef editortitle As String, ByRef editor1 As String, ByRef editor2 As String, ByRef editor3 As String, ByRef propertiestitle As String, ByRef properties1 As String, ByRef properties2 As String, ByRef properties3 As String, ByRef properties4 As String, ByRef properties5 As String, ByRef properties6 As String, ByRef properties7 As String, _
                 ByRef performance0 As String, ByRef performance1 As String, ByRef performance2 As String, ByRef performance3 As String, ByRef performance4 As String, ByRef performance5 As String, ByRef performance6 As String, ByRef performance7 As String, ByRef performance8 As String, ByRef performance9 As String, ByRef performance10 As String, ByRef performance11 As String, ByRef performance12 As String, ByRef rescuertitle As String, ByRef rescuer1 As String, ByRef rescuer2 As String, ByRef backuptitle As String, _
                 ByRef backup1 As String, ByRef backup2 As String, ByRef backup3 As String, ByRef backup4 As String, ByRef backup5 As String, ByRef restoretitle As String, ByRef restore1 As String, ByRef restore2 As String, ByRef restore3 As String, ByRef restore4 As String, ByRef restartertitle As String, ByRef restarter1 As String, ByRef restarter2 As String, ByRef restarter3 As String, ByRef restarter4 As String, ByRef restarter5 As String, ByRef restarter6 As String, ByRef restarter7 As String, ByRef restarter8 As String, ByRef restarter9 As String, _
-                ByRef restarter10 As String, ByRef restarter11 As String, ByRef restarter12 As String, ByRef installer3 As String)
+                ByRef restarter10 As String, ByRef restarter11 As String, ByRef restarter12 As String, ByRef restarter13 As String, ByRef restarter14 As String, ByRef restarter15 As String, ByRef restarter16 As String, ByRef restarter17 As String, ByRef restarter18 As String, ByRef installer3 As String)
 
         Reading(path, nservers, nameservers)
 
@@ -58,7 +58,7 @@
 
             If varmanager = "4" Then
                 Restarter.Restarter(nservers, nameservers, checkpath, path, back, installer3, writepath1, writepath2, writepath3, restartertitle, restarter1, restarter2, restarter3, restarter4, _
-                                    restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12)
+                                    restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12, restarter13, restarter14, restarter15, restarter16, restarter17, restarter18)
 
             End If
 

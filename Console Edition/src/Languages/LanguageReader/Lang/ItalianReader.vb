@@ -25,7 +25,7 @@ Module ItalianReader
                     ByRef resetp7 As String, ByRef resetp8 As String, ByRef resetp9 As String, ByRef resetp10 As String, ByRef resetp11 As String, ByRef infotitle As String, ByRef infocredits As String, ByRef infoinformations As String, ByRef infodisclaimer As String, ByRef info1 As String, _
                     ByRef info2 As String, ByRef info3 As String, ByRef info4 As String, ByRef info5 As String, ByRef info6 As String, ByRef exittitle As String, ByRef exit1 As String, ByRef exit2 As String, ByRef versions1 As String, ByRef versions2 As String, ByRef versions3 As String, _
                     ByRef restartertitle As String, ByRef restarter1 As String, ByRef restarter2 As String, ByRef restarter3 As String, ByRef restarter4 As String, ByRef restarter5 As String, ByRef restarter6 As String, ByRef restarter7 As String, ByRef restarter8 As String, ByRef restarter9 As String, _
-                    ByRef restarter10 As String, ByRef restarter11 As String, ByRef restarter12 As String)
+                    ByRef restarter10 As String, ByRef restarter11 As String, ByRef restarter12 As String, ByRef restarter13 As String, ByRef restarter14 As String, ByRef restarter15 As String, ByRef restarter16 As String, ByRef restarter17 As String, ByRef restarter18 As String)
 
         Dim ZipToUnpack As String = "C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Italian.lang"
         Dim UnpackDirectory As String = "C:\Program Files\PocketMine-ManagerServers\Languages\Italian"
@@ -174,6 +174,12 @@ Module ItalianReader
         restarter10 = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Restarter10.lang")
         restarter11 = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Restarter11.lang")
         restarter12 = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Restarter12.lang")
+        restarter13 = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Restarter13.lang")
+        restarter14 = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Restarter14.lang")
+        restarter15 = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Restarter15.lang")
+        restarter16 = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Restarter16.lang")
+        restarter17 = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Restarter17.lang")
+        restarter18 = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Restarter18.lang")
 
         optiontitle = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Option0.lang")
         option1 = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Languages\Italian\Option1.lang")

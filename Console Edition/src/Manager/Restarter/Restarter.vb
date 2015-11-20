@@ -15,7 +15,7 @@
     '(at your option) any later version.
     Sub Restarter(ByRef nservers As SByte, ByRef nameservers As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef back As String, ByRef installer3 As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, _
                   ByRef restartertitle As String, ByRef restarter1 As String, ByRef restarter2 As String, ByRef restarter3 As String, ByRef restarter4 As String, ByRef restarter5 As String, ByRef restarter6 As String, ByRef restarter7 As String, _
-                  ByRef restarter8 As String, ByRef restarter9 As String, ByRef restarter10 As String, ByRef restarter11 As String, ByRef restarter12 As String)
+                  ByRef restarter8 As String, ByRef restarter9 As String, ByRef restarter10 As String, ByRef restarter11 As String, ByRef restarter12 As String, ByRef restarter13 As String, ByRef restarter14 As String, ByRef restarter15 As String, ByRef restarter16 As String, ByRef restarter17 As String, ByRef restarter18 As String)
 
         Dim chooserestart, choosetime, chooserestart2 As String
         Dim checktime, checkchoosetime, checkchooseserver As Object
@@ -42,7 +42,7 @@
             chooserestart = Console.ReadLine
 
             If chooserestart = "1" Then
-                Dim chooseserver As SByte
+                Dim chooseserver As Int16
                 Do
                     Try
 
@@ -59,7 +59,7 @@
                     Catch ex As Exception
 
                     End Try
-                Loop While chooseserver < "1" Or chooseserver > "10"
+                Loop While chooseserver < 1 Or chooseserver > 10
 
                 If checkpath(chooseserver - 1) And path(chooseserver - 1) <> "" Then
 
@@ -113,22 +113,21 @@
 
                             Catch ex As Exception
                                 Console.ForegroundColor = ConsoleColor.Red
-                                Console.WriteLine("Can't find the BackgroundTask, re-install correctly the software")
+                                Console.WriteLine("{0}", restarter13)
                                 Console.ForegroundColor = ConsoleColor.White
                             End Try
                         Else
 
                             Console.ForegroundColor = ConsoleColor.Red
-                            Console.WriteLine("Any servers is running!")
+                            Console.WriteLine("{0}", restarter14)
                             Console.ReadLine()
 
                         End If
                     End If
 
                 Else
-
                     Do
-                        Console.Write("{0} {1} {2}", writepath1, nameservers(chooseserver - 1), writepath2)
+                        Console.Write("{0} {1}{2}", writepath1, nameservers(chooseserver - 1), writepath2)
                         path(chooseserver - 1) = Console.ReadLine
 
                         If path(chooseserver - 1) = "" Then
@@ -144,7 +143,7 @@
             End If
 
             If chooserestart = "2" Then
-                Dim chooseserver As SByte
+                Dim chooseserver As Int16
 
                 Console.WriteLine()
                 For i = 1 To nservers
@@ -155,7 +154,7 @@
                 Console.Write("{0}", restarter9)
                 chooseserver = Console.ReadLine
 
-                If chooseserver < nservers Then
+                If chooseserver <= nservers Then
 
                     Console.WriteLine("{0} {1}...", restarter10, nameservers(chooseserver - 1))
 
@@ -170,16 +169,16 @@
                         Process.Start(path(chooseserver - 1) + "\start.cmd")
                     Catch ex As Exception
                         Console.ForegroundColor = ConsoleColor.Red
-                        Console.WriteLine("Can't find the start.cmd")
+                        Console.WriteLine("{0}", restarter15)
                         Console.ForegroundColor = ConsoleColor.White
                     End Try
 
                     Console.WriteLine()
-                    Console.WriteLine("{0}", restarter12)
+                    Console.WriteLine("{0}", restarter12, restarter13, restarter14, restarter15, restarter16, restarter17, restarter18)
                     Console.ReadLine()
 
                 Else
-                    Console.WriteLine("Select an avaible server!")
+                    Console.WriteLine("{0}", restarter16)
                     Console.ReadLine()
 
                 End If
@@ -197,11 +196,11 @@
 
                     Next
                     Console.ForegroundColor = ConsoleColor.Green
-                    Console.WriteLine("Restarter killed")
+                    Console.WriteLine("{0}", restarter17)
 
                 Else
                     Console.ForegroundColor = ConsoleColor.Red
-                    Console.WriteLine("The restarter is not running")
+                    Console.WriteLine("{0}", restarter18)
 
                 End If
                 Console.ReadLine()
