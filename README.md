@@ -6,6 +6,7 @@ PocketMine-ManagerServers is a useful software that allow you to install and man
 - CPU Frequency: 1 GHz
 - Hard Disk space (HDD): 50 MByte  
 - RAM: 500 MB
+- Require administrator privileges.
 
 ## How to install PocketMine-ManagerServers
 There are 2 type of versions for PocketMine-ManagerServers:
@@ -25,13 +26,17 @@ The current functions of the program are:
 - Management servers
 - Program options
 
+![pm_ms_menu](https://cloud.githubusercontent.com/assets/10587406/11320549/71d986f6-909c-11e5-9c94-c7c58cc21e11.PNG)
+
 ###Installation PocketMine-MP
 The function itself says it does, install the system creating servers for Minecraft PE (Pocket Edition)
 After selecting the item appear other two items: a download and installation.
 First you will need to download the beating heart of PocketMine, then select the version you want to download, and the download will start automatically! Once you download the indicated link to the folder where you saved it and go to the installation phase! It too will have procedures similar but different tasks. The difference lies in having to specify the connection folder in which you want to install the server, that's all!
 
 ###Management servers
-This function provides for the management of one or more servers (maximum 10). It includes other three functions: one to open the servers, second the other to change the performance and the last for do backup or restore for yuor server.
+This function provides for the management of one or more servers (maximum 10). It includes other three functions: one to open the servers, second the other to change the performance, third for do backup or restore for yuor server and last for restart in a periodic time your servers.
+
+![pm_ms_manager](https://cloud.githubusercontent.com/assets/10587406/11320552/89d61d82-909c-11e5-8ea5-d1a879c711b9.PNG)
 
 ######Opener
 The first function is simple to use, though in the past they had already indicated the connections will not be referred to a second time while on the contrary, if they had not shown connections now you will have to do and then go on.
@@ -61,6 +66,8 @@ You can enable the menu for developer writing three times "devon" in the main me
 - Restarting software
 - Resetting program data (in option menu)
 
+![pm_ms_menudev](https://cloud.githubusercontent.com/assets/10587406/11320550/7d18b7a8-909c-11e5-8c23-bc6d2629cc1e.PNG)
+
 ####Memory usage
 This fuction allow you to control memory usage that the program uses.
 
@@ -69,6 +76,8 @@ This fuction allow you to restart the server without the "BackgroundTask" disapp
 
 ####Commands mode
 This fuction allow you to use program fuctions with the commands, like a real console! Digit **/help** or only **help** for show the all avaible commands.
+
+![pm_ms_commander](https://cloud.githubusercontent.com/assets/10587406/11320551/83607006-909c-11e5-9681-d283204d97d7.PNG)
 
 ####Restarting software
 This fuction allow you simplify restart the software.
