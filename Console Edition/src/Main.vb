@@ -90,6 +90,9 @@
 
         Dim checkionic As Object = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Ionic.Zip.dll")
 
+        Dim checkpmversion As Object = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Version.pm")
+        Dim pmversion As String
+
         'STARTUP
         Console.Title = "PocketMine-ManagerServers v" + version_pm
         'Console.Title = "PocketMine-ManagerServers v" + version_pm + " [" + build_pm + "]"
@@ -112,6 +115,24 @@
             End If
 
         Else
+            If checkpmversion Then
+                pmversion = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Version.pm")
+                If pmversion <> version_pm Then
+                    Console.WriteLine("Updating languages for the version change! Please wait...")
+
+                    My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Languages", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                    My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages")
+                    LanguageLoader.LanguageLoader()
+
+                    My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Version.pm")
+                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Version.pm", version_pm, True)
+
+                    Console.ForegroundColor = ConsoleColor.Green
+                    Console.WriteLine("Updated succefully! Press ENTER to continue.")
+                    Console.ReadLine()
+                End If
+
+            End If
             Loader.Loader(checklanguage, versionstatus, dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, _
                           dirperformance, dirutils, checklicense, downloadstatus, installationstatus, backupstatus, dirlanguages, direrrors, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
                           menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
