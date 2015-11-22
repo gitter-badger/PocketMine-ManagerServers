@@ -19,7 +19,7 @@
                     ByRef versionsoft1 As String, ByRef currentversion As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, ByRef installatortitle As String, ByRef installator1 As String, ByRef installator2 As String, _
                     ByRef installator3 As String, ByRef installator4 As String, ByRef installator5 As String, ByRef installator6 As String, ByRef installator7 As String, ByRef versions1 As String, ByRef versions2 As String, ByRef versions3 As String)
 
-        Dim checkpocketmine, checkbeta, checkdev, checkdev2, checksoft As Object
+        Dim checkpocketmine, checkbeta, checkdev, checkdev2, checkdev3, checksoft As Object
 
         Dim checkphar1, checkphar2 As Object
 
@@ -28,6 +28,7 @@
         checkbeta = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_BETA.phar")
         checkdev = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_DEV_1.5.phar")
         checkdev2 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_DEV_1.6.phar")
+        checkdev3 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_DEV_1.7.phar")
         checksoft = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_SOFT.phar")
 
         Dim stable, beta, dev, soft, confirmphar As String
@@ -82,7 +83,7 @@
                     Do
                         Console.WriteLine()
                         Console.WriteLine("{0}", currentversion)
-                        Console.WriteLine("1) 1.4.1 API 1.11.0 Zekkou-Cake")
+                        Console.WriteLine("1) 1.4.1 API 1.11.0 Zekkou-Cake {MC:PE 0.10.x}")
                         Console.WriteLine()
                         Console.Write("{0}", installator2)
                         stable = Console.ReadLine
@@ -126,7 +127,7 @@
                                         confirmphar = Console.ReadLine.ToUpper
 
                                         If confirmphar = "Y" Then
-                                            ChangeInstallationFiles(path(chooseserver - 1), "BETA", checkphar1, checkphar2)
+                                            ChangeInstallationFiles(path(chooseserver - 1), "BETA")
 
                                         End If
                                     Loop While confirmphar <> "Y" Or confirmphar <> "N"
@@ -146,6 +147,8 @@
                             Console.WriteLine()
                             Console.WriteLine("{0}", currentversion)
                             Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1264] {MC:PE 0.11.x}")
+                            Console.WriteLine("2) 1.6 API 1.13.0 No-Name [#Dev Build 48] {MC:PE 0.12.x}")
+                            Console.WriteLine("3) <Unofficial by ImagicalCorp> 1.7 API 1.13.0 Elite [#Dev Build 39] {MC:PE 0.13.x}")
                             Console.WriteLine()
                             Console.Write("{0}", installator2)
                             dev = Console.ReadLine
@@ -157,7 +160,7 @@
                                         confirmphar = Console.ReadLine.ToUpper
 
                                         If confirmphar = "Y" Then
-                                            ChangeInstallationFiles(path(chooseserver - 1), "DEV_1.5", checkphar1, checkphar2)
+                                            ChangeInstallationFiles(path(chooseserver - 1), "DEV_1.5")
 
                                         End If
                                     Loop While confirmphar <> "Y" Or confirmphar <> "N"
@@ -176,7 +179,25 @@
                                         confirmphar = Console.ReadLine.ToUpper
 
                                         If confirmphar = "Y" Then
-                                            ChangeInstallationFiles(path(chooseserver - 1), "DEV_1.6", checkphar1, checkphar2)
+                                            ChangeInstallationFiles(path(chooseserver - 1), "DEV_1.6")
+
+                                        End If
+                                    Loop While confirmphar <> "Y" Or confirmphar <> "N"
+
+                                Else
+                                    Console.WriteLine("{0}", versions2)
+                                    Console.WriteLine("{0}", versions3)
+                                    Console.ReadLine()
+
+                                End If
+                            ElseIf dev = "3" Then
+                                If checkdev3 Then
+                                    Do
+                                        Console.WriteLine("{0} <Y/N>: ", versions1)
+                                        confirmphar = Console.ReadLine.ToUpper
+
+                                        If confirmphar = "Y" Then
+                                            ChangeInstallationFiles(path(chooseserver - 1), "DEV_1.7")
 
                                         End If
                                     Loop While confirmphar <> "Y" Or confirmphar <> "N"
@@ -206,7 +227,7 @@
                                     confirmphar = Console.ReadLine.ToUpper
 
                                     If confirmphar = "Y" Then
-                                        ChangeInstallationFiles(path(chooseserver - 1), "SOFT", checkphar1, checkphar2)
+                                        ChangeInstallationFiles(path(chooseserver - 1), "SOFT")
 
                                     End If
 
@@ -239,10 +260,10 @@
         Loop While chooseserver <> 11
     End Sub
 
-    Sub ChangeInstallationFiles(ByRef path As String, ByRef priority As String, ByRef checkphar1 As Object, ByRef checkphar2 As Object)
+    Sub ChangeInstallationFiles(ByRef path As String, ByRef priority As String)
 
-        checkphar1 = My.Computer.FileSystem.FileExists(path + "\PocketMine-MP.phar")
-        checkphar2 = My.Computer.FileSystem.FileExists(path + "\PocketMine-MP_OLD.phar")
+        Dim checkphar1 As Object = My.Computer.FileSystem.FileExists(path + "\PocketMine-MP.phar")
+        Dim checkphar2 As Object = My.Computer.FileSystem.FileExists(path + "\PocketMine-MP_OLD.phar")
 
         If checkphar1 Then
             If checkphar2 Then
