@@ -82,8 +82,8 @@
         '#Variables Mechanical
         Dim dirservername, dirpath, dirdata, dirutils, dirperformance, dirinstallations, dirlanguages, direrrors As Object
 
-        Const version_pm As String = "1.3"
-        Const build_pm As String = "BUILD 2"
+        Const version_pm As String = "1.3.1"
+        Const build_pm As String = "BUILD 0"
 
         Dim commandstart As Boolean
         Dim checkcommand As Object = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\Starter.pm")
@@ -192,7 +192,7 @@
                 Console.WriteLine("{0}", menutitle)
                 Console.ForegroundColor = ConsoleColor.Yellow
                 'Console.WriteLine("Developed by matcracker                                     Version: " + version_pm + " " + build_pm)
-                Console.WriteLine("Developed by matcracker                                             Version: " + version_pm)
+                Console.WriteLine("Developed by matcracker                                           Version: " + version_pm)
                 If devmode = True Then
                     Console.ForegroundColor = ConsoleColor.Yellow
                     Console.WriteLine("                                                                  DEVMODE ACTIVE")
