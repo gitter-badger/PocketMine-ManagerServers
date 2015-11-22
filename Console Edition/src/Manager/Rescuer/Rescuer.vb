@@ -15,7 +15,7 @@
     '(at your option) any later version. 
     Sub Rescuer(ByRef nservers As SByte, ByRef nameservers As String(), ByRef backupstatus As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef numberservers As String(), ByRef back As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, _
                 ByRef manager4 As String, ByRef rescuertitle As String, ByRef rescuer1 As String, ByRef rescuer2 As String, ByRef backuptitle As String, ByRef backup1 As String, ByRef backup2 As String, ByRef backup3 As String, ByRef backup4 As String, ByRef backup5 As String, ByRef restoretitle As String, ByRef restore1 As String, ByRef restore2 As String, _
-                ByRef restore3 As String, ByRef restore4 As String)
+                ByRef restore3 As String, ByRef restore4 As String, ByRef restore5 As String)
 
         Dim rescuer As String
 
@@ -44,7 +44,7 @@
             End If
 
             If rescuer = "2" Then
-                Restore.Restore(nservers, nameservers, backupstatus, checkpath, path, back, restoretitle, restore1, restore2, restore3, restore4)
+                Restore.Restore(nservers, nameservers, backupstatus, checkpath, path, back, restoretitle, restore1, restore2, restore3, restore4, restore5)
 
             End If
         Loop While rescuer <> "3"

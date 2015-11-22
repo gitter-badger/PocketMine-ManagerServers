@@ -16,7 +16,7 @@ Module Restore
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version.
     Sub Restore(ByRef nservers As SByte, ByRef nameservers As String(), ByRef backupstatus As String(), ByRef checkpath As Object(), ByRef path As String(), ByRef back As String, ByRef restoretitle As String, _
-                ByRef restore1 As String, ByRef restore2 As String, ByRef restore3 As String, ByRef restore4 As String)
+                ByRef restore1 As String, ByRef restore2 As String, ByRef restore3 As String, ByRef restore4 As String, ByRef restore5 As String)
 
         Dim chooserestore As SByte
         Dim openrestore As String
@@ -68,7 +68,7 @@ Restore:
 
             Do
                 Console.ForegroundColor = ConsoleColor.White
-                Console.Write("You can find your backup in 'C:\Program Files\PocketMine-ManagerServers\Backups\', do you want to open this folder? <Y/N>: ")
+                Console.Write("{0} <Y/N>: ", restore5)
                 openrestore = Console.ReadLine.ToUpper
 
                 If openrestore = "Y" Then

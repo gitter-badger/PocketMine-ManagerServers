@@ -232,7 +232,7 @@
                                     back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, managertitle, manager1, manager2, manager3, manager4, manager5, openertitle, opener1, opener2, opener3, _
                                     opener4, opener5, opener6, opener7, opener8, opener9, opener10, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6, properties7, performancetitle, performance1, performance2, performance3, performance4, performance5, _
                                     performance6, performance7, performance8, performance9, performance10, performance11, performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, _
-                                    restartertitle, restarter1, restarter2, restarter3, restarter4, restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12, restarter13, restarter14, restarter15, restarter16, restarter17, restarter18, installer3)
+                                    restore5, restartertitle, restarter1, restarter2, restarter3, restarter4, restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12, restarter13, restarter14, restarter15, restarter16, restarter17, restarter18, installer3)
 
                 End If
 
