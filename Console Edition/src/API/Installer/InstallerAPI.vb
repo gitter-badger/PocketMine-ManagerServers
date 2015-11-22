@@ -44,13 +44,13 @@
                     Process.Start("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_Installer_1.4.1_x86.exe")
 
                 ElseIf version.ToUpper = "BETA" Or version = "2" Then
-                    ChangeInstallationFiles(path(nservers - 1), version, My.Computer.FileSystem.FileExists(path(nservers - 1) + "\PocketMine-MP.phar"), My.Computer.FileSystem.FileExists(path(nservers - 1) + "\PocketMine-MP.phar"))
+                    ChangeInstallationFiles(path(nservers - 1), version)
 
                 ElseIf version.ToUpper = "DEV" Or version = "3" Then
-                    ChangeInstallationFiles(path(nservers - 1), version, My.Computer.FileSystem.FileExists(path(nservers - 1) + "\PocketMine-MP.phar"), My.Computer.FileSystem.FileExists(path(nservers - 1) + "\PocketMine-MP.phar"))
+                    ChangeInstallationFiles(path(nservers - 1), version)
 
                 ElseIf version.ToUpper = "SOFT" Or version = "4" Then
-                    ChangeInstallationFiles(path(nservers - 1), version, My.Computer.FileSystem.FileExists(path(nservers - 1) + "\PocketMine-MP.phar"), My.Computer.FileSystem.FileExists(path(nservers - 1) + "\PocketMine-MP.phar"))
+                    ChangeInstallationFiles(path(nservers - 1), version)
 
                 End If
 

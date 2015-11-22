@@ -209,7 +209,7 @@
 
                                 End If
                             End If
-                        Loop While dev <> "1" And dev <> "2"
+                        Loop While dev <> "1" And dev <> "2" And dev <> "3"
                     End If
 
                     If version = "4" Then 'Soft
