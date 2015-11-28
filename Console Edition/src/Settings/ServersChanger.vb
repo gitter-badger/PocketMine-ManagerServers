@@ -76,16 +76,21 @@
                         Console.ReadLine()
                         Console.ForegroundColor = ConsoleColor.White
 
-                    Else
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(chooseserver) + ".pm")
-                        nameservers(chooseserver - 1) = newname
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(chooseserver) + ".pm", nameservers(chooseserver - 1), True)
-                        Console.ForegroundColor = ConsoleColor.Green
-                        Console.WriteLine("Changed name succefully!")
-                        Console.ReadLine()
-
                     End If
                 Loop While newname.Contains(" ") Or newname = nameservers(chooseserver - 1)
+
+                If newname = "" Then
+                    Dim defaultserver As String = "Server_Minecraft_PE"
+                    newname = defaultserver + "_" + Convert.ToString(chooseserver)
+                End If
+
+                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(chooseserver) + ".pm")
+                nameservers(chooseserver - 1) = newname
+                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(chooseserver) + ".pm", nameservers(chooseserver - 1), True)
+                Console.ForegroundColor = ConsoleColor.Green
+                Console.WriteLine("Changed name succefully!")
+                Console.ReadLine()
+
 
             ElseIf chooseoption = 2 Then
                 Dim confirmdelete As Char
