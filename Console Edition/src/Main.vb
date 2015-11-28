@@ -1,4 +1,5 @@
-﻿Module Main
+﻿Imports System.IO
+Module Main
     ' _____           _        _   __  __ _                   __  __                                   _____                              
     '|  __ \         | |      | | |  \/  (_)                 |  \/  |                                 / ____|                             
     '| |__) |__   ___| | _____| |_| \  / |_ _ __   ___ ______| \  / | __ _ _ __   __ _  __ _  ___ _ _| (___   ___ _ ____   _____ _ __ ___ 
@@ -203,6 +204,7 @@
                 Console.WriteLine("3- {0}", menu3)
                 Console.WriteLine("4- {0}", menu4)
                 Console.WriteLine("5- {0}", menu5)
+                '"System.IO.Directory.GetCurrentDirectory)" New method for C:\Program Files\PocketMine-ManagerServers
 
                 If devmode = True Then
                     Console.ForegroundColor = ConsoleColor.Yellow
@@ -237,7 +239,7 @@
                 End If
 
                 If menu = "3" Then 'Program Options
-                    Settings.Settings(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations, dirlanguages, direrrors, checklanguage, _
+                    Settings.Settings(nservers, nameservers, checknameserver, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations, dirlanguages, direrrors, checklanguage, _
                                       language, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
                                       menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
                                       installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _

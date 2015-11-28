@@ -13,7 +13,7 @@
     'it under the terms of the GNU Lesser General Public License as published by 
     'the Free Software Foundation, either version 3 of the License, or 
     '(at your option) any later version. 
-    Sub Settings(ByRef nservers As SByte, ByRef checkpath As Object(), ByRef path As String(), ByRef checknservers As Object, ByRef checkfolderinstallation As Object, ByRef dirpath As Object, ByRef dirdata As Object, ByRef dirservername As Object, ByRef dirperformance As Object, ByRef dirinstallations As Object, ByRef dirlanguages As Object, ByRef direrrors As Object, ByRef checklanguage As Object, _
+    Sub Settings(ByRef nservers As SByte, ByRef nameservers As String(), ByRef checknameservers As Object(), ByRef checkpath As Object(), ByRef path As String(), ByRef checknservers As Object, ByRef checkfolderinstallation As Object, ByRef dirpath As Object, ByRef dirdata As Object, ByRef dirservername As Object, ByRef dirperformance As Object, ByRef dirinstallations As Object, ByRef dirlanguages As Object, ByRef direrrors As Object, ByRef checklanguage As Object, _
                  ByRef language As SByte, ByRef changelang As Boolean, ByRef back As String, ByRef changemade As String, ByRef status1 As String, ByRef version1 As String, ByRef versionstable1 As String, ByRef versionbeta1 As String, ByRef versiondev1 As String, ByRef versionsoft1 As String, ByRef currentversion As String, ByRef writepath1 As String, ByRef writepath2 As String, ByRef writepath3 As String, _
                     ByRef menudev As String, ByRef menutitle As String, ByRef menu1 As String, ByRef menu2 As String, ByRef menu3 As String, ByRef menu4 As String, ByRef menu5 As String, ByRef menu6 As String, ByRef installertitle As String, ByRef installer1 As String, ByRef installer2 As String, ByRef installer3 As String, _
                     ByRef installatortitle As String, ByRef installator1 As String, ByRef installator2 As String, ByRef installator3 As String, ByRef installator4 As String, ByRef installator5 As String, ByRef installator6 As String, ByRef installator7 As String, ByRef downloadertitle As String, ByRef downloader1 As String, ByRef downloader2 As String, ByRef downloader3 As String, ByRef downloader4 As String, ByRef downloader5 As String, ByRef downloader6 As String, _
@@ -34,6 +34,7 @@
             devmode = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
 
         End If
+
         Do
             Console.Clear()
             Console.ForegroundColor = ConsoleColor.Green
@@ -42,19 +43,20 @@
             Console.WriteLine("{0}", optiontitle)
             Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine("1- {0}", option1)
+            Console.WriteLine("2- Change/Delete servers name")
 
             If devmode = True Then
-                Console.WriteLine("2- {0}", option2)
-                Console.WriteLine("3- {0}", back)
+                Console.WriteLine("3- {0}", option2)
+                Console.WriteLine("4- {0}", back)
             Else
-                Console.WriteLine("2- {0}", back)
+                Console.WriteLine("3- {0}", back)
             End If
             Console.WriteLine()
             Console.Write("{0}", option3)
             options = Console.ReadLine
 
-            If devmode = False And options = "2" Then
-                options = "3"
+            If devmode = False And options = "3" Then
+                options = "4"
             End If
 
             If options = "1" Then
@@ -70,12 +72,17 @@
                               infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, restartertitle, restarter1, restarter2, restarter3, restarter4, _
                               restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12, restarter13, restarter14, restarter15, restarter16, restarter17, restarter18)
 
-            ElseIf options = "2" And devmode = True Then
+            ElseIf options = "2" Then
+                ServersChanger.ServersChanger(nservers, nameservers, path, checknameservers, back)
+
+            ElseIf options = "3" And devmode = True Then
                 Resetter.Resetter(nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations, dirlanguages, direrrors, back, option2, resettitle, resetp1, resetp2, resetp3, resetp4, _
                                   resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11)
 
+
             End If
-        Loop While options <> "3"
+
+        Loop While options <> "4"
 
 
     End Sub
