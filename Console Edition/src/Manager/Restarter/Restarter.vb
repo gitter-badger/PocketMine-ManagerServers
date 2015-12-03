@@ -22,9 +22,9 @@
 
         Dim PMProcess() As Process = Process.GetProcessesByName("mintty") 'Process of PocketMine-MP
 
-        checktime = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\Time.pm")
-        checkchoosetime = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\ChooseTime.pm")
-        checkchooseserver = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\ChooseServer.pm")
+        checktime = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Data\Time.pm")
+        checkchoosetime = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Data\ChooseTime.pm")
+        checkchooseserver = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Data\ChooseServer.pm")
 
         Do
             Console.ForegroundColor = ConsoleColor.Green
@@ -64,11 +64,11 @@
                 If checkpath(chooseserver - 1) And path(chooseserver - 1) <> "" Then
 
                     If checkchooseserver Then
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\ChooseServer.pm")
+                        My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Data\ChooseServer.pm")
 
                     End If
 
-                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\ChooseServer.pm", chooseserver, True)
+                    My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Data\ChooseServer.pm", chooseserver, True)
 
                     Console.WriteLine()
                     Console.WriteLine("1- {0}", restarter5)
@@ -80,11 +80,11 @@
                     If choosetime = "1" Or choosetime = "2" Or choosetime = "3" Then
 
                         If checkchoosetime Then
-                            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\ChooseTime.pm")
+                            My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Data\ChooseTime.pm")
 
                         End If
 
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\ChooseTime.pm", choosetime, True)
+                        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Data\ChooseTime.pm", choosetime, True)
 
                         Dim time As SByte
 
@@ -101,15 +101,15 @@
                         time = Console.ReadLine
 
                         If checktime Then
-                            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\Time.pm")
+                            My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Data\Time.pm")
 
                         End If
 
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\Time.pm", time, True)
+                        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Data\Time.pm", time, True)
 
                         If PMProcess.Length > 0 Then
                             Try
-                                Process.Start("C:\Program Files\PocketMine-ManagerServers\PM-MS(BackgroudTask).exe")
+                                Process.Start(System.IO.Directory.GetCurrentDirectory + "\PM-MS(BackgroudTask).exe")
 
                             Catch ex As Exception
                                 Console.ForegroundColor = ConsoleColor.Red
@@ -137,7 +137,7 @@
                         End If
                     Loop While path(chooseserver - 1) = ""
 
-                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(chooseserver) + ".pm", path(chooseserver - 1), True)
+                    My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Path\path_" + Convert.ToString(chooseserver) + ".pm", path(chooseserver - 1), True)
 
                 End If
             End If

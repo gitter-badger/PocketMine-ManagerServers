@@ -29,7 +29,7 @@
 
             If choosedit = "2" Then
                 For i = 1 To nservers
-                    performancestatus(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Performance\PerformanceStatus_" + Convert.ToString(i) + ".pm")
+                    performancestatus(i - 1) = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Performance\PerformanceStatus_" + Convert.ToString(i) + ".pm")
 
                 Next
 

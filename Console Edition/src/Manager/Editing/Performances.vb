@@ -74,7 +74,7 @@
                 End If
             Loop While path(selectperformance - 1) = ""
 
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(selectperformance) + ".pm", path(selectperformance - 1), True)
+            My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Path\path_" + Convert.ToString(selectperformance) + ".pm", path(selectperformance - 1), True)
 
         End If
 
@@ -88,18 +88,18 @@
         If checkyml Then
             If checkyml2 Then
                 My.Computer.FileSystem.DeleteFile(path + "\pocketmine_OLD.yml")
-                My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\pocketmine_" + priority + ".yml", path + "\pocketmine_" + priority + ".yml", overwrite:=True)
+                My.Computer.FileSystem.CopyFile(System.IO.Directory.GetCurrentDirectory + "\Utils\pocketmine_" + priority + ".yml", path + "\pocketmine_" + priority + ".yml", overwrite:=True)
                 My.Computer.FileSystem.RenameFile(path + "\pocketmine.yml", "pocketmine_OLD.yml")
                 My.Computer.FileSystem.RenameFile(path + "\pocketmine_" + priority + ".yml", "pocketmine.yml")
 
             Else
                 My.Computer.FileSystem.RenameFile(path + "\pocketmine.yml", "pocketmine_OLD.yml")
-                My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\pocketmine_" + priority + ".yml", path + "\pocketmine_" + priority + ".yml", overwrite:=True)
+                My.Computer.FileSystem.CopyFile(System.IO.Directory.GetCurrentDirectory + "\Utils\pocketmine_" + priority + ".yml", path + "\pocketmine_" + priority + ".yml", overwrite:=True)
                 My.Computer.FileSystem.RenameFile(path + "\pocketmine_" + priority + ".yml", "pocketmine.yml")
 
             End If
         Else
-            My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\pocketmine_" + priority + ".yml", path + "\pocketmine_" + priority + ".yml", overwrite:=True)
+            My.Computer.FileSystem.CopyFile(System.IO.Directory.GetCurrentDirectory + "\Utils\pocketmine_" + priority + ".yml", path + "\pocketmine_" + priority + ".yml", overwrite:=True)
             My.Computer.FileSystem.RenameFile(path + "\pocketmine_" + priority + ".yml", "pocketmine.yml")
 
         End If
@@ -117,9 +117,9 @@
             indexstatus += 1
 
             If performance = Convert.ToString(indexstatus) Then
-                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Performance\PerformanceStatus_" + Convert.ToString(index) + ".pm")
+                My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Performance\PerformanceStatus_" + Convert.ToString(index) + ".pm")
                 performancestatus(index - 1) = status(indexstatus - 1)
-                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Performance\PerformanceStatus_" + Convert.ToString(index) + ".pm", performancestatus(index - 1), True)
+                My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Performance\PerformanceStatus_" + Convert.ToString(index) + ".pm", performancestatus(index - 1), True)
                 verified = True
             End If
         End While

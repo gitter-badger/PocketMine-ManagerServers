@@ -296,7 +296,7 @@ Module Properties
                         "rcon.password=" + rconpassword + vbCrLf + _
                         "auto-save=" + autosave
 
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Utils\server.properties", propertiesfile, True)
+                        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Utils\server.properties", propertiesfile, True)
 
                         Console.WriteLine()
                         Console.WriteLine("{0}", properties4)
@@ -315,17 +315,17 @@ Module Properties
                                     If checkproperty Then
                                         If checkproperty2 Then
                                             My.Computer.FileSystem.DeleteFile(path(i - 1) + "\server.properties_OLD.yml")
-                                            My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\server.properties", path(i - 1) + "\server.properties", overwrite:=True)
+                                            My.Computer.FileSystem.CopyFile(System.IO.Directory.GetCurrentDirectory + "\Utils\server.properties", path(i - 1) + "\server.properties", overwrite:=True)
                                             My.Computer.FileSystem.RenameFile(path(i - 1) + "\server.properties", "server.properties_OLD.yml")
 
                                         Else
                                             My.Computer.FileSystem.RenameFile(path(i - 1) + "\server.properties", "server.properties_OLD")
-                                            My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\server.properties", path(i - 1) + "\server.properties", overwrite:=True)
+                                            My.Computer.FileSystem.CopyFile(System.IO.Directory.GetCurrentDirectory + "\Utils\server.properties", path(i - 1) + "\server.properties", overwrite:=True)
 
                                         End If
 
                                     Else
-                                        My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\server.properties", path(i - 1) + "\server.properties", overwrite:=True)
+                                        My.Computer.FileSystem.CopyFile(System.IO.Directory.GetCurrentDirectory + "\Utils\server.properties", path(i - 1) + "\server.properties", overwrite:=True)
 
                                     End If
                                 Next
@@ -351,7 +351,7 @@ Module Properties
                 End If
             Loop While path(chooseserver - 1) = ""
 
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(chooseserver) + ".pm", path(chooseserver - 1), True)
+            My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Path\path_" + Convert.ToString(chooseserver) + ".pm", path(chooseserver - 1), True)
 
 
         End If

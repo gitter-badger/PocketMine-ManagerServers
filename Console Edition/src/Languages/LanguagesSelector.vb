@@ -76,12 +76,12 @@
         End If
 
         If changelang = False Then
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm", language, True)
+            My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Data\langselection.pm", language, True)
 
         ElseIf changelang = True Then
             If checklanguage Then
-                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm")
-                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm", language, True)
+                My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Data\langselection.pm")
+                My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Data\langselection.pm", language, True)
 
             Else
                 Console.WriteLine("Bad error")

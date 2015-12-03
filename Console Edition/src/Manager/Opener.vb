@@ -164,7 +164,7 @@
                         End If
                     Loop While path(chooseserver - 1) = ""
 
-                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(chooseserver) + ".pm", path(chooseserver - 1), True)
+                    My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Path\path_" + Convert.ToString(chooseserver) + ".pm", path(chooseserver - 1), True)
                 End If
             Else
                 Console.WriteLine("Select an avaible server!")

@@ -66,12 +66,12 @@ Overwrite:
                     Console.WriteLine("{0}", backup2)
                     Using Zip As ZipFile = New ZipFile()
                         Zip.AddDirectory(path(choosebackup - 1))
-                        Zip.Save("C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(choosebackup - 1) + ".zip")
+                        Zip.Save(System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(choosebackup - 1) + ".zip")
                         Console.ForegroundColor = ConsoleColor.Green
 
                         backupstatus(choosebackup - 1) = "Backuped"
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_" + Convert.ToString(choosebackup) + ".pm")
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_" + Convert.ToString(choosebackup) + ".pm", backupstatus(choosebackup - 1), True)
+                        My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_" + Convert.ToString(choosebackup) + ".pm")
+                        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_" + Convert.ToString(choosebackup) + ".pm", backupstatus(choosebackup - 1), True)
 
                         Console.WriteLine("{0}", backup3)
 
@@ -84,7 +84,7 @@ Overwrite:
                         openbackup = Console.ReadLine.ToUpper
 
                         If openbackup = "Y" Then
-                            Process.Start("C:\Program Files\PocketMine-ManagerServers\Backups")
+                            Process.Start(System.IO.Directory.GetCurrentDirectory + "\Backups")
 
                         End If
 
@@ -104,7 +104,7 @@ Overwrite:
                 End If
             Loop While path(choosebackup - 1) = ""
 
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(choosebackup) + ".pm", path(choosebackup - 1), True)
+            My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Path\path_" + Convert.ToString(choosebackup) + ".pm", path(choosebackup - 1), True)
 
         End If
 

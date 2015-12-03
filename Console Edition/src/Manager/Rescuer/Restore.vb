@@ -51,8 +51,8 @@ Restore:
 
         If (chooserestore > 0 Or chooserestore <= 10) And backupstatus(chooserestore - 1) = "Backuped" Then
 
-            Dim ZipToUnpack As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(chooserestore - 1) + ".zip"
-            Dim UnpackDirectory As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\Extracted " + nameservers(chooserestore - 1)
+            Dim ZipToUnpack As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(chooserestore - 1) + ".zip"
+            Dim UnpackDirectory As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\Extracted " + nameservers(chooserestore - 1)
 
             Console.WriteLine("{0}", restore2)
             Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
@@ -72,7 +72,7 @@ Restore:
                 openrestore = Console.ReadLine.ToUpper
 
                 If openrestore = "Y" Then
-                    Process.Start("C:\Program Files\PocketMine-ManagerServers\Backups")
+                    Process.Start(System.IO.Directory.GetCurrentDirectory + "\Backups")
 
                 End If
 

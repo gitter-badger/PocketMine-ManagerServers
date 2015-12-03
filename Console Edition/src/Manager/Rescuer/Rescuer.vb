@@ -20,7 +20,7 @@
         Dim rescuer As String
 
         For i = 1 To nservers
-            backupstatus(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_" + Convert.ToString(i) + ".pm")
+            backupstatus(i - 1) = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_" + Convert.ToString(i) + ".pm")
 
         Next
 
