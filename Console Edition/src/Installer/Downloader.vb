@@ -24,20 +24,20 @@
 
         Dim checkpocketmine, checkdownloadpath, checkbeta, checkdev, checkdev2, checkdev3, checksoft As Object
 
-        checkpocketmine = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_Installer_1.4.1_x86.exe")
-        checkdownloadpath = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\PathDownload.pm")
+        checkpocketmine = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_Installer_1.4.1_x86.exe")
+        checkdownloadpath = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Data\PathDownload.pm")
 
-        checkbeta = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_BETA.phar")
-        checkdev = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_DEV_1.5.phar")
-        checkdev2 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_DEV_1.6.phar")
-        checkdev3 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_DEV_1.7.phar")
-        checksoft = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_SOFT.phar")
+        checkbeta = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_BETA.phar")
+        checkdev = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_DEV_1.5.phar")
+        checkdev2 = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_DEV_1.6.phar")
+        checkdev3 = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_DEV_1.7.phar")
+        checksoft = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_SOFT.phar")
 
         linkstable = "https://github.com/PocketMine/PocketMine-MP/releases/download/1.4.1/PocketMine-MP_Installer_1.4.1_x86.exe"
         linkbeta = "https://github.com/PocketMine/PocketMine-MP/releases/download/1.4.1dev-936/PocketMine-MP_1.4.1dev-936.phar"
         linkdev = "http://jenkins.pocketmine.net/job/PocketMine-MP/lastSuccessfulBuild/artifact/PocketMine-MP_1.5dev-1264_04fc062b_API-1.12.0.phar"
         linkdev2 = "http://jenkins.pocketmine.net/job/PocketMine-MP-Bleeding/lastSuccessfulBuild/artifact/PocketMine-MP_1.6dev-48_mcpe-0.12_f9d7e204_API-1.13.0.phar"
-        linkdev3 = "https://github.com/ImagicalCorp/PocketMine-0.13.0/blob/master/releases/PocketMine-MP_1.7dev%2339.phar?raw=true" 'Unofficial release
+        linkdev3 = "https://github.com/ImagicalCorp/PocketMine-0.13.0/releases/download/PM-1.7dev%23323/PocketMine-MP_0.13.0dev.323.phar" 'Unofficial release
         linksoft = "http://jenkins.pocketmine.net/job/PocketMine-Soft/lastSuccessfulBuild/artifact/PocketMine-Soft_1.5dev-245_cb9f360e_API-1.12.0.phar"
 
         Do
@@ -133,7 +133,7 @@
                         Console.WriteLine("{0}", currentversion)
                         Console.WriteLine("1) 1.5 API 1.12.0 Kappatsu-Fugu [#Dev Build 1264] {MC:PE 0.11.x}")
                         Console.WriteLine("2) 1.6 API 1.13.0 No-Name [#Dev Build 48] {MC:PE 0.12.x}")
-                        Console.WriteLine("3) <Unofficial by ImagicalCorp> 1.7 API 1.13.0 Elite [#Dev Build 39] {MC:PE 0.13.x}")
+                        Console.WriteLine("3) <Unofficial by ImagicalCorp> 1.7 API 1.13.0 Elite [#Dev Build 323] {MC:PE 0.13.x}")
                         Console.WriteLine()
                         Console.Write("{0}", downloader2)
                         dev = Console.ReadLine
@@ -219,7 +219,7 @@
 
                 If checkdownloadpath Then
                     If checkbeta = False Or checkdev = False Or checksoft = False Then
-                        downloadpath = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\PathDownload.pm")
+                        downloadpath = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Data\PathDownload.pm")
 
                         MoveDownloadedFile(checkpocketmine, downloadpath, checkbeta, checkdev, checkdev2, checkdev3, checksoft, version)
 
@@ -234,7 +234,7 @@
 
                     Loop While downloadpath = ""
 
-                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\PathDownload.pm", downloadpath, True)
+                    My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Data\PathDownload.pm", downloadpath, True)
 
                 End If
             End If
@@ -243,27 +243,27 @@
 
     Sub MoveDownloadedFile(ByRef checkpocketmine As Object, ByRef downloadpath As String, ByRef checkbeta As Object, ByRef checkdev As Object, ByRef checkdev2 As Object, ByRef checkdev3 As Object, ByRef checksoft As Object, ByRef version As String)
         If version = "2" And checkbeta = True Then
-            My.Computer.FileSystem.CopyFile(downloadpath + "\PocketMine-MP_1.4.1dev-936.phar", "C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_1.4.1dev-936.phar", overwrite:=True)
-            My.Computer.FileSystem.RenameFile("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_1.4.1dev-936.phar", "PocketMine-MP_BETA.phar")
+            My.Computer.FileSystem.CopyFile(downloadpath + "\PocketMine-MP_1.4.1dev-936.phar", System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_1.4.1dev-936.phar", overwrite:=True)
+            My.Computer.FileSystem.RenameFile(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_1.4.1dev-936.phar", "PocketMine-MP_BETA.phar")
 
         ElseIf version = "3" And checkdev = True Then
-            My.Computer.FileSystem.CopyFile(downloadpath + "\PocketMine-MP_1.5dev-1264_04fc062b_API-1.12.0.phar", "C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_1.5dev-1264_04fc062b_API-1.12.0.phar", overwrite:=True)
-            My.Computer.FileSystem.RenameFile("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_1.5dev-1264_04fc062b_API-1.12.0.phar", "PocketMine-MP_DEV_1.5.phar")
+            My.Computer.FileSystem.CopyFile(downloadpath + "\PocketMine-MP_1.5dev-1264_04fc062b_API-1.12.0.phar", System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_1.5dev-1264_04fc062b_API-1.12.0.phar", overwrite:=True)
+            My.Computer.FileSystem.RenameFile(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_1.5dev-1264_04fc062b_API-1.12.0.phar", "PocketMine-MP_DEV_1.5.phar")
 
         ElseIf version = "3" And checkdev2 = True Then
-            My.Computer.FileSystem.CopyFile(downloadpath + "\PocketMine-MP_1.6dev-48_mcpe-0.12_f9d7e204_API-1.13.0.phar", "C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_1.6dev-48_mcpe-0.12_f9d7e204_API-1.13.0.phar", overwrite:=True)
-            My.Computer.FileSystem.RenameFile("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_1.6dev-48_mcpe-0.12_f9d7e204_API-1.13.0.phar", "PocketMine-MP_DEV_1.6.phar")
+            My.Computer.FileSystem.CopyFile(downloadpath + "\PocketMine-MP_1.6dev-48_mcpe-0.12_f9d7e204_API-1.13.0.phar", System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_1.6dev-48_mcpe-0.12_f9d7e204_API-1.13.0.phar", overwrite:=True)
+            My.Computer.FileSystem.RenameFile(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_1.6dev-48_mcpe-0.12_f9d7e204_API-1.13.0.phar", "PocketMine-MP_DEV_1.6.phar")
 
         ElseIf version = "3" And checkdev3 = True Then
-            My.Computer.FileSystem.CopyFile(downloadpath + "\PocketMine-MP_1.7dev#39.phar", "C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_1.7dev#39.phar", overwrite:=True)
-            My.Computer.FileSystem.RenameFile("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_1.7dev#39.phar", "PocketMine-MP_DEV_1.7.phar")
+            My.Computer.FileSystem.CopyFile(downloadpath + "\PocketMine-MP_1.7dev#39.phar", System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_1.7dev#39.phar", overwrite:=True)
+            My.Computer.FileSystem.RenameFile(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_1.7dev#39.phar", "PocketMine-MP_DEV_1.7.phar")
 
         ElseIf version = "4" And checksoft = True Then
-            My.Computer.FileSystem.CopyFile(downloadpath + "\PocketMine-Soft_1.5dev-245_cb9f360e_API-1.12.0.phar", "C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-Soft_1.5dev-245_cb9f360e_API-1.12.0.phar", overwrite:=True)
-            My.Computer.FileSystem.RenameFile("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-Soft_1.5dev-245_cb9f360e_API-1.12.0.phar", "PocketMine-MP_SOFT.phar")
+            My.Computer.FileSystem.CopyFile(downloadpath + "\PocketMine-Soft_1.5dev-245_cb9f360e_API-1.12.0.phar", System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-Soft_1.5dev-245_cb9f360e_API-1.12.0.phar", overwrite:=True)
+            My.Computer.FileSystem.RenameFile(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-Soft_1.5dev-245_cb9f360e_API-1.12.0.phar", "PocketMine-MP_SOFT.phar")
 
         ElseIf version = "1" And checkpocketmine = True Then
-            My.Computer.FileSystem.CopyFile(downloadpath + "\PocketMine-MP_Installer_1.4.1_x86.exe", "C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_Installer_1.4.1_x86.exe", overwrite:=True)
+            My.Computer.FileSystem.CopyFile(downloadpath + "\PocketMine-MP_Installer_1.4.1_x86.exe", System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_Installer_1.4.1_x86.exe", overwrite:=True)
 
         End If
     End Sub
@@ -272,8 +272,8 @@
 
         downloadstatus(chooseserver - 1) = downloader10
 
-        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_" + Convert.ToString(chooseserver) + ".pm")
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_" + Convert.ToString(chooseserver) + ".pm", downloadstatus(chooseserver - 1), True)
+        My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Installations\DownloadStatus_" + Convert.ToString(chooseserver) + ".pm")
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Installations\DownloadStatus_" + Convert.ToString(chooseserver) + ".pm", downloadstatus(chooseserver - 1), True)
 
         downloadstatus(chooseserver - 1) = downloader11    'For security.
 

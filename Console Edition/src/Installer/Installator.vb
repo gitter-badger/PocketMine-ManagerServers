@@ -23,16 +23,16 @@
 
         Dim checkphar1, checkphar2 As Object
 
-        checkpocketmine = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_Installer_1.4.1_x86.exe")
+        checkpocketmine = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_Installer_1.4.1_x86.exe")
 
-        checkbeta = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_BETA.phar")
-        checkdev = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_DEV_1.5.phar")
-        checkdev2 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_DEV_1.6.phar")
-        checkdev3 = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_DEV_1.7.phar")
-        checksoft = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_SOFT.phar")
+        checkbeta = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_BETA.phar")
+        checkdev = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_DEV_1.5.phar")
+        checkdev2 = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_DEV_1.6.phar")
+        checkdev3 = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_DEV_1.7.phar")
+        checksoft = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_SOFT.phar")
 
         Dim stable, beta, dev, soft, confirmphar As String
-        Dim chooseserver As Object
+        Dim chooseserver As Short
 
         Do
             Do
@@ -51,7 +51,7 @@
                 Console.Write("{0}", installator2)
                 chooseserver = Console.ReadLine
 
-                If chooseserver = "11" Then
+                If chooseserver = 11 Then
                     Exit Sub
                 End If
             Loop While chooseserver < 1 Or chooseserver > 10
@@ -60,12 +60,8 @@
 
                 Dim version As String
 
-                Console.Clear()
-                Console.ForegroundColor = ConsoleColor.Green
-                Console.WriteLine("========================<PocketMine Manager Servers>============================")
-                Console.ForegroundColor = ConsoleColor.Cyan
-                Console.WriteLine("{0}", installatortitle)
                 Console.ForegroundColor = ConsoleColor.White
+                Console.WriteLine()
                 Console.WriteLine("1- {0} (Setup File)", versionstable1)
                 Console.WriteLine("2- {0} (Phar File)", versionbeta1)
                 Console.WriteLine("3- {0} (Phar File)", versiondev1)
@@ -93,7 +89,7 @@
                                 If checkpocketmine Then
                                     Console.WriteLine()
                                     Console.WriteLine("{0}", installator3)
-                                    Process.Start("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_Installer_1.4.1_x86.exe")
+                                    Process.Start(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_Installer_1.4.1_x86.exe")
                                     Console.WriteLine("{0}", installator4)
                                     Console.ReadLine()
 
@@ -254,7 +250,7 @@
                         End If
                     Loop While path(chooseserver - 1) = ""
 
-                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(chooseserver) + ".pm", path(chooseserver - 1), True)
+                    My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Path\path_" + Convert.ToString(chooseserver) + ".pm", path(chooseserver - 1), True)
                 End If
             End If
         Loop While chooseserver <> 11
@@ -268,17 +264,17 @@
         If checkphar1 Then
             If checkphar2 Then
                 My.Computer.FileSystem.DeleteFile(path + "\PocketMine-MP_OLD.phar")
-                My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_" + priority + ".phar", path + "\PocketMine-MP_" + priority + ".phar", overwrite:=True)
+                My.Computer.FileSystem.CopyFile(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_" + priority + ".phar", path + "\PocketMine-MP_" + priority + ".phar", overwrite:=True)
                 My.Computer.FileSystem.RenameFile(path + "\PocketMine-MP.phar", "PocketMine-MP_OLD.yml")
                 My.Computer.FileSystem.RenameFile(path + "\PocketMine-MP_" + priority + ".phar", "PocketMine-MP.phar")
             Else
                 My.Computer.FileSystem.RenameFile(path + "\PocketMine-MP.phar", "PocketMine-MP_OLD.yml")
-                My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_" + priority + ".phar", path + "\PocketMine-MP_" + priority + ".phar", overwrite:=True)
+                My.Computer.FileSystem.CopyFile(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_" + priority + ".phar", path + "\PocketMine-MP_" + priority + ".phar", overwrite:=True)
                 My.Computer.FileSystem.RenameFile(path + "\PocketMine-MP_" + priority + ".phar", "PocketMine-MP.phar")
 
             End If
         Else
-            My.Computer.FileSystem.CopyFile("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_" + priority + ".phar", path + "\PocketMine-MP_" + priority + ".phar", overwrite:=True)
+            My.Computer.FileSystem.CopyFile(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_" + priority + ".phar", path + "\PocketMine-MP_" + priority + ".phar", overwrite:=True)
             My.Computer.FileSystem.RenameFile(path + "\PocketMine-MP_" + priority + ".phar", "PocketMine-MP.phar")
 
         End If
@@ -288,8 +284,8 @@
     Sub ChangeInstallationStatus(ByRef installationstatus As String(), ByRef chooseserver As String, ByRef installator6 As String, ByRef installator7 As String)
         installationstatus(chooseserver - 1) = installator6
 
-        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_" + Convert.ToString(chooseserver) + ".pm")
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_" + Convert.ToString(chooseserver) + ".pm", installationstatus(chooseserver - 1), True)
+        My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Installations\InstallationStatus_" + Convert.ToString(chooseserver) + ".pm")
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Installations\InstallationStatus_" + Convert.ToString(chooseserver) + ".pm", installationstatus(chooseserver - 1), True)
 
         installationstatus(chooseserver - 1) = installator7 'For security.
 
