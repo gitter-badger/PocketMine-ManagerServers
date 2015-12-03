@@ -24,13 +24,13 @@
 
         Checking(checknameserver, checkpath)
 
-        nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
+        nservers = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Data\servers.pm")
 
         For i = 1 To nservers
-            installationstatus(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_" + Convert.ToString(i) + ".pm")
-            downloadstatus(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_" + Convert.ToString(i) + ".pm")
-            nameservers(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(i) + ".pm")
-            versionstatus(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Installations\VersionStatus_" + Convert.ToString(i) + ".pm")
+            installationstatus(i - 1) = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Installations\InstallationStatus_" + Convert.ToString(i) + ".pm")
+            downloadstatus(i - 1) = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Installations\DownloadStatus_" + Convert.ToString(i) + ".pm")
+            nameservers(i - 1) = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\ServersName\ServerName_" + Convert.ToString(i) + ".pm")
+            versionstatus(i - 1) = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Installations\VersionStatus_" + Convert.ToString(i) + ".pm")
         Next
 
         Do
@@ -75,9 +75,9 @@
             indexstatus += 1
 
             If version = Convert.ToString(indexstatus) Then
-                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\VersionStatus_" + Convert.ToString(index) + ".pm")
+                My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Installations\VersionStatus_" + Convert.ToString(index) + ".pm")
                 versionstatus(index - 1) = status(indexstatus - 1)
-                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\VersionStatus_" + Convert.ToString(index) + ".pm", versionstatus(index - 1), True)
+                My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Installations\VersionStatus_" + Convert.ToString(index) + ".pm", versionstatus(index - 1), True)
                 verified = True
 
             End If

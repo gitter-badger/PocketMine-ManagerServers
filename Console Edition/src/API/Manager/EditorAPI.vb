@@ -19,9 +19,9 @@
             hardcore, pvp, difficulty, generator, levelname, levelseed, leveltype, enablequery, enablercon, _
             autosave As String
 
-            Dim properties As Object = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Utils\server.properties")
+            Dim properties As Object = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Utils\server.properties")
 
-            If My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Utils\server.properties") Then
+            If My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Utils\server.properties") Then
                 motd = properties.ToString.Replace("motd=", "")
                 serverport = properties.ToString.Replace("server-port=", "")
                 whitelist = properties.ToString.Replace("white-list=", "")

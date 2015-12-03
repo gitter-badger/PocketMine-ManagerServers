@@ -33,18 +33,18 @@ Module English
         writepath2 = ", example 'C:\PocketMine-MP': "
         writepath3 = "ERROR! Insert a valid path!"
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords1.lang", back, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords2.lang", changemade, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords3.lang", status1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords4.lang", version1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords5.lang", versionstable1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords6.lang", versionbeta1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords7.lang", versiondev1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords8.lang", versionsoft1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords9.lang", currentversion, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords10.lang", writepath1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords11.lang", writepath2, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\UniqueWords12.lang", writepath3, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\UniqueWords1.lang", back, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\UniqueWords2.lang", changemade, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\UniqueWords3.lang", status1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\UniqueWords4.lang", version1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\UniqueWords5.lang", versionstable1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\UniqueWords6.lang", versionbeta1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\UniqueWords7.lang", versiondev1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\UniqueWords8.lang", versionsoft1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\UniqueWords9.lang", currentversion, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\UniqueWords10.lang", writepath1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\UniqueWords11.lang", writepath2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\UniqueWords12.lang", writepath3, True)
 
         '#Main Menu
         Dim menudev, menutitle, menu1, menu2, menu3, menu4, menu5, menu6 As String
@@ -58,14 +58,14 @@ Module English
         menu5 = "Exit"
         menu6 = "What would you like to do?: "
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Menu1.lang", menutitle, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Menu2.lang", menudev, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Menu3.lang", menu1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Menu4.lang", menu2, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Menu5.lang", menu3, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Menu6.lang", menu4, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Menu7.lang", menu5, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Menu8.lang", menu6, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Menu1.lang", menutitle, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Menu2.lang", menudev, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Menu3.lang", menu1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Menu4.lang", menu2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Menu5.lang", menu3, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Menu6.lang", menu4, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Menu7.lang", menu5, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Menu8.lang", menu6, True)
 
         '#Install PocketMine-MP
         Dim installertitle, installer1, installer2, installer3 As String
@@ -75,10 +75,10 @@ Module English
         installer2 = "Install"
         installer3 = "Choose what do you want to do: "
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Install1.lang", installertitle, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Install2.lang", installer1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Install3.lang", installer2, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Install4.lang", installer3, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Install1.lang", installertitle, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Install2.lang", installer1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Install3.lang", installer2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Install4.lang", installer3, True)
 
         '--------#ManagerInstaller
         '-----------------#Installator
@@ -93,14 +93,14 @@ Module English
         installator6 = "Installed"
         installator7 = "Not Installed"
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator0.lang", installatortitle, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator1.lang", installator1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator2.lang", installator2, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator3.lang", installator3, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator4.lang", installator4, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator5.lang", installator5, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator6.lang", installator6, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Installator7.lang", installator7, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Installator0.lang", installatortitle, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Installator1.lang", installator1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Installator2.lang", installator2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Installator3.lang", installator3, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Installator4.lang", installator4, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Installator5.lang", installator5, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Installator6.lang", installator6, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Installator7.lang", installator7, True)
 
         '------------------------#Versions(Beta, Dev, Soft)
 
@@ -110,9 +110,9 @@ Module English
         versions2 = "Phar file not found!"
         versions3 = "Please download the file."
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Versions1.lang", versions1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Versions2.lang", versions2, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Versions3.lang", versions3, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Versions1.lang", versions1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Versions2.lang", versions2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Versions3.lang", versions3, True)
 
         '-----------------#Downloader
         Dim downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11 As String
@@ -130,18 +130,18 @@ Module English
         downloader10 = "Downloaded"
         downloader11 = "Not Downloaded"
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader0.lang", downloadertitle, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader1.lang", downloader1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader2.lang", downloader2, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader3.lang", downloader3, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader4.lang", downloader4, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader5.lang", downloader5, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader6.lang", downloader6, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader7.lang", downloader7, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader8.lang", downloader8, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader9.lang", downloader9, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader10.lang", downloader10, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Downloader11.lang", downloader11, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Downloader0.lang", downloadertitle, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Downloader1.lang", downloader1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Downloader2.lang", downloader2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Downloader3.lang", downloader3, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Downloader4.lang", downloader4, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Downloader5.lang", downloader5, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Downloader6.lang", downloader6, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Downloader7.lang", downloader7, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Downloader8.lang", downloader8, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Downloader9.lang", downloader9, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Downloader10.lang", downloader10, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Downloader11.lang", downloader11, True)
 
 
         '#ManageServers
@@ -154,12 +154,12 @@ Module English
         manager4 = "Select option: "
         manager5 = "Server Restarter"
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager0.lang", managertitle, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager1.lang", manager1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager2.lang", manager2, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager3.lang", manager3, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager4.lang", manager4, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Manager5.lang", manager5, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Manager0.lang", managertitle, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Manager1.lang", manager1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Manager2.lang", manager2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Manager3.lang", manager3, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Manager4.lang", manager4, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Manager5.lang", manager5, True)
 
         '-----------#Opener
         Dim openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, opener9, opener10 As String
@@ -176,17 +176,17 @@ Module English
         opener9 = "Do you want to open all servers? "
         opener10 = "Do you want to open all folders of servers? "
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener0.lang", openertitle, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener1.lang", opener1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener2.lang", opener2, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener3.lang", opener3, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener4.lang", opener4, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener5.lang", opener5, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener6.lang", opener6, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener7.lang", opener7, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener8.lang", opener8, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener9.lang", opener9, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Opener10.lang", opener10, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Opener0.lang", openertitle, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Opener1.lang", opener1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Opener2.lang", opener2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Opener3.lang", opener3, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Opener4.lang", opener4, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Opener5.lang", opener5, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Opener6.lang", opener6, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Opener7.lang", opener7, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Opener8.lang", opener8, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Opener9.lang", opener9, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Opener10.lang", opener10, True)
 
         '-----------#Editor
         Dim editortitle, editor1, editor2, editor3 As String
@@ -196,10 +196,10 @@ Module English
         editor2 = "Edit Performance Server"
         editor3 = "What do you want to edit? "
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Editor0.lang", editortitle, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Editor1.lang", editor1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Editor2.lang", editor2, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Editor3.lang", editor3, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Editor0.lang", editortitle, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Editor1.lang", editor1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Editor2.lang", editor2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Editor3.lang", editor3, True)
 
         '-----------------#EditProperties
         Dim propertiestitle, properties1, properties2, properties3, properties4, properties5, properties6, properties7 As String
@@ -213,14 +213,14 @@ Module English
         properties6 = "Path(s) not found!"
         properties7 = "Do you want to confirm your choices? "
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties0.lang", propertiestitle, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties1.lang", properties1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties2.lang", properties2, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties3.lang", properties3, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties4.lang", properties4, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties5.lang", properties5, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties6.lang", properties6, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Properties7.lang", properties7, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Properties0.lang", propertiestitle, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Properties1.lang", properties1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Properties2.lang", properties2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Properties3.lang", properties3, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Properties4.lang", properties4, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Properties5.lang", properties5, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Properties6.lang", properties6, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Properties7.lang", properties7, True)
 
         '----------------#EditPerformance
         Dim performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, performance12 As String
@@ -239,19 +239,19 @@ Module English
         performance11 = "On which server you want to apply this setting? "
         performance12 = "I'm making the changes..."
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance0.lang", performancetitle, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance1.lang", performance1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance2.lang", performance2, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance3.lang", performance3, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance4.lang", performance4, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance5.lang", performance5, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance6.lang", performance6, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance7.lang", performance7, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance8.lang", performance8, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance9.lang", performance9, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance10.lang", performance10, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance11.lang", performance11, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Performance12.lang", performance12, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Performance0.lang", performancetitle, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Performance1.lang", performance1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Performance2.lang", performance2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Performance3.lang", performance3, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Performance4.lang", performance4, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Performance5.lang", performance5, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Performance6.lang", performance6, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Performance7.lang", performance7, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Performance8.lang", performance8, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Performance9.lang", performance9, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Performance10.lang", performance10, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Performance11.lang", performance11, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Performance12.lang", performance12, True)
 
         '-----------#Rescuer
         Dim rescuertitle, rescuer1, rescuer2 As String
@@ -260,9 +260,9 @@ Module English
         rescuer1 = "Backup servers"
         rescuer2 = "Restore servers"
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Rescuer0.lang", rescuertitle, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Rescuer1.lang", rescuer1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Rescuer2.lang", rescuer2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Rescuer0.lang", rescuertitle, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Rescuer1.lang", rescuer1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Rescuer2.lang", rescuer2, True)
 
         '----------------#Backup
         Dim backuptitle, backup1, backup2, backup3, backup4, backup5 As String
@@ -274,12 +274,12 @@ Module English
         backup4 = "There is already another backup of this server, do you want to overwrite it? "
         backup5 = "You can find your backup in 'C:\Program Files\PocketMine-ManagerServers\Backups\', do you want to open this folder?"
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup0.lang", backuptitle, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup1.lang", backup1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup2.lang", backup2, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup3.lang", backup3, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup4.lang", backup4, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Backup5.lang", backup5, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Backup0.lang", backuptitle, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Backup1.lang", backup1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Backup2.lang", backup2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Backup3.lang", backup3, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Backup4.lang", backup4, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Backup5.lang", backup5, True)
 
         '----------------#Restore
         Dim restoretitle, restore1, restore2, restore3, restore4, restore5 As String
@@ -291,12 +291,12 @@ Module English
         restore4 = "Error, first do a backup of a your server!"
         restore5 = "You can find your backup in 'C:\Program Files\PocketMine-ManagerServers\Backups\', do you want to open this folder?"
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore0.lang", restoretitle, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore1.lang", restore1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore2.lang", restore2, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore3.lang", restore3, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore4.lang", restore4, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restore5.lang", restore5, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restore0.lang", restoretitle, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restore1.lang", restore1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restore2.lang", restore2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restore3.lang", restore3, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restore4.lang", restore4, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restore5.lang", restore5, True)
 
         '-----------#Server Restarter
         Dim restartertitle, restarter1, restarter2, restarter3, restarter4, restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12, _
@@ -322,25 +322,25 @@ Module English
         restarter17 = "Restarter killed!"
         restarter18 = "The restarter is not running"
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter0.lang", restartertitle, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter1.lang", restarter1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter2.lang", restarter2, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter3.lang", restarter3, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter4.lang", restarter4, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter5.lang", restarter5, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter6.lang", restarter6, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter7.lang", restarter7, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter8.lang", restarter8, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter9.lang", restarter9, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter10.lang", restarter10, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter11.lang", restarter11, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter12.lang", restarter12, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter13.lang", restarter13, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter14.lang", restarter14, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter15.lang", restarter15, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter16.lang", restarter16, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter17.lang", restarter17, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Restarter18.lang", restarter18, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter0.lang", restartertitle, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter1.lang", restarter1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter2.lang", restarter2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter3.lang", restarter3, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter4.lang", restarter4, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter5.lang", restarter5, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter6.lang", restarter6, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter7.lang", restarter7, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter8.lang", restarter8, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter9.lang", restarter9, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter10.lang", restarter10, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter11.lang", restarter11, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter12.lang", restarter12, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter13.lang", restarter13, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter14.lang", restarter14, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter15.lang", restarter15, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter16.lang", restarter16, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter17.lang", restarter17, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Restarter18.lang", restarter18, True)
 
         '#Options
         Dim optiontitle, option1, option2, option3 As String
@@ -350,17 +350,17 @@ Module English
         option2 = "Reset Program"
         option3 = "Choose the option: "
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Option0.lang", optiontitle, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Option1.lang", option1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Option2.lang", option2, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Option3.lang", option3, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Option0.lang", optiontitle, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Option1.lang", option1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Option2.lang", option2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Option3.lang", option3, True)
 
         '------------#ChangeLanguages
         Dim lang1 As String
 
         lang1 = "Please select an avaiable language!"
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Lang1.lang", lang1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Lang1.lang", lang1, True)
 
         '------------#ResetProgram
         Dim resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11 As String
@@ -378,18 +378,18 @@ Module English
         resetp10 = "There is no path to be deleted!"
         resetp11 = "Are you sure to want to reset all data/folders of program (It delete folders of program)? <Y/N>: "
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp0.lang", resettitle, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp1.lang", resetp1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp2.lang", resetp2, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp3.lang", resetp3, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp4.lang", resetp4, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp5.lang", resetp5, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp6.lang", resetp6, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp7.lang", resetp7, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp8.lang", resetp8, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp9.lang", resetp9, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp10.lang", resetp10, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Resetp11.lang", resetp11, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Resetp0.lang", resettitle, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Resetp1.lang", resetp1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Resetp2.lang", resetp2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Resetp3.lang", resetp3, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Resetp4.lang", resetp4, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Resetp5.lang", resetp5, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Resetp6.lang", resetp6, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Resetp7.lang", resetp7, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Resetp8.lang", resetp8, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Resetp9.lang", resetp9, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Resetp10.lang", resetp10, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Resetp11.lang", resetp11, True)
 
         '#Informations
         Dim infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6 As String
@@ -405,16 +405,16 @@ Module English
         info5 = "Choose information: "
         info6 = "ERROR! Bad Installation! License not found!"
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info0.lang", infotitle, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info1.lang", info1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info2.lang", info2, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info3.lang", info3, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info4.lang", info4, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info5.lang", info5, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info6.lang", info6, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info7.lang", infocredits, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info8.lang", infoinformations, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Info9.lang", infodisclaimer, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Info0.lang", infotitle, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Info1.lang", info1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Info2.lang", info2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Info3.lang", info3, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Info4.lang", info4, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Info5.lang", info5, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Info6.lang", info6, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Info7.lang", infocredits, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Info8.lang", infoinformations, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Info9.lang", infodisclaimer, True)
 
         '#Exit
         Dim exittitle, exit1, exit2 As String
@@ -423,24 +423,24 @@ Module English
         exit1 = "Are you sure you want to quit? <Y/N>: "
         exit2 = "See you soon!"
 
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Exit0.lang", exittitle, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Exit1.lang", exit1, True)
-        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Languages\English\Exit2.lang", exit2, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Exit0.lang", exittitle, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Exit1.lang", exit1, True)
+        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Languages\English\Exit2.lang", exit2, True)
 
         Using lang As ZipFile = New ZipFile()
             lang.Password = "PocketMine-ManagerServers".GetHashCode
-            lang.AddDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\English")
-            lang.Save("C:\Program Files\PocketMine-ManagerServers\Languages\English\English.lang")
+            lang.AddDirectory(System.IO.Directory.GetCurrentDirectory + "\Languages\English")
+            lang.Save(System.IO.Directory.GetCurrentDirectory + "\Languages\English\English.lang")
 
         End Using
         LanguageDeletor()
 
     End Sub
     Sub LanguageDeletor()
-        My.Computer.FileSystem.MoveFile("C:\Program Files\PocketMine-ManagerServers\Languages\English\English.lang", "C:\Program Files\PocketMine-ManagerServers\Languages\English.lang")
-        My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\English", FileIO.DeleteDirectoryOption.DeleteAllContents)
-        My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages\English")
-        My.Computer.FileSystem.MoveFile("C:\Program Files\PocketMine-ManagerServers\Languages\English.lang", "C:\Program Files\PocketMine-ManagerServers\Languages\English\English.lang")
+        My.Computer.FileSystem.MoveFile(System.IO.Directory.GetCurrentDirectory + "\Languages\English\English.lang", System.IO.Directory.GetCurrentDirectory + "\Languages\English.lang")
+        My.Computer.FileSystem.DeleteDirectory(System.IO.Directory.GetCurrentDirectory + "\Languages\English", FileIO.DeleteDirectoryOption.DeleteAllContents)
+        My.Computer.FileSystem.CreateDirectory(System.IO.Directory.GetCurrentDirectory + "\Languages\English")
+        My.Computer.FileSystem.MoveFile(System.IO.Directory.GetCurrentDirectory + "\Languages\English.lang", System.IO.Directory.GetCurrentDirectory + "\Languages\English\English.lang")
 
     End Sub
 End Module

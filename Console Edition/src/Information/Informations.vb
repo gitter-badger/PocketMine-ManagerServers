@@ -41,7 +41,7 @@
             If information = "1" Then
 
                 If checklicense Then
-                    Process.Start("C:\Program Files\PocketMine-ManagerServers\LICENSE.pdf")
+                    Process.Start(System.IO.Directory.GetCurrentDirectory + "\LICENSE.pdf")
                 Else
                     Console.ForegroundColor = ConsoleColor.DarkRed
                     Console.WriteLine("{0}", info6)

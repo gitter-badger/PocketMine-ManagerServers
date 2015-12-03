@@ -41,7 +41,7 @@
                 End If
 
                 If version.ToUpper = "STABLE" Or version = "1" Then
-                    Process.Start("C:\Program Files\PocketMine-ManagerServers\Utils\PocketMine-MP_Installer_1.4.1_x86.exe")
+                    Process.Start(System.IO.Directory.GetCurrentDirectory + "\Utils\PocketMine-MP_Installer_1.4.1_x86.exe")
 
                 ElseIf version.ToUpper = "BETA" Or version = "2" Then
                     ChangeInstallationFiles(path(nservers - 1), version)
@@ -63,7 +63,7 @@
                     MsgBox("The number of servers cannot be > 10 or < 1", MsgBoxStyle.Critical)
 
                 Else
-                    My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_" + Convert.ToString(nservers - 1) + ".pm")
+                    My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Installations\InstallationStatus_" + Convert.ToString(nservers - 1) + ".pm")
 
                 End If
 
@@ -74,8 +74,8 @@
 
                 installationstatus(nservers - 1) = status 'You can personalize the status
 
-                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_" + Convert.ToString(nservers) + ".pm")
-                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_" + Convert.ToString(nservers) + ".pm", installationstatus(nservers - 1), True)
+                My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Installations\InstallationStatus_" + Convert.ToString(nservers) + ".pm")
+                My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Installations\InstallationStatus_" + Convert.ToString(nservers) + ".pm", installationstatus(nservers - 1), True)
 
                 Return InstallerAPI.getInstaller.Installer.changeInstallationStatus(installationstatus, nservers, status)
             End Function
@@ -112,7 +112,7 @@
                     MsgBox("The number of servers cannot be > 10 or < 1", MsgBoxStyle.Critical)
 
                 Else
-                    My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Installations\DownloadStatus_" + Convert.ToString(nservers - 1) + ".pm")
+                    My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Installations\DownloadStatus_" + Convert.ToString(nservers - 1) + ".pm")
 
                 End If
 
@@ -123,8 +123,8 @@
 
                 downloadstatus(nservers - 1) = status 'You can personalize the status
 
-                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_" + Convert.ToString(nservers) + ".pm")
-                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Installations\InstallationStatus_" + Convert.ToString(nservers) + ".pm", downloadstatus(nservers - 1), True)
+                My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Installations\InstallationStatus_" + Convert.ToString(nservers) + ".pm")
+                My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Installations\InstallationStatus_" + Convert.ToString(nservers) + ".pm", downloadstatus(nservers - 1), True)
 
                 Return InstallerAPI.getInstaller.Downloader.changeDownloadStatus(downloadstatus, nservers, status)
             End Function
