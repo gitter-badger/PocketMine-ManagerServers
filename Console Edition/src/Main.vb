@@ -87,46 +87,81 @@ Module Main
         Const build_pm As String = "BUILD 0"
 
         Dim commandstart As Boolean
-        Dim checkcommand As Object = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\Starter.pm")
+        Dim checkcommand As Object = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Data\Starter.pm")
 
-        Dim checkionic As Object = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Ionic.Zip.dll")
+        Dim checkionic As Object = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Ionic.Zip.dll")
 
-        Dim checkpmversion As Object = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Version.pm")
+        Dim checkpmversion As Object = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Version.pm")
         Dim pmversion As String
+
+        Dim checkdirpm As Object = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\dirs.pm")
+        Dim dirpm As String = System.IO.Directory.GetCurrentDirectory
 
         'STARTUP
         Console.Title = "PocketMine-ManagerServers v" + version_pm
         'Console.Title = "PocketMine-ManagerServers v" + version_pm + " [" + build_pm + "]"
 
-        If checkionic = False Then
+        If checkdirpm Then
+            dirpm = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\dirs.pm")
+            If dirpm <> System.IO.Directory.GetCurrentDirectory Then
+                Dim movdir As Char
+                Do
+                    Console.ForegroundColor = ConsoleColor.Red
+                    Console.Write("Directories is changed! Do you want to copy all contents in the current folder? <Y/N>: ")
+                    movdir = Console.ReadLine.ToUpper
 
-            Dim downloadionic As Char
-            Console.ForegroundColor = ConsoleColor.Red
-            Console.WriteLine("Critical error! Can't find 'Ionic.Zip.dll' in the main directory! Update to version 1.3 or higher, or download the .dll binary from GitHub's repository")
-            Console.ResetColor()
-            Console.WriteLine()
-            Console.Write("Do you want to download the .dll file? <Y/N>: ")
-            downloadionic = Console.ReadLine.ToUpper
-
-            If downloadionic = "Y" Then
-                Process.Start("http://www.dllme.com/dll-download.php?code=e0d53caf6b271aed4e007c363e29769c&type=dll&file=15330")
-                Console.WriteLine("Now restart the software; if it does not work, make sure you put the .dll file in the root directory if not, contact the developer.")
-            Else
-                End
+                    If movdir = "Y" Then
+                        Try
+                            My.Computer.FileSystem.CopyDirectory(dirpm, System.IO.Directory.GetCurrentDirectory, True)
+                            My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\dirs.pm")
+                            dirpm = System.IO.Directory.GetCurrentDirectory
+                            My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\dirs.pm", dirpm, True)
+                        Catch ex As IOException
+                            Console.ForegroundColor = ConsoleColor.Red
+                            Console.Write("Error during the copy!")
+                            System.Threading.Thread.Sleep(1000)
+                            End
+                        End Try
+                    ElseIf movdir = "N" Then
+                        End
+                    End If
+                Loop While movdir <> "Y" And movdir <> "N"
             End If
+        Else
+            My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\dirs.pm", dirpm, True)
+        End If
+
+        If checkionic = False Then
+            Dim downloadionic As Char
+            Do
+                Console.ForegroundColor = ConsoleColor.Red
+                Console.WriteLine("Critical error! Can't find 'Ionic.Zip.dll' in the main directory! Update to version 1.3 or higher, or download the .dll binary from GitHub's repository")
+                Console.ResetColor()
+                Console.WriteLine()
+                Console.Write("Do you want to download the .dll file? <Y/N>: ")
+                downloadionic = Console.ReadLine.ToUpper
+
+                If downloadionic = "Y" Then
+                    Process.Start("http://www.dllme.com/dll-download.php?code=e0d53caf6b271aed4e007c363e29769c&type=dll&file=15330")
+                    Console.WriteLine("Now restart the software; if it does not work, make sure you put the .dll file in the root directory if not, contact the developer.")
+
+                ElseIf downloadionic = "N" Then
+                    End
+                End If
+            Loop While downloadionic <> "Y" And downloadionic <> "N"
 
         Else
             If checkpmversion Then
-                pmversion = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Version.pm")
+                pmversion = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Version.pm")
                 If pmversion <> version_pm Then
                     Console.WriteLine("Updating languages for the version change! Please wait...")
 
-                    My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Languages", FileIO.DeleteDirectoryOption.DeleteAllContents)
-                    My.Computer.FileSystem.CreateDirectory("C:\Program Files\PocketMine-ManagerServers\Languages")
+                    My.Computer.FileSystem.DeleteDirectory(System.IO.Directory.GetCurrentDirectory + "\Languages", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                    My.Computer.FileSystem.CreateDirectory(System.IO.Directory.GetCurrentDirectory + "\Languages")
                     LanguageLoader.LanguageLoader()
 
-                    My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Version.pm")
-                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Version.pm", version_pm, True)
+                    My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Version.pm")
+                    My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Version.pm", version_pm, True)
 
                     Console.ForegroundColor = ConsoleColor.Green
                     Console.WriteLine("Updated succefully! Press ENTER to continue.")
@@ -135,15 +170,15 @@ Module Main
 
             End If
             Loader.Loader(checklanguage, versionstatus, dirinstallations, checkinstallations, checkdownloads, checkperformance, checknameserver, nameservers, performancestatus, nservers, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, _
-                          dirperformance, dirutils, checklicense, downloadstatus, installationstatus, backupstatus, dirlanguages, direrrors, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
-                          menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
-                          installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
-                          manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, opener9, opener10, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
-                          properties6, properties7, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
-                          performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
-                          resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
-                          infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, restartertitle, restarter1, restarter2, restarter3, restarter4, restarter5, _
-                          restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12, restarter13, restarter14, restarter15, restarter16, restarter17, restarter18)
+                            dirperformance, dirutils, checklicense, downloadstatus, installationstatus, backupstatus, dirlanguages, direrrors, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
+                            menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
+                            installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
+                            manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, opener9, opener10, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
+                            properties6, properties7, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
+                            performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
+                            resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
+                            infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, restartertitle, restarter1, restarter2, restarter3, restarter4, restarter5, _
+                            restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12, restarter13, restarter14, restarter15, restarter16, restarter17, restarter18)
 
             quit = "N"
 
@@ -153,17 +188,17 @@ Module Main
             Console.WriteLine("Loading resource...")
             System.Threading.Thread.Sleep(500)
 
-            nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
-            language = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm")
+            nservers = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Data\servers.pm")
+            language = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Data\langselection.pm")
 
-            checkdevmode = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
+            checkdevmode = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Data\DevMode.pm")
 
             If checkdevmode Then
-                devmode = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
+                devmode = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Data\DevMode.pm")
             End If
 
             If checkcommand Then
-                commandstart = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\Starter.pm")
+                commandstart = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Data\Starter.pm")
 
             Else
                 commandstart = False
@@ -176,14 +211,14 @@ Module Main
             End If
 
             LanguageReader.LanguageReader(language, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
-                                  menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
-                                  installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
-                                  manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, opener9, opener10, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
-                                  properties6, properties7, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
-                                  performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
-                                  resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
-                                  infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, restartertitle, restarter1, restarter2, restarter3, _
-                                  restarter4, restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12, restarter13, restarter14, restarter15, restarter16, restarter17, restarter18)
+                                    menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
+                                    installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
+                                    manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, opener9, opener10, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
+                                    properties6, properties7, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
+                                    performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
+                                    resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
+                                    infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, restartertitle, restarter1, restarter2, restarter3, _
+                                    restarter4, restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12, restarter13, restarter14, restarter15, restarter16, restarter17, restarter18)
 
             While quit = "N"
                 Console.ForegroundColor = ConsoleColor.Green
@@ -204,7 +239,6 @@ Module Main
                 Console.WriteLine("3- {0}", menu3)
                 Console.WriteLine("4- {0}", menu4)
                 Console.WriteLine("5- {0}", menu5)
-                '"System.IO.Directory.GetCurrentDirectory)" New method for C:\Program Files\PocketMine-ManagerServers
 
                 If devmode = True Then
                     Console.ForegroundColor = ConsoleColor.Yellow
@@ -240,15 +274,15 @@ Module Main
 
                 If menu = "3" Then 'Program Options
                     Settings.Settings(nservers, nameservers, checknameserver, checkpath, path, checknservers, checkfolderinstallation, dirpath, dirdata, dirservername, dirperformance, dirinstallations, dirlanguages, direrrors, checklanguage, _
-                                      language, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
-                                      menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
-                                      installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
-                                      manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, opener9, opener10, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
-                                      properties6, properties7, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
-                                      performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
-                                      resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
-                                      infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, devmode, checkdevmode, restartertitle, restarter1, restarter2, restarter3, restarter4, _
-                                      restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12, restarter13, restarter14, restarter15, restarter16, restarter17, restarter18)
+                                        language, changelang, back, changemade, status1, version1, versionstable1, versionbeta1, versiondev1, versionsoft1, currentversion, writepath1, writepath2, writepath3, menudev, menutitle, _
+                                        menu1, menu2, menu3, menu4, menu5, menu6, installertitle, installer1, installer2, installer3, installatortitle, installator1, installator2, installator3, installator4, _
+                                        installator5, installator6, installator7, downloadertitle, downloader1, downloader2, downloader3, downloader4, downloader5, downloader6, downloader7, downloader8, downloader9, downloader10, downloader11, managertitle, manager1, manager2, manager3, _
+                                        manager4, manager5, openertitle, opener1, opener2, opener3, opener4, opener5, opener6, opener7, opener8, opener9, opener10, editortitle, editor1, editor2, editor3, propertiestitle, properties1, properties2, properties3, properties4, properties5, _
+                                        properties6, properties7, performancetitle, performance1, performance2, performance3, performance4, performance5, performance6, performance7, performance8, performance9, performance10, performance11, _
+                                        performance12, rescuertitle, rescuer1, rescuer2, backuptitle, backup1, backup2, backup3, backup4, backup5, restoretitle, restore1, restore2, restore3, restore4, restore5, optiontitle, option1, option2, option3, lang1, _
+                                        resettitle, resetp1, resetp2, resetp3, resetp4, resetp5, resetp6, resetp7, resetp8, resetp9, resetp10, resetp11, _
+                                        infotitle, infocredits, infoinformations, infodisclaimer, info1, info2, info3, info4, info5, info6, exittitle, exit1, exit2, versions1, versions2, versions3, devmode, checkdevmode, restartertitle, restarter1, restarter2, restarter3, restarter4, _
+                                        restarter5, restarter6, restarter7, restarter8, restarter9, restarter10, restarter11, restarter12, restarter13, restarter14, restarter15, restarter16, restarter17, restarter18)
 
                 End If
 
@@ -294,15 +328,15 @@ Module Main
 
     Sub Writing(ByRef nameservers As String(), ByRef nservers As SByte, ByRef path As String())
         For i = 1 To nservers
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(i) + ".pm", nameservers(i - 1), True)
+            My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\ServersName\ServerName_" + Convert.ToString(i) + ".pm", nameservers(i - 1), True)
 
         Next
     End Sub
 
     Sub Reading(ByRef path As Object(), ByRef nservers As SByte, ByRef nameservers As String())
         For i = 1 To nservers
-            path(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm")
-            nameservers(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(i) + ".pm")
+            path(i - 1) = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Path\path_" + Convert.ToString(i) + ".pm")
+            nameservers(i - 1) = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\ServersName\ServerName_" + Convert.ToString(i) + ".pm")
 
         Next
 
@@ -310,8 +344,8 @@ Module Main
 
     Sub Checking(ByRef checknameserver As Object(), ByRef checkpath As Object())
         For i = 1 To 10
-            checknameserver(i - 1) = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(i) + ".pm")
-            checkpath(i - 1) = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Path\path_" + Convert.ToString(i) + ".pm")
+            checknameserver(i - 1) = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\ServersName\ServerName_" + Convert.ToString(i) + ".pm")
+            checkpath(i - 1) = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Path\path_" + Convert.ToString(i) + ".pm")
 
         Next
     End Sub
