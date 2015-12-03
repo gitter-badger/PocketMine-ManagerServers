@@ -29,15 +29,10 @@
 
         Dim checkpath As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
         '-------------------------------------------------------------------------------------------------------------------------------------------------
-
-        Dim performancestatus As String() = New String() {"", "", "", "", "", "", "", "", "", ""}
-
-        Dim checkperformance As Object() = New Object() {False, False, False, False, False, False, False, False, False, False}
-
-        checknservers = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
+        checknservers = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Data\servers.pm")
 
         If checknservers Then
-            nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
+            nservers = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Data\servers.pm")
 
         Else
             Do
@@ -66,7 +61,7 @@
                 End Try
             Loop While nservers > 10 Or nservers <= 0
 
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm", nservers, True)
+            My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Data\servers.pm", nservers, True)
 
         End If
 
@@ -83,112 +78,10 @@
         Console.WriteLine("If you do not enter a name for your server , by default it will be '{0}'", defaultservers)
 
         If nservers >= 1 Then
-            If nservers = 1 And checknameserver(0) Then
-
+            If checknameserver(nservers - 1) Then
                 Exit Sub
 
-            ElseIf nservers = 1 Then
-                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                Writing(nameservers, nservers, path)
-
-            End If
-
-            If nservers = 2 And checknameserver(0) And checknameserver(1) Then
-
-                Exit Sub
-
-            ElseIf nservers = 2 Then
-
-                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                Writing(nameservers, nservers, path)
-
-            End If
-
-            If nservers = 3 And checknameserver(0) And checknameserver(1) And checknameserver(2) Then
-
-                Exit Sub
-
-            ElseIf nservers = 3 Then
-
-                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                Writing(nameservers, nservers, path)
-
-            End If
-
-            If nservers = 4 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) Then
-
-                Exit Sub
-
-            ElseIf nservers = 4 Then
-                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                Writing(nameservers, nservers, path)
-
-            End If
-
-            If nservers = 5 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) Then
-
-                Exit Sub
-
-            ElseIf nservers = 5 Then
-                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                Writing(nameservers, nservers, path)
-
-            End If
-
-            If nservers = 6 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) Then
-
-                Exit Sub
-
-            ElseIf nservers = 6 Then
-                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                Writing(nameservers, nservers, path)
-
-            End If
-
-            If nservers = 7 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) Then
-
-                Exit Sub
-
-            ElseIf nservers = 7 Then
-                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                Writing(nameservers, nservers, path)
-
-            End If
-
-            If nservers = 8 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) Then
-
-                Exit Sub
-
-            ElseIf nservers = 8 Then
-                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                Writing(nameservers, nservers, path)
-
-            End If
-
-            If nservers = 9 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) And checknameserver(8) Then
-
-                Exit Sub
-
-            ElseIf nservers = 9 Then
-                Selection(nservers, nameservers, numberservers, defaultservers)
-
-                Writing(nameservers, nservers, path)
-
-            End If
-
-            If nservers = 10 And checknameserver(0) And checknameserver(1) And checknameserver(2) And checknameserver(3) And checknameserver(4) And checknameserver(5) And checknameserver(6) And checknameserver(7) And checknameserver(8) And checknameserver(9) Then
-
-                Exit Sub
-
-            ElseIf nservers = 10 Then
+            Else
                 Selection(nservers, nameservers, numberservers, defaultservers)
 
                 Writing(nameservers, nservers, path)

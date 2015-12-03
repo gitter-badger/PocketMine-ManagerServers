@@ -80,13 +80,13 @@
                 Loop While newname.Contains(" ") Or newname = nameservers(chooseserver - 1)
 
                 If newname = "" Then
-                    Dim defaultserver As String = "Server_Minecraft_PE"
-                    newname = defaultserver + "_" + Convert.ToString(chooseserver)
+                    newname = "Server_Minecraft_PE_" + Convert.ToString(chooseserver)
+
                 End If
 
-                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(chooseserver) + ".pm")
+                My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\ServersName\ServerName_" + Convert.ToString(chooseserver) + ".pm")
                 nameservers(chooseserver - 1) = newname
-                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\ServersName\ServerName_" + Convert.ToString(chooseserver) + ".pm", nameservers(chooseserver - 1), True)
+                My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\ServersName\ServerName_" + Convert.ToString(chooseserver) + ".pm", nameservers(chooseserver - 1), True)
                 Console.ForegroundColor = ConsoleColor.Green
                 Console.WriteLine("Changed name succefully!")
                 Console.ReadLine()
