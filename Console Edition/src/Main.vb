@@ -113,14 +113,17 @@ Module Main
                     If movdir = "Y" Then
                         Try
                             My.Computer.FileSystem.CopyDirectory(dirpm, System.IO.Directory.GetCurrentDirectory, True)
+                            
+                        Catch ex As IOException
                             My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\dirs.pm")
                             dirpm = System.IO.Directory.GetCurrentDirectory
                             My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\dirs.pm", dirpm, True)
-                        Catch ex As IOException
-                            Console.ForegroundColor = ConsoleColor.Red
-                            Console.Write("Error during the copy!")
+                            Console.ForegroundColor = ConsoleColor.Green
+                            Console.WriteLine("Restarting software...")
                             System.Threading.Thread.Sleep(1000)
+                            Process.Start(System.IO.Directory.GetCurrentDirectory + "\PocketMine-ManagerServers.exe")
                             End
+
                         End Try
                     ElseIf movdir = "N" Then
                         End
@@ -136,7 +139,7 @@ Module Main
             Do
                 Console.ForegroundColor = ConsoleColor.Red
                 Console.WriteLine("Critical error! Can't find 'Ionic.Zip.dll' in the main directory! Update to version 1.3 or higher, or download the .dll binary from GitHub's repository")
-                Console.ResetColor()
+                Console.ForegroundColor = ConsoleColor.White
                 Console.WriteLine()
                 Console.Write("Do you want to download the .dll file? <Y/N>: ")
                 downloadionic = Console.ReadLine.ToUpper
