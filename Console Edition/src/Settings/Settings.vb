@@ -31,7 +31,7 @@
         Dim options As String
 
         If checkdevmode Then
-            devmode = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
+            devmode = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Data\DevMode.pm")
 
         End If
 

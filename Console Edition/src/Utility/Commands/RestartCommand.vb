@@ -43,7 +43,7 @@
 
                 ElseIf args(1) = "pocketmine" Or args(1) = "pm" Then
                     Try
-                        Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-ManagerServers.exe")
+                        Process.Start(System.IO.Directory.GetCurrentDirectory + "\PocketMine-ManagerServers.exe")
                         End
                     Catch ex As Exception
                         Console.ForegroundColor = ConsoleColor.Red

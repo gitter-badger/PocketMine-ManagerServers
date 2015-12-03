@@ -24,12 +24,12 @@
             Else
                 If i = 3 Then
                     If devmode = False And checkdevmode Then
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
+                        My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Data\DevMode.pm")
 
                     End If
 
                     devmode = True
-                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm", devmode, True)
+                    My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Data\DevMode.pm", devmode, True)
                     Console.ForegroundColor = ConsoleColor.Yellow
                     Console.WriteLine("DEV MODE ENABLED")
                     Console.ReadLine()
@@ -45,12 +45,12 @@
             Else
                 If i = 3 Then
                     If devmode = True And checkdevmode Then
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm")
+                        My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Data\DevMode.pm")
 
                     End If
 
                     devmode = False
-                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\DevMode.pm", devmode, True)
+                    My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Data\DevMode.pm", devmode, True)
                     Console.ForegroundColor = ConsoleColor.Red
                     Console.WriteLine("DEV MODE DISABLED")
                     Console.ReadLine()
@@ -88,7 +88,7 @@
 
         If menu = "7" And devmode = True Then
             Try
-                Process.Start("C:\Program Files\PocketMine-ManagerServers\PM-MS(BackgroudTask).exe")
+                Process.Start(System.IO.Directory.GetCurrentDirectory + "\PM-MS(BackgroudTask).exe")
 
             Catch ex As Exception
                 Console.ForegroundColor = ConsoleColor.Red
@@ -105,7 +105,7 @@
 
         If menu = "9" And devmode = True Then
             Try
-                Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-ManagerServers.exe")
+                Process.Start(System.IO.Directory.GetCurrentDirectory + "\PocketMine-ManagerServers.exe")
                 End
             Catch ex As Exception
                 Console.ForegroundColor = ConsoleColor.Red

@@ -35,115 +35,115 @@ Module BackupCommand
                     For i = 1 To nservers
                         Using Zip As ZipFile = New ZipFile()
                             Zip.AddDirectory(path(i - 1))
-                            Zip.Save("C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(i) + ".zip")
+                            Zip.Save(System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(i) + ".zip")
 
                             backupstatus(i - 1) = "Backuped"
-                            My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_" + Convert.ToString(i) + ".pm")
-                            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_" + Convert.ToString(i) + ".pm", backupstatus(i - 1), True)
+                            My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_" + Convert.ToString(i) + ".pm")
+                            My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_" + Convert.ToString(i) + ".pm", backupstatus(i - 1), True)
                         End Using
                     Next
                 ElseIf args(1) = nameservers(0) Then
                     Using Zip As ZipFile = New ZipFile()
                         Zip.AddDirectory(path(0))
-                        Zip.Save("C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(0) + ".zip")
+                        Zip.Save(System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(0) + ".zip")
                         Console.ForegroundColor = ConsoleColor.Green
 
                         backupstatus(0) = "Backuped"
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_1.pm")
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_1.pm", backupstatus(0), True)
+                        My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_1.pm")
+                        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_1.pm", backupstatus(0), True)
                     End Using
 
                 ElseIf args(1) = nameservers(1) Then
                     Using Zip As ZipFile = New ZipFile()
                         Zip.AddDirectory(path(1))
-                        Zip.Save("C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(1) + ".zip")
+                        Zip.Save(System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(1) + ".zip")
                         Console.ForegroundColor = ConsoleColor.Green
 
                         backupstatus(1) = "Backuped"
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_2.pm")
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_2.pm", backupstatus(1), True)
+                        My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_2.pm")
+                        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_2.pm", backupstatus(1), True)
                     End Using
 
                 ElseIf args(1) = nameservers(2) Then
                     Using Zip As ZipFile = New ZipFile()
                         Zip.AddDirectory(path(2))
-                        Zip.Save("C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(2) + ".zip")
+                        Zip.Save(System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(2) + ".zip")
                         Console.ForegroundColor = ConsoleColor.Green
 
                         backupstatus(2) = "Backuped"
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_3.pm")
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_3.pm", backupstatus(2), True)
+                        My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_3.pm")
+                        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_3.pm", backupstatus(2), True)
                     End Using
 
                 ElseIf args(1) = nameservers(3) Then
                     Using Zip As ZipFile = New ZipFile()
                         Zip.AddDirectory(path(3))
-                        Zip.Save("C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(3) + ".zip")
+                        Zip.Save(System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(3) + ".zip")
                         Console.ForegroundColor = ConsoleColor.Green
 
                         backupstatus(3) = "Backuped"
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_4.pm")
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_4.pm", backupstatus(3), True)
+                        My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_4.pm")
+                        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_4.pm", backupstatus(3), True)
                     End Using
 
                 ElseIf args(1) = nameservers(4) Then
                     Using Zip As ZipFile = New ZipFile()
                         Zip.AddDirectory(path(4))
-                        Zip.Save("C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(4) + ".zip")
+                        Zip.Save(System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(4) + ".zip")
 
                         backupstatus(4) = "Backuped"
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_5.pm")
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_5.pm", backupstatus(4), True)
+                        My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_5.pm")
+                        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_5.pm", backupstatus(4), True)
                     End Using
 
                 ElseIf args(1) = nameservers(5) Then
                     Using Zip As ZipFile = New ZipFile()
                         Zip.AddDirectory(path(5))
-                        Zip.Save("C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(5) + ".zip")
+                        Zip.Save(System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(5) + ".zip")
 
                         backupstatus(5) = "Backuped"
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_6.pm")
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_6.pm", backupstatus(5), True)
+                        My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_6.pm")
+                        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_6.pm", backupstatus(5), True)
                     End Using
 
                 ElseIf args(1) = nameservers(6) Then
                     Using Zip As ZipFile = New ZipFile()
                         Zip.AddDirectory(path(6))
-                        Zip.Save("C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(6) + ".zip")
+                        Zip.Save(System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(6) + ".zip")
 
                         backupstatus(6) = "Backuped"
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_7.pm")
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_7.pm", backupstatus(6), True)
+                        My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_7.pm")
+                        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_7.pm", backupstatus(6), True)
                     End Using
 
                 ElseIf args(1) = nameservers(7) Then
                     Using Zip As ZipFile = New ZipFile()
                         Zip.AddDirectory(path(7))
-                        Zip.Save("C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(7) + ".zip")
+                        Zip.Save(System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(7) + ".zip")
 
                         backupstatus(7) = "Backuped"
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_8.pm")
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_8.pm", backupstatus(7), True)
+                        My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_8.pm")
+                        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_8.pm", backupstatus(7), True)
                     End Using
 
                 ElseIf args(1) = nameservers(8) Then
                     Using Zip As ZipFile = New ZipFile()
                         Zip.AddDirectory(path(8))
-                        Zip.Save("C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(8) + ".zip")
+                        Zip.Save(System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(8) + ".zip")
 
                         backupstatus(8) = "Backuped"
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_9.pm")
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_9.pm", backupstatus(8), True)
+                        My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_9.pm")
+                        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_9.pm", backupstatus(8), True)
                     End Using
 
                 ElseIf args(1) = nameservers(9) Then
                     Using Zip As ZipFile = New ZipFile()
                         Zip.AddDirectory(path(9))
-                        Zip.Save("C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(9) + ".zip")
+                        Zip.Save(System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(9) + ".zip")
 
                         backupstatus(9) = "Backuped"
-                        My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_10.pm")
-                        My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_10.pm", backupstatus(9), True)
+                        My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_10.pm")
+                        My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_10.pm", backupstatus(9), True)
                     End Using
                 Else
                     Console.ForegroundColor = ConsoleColor.Red

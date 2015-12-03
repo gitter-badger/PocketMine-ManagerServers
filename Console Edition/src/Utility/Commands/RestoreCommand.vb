@@ -18,7 +18,7 @@ Module RestoreCommand
     Sub RestoreCommand(ByRef args As String(), ByRef command As String, ByRef nservers As SByte, ByRef path As String(), ByRef checkpath As Object(), ByRef nameservers As String(), ByRef backupstatus As String())
 
         For i = 1 To 10
-            backupstatus(i - 1) = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Backups\Status\BackupStatus_" + Convert.ToString(i) + ".pm")
+            backupstatus(i - 1) = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Backups\Status\BackupStatus_" + Convert.ToString(i) + ".pm")
         Next
 
         If command = "restore" Then
@@ -38,8 +38,8 @@ Module RestoreCommand
                 If args(1) = "all" Then
                     For i = 1 To nservers
                         If backupstatus(i - 1) = "Backuped" Then
-                            Dim ZipToUnpack As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(i - 1) + ".zip"
-                            Dim UnpackDirectory As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\Extracted " + nameservers(i - 1)
+                            Dim ZipToUnpack As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(i - 1) + ".zip"
+                            Dim UnpackDirectory As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\Extracted " + nameservers(i - 1)
 
                             Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                                 Dim e As ZipEntry
@@ -55,8 +55,8 @@ Module RestoreCommand
                     Next
 
                 ElseIf args(1) = nameservers(0) And backupstatus(0) = "Backuped" Then
-                    Dim ZipToUnpack As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(0) + ".zip"
-                    Dim UnpackDirectory As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\Extracted " + nameservers(0)
+                    Dim ZipToUnpack As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(0) + ".zip"
+                    Dim UnpackDirectory As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\Extracted " + nameservers(0)
 
                     Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                         Dim e As ZipEntry
@@ -67,8 +67,8 @@ Module RestoreCommand
                     End Using
 
                 ElseIf args(1) = nameservers(1) And backupstatus(1) = "Backuped" Then
-                    Dim ZipToUnpack As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(1) + ".zip"
-                    Dim UnpackDirectory As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\Extracted " + nameservers(1)
+                    Dim ZipToUnpack As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(1) + ".zip"
+                    Dim UnpackDirectory As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\Extracted " + nameservers(1)
 
                     Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                         Dim e As ZipEntry
@@ -79,8 +79,8 @@ Module RestoreCommand
                     End Using
 
                 ElseIf args(1) = nameservers(2) And backupstatus(2) = "Backuped" Then
-                    Dim ZipToUnpack As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(2) + ".zip"
-                    Dim UnpackDirectory As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\Extracted " + nameservers(2)
+                    Dim ZipToUnpack As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(2) + ".zip"
+                    Dim UnpackDirectory As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\Extracted " + nameservers(2)
 
                     Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                         Dim e As ZipEntry
@@ -91,8 +91,8 @@ Module RestoreCommand
                     End Using
 
                 ElseIf args(1) = nameservers(3) And backupstatus(3) = "Backuped" Then
-                    Dim ZipToUnpack As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(3) + ".zip"
-                    Dim UnpackDirectory As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\Extracted " + nameservers(3)
+                    Dim ZipToUnpack As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(3) + ".zip"
+                    Dim UnpackDirectory As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\Extracted " + nameservers(3)
 
                     Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                         Dim e As ZipEntry
@@ -103,8 +103,8 @@ Module RestoreCommand
                     End Using
 
                 ElseIf args(1) = nameservers(4) And backupstatus(4) = "Backuped" Then
-                    Dim ZipToUnpack As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(4) + ".zip"
-                    Dim UnpackDirectory As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\Extracted " + nameservers(4)
+                    Dim ZipToUnpack As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(4) + ".zip"
+                    Dim UnpackDirectory As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\Extracted " + nameservers(4)
 
                     Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                         Dim e As ZipEntry
@@ -115,8 +115,8 @@ Module RestoreCommand
                     End Using
 
                 ElseIf args(1) = nameservers(5) And backupstatus(5) = "Backuped" Then
-                    Dim ZipToUnpack As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(5) + ".zip"
-                    Dim UnpackDirectory As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\Extracted " + nameservers(5)
+                    Dim ZipToUnpack As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(5) + ".zip"
+                    Dim UnpackDirectory As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\Extracted " + nameservers(5)
 
                     Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                         Dim e As ZipEntry
@@ -127,8 +127,8 @@ Module RestoreCommand
                     End Using
 
                 ElseIf args(1) = nameservers(6) And backupstatus(6) = "Backuped" Then
-                    Dim ZipToUnpack As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(6) + ".zip"
-                    Dim UnpackDirectory As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\Extracted " + nameservers(6)
+                    Dim ZipToUnpack As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(6) + ".zip"
+                    Dim UnpackDirectory As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\Extracted " + nameservers(6)
 
                     Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                         Dim e As ZipEntry
@@ -139,8 +139,8 @@ Module RestoreCommand
                     End Using
 
                 ElseIf args(1) = nameservers(7) And backupstatus(7) = "Backuped" Then
-                    Dim ZipToUnpack As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(7) + ".zip"
-                    Dim UnpackDirectory As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\Extracted " + nameservers(7)
+                    Dim ZipToUnpack As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(7) + ".zip"
+                    Dim UnpackDirectory As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\Extracted " + nameservers(7)
 
                     Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                         Dim e As ZipEntry
@@ -151,8 +151,8 @@ Module RestoreCommand
                     End Using
 
                 ElseIf args(1) = nameservers(8) And backupstatus(8) = "Backuped" Then
-                    Dim ZipToUnpack As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(8) + ".zip"
-                    Dim UnpackDirectory As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\Extracted " + nameservers(8)
+                    Dim ZipToUnpack As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(8) + ".zip"
+                    Dim UnpackDirectory As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\Extracted " + nameservers(8)
 
                     Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                         Dim e As ZipEntry
@@ -163,8 +163,8 @@ Module RestoreCommand
                     End Using
 
                 ElseIf args(1) = nameservers(9) And backupstatus(9) = "Backuped" Then
-                    Dim ZipToUnpack As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\" + nameservers(9) + ".zip"
-                    Dim UnpackDirectory As String = "C:\Program Files\PocketMine-ManagerServers\Backups\Servers\Extracted " + nameservers(9)
+                    Dim ZipToUnpack As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\" + nameservers(9) + ".zip"
+                    Dim UnpackDirectory As String = System.IO.Directory.GetCurrentDirectory + "\Backups\Servers\Extracted " + nameservers(9)
 
                     Using zip1 As ZipFile = ZipFile.Read(ZipToUnpack)
                         Dim e As ZipEntry

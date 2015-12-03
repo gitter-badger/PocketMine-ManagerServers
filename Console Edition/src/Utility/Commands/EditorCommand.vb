@@ -283,7 +283,7 @@ Module EditorCommand
                     "rcon.password=" + rconpassword + vbCrLf + _
                     "auto-save=" + autosave
 
-                    My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Utils\server.properties", propertiesfile, True)
+                    My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Utils\server.properties", propertiesfile, True)
 
                     Console.ForegroundColor = ConsoleColor.Blue
                     Console.WriteLine("Server.properties has been created!")

@@ -46,15 +46,15 @@
 
                 If reset = "Y" Then
                     If dirpath And dirservername And dirdata And dirperformance And dirinstallations And dirlanguages And direrrors Then
-                        My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Path", FileIO.DeleteDirectoryOption.DeleteAllContents)
-                        My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\ServersName", FileIO.DeleteDirectoryOption.DeleteAllContents)
-                        My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Data", FileIO.DeleteDirectoryOption.DeleteAllContents)
-                        My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Performance", FileIO.DeleteDirectoryOption.DeleteAllContents)
-                        My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Installations", FileIO.DeleteDirectoryOption.DeleteAllContents)
-                        My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Languages", FileIO.DeleteDirectoryOption.DeleteAllContents)
-                        My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers\Backups", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                        My.Computer.FileSystem.DeleteDirectory(System.IO.Directory.GetCurrentDirectory + "\Path", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                        My.Computer.FileSystem.DeleteDirectory(System.IO.Directory.GetCurrentDirectory + "\ServersName", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                        My.Computer.FileSystem.DeleteDirectory(System.IO.Directory.GetCurrentDirectory + "\Data", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                        My.Computer.FileSystem.DeleteDirectory(System.IO.Directory.GetCurrentDirectory + "\Performance", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                        My.Computer.FileSystem.DeleteDirectory(System.IO.Directory.GetCurrentDirectory + "\Installations", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                        My.Computer.FileSystem.DeleteDirectory(System.IO.Directory.GetCurrentDirectory + "\Languages", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                        My.Computer.FileSystem.DeleteDirectory(System.IO.Directory.GetCurrentDirectory + "\Backups", FileIO.DeleteDirectoryOption.DeleteAllContents)
                         Console.WriteLine("{0}", resetp6)
-                        Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-ManagerServers.exe")
+                        Process.Start(System.IO.Directory.GetCurrentDirectory + "\PocketMine-ManagerServers.exe")
                         End
                     Else
                         Console.WriteLine("{0}", resetp7)
@@ -77,7 +77,7 @@
                         If checkpath(0) Or checkpath(1) Or checkpath(2) Or checkpath(3) Or checkpath(4) Or checkpath(5) Or checkpath(6) Or checkpath(7) Or checkpath(8) Or checkpath(9) And path(0) <> "" Or path(1) <> "" Or path(2) <> "" Or path(3) <> "" Or path(4) <> "" Or path(5) <> "" Or path(6) <> "" Or path(7) <> "" Or path(8) <> "" Or path(9) <> "" Then
                             If checknservers Then
 
-                                nservers = My.Computer.FileSystem.ReadAllText("C:\Program Files\PocketMine-ManagerServers\Data\servers.pm")
+                                nservers = My.Computer.FileSystem.ReadAllText(System.IO.Directory.GetCurrentDirectory + "\Data\servers.pm")
 
                                 For i = 1 To nservers
                                     My.Computer.FileSystem.DeleteDirectory(path(i - 1), path(i - 1), True)
@@ -85,7 +85,7 @@
                                 Next
 
                                 Console.WriteLine("{0}", resetp6)
-                                Process.Start("C:\Program Files\PocketMine-ManagerServers\PocketMine-ManagerServers.exe")
+                                Process.Start(System.IO.Directory.GetCurrentDirectory + "\PocketMine-ManagerServers.exe")
                                 End
 
                             Else
@@ -114,7 +114,7 @@
 
                     If reset = "Y" Then
                         If checkfolderinstallation Then
-                            My.Computer.FileSystem.DeleteDirectory("C:\Program Files\PocketMine-ManagerServers", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                            My.Computer.FileSystem.DeleteDirectory(System.IO.Directory.GetCurrentDirectory + "", FileIO.DeleteDirectoryOption.DeleteAllContents)
                             Console.WriteLine("{0}", resetp6)
 
                         Else

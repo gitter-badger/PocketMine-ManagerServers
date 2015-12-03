@@ -16,7 +16,7 @@
     Sub SetCommand(ByRef args As String(), ByRef command As String)
 
         Dim commandstart As Boolean
-        Dim checkcommand As Object = My.Computer.FileSystem.FileExists("C:\Program Files\PocketMine-ManagerServers\Data\Starter.pm")
+        Dim checkcommand As Object = My.Computer.FileSystem.FileExists(System.IO.Directory.GetCurrentDirectory + "\Data\Starter.pm")
 
         If command = "set start" Or command = "set" Then
             Console.ForegroundColor = ConsoleColor.Yellow
@@ -29,22 +29,22 @@
             commandstart = True
 
             If checkcommand Then
-                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\Starter.pm")
+                My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Data\Starter.pm")
 
             End If
 
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\Starter.pm", commandstart, True)
+            My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Data\Starter.pm", commandstart, True)
             Console.WriteLine("Set program start on commander!")
 
         ElseIf command = "set start menu" Then
             commandstart = False
 
             If checkcommand Then
-                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\Starter.pm")
+                My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Data\Starter.pm")
 
             End If
 
-            My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\Starter.pm", commandstart, True)
+            My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Data\Starter.pm", commandstart, True)
             Console.WriteLine("Set program start on menu!")
 
         End If

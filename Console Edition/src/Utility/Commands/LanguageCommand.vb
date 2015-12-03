@@ -49,8 +49,8 @@
             End If
 
             If checklanguage And args(1) <> "list" Then '->args(1) <> "list"<- because prevent an inutil check :P
-                My.Computer.FileSystem.DeleteFile("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm")
-                My.Computer.FileSystem.WriteAllText("C:\Program Files\PocketMine-ManagerServers\Data\langselection.pm", language, True)
+                My.Computer.FileSystem.DeleteFile(System.IO.Directory.GetCurrentDirectory + "\Data\langselection.pm")
+                My.Computer.FileSystem.WriteAllText(System.IO.Directory.GetCurrentDirectory + "\Data\langselection.pm", language, True)
 
             ElseIf checklanguage = False Then
                 Console.ForegroundColor = ConsoleColor.Red
